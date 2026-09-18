@@ -1,0 +1,46 @@
+name: Verify
+
+# This is the gate the site claims to have. Every check runs offline against the
+# repository's own data files, so a pull request cannot merge a dangling source
+# id, an unregistered external link, a broken anchor, a stale snapshot date or an
+# impossible market-log row, or an unanchored quotation, without the failure
+# being visible here.
+#
+# The Work plan page states that "tools/check-ledger.mjs fails the build if a
+# claim has no registered source" — this workflow is what makes that sentence
+# true rather than aspirational.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Claims ledger integrity
+        run: node tools/check-ledger.mjs
+
+      - name: Ledger staleness (warn only)
+        run: node tools/check-ledger.mjs --stale 30
+        continue-on-error: true
+
+      - name: Citation audit (sources, links, anchors, claim ids, tag balance)
+        run: node tools/check-citations.mjs --strict
+
+      - name: Market log schema
+        run: node tools/check-market-log.mjs
+
+      - name: Quote anchoring (every quotation needs a nearby source or claim id)
+        run: node tools/check-quotes.mjs --strict

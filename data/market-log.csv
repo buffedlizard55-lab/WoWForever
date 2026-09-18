@@ -20,9 +20,16 @@
 ##   source_url    permalink to a screenshot or addon export, if any
 ##   note          anything that explains an outlier (patch day, world event, etc.)
 ##
+## Validated by tools/check-market-log.mjs, which enforces this schema, refuses
+## any observation dated before 2026-11-04 or in the future, requires an observer
+## on every row, and cross-checks the item column against the watchlist table on
+## gold.html. Run it before committing a row:  node tools/check-market-log.mjs
+##
 ## Watchlist (justified on gold.html, each entry tied to a verified mechanic):
 ##   herbs, cooking spices (Mild/Hot), vials, camp-object materials per profession,
-##   riding-training-relevant gold sinks, and from 9 Dec 2026 the enchanting
-##   materials from raid disenchants and crafted BoE tier pieces.
+##   riding-training-relevant gold sinks (training is 100 g at the first mount tier
+##   and 1,000 g at the higher tier, first mount free — claim C127), and from
+##   9 Dec 2026 the enchanting materials from raid disenchants and crafted BoE
+##   tier pieces.
 ##
 date,faction,item,item_id,qty_listed,min_buyout_c,observer,source_url,note

@@ -1,0 +1,21 @@
+# check-quotes.mjs allow-list — one exact quoted string per line.
+#
+# These are interface labels, section headings and FAQ questions on our own
+# pages, not quotations of a source. Anything not listed here has to sit near a
+# source link or a claim id. Review this file whenever a page is rewritten.
+Where it comes from
+Find BiS guides for all classes
+easy to read version for our own site
+best at level 20
+What class should I play in PvP?
+Where is the BiS list?
+How do I make gold in a fresh Classic economy?
+How do I check your work?
+why didn't you use site X?
+data extracted from the beta client
+Published PvP lever
+currently in the build
+buy this now
+what is the best PvP class?
+break the effect
+still worth farming
