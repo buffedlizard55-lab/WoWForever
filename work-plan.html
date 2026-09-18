@@ -26,6 +26,7 @@
       <a href="roadmap.html">Roadmap</a>
       <a href="pvp.html">PvP</a>
       <a href="classes.html">Classes</a>
+      <a href="class-pvp.html">Class PvP</a>
       <a href="gear.html">Gear / BiS</a>
       <a href="gold.html">Gold</a>
       <a href="sources.html">Sources</a>
@@ -56,7 +57,8 @@
       <li><a href="#phase2">Phase 2 — launch window, 4 November onward</a></li>
       <li><a href="#phase3">Phase 3 — raid window, 9 December onward</a></li>
       <li><a href="#limitations">Limitations and risks</a></li>
-      <li><a href="#decisions">Decisions requested</a></li>
+      <li><a href="#decisions">Decisions — resolved this session</a></li>
+      <li><a href="#next">Recommended next session</a></li>
     </ul>
   </nav>
 
@@ -65,10 +67,22 @@
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics, each on its own page.</li>
       <li>Machine-readable source registry (<code>data/sources.js</code>) and claims ledger (<code>data/claims.js</code>) with evidence classes and snapshot dates.</li>
-      <li>Public irregularity log (I-1 to I-6) including fabricated tier-list detection and the resolved dungeon-range conflicts.</li>
+      <li>Public irregularity log (I-1 to I-8) including fabricated tier-list detection, the resolved dungeon-range conflicts, and cross-version contamination on Forever item pages.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
-      <li>A second verification round: 42 registered sources and 74 ledger claims (IDs C001–C110), including the datamined 14-rank reward table, the Legacy reward track, the pre-order/paywall facts, and a coverage audit of what the big guide sites actually publish for Forever (C103–C109).</li>
+      <li>A second verification round: the datamined 14-rank reward table, the Legacy reward track, the pre-order/paywall facts, and a coverage audit of what the big guide sites actually publish for Forever (C103–C109).</li>
+      <li><strong>Third round (this session):</strong> 49 registered sources and 90 ledger claims (IDs C001–C126). All nine
+        Icy Veins class overviews and Blizzard's three panel recaps were read in full and converted into per-class rows;
+        the Wowhead coverage audit was re-run and its result corrected in place rather than silently edited (C107).</li>
+      <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip
+        and source link on every row, a one-line summary table, and an explicit “no ranking” contract (C111–C121).</li>
+      <li><strong>Automated source watching</strong> — a weekly GitHub Action fingerprints every registered URL and opens an
+        issue when a cited page changes or dies (<code>tools/check-sources.mjs</code>).</li>
+      <li><strong>Ledger tooling</strong> — <code>tools/check-ledger.mjs</code> fails on dangling source ids, duplicate ids,
+        invalid evidence classes, malformed snapshot dates and sourceless claims, and lists claims older than N days.</li>
+      <li><strong>Market log scaffold</strong> — <code>data/market-log.csv</code> with a documented schema and deliberately
+        zero data rows until an auction house exists.</li>
+      <li>All five open project decisions taken and implemented; see <a href="#decisions">Decisions</a>.</li>
     </ul>
   </section>
 
@@ -82,7 +96,8 @@
           <tr><td><strong>Level-60 PvP tier list</strong></td><td>Beta capped at 20 (30 later); no rated play; Honor rates, thresholds and vendor tables unpublished.</td><td>Live 60 play from 4 Nov; meaningfully measurable after the first PvP season reports.</td></tr>
           <tr><td><strong>Gold-per-hour and price projections</strong></td><td>No live auction house exists yet, and the market is US-wide rather than per-realm, so Classic-era baselines do not transfer.</td><td>4 Nov 2026, with a multi-week settling period.</td></tr>
           <tr><td><strong>TSM-based market workflows</strong></td><td>TSM lists no Forever build; vanilla-ruleset price sources are limited and need external price addons.</td><td>When TSM publishes a Forever-supported release; tracked each update.</td></tr>
-          <tr><td><strong>Per-class PvP guides</strong></td><td>Only the Paladin changelist is published; other classes are datamine-only, and beta abilities stop at level 30.</td><td>Framework now; full guides during beta level-30 phase and after launch.</td></tr>
+          <tr><td><strong>Per-class PvP <em>rankings</em></strong><br><span class="small">The profiles themselves are now published.</span></td><td>Only the Paladin changelist is first-party; the other eight classes rest on guide reporting from the BlizzCon build, and beta abilities stop at level 30.</td><td><a href="class-pvp.html">Profiles shipped</a> with published mechanics only. Rankings wait for a full PvP season after 4 Nov.</td></tr>
+          <tr><td><strong>Source-watch baseline</strong></td><td>The authoring environment has no outbound network access, so the first fingerprint set cannot be written locally.</td><td>First scheduled or manually dispatched Action run on GitHub.</td></tr>
         </tbody>
       </table>
     </div>
@@ -174,37 +189,91 @@
   </section>
 
   <section id="decisions" aria-labelledby="h-decisions">
-    <h2 id="h-decisions">Decisions requested</h2>
-    <p class="sub">These are judgement calls where the project needs a human answer; each has a default we can continue with if no answer arrives.</p>
+    <h2 id="h-decisions">Decisions — resolved this session <span class="chip ours">Project policy</span></h2>
+    <p class="sub">
+      All five open decisions were taken on 2026-09-18 and implemented in this repository. Each row records the choice,
+      what shipped, and how to reverse it. These are editorial policies, not game facts; they are in the ledger as
+      claim C122 so the site's own rules are auditable alongside its claims.
+    </p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th scope="col">Decision</th><th scope="col">Options</th><th scope="col">Default if unanswered</th></tr></thead>
+        <caption>Decisions taken, with the artefact that implements each one.</caption>
+        <thead><tr><th scope="col">Decision</th><th scope="col">Chosen</th><th scope="col">What shipped</th><th scope="col">How to reverse</th></tr></thead>
         <tbody>
           <tr>
-            <td><strong>How aggressive should launch coverage be?</strong></td>
-            <td>(a) Publish only verified item sources; (b) also publish clearly-labelled community-reported drop rates with a “reported” tag.</td>
-            <td>(a) — verification first; reported data can be added later behind a visible tag.</td>
+            <td><strong>Launch-coverage aggressiveness</strong><br><span class="small">Verified sources only, or also community-reported drop rates?</span></td>
+            <td><strong>(a) Verification first</strong>, with community-reported data admitted later only behind a visible <span class="chip community">reported</span> tag and never mixed into a verified table.</td>
+            <td>The rule is enforced by the ledger: a claim needs a registered source and an evidence class, and <code>tools/check-ledger.mjs</code> fails the build if either is missing. A <code>community</code> evidence class already exists for flagged material.</td>
+            <td>Admit reported data by adding rows with <code>status: "community"</code> — they will render with the red flag chip automatically, so it cannot be done quietly.</td>
           </tr>
           <tr>
-            <td><strong>Do we add automated source polling?</strong></td>
-            <td>(a) Keep everything manual; (b) add a scheduled GitHub Action that checks registered URLs for changes and opens an issue with a diff.</td>
-            <td>(b) is recommended and cheap, but requires approval because it adds a workflow to the repository.</td>
+            <td><strong>Scheduled URL-watch Action</strong><br><span class="small">Manual re-checking, or automated polling?</span></td>
+            <td><strong>(b) Add the Action.</strong> It checks whether cited pages moved; it never edits site content.</td>
+            <td><code>.github/workflows/source-watch.yml</code> runs <code>tools/check-sources.mjs</code> every Monday at 07:00 UTC (and on demand). It fingerprints every registered URL with volatile page chrome stripped — scripts, styles, relative timestamps, counters — then opens an issue listing changed and unreachable sources. Fingerprints live in <code>tools/source-state.json</code>; a failed fetch preserves the previous baseline so an outage cannot silently reset it.</td>
+            <td>Delete the workflow file. The checker also runs locally: <code>node tools/check-sources.mjs --dry-run</code>.</td>
           </tr>
           <tr>
-            <td><strong>PvP tier list timing</strong></td>
-            <td>(a) Wait for a full season of data; (b) publish a provisional, explicitly-labelled assessment after launch week.</td>
-            <td>(a) — the project's credibility rests on not repeating the noise it criticises.</td>
+            <td><strong>PvP tier-list timing</strong><br><span class="small">Wait for a season, or publish provisionally after launch week?</span></td>
+            <td><strong>(a) Wait for a full season.</strong> No tier, grade or score is published before then, under any label.</td>
+            <td>The new <a href="class-pvp.html">Class PvP profiles</a> page ships the useful half of a tier list — published, sourced, battleground-relevant mechanics per class — with an explicit “no ranking” contract and the methodology published in advance on the <a href="classes.html#commitment">Classes page</a>.</td>
+            <td>Not reversible without breaking the project's stated rule. A provisional assessment would require publishing the sample size, gear level and build it was measured at.</td>
           </tr>
           <tr>
-            <td><strong>Market logging effort</strong></td>
-            <td>(a) Manual daily log of the watchlist; (b) recruit volunteers; (c) no logging until tooling exists.</td>
-            <td>(a) for the watchlist only — small, bounded, and verifiable.</td>
+            <td><strong>Market-logging effort</strong><br><span class="small">Manual daily log, volunteers, or wait for tooling?</span></td>
+            <td><strong>(a) Manual, watchlist only.</strong> Small, bounded, and verifiable by one person.</td>
+            <td><code>data/market-log.csv</code> exists with a documented schema (date, faction, item, item id, quantity listed, minimum buyout in copper, observer, evidence link, note) and <strong>zero data rows</strong> — because no auction house exists before 4 November 2026. The watchlist it serves is justified item-by-item on the <a href="gold.html#watchlist">Gold page</a>.</td>
+            <td>Widen the watchlist, or switch to volunteers by adding an <code>observer</code> convention and a review step.</td>
           </tr>
           <tr>
-            <td><strong>Scope of class profiles</strong></td>
-            <td>(a) One page per class covering PvE and PvP; (b) PvP-only profiles.</td>
-            <td>(b) matches the project's stated focus, with PvE notes only where they affect gearing.</td>
+            <td><strong>Scope of class profiles</strong><br><span class="small">PvE and PvP, or PvP-only?</span></td>
+            <td><strong>(b) PvP-only</strong>, with PvE notes only where they affect gearing or are the source of the ability described.</td>
+            <td><a href="class-pvp.html">Nine profiles</a>, one per class, each row carrying an evidence chip and a source link, plus a one-line summary table for quick reading and a per-class “still unknown” column. Ledger claims C111–C121.</td>
+            <td>Add PvE sections per class; the page structure already separates “published change” from “why it matters in a battleground”.</td>
           </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>Why the defaults were adopted rather than overridden.</strong> Four of the five defaults were the
+      conservative option and nothing found during this session's verification pass argued against them. The one that
+      required approval — the scheduled Action — was adopted because it only <em>detects</em> change and files an issue for
+      a human; it cannot publish, edit or re-date a claim. That boundary is what makes automation compatible with a
+      no-hallucination rule.</p>
+    </div>
+  </section>
+
+  <section id="next" aria-labelledby="h-next">
+    <h2 id="h-next">Recommended next session — in priority order</h2>
+    <p class="sub">Written as a handover. Each item states what to do, why it is next, and what would make it fail.</p>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Priority queue for the next working session.</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Why now</th><th scope="col">Risk / blocker</th></tr></thead>
+        <tbody>
+          <tr><td>1</td>
+            <td>Run the source watcher once from CI to write the first real baseline (<code>workflow_dispatch</code> with <em>init</em> checked), then let the weekly schedule take over.</td>
+            <td>The baseline could not be created in the authoring environment because outbound network access is blocked there; GitHub Actions has it.</td>
+            <td>If a guide site blocks the runner's user agent, those sources will report as unreachable and need archive-link fallbacks.</td></tr>
+          <tr><td>2</td>
+            <td>Read the remaining interview write-ups line by line and ledger them: IGN Nordic (biome buff gear), But Why Tho? (no raid attunements), Sportskeeda (controller support, mount training costs), and the daily beta known-issues blue posts.</td>
+            <td>Several current claims cite these second-hand through Wowhead summaries rather than the interview itself.</td>
+            <td>Some interviews are video-only; a video with no transcript cannot be line-verified and must be recorded as such.</td></tr>
+          <tr><td>3</td>
+            <td>Build the addon-compatibility tracker as a dated table (TSM, Questie, Details, Auctionator and any price addon), re-checked at every beta build.</td>
+            <td>Tooling absence is the biggest practical blocker on the gold side, and TSM's version list is the single fastest thing to re-check.</td>
+            <td>Addon listings change silently; the tracker needs the same fingerprinting treatment as the source watcher.</td></tr>
+          <tr><td>4</td>
+            <td>Capture the beta ability set at levels 20 and 30 per class and mark which lines on the class PvP profiles are now <em>observed</em> rather than <em>reported</em>.</td>
+            <td>The level-30 phase is the last pre-launch window where any class claim can be upgraded from guide to first-hand.</td>
+            <td>Requires beta access. Without it, every profile stays at guide-level evidence until 4 November.</td></tr>
+          <tr><td>5</td>
+            <td>Stand up the level-60 item verification pipeline described on the <a href="gear.html">Gear page</a> so BiS work can start the moment items drop.</td>
+            <td>Building it before launch means the first raid week produces verified data instead of a backlog.</td>
+            <td>Item stats stay hidden until a drop is recorded; the pipeline cannot be tested with real data before 4 November.</td></tr>
+          <tr><td>6</td>
+            <td>Accessibility and print pass over all ten pages: table reading order on narrow screens, focus order, and print stylesheet verification for manual review.</td>
+            <td>The site is now ten pages and thirty-plus tables; the review burden is real.</td>
+            <td>None. This is straightforward work that has simply not been done yet.</td></tr>
         </tbody>
       </table>
     </div>

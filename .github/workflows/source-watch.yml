@@ -1,0 +1,65 @@
+name: Source watch
+
+# Decision recorded on the Work plan page: option (b) — a scheduled job that
+# checks every registered source URL for changes and opens an issue with the
+# diff summary. It never edits site content; a human re-verifies and updates the
+# ledger. See work-plan.html#decisions and ledger claim C122.
+
+on:
+  schedule:
+    # 07:00 UTC every Monday. Weekly is enough: our claims carry snapshot dates,
+    # and a daily job would mostly report guide-site chrome churn.
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      init:
+        description: 'Baseline only — record fingerprints without reporting changes'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: source-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check registered source URLs
+        id: check
+        run: node tools/check-sources.mjs ${{ inputs.init && '--init' || '' }}
+
+      - name: Open an issue when sources moved
+        if: steps.check.outputs.needs_issue == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Source watch: ${{ steps.check.outputs.changed }} changed, ${{ steps.check.outputs.unreachable }} unreachable" \
+            --body-file tools/source-report.md \
+            --label "source-watch" || \
+          gh issue create \
+            --title "Source watch: ${{ steps.check.outputs.changed }} changed, ${{ steps.check.outputs.unreachable }} unreachable" \
+            --body-file tools/source-report.md
+
+      - name: Commit the updated fingerprint state
+        run: |
+          if [ -n "$(git status --porcelain tools/source-state.json)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add tools/source-state.json
+            git commit -m "chore(source-watch): update source fingerprints"
+            git push
+          else
+            echo "No fingerprint changes to commit."
+          fi
