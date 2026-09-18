@@ -97,8 +97,9 @@
         <li><code>tools/check-ledger.mjs</code> — a claim with no source, a source that does not exist, a duplicate id or a
         broken category fails the build; <code>--stale 30</code> lists claims older than 30 days as a warning.</li>
         <li><code>tools/check-citations.mjs</code> — any external link that is not a registered source, any internal link or
-        <code>#anchor</code> that does not resolve, any claim id printed in prose that is missing from the ledger, and any
-        unbalanced tag fails the build.</li>
+        <code>#anchor</code> that does not resolve, any claim id printed in prose that is missing from the ledger, any
+        unbalanced tag, a canonical link that does not name the page it sits on, or a <code>sitemap.xml</code> that
+        disagrees with the page list fails the build.</li>
         <li><code>tools/check-market-log.mjs</code> — a market row that breaks the CSV schema, lacks an observer, or carries
         a date before 4 November 2026 fails the build: there is no auction house to observe yet.</li>
         <li><code>tools/check-quotes.mjs</code> — every quotation of three or more words must sit within 1400 characters of a
