@@ -9,14 +9,16 @@
  *
  * Rules:
  *   - The header row must match the documented column list exactly.
- *   - Data rows must have 9 fields; dates must be ISO; faction restricted;
- *     quantities and copper prices must be non-negative integers.
+ *   - Data rows must have 9 fields; quoted commas in notes are supported;
+ *     dates must be real ISO dates; faction is restricted; quantities and
+ *     copper prices are integers.
  *   - Before the 4 November 2026 launch there is no auction house, so any data
  *     row at all is an error. This makes "we do not publish invented prices"
  *     a machine-checked rule rather than a promise.
- *   - Item names are cross-checked against the watchlist table on gold.html
- *     (the #watchlist section). Off-list items are warnings by default and
- *     errors under --strict.
+ *   - Item names or category labels are cross-checked against the watchlist
+ *     table on gold.html (the #watchlist section). Off-list items are warnings
+ *     by default and errors under --strict. To add a real item, add its exact
+ *     verified name to that table first.
  *
  * Usage:
  *   node tools/check-market-log.mjs
@@ -40,21 +42,54 @@ const EXPECTED = ['date', 'faction', 'item', 'item_id', 'qty_listed', 'min_buyou
 const FACTIONS = new Set(['alliance', 'horde']);
 
 const csvText = await readFile(join(ROOT, 'data', 'market-log.csv'), 'utf8');
-const lines = csvText.split('\n').filter((l) => l.trim() !== '' && !l.startsWith('##'));
+
+/* A small RFC 4180-compatible line parser is enough here: notes may contain
+   commas, but the log deliberately does not support embedded newlines. */
+function parseCsvLine(line) {
+  const cells = [];
+  let field = '';
+  let quoted = false;
+  for (let i = 0; i < line.length; i += 1) {
+    const ch = line[i];
+    if (ch === '"') {
+      if (quoted && line[i + 1] === '"') {
+        field += '"';
+        i += 1;
+      } else {
+        quoted = !quoted;
+      }
+    } else if (ch === ',' && !quoted) {
+      cells.push(field.trim());
+      field = '';
+    } else {
+      field += ch;
+    }
+  }
+  if (quoted) return { error: 'unterminated quoted field' };
+  cells.push(field.trim());
+  return { cells };
+}
+
+const physicalLines = csvText.split(/\r?\n/);
+const dataLines = physicalLines
+  .map((line, index) => ({ line, number: index + 1 }))
+  .filter(({ line }) => line.trim() !== '' && !line.trimStart().startsWith('##'));
 
 const errors = [];
 const warnings = [];
 
-if (!lines.length) {
+if (!dataLines.length) {
   errors.push('data/market-log.csv has no header row');
 }
 
-const header = lines.length ? lines[0].split(',').map((h) => h.trim()) : [];
-if (lines.length && header.join(',') !== EXPECTED.join(',')) {
+const headerResult = dataLines.length ? parseCsvLine(dataLines[0].line) : { cells: [] };
+if (headerResult.error) errors.push(`header: ${headerResult.error}`);
+const header = headerResult.cells || [];
+if (dataLines.length && header.join(',') !== EXPECTED.join(',')) {
   errors.push(`header mismatch:\n    expected: ${EXPECTED.join(',')}\n    found:    ${header.join(',')}`);
 }
 
-/* ---------- pull the watchlist item names out of the Gold page ---------- */
+/* ---------- pull the watchlist labels out of the Gold page ---------- */
 const goldHtml = await readFile(join(ROOT, 'gold.html'), 'utf8');
 const watchSection = goldHtml.split('id="watchlist"')[1] || '';
 const watchNames = new Set(
@@ -62,41 +97,51 @@ const watchNames = new Set(
 );
 if (watchNames.size === 0) warnings.push('could not read any watchlist rows from gold.html#watchlist');
 
+function validIsoDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
+}
+
 /* ---------- validate rows ---------- */
-const rows = lines.slice(1);
+const rowRecords = dataLines.slice(1);
 const today = new Date().toISOString().slice(0, 10);
 
-rows.forEach((line, i) => {
-  const n = i + 2; // 1-based, header is line 1
-  const cells = line.split(',');
-  if (cells.length !== EXPECTED.length) {
-    errors.push(`line ${n}: expected ${EXPECTED.length} fields, found ${cells.length}`);
+rowRecords.forEach(({ line, number }) => {
+  const parsed = parseCsvLine(line);
+  if (parsed.error) {
+    errors.push(`line ${number}: ${parsed.error}`);
     return;
   }
-  const [date, faction, item, itemId, qty, buyout, observer, sourceUrl] = cells.map((c) => c.trim());
-
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) errors.push(`line ${n}: date "${date}" is not ISO YYYY-MM-DD`);
-  if (!FACTIONS.has(faction.toLowerCase())) errors.push(`line ${n}: faction "${faction}" must be alliance or horde`);
-  if (!item) errors.push(`line ${n}: item name is empty`);
-  if (itemId && !/^\d+$/.test(itemId)) errors.push(`line ${n}: item_id "${itemId}" is not numeric (leave blank if unconfirmed)`);
-  if (!/^\d+$/.test(qty)) errors.push(`line ${n}: qty_listed "${qty}" is not a whole number`);
-  if (!/^\d+$/.test(buyout) || Number(buyout) <= 0) errors.push(`line ${n}: min_buyout_c must be a positive integer of copper`);
-  if (!observer) errors.push(`line ${n}: observer is empty — every observation must be attributable`);
-  if (sourceUrl && !/^https?:\/\//i.test(sourceUrl)) errors.push(`line ${n}: source_url "${sourceUrl}" is not a URL`);
-
-  if (date && date < LAUNCH) {
-    errors.push(`line ${n}: observation dated ${date}, before the ${LAUNCH} launch — no auction house exists, so this row cannot be a real observation`);
+  const cells = parsed.cells;
+  if (cells.length !== EXPECTED.length) {
+    errors.push(`line ${number}: expected ${EXPECTED.length} fields, found ${cells.length}`);
+    return;
   }
-  if (date && date > today) errors.push(`line ${n}: observation dated ${date}, which is in the future`);
+  const [date, faction, item, itemId, qty, buyout, observer, sourceUrl] = cells;
+
+  if (!validIsoDate(date)) errors.push(`line ${number}: date "${date}" is not a real ISO YYYY-MM-DD date`);
+  if (!FACTIONS.has(faction.toLowerCase())) errors.push(`line ${number}: faction "${faction}" must be alliance or horde`);
+  if (!item) errors.push(`line ${number}: item name is empty`);
+  if (itemId && !/^\d+$/.test(itemId)) errors.push(`line ${number}: item_id "${itemId}" is not numeric (leave blank if unconfirmed)`);
+  if (!/^\d+$/.test(qty)) errors.push(`line ${number}: qty_listed "${qty}" is not a whole number`);
+  if (!/^\d+$/.test(buyout) || BigInt(buyout || '0') <= 0n) errors.push(`line ${number}: min_buyout_c must be a positive integer of copper`);
+  if (!observer) errors.push(`line ${number}: observer is empty — every observation must be attributable`);
+  if (sourceUrl && !/^https?:\/\//i.test(sourceUrl)) errors.push(`line ${number}: source_url "${sourceUrl}" is not a URL`);
+
+  if (validIsoDate(date) && date < LAUNCH) {
+    errors.push(`line ${number}: observation dated ${date}, before the ${LAUNCH} launch — no auction house exists, so this row cannot be a real observation`);
+  }
+  if (validIsoDate(date) && date > today) errors.push(`line ${number}: observation dated ${date}, which is in the future`);
 
   if (item && watchNames.size && !watchNames.has(item.toLowerCase())) {
-    const msg = `line ${n}: "${item}" is not on the gold.html watchlist — add it there first, or record why it is being logged off-list`;
+    const msg = `line ${number}: "${item}" is not on the gold.html watchlist — add it there first, or record why it is being logged off-list`;
     if (STRICT) errors.push(msg); else warnings.push(msg);
   }
 });
 
 const result = {
-  dataRows: rows.length,
+  dataRows: rowRecords.length,
   watchlistEntries: watchNames.size,
   launchDate: LAUNCH,
   errors,
@@ -106,8 +151,8 @@ const result = {
 if (JSON_OUT) {
   console.log(JSON.stringify(result, null, 2));
 } else {
-  console.log(`Market log check — ${rows.length} data row(s), ${watchNames.size} watchlist entries on gold.html`);
-  if (!rows.length) console.log('Empty by design: no auction house exists before 4 November 2026, so a row here would be invented data.');
+  console.log(`Market log check — ${rowRecords.length} data row(s), ${watchNames.size} watchlist entries on gold.html`);
+  if (!rowRecords.length) console.log('Empty by design: no auction house exists before 4 November 2026, so a row here would be invented data.');
   if (errors.length) {
     console.log(`\nERRORS (${errors.length}):`);
     for (const e of errors) console.log('  ✗ ' + e);

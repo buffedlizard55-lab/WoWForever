@@ -55,7 +55,7 @@
       <li><a href="#classes">Evidence classes</a></li>
       <li><a href="#procedure">The line-by-line procedure</a></li>
       <li><a href="#refuse">What we refuse to publish</a></li>
-      <li><a href="#irregularities">Irregularity log (I-1 … I-12)</a></li>
+      <li><a href="#irregularities">Irregularity log (I-1 … I-13)</a></li>
       <li><a href="#teardown">Source-coverage map (Wowhead, Icy Veins, Skill Capped, TSM)</a></li>
       <li><a href="#corrections">Corrections process</a></li>
     </ul>
@@ -67,8 +67,8 @@
       <table>
         <thead><tr><th scope="col">Chip</th><th scope="col">Meaning</th><th scope="col">How it is treated on this site</th></tr></thead>
         <tbody>
-          <tr><td><span class="chip official">official</span></td><td>Blizzard first-party: news article, product page, blue post reproduced by a reputable outlet.</td><td>Stated as fact, with the primary link.</td></tr>
-          <tr><td><span class="chip press">press</span></td><td>A named outlet quoting a named Blizzard developer in an interview.</td><td>Stated as fact with attribution to the interview, and flagged when the wording is “no plans” rather than a policy.</td></tr>
+          <tr><td><span class="chip official">official</span></td><td>A first-party Blizzard URL: news article, product page or Blizzard-hosted blue post.</td><td>Stated as fact, with the primary link. A report about a Blizzard post is not official evidence.</td></tr>
+          <tr><td><span class="chip press">press</span></td><td>Verified secondary reporting or a named outlet quoting a named Blizzard developer.</td><td>Stated with attribution to the report or interview, and never relabelled as first-party authority.</td></tr>
           <tr><td><span class="chip datamine">datamine</span></td><td>Data extracted from the beta client by a reputable guide site.</td><td>Stated as “currently in the build”, always with a may-change warning.</td></tr>
           <tr><td><span class="chip guide">guide</span></td><td>A reputable guide site's own analysis or recommendation.</td><td>Attributed to the author and labelled as analysis; never restated as Blizzard's position.</td></tr>
           <tr><td><span class="chip community">community</span></td><td>Forum posts, wikis of unknown provenance, boosting sites.</td><td>Not used as evidence. Only appears in the irregularity log.</td></tr>
@@ -106,7 +106,7 @@
         source link or a claim id. A quotation that <em>looks</em> sourced but has no source next to it fails the build.</li>
       </ul>
       <p><strong>What the tools cannot do:</strong> they check that a quotation is anchored, never that its words match the live
-      page. That is a human check, and it is the one that caught I-11 and I-12 in this session. Treating a green build as proof
+      page. That is a human check, and it is the one that caught I-11, I-12 and I-13 in this session. Treating a green build as proof
       of accuracy would be exactly the kind of overclaiming this page exists to prevent.</p>
     </div>
   </section>
@@ -275,6 +275,20 @@
       error matters: the first version understated what other sites publish. Understating is still wrong, and it is the kind
       of error a reader cannot detect — so it is logged here rather than quietly fixed.
     </p>
+
+    <h3>I-13 · Secondary reporting was carrying first-party labels <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      The first provenance pass treated several secondary Q&amp;A and news reports as <span class="chip official">Official</span>
+      because they were reporting Blizzard statements. That is too loose for an auditable site: a report can be accurate and
+      still not be the primary source. The direct <a href="https://us.forums.blizzard.com/en/wow/t/krol%E2%80%99dok-stronghold/2349672" rel="noopener">Blizzard Krol’dok clarification</a>
+      and <a href="https://us.forums.blizzard.com/en/wow/t/2352687/1" rel="noopener">Blizzard known-issues post</a> are now registered,
+      the affected rows and claims use <span class="chip press">Press</span> where the evidence is secondary, and the source checker
+      rejects an <span class="chip official">Official</span> claim without a Blizzard first-party source.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> the secondary links remain visible for corroboration and manual review; they were not
+      deleted. This preserves useful reporting without allowing its evidence class to imply first-party authority.
+    </p>
   </section>
 
   <section id="teardown" aria-labelledby="h-teardown">
@@ -336,7 +350,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-18</span> · irregularities I-1 to I-12 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-18</span> · irregularities I-1 to I-13 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 

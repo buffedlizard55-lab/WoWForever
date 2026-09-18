@@ -10,8 +10,10 @@
  * Deliberate design choices:
  *  - No dependencies. Node 20+ global fetch only, so no lockfile to rot.
  *  - The fingerprint is taken over text with volatile chrome stripped (scripts,
- *    styles, comments, digits-only tokens like countdown timers and "3h ago"),
- *    so ordinary ad rotation and relative timestamps do not raise false alarms.
+ *    styles, comments, relative timestamps, countdown labels and view-count
+ *    chrome, so ordinary ad rotation does not raise false alarms while
+ *    meaningful dates and numbers remain detectable. Main URLs and every
+ *    registered `also` URL are checked once.
  *  - A source that fails to fetch is reported as "unreachable", never silently
  *    dropped, and its previous fingerprint is preserved so a transient outage
  *    does not destroy the baseline.
@@ -56,7 +58,32 @@ async function loadSources() {
   const fn = new Function('window', js + '\nreturn window.WOWF_SOURCES;');
   const list = fn(sandbox.window);
   if (!Array.isArray(list)) throw new Error('data/sources.js did not produce an array');
-  return list.filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url));
+  return list;
+}
+
+/* Expand the optional `also` links into independently watched URLs. The main
+   source id stays stable; additional pages get a deterministic child id. A URL
+   is fetched once even if a registry entry repeats it in two `also` arrays. */
+function expandSources(list) {
+  const out = [];
+  const seenUrls = new Set();
+  const add = (source, url, id, title) => {
+    if (typeof url !== 'string' || !/^https?:\/\//i.test(url)) return;
+    const key = url.replace(/\/+$/, '').toLowerCase();
+    if (seenUrls.has(key)) return;
+    seenUrls.add(key);
+    out.push({ ...source, id, parentId: source.id, title, url });
+  };
+
+  // Preserve every source's primary id before deduplicating additional links.
+  // That keeps reports stable when two registry entries point to the same page.
+  for (const source of list) add(source, source.url, source.id, source.title);
+  for (const source of list) {
+    (Array.isArray(source.also) ? source.also : []).forEach((url, index) => {
+      add(source, url, `${source.id}::also-${index + 1}`, `${source.title} (additional page ${index + 1})`);
+    });
+  }
+  return out;
 }
 
 /* ---------- fingerprinting ---------- */
@@ -68,9 +95,12 @@ function normalise(body) {
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z]+;|&#\d+;/gi, ' ')
-    // Volatile: relative timestamps, countdowns, vote counts, view counts.
-    .replace(/\b\d+\s*(?:d|h|m|s|hr|min|sec|day|days|hour|hours|minute|minutes|second|seconds|ago)\b/gi, ' ')
-    .replace(/\b\d[\d,.:]*\b/g, ' ')
+    // Remove only presentation chrome. Do not remove every number: launch
+    // dates, level caps, costs, rank counts and percentages are the facts this
+    // watcher must notice when a cited page changes.
+    .replace(/\b(?:just now|today|yesterday)\b/gi, ' ')
+    .replace(/\b\d+\s*(?:d|h|m|s|hr|min|sec|day|days|hour|hours|minute|minutes|second|seconds)\s*ago\b/gi, ' ')
+    .replace(/\b\d[\d,]*\s+(?:views?|comments?|likes?|votes?|replies|followers?)\b/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase();
@@ -122,8 +152,9 @@ async function fetchAll(sources) {
 
 /* ---------- main ---------- */
 
-const sources = await loadSources();
-const previous = existsSync(STATE_FILE) ? JSON.parse(await readFile(STATE_FILE, 'utf8')) : { checked: null, sources: {} };
+const sources = expandSources(await loadSources());
+const firstRun = !existsSync(STATE_FILE);
+const previous = firstRun ? { checked: null, sources: {} } : JSON.parse(await readFile(STATE_FILE, 'utf8'));
 
 const results = await fetchAll(sources);
 const byId = new Map(sources.map((s) => [s.id, s]));
@@ -215,7 +246,7 @@ await writeFile(REPORT_FILE, report, 'utf8');
 if (!DRY_RUN) await writeFile(STATE_FILE, JSON.stringify(state, null, 2) + '\n', 'utf8');
 
 // Machine-readable outcome for the workflow.
-const needsIssue = !INIT && (changed.length > 0 || unreachable.length > 0);
+const needsIssue = !INIT && !firstRun && (changed.length > 0 || unreachable.length > 0);
 if (process.env.GITHUB_OUTPUT) {
   await writeFile(
     process.env.GITHUB_OUTPUT,

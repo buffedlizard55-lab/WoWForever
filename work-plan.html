@@ -55,6 +55,7 @@
     <ul>
       <li><a href="#done">Delivered so far</a></li>
       <li><a href="#session">This session, line by line</a></li>
+      <li><a href="#passes">Three-pass verification record</a></li>
       <li><a href="#blocked">Blocked work (do not fake it)</a></li>
       <li><a href="#phase1">Phase 1 — next session, before 4 November</a></li>
       <li><a href="#phase2">Phase 2 — launch window, 4 November onward</a></li>
@@ -70,15 +71,16 @@
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics, each on its own page.</li>
       <li>Machine-readable source registry (<code>data/sources.js</code>) and claims ledger (<code>data/claims.js</code>) with evidence classes and snapshot dates.</li>
-      <li>Public irregularity log (I-1 to I-12) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, and interview “what ifs” circulating as roadmap items.</li>
+      <li>Public irregularity log (I-1 to I-13) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, and secondary reports that had been labelled too strongly as first-party.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
       <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip and source link on every row, a one-line summary table, an explicit “no ranking” contract, and a verified per-class reading list (C111–C121, C138–C139).</li>
       <li><strong>Automated source watching</strong> — a weekly GitHub Action fingerprints every registered URL and opens an issue when a cited page changes or dies (<code>tools/check-sources.mjs</code>).</li>
       <li><strong>Four offline verification tools now gate the repository</strong> — <code>tools/check-ledger.mjs</code> (integrity, staleness), <code>tools/check-citations.mjs</code> (every external link must be a registered source, every internal anchor must resolve, every claim ID printed in prose must exist, tag balance), <code>tools/check-market-log.mjs</code> (market-log schema, with a hard refusal of any pre-launch price row) and <code>tools/check-quotes.mjs</code> (no quotation of three or more words may sit more than 1400 characters from a source link or a claim id). <code>.github/workflows/verify.yml</code> runs all four on every push and pull request, which is what makes the “fails the build” claim on this page true.</li>
       <li><strong>Market log scaffold</strong> — <code>data/market-log.csv</code> with a documented schema and deliberately zero data rows until an auction house exists, validated against the Gold page watchlist by the tool above.</li>
-      <li><strong>Quotation audit and self-corrections</strong> — <code>tools/check-quotes.mjs</code> found 22 quotations with no source or claim id nearby; the four real ones were anchored and the rest allow-listed as interface labels. The human half of the same check (re-reading borrowed wording against the live page) found and fixed a quotation that did not exist in its source and a coverage claim that understated another site's output — I-11 and I-12, both logged rather than quietly rewritten.</li>
+      <li><strong>Quotation audit and self-corrections</strong> — <code>tools/check-quotes.mjs</code> found 22 quotations with no source or claim id nearby; the four real ones were anchored and the rest allow-listed as interface labels. The human half of the same check (re-reading borrowed wording against the live page) found and fixed a quotation that did not exist in its source, a coverage claim that understated another site's output, and provenance labels that overstated secondary evidence — I-11, I-12 and I-13, all logged rather than quietly rewritten.</li>
       <li><strong>Machine-checked citation rule</strong> — the registry now supports multi-page sources (<code>also: []</code>), so a page cannot link to a URL that no one registered and read. The first run of the checker found 18 unregistered outbound links on five pages; all 18 were resolved by registering the sources rather than by deleting the links.</li>
+      <li><strong>Primary-source gate</strong> — <code>official</code> is now reserved for a Blizzard-hosted URL with <code>firstParty: true</code>; secondary reports of Blizzard statements are labelled <span class="chip press">Press</span>. The ledger fails an official claim that has no first-party source, and the direct Krol’dok and beta known-issues forum posts are registered and read, with future manual review still required when they change.</li>
       <li>All five open project decisions taken and implemented; see <a href="#decisions">Decisions</a>.</li>
     </ul>
   </section>
@@ -101,7 +103,7 @@
           </tr>
           <tr>
             <td><a href="https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive" rel="noopener">Sportskeeda interview (Zierhut, Nuthals)</a> <span class="chip press">Press</span></td>
-            <td>The largest gold finding of the project so far: training is “100 or 1,000 gold depending on which level” and the first mount is free; cosmetic mounts give no advantage. Plus chase items on every boss, environment/creature-type item effects, no permanently retired content, the adjacent-timeline framing, and the Caverns of Time wish.</td>
+            <td>A key gold finding of the project: training is “100 or 1,000 gold depending on which level” and the first mount is free; cosmetic mounts give no advantage. Plus chase items on every boss, environment/creature-type item effects, no permanently retired content, the adjacent-timeline framing, and the Caverns of Time wish.</td>
             <td>C127, C128, C129, C130, C131, C140, C144, C145</td>
           </tr>
           <tr>
@@ -135,20 +137,58 @@
             <td>C107, C139</td>
           </tr>
           <tr>
-            <td><a href="https://www.wowhead.com/blue-tracker/topic/us/2352687" rel="noopener">Blizzard's dated beta known-issues post</a> and the <a href="https://www.icy-veins.com/wow-forever/news/wow-forever-beta-known-issues-list-september-18th/" rel="noopener">Icy Veins mirror</a> <span class="chip official">Official</span></td>
-            <td>Registered as a monitoring target only: the body was not read line by line, so no claim on this site rests on it.</td>
+            <td><a href="https://us.forums.blizzard.com/en/wow/t/2352687/1" rel="noopener">Blizzard's dated beta known-issues post</a> <span class="chip official">Official</span>, with <a href="https://www.wowhead.com/blue-tracker/topic/us/2352687" rel="noopener">Wowhead</a> and <a href="https://www.icy-veins.com/wow-forever/news/wow-forever-beta-known-issues-list-september-18th/" rel="noopener">Icy Veins</a> mirrors <span class="chip press">Press</span></td>
+            <td>Read line by line for this snapshot: it flags caster and higher-level melee Glancing Blow math, pet-stat display, Bear Form armor multiplication, spell-queue interaction and other beta issues. It also says the list will change, so treat it as dated monitoring rather than permanent mechanics.</td>
             <td>C143</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="note warn">
-      <p><strong>Correction discipline.</strong> Two things were corrected rather than quietly rewritten: the stray
+      <p><strong>Correction discipline.</strong> Corrections were recorded rather than quietly rewritten: the stray
       <code>&lt;/section&gt;</code> in the Method irregularity log (found by the new tag-balance check) and the Classes page
       claim that Wowhead's talent calculator was “data extracted from the beta client” — it is BlizzCon demo data, and the
       page now says so. Both are recorded here because a silent fix is indistinguishable from a cover-up. Every correction this session is
       in the Method log: I-11 (a quotation on the Gear page that could not be found in its source, replaced with text that is
-      on the page) and I-12 (a coverage claim that understated how much another site publishes).</p>
+      on the page), I-12 (a coverage claim that understated how much another site publishes), and I-13 (secondary reports carrying first-party labels).</p>
+    </div>
+  </section>
+
+  <section id="passes" aria-labelledby="h-passes">
+    <h2 id="h-passes">Three-pass verification record</h2>
+    <p class="sub">
+      The implementation was not stopped after the first pass. Each pass used the previous pass's output, and the final
+      checks are recorded here so a reviewer can distinguish a code check from a judgement call.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>Passes completed on the 18 September 2026 snapshot.</caption>
+        <thead><tr><th scope="col">Pass</th><th scope="col">What was checked</th><th scope="col">Result</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1 — implement</strong></td>
+            <td>Applied the five project decisions: verification-first coverage, scheduled URL watching, full-season wait for rankings, bounded watchlist logging, and PvP-only class profiles. Added the source registry, claims ledger, empty market log, tracker, CI checks and the public pages.</td>
+            <td><span class="chip ok">Shipped</span> The artifacts are the pages and tools linked throughout this plan; no tier list, level-60 BiS list or pre-launch price is presented as fact.</td>
+          </tr>
+          <tr>
+            <td><strong>2 — adversarial review</strong></td>
+            <td>Looked for incorrect assumptions, provenance drift, source labels that overclaimed “official”, malformed CSV edge cases, and a watcher that would miss changed numbers. Reclassified secondary Q&amp;A/news reports as <span class="chip press">Press</span>, added the direct Blizzard Krol’dok and known-issues posts, made the ledger reject an official claim without a first-party URL, preserved meaningful numbers in fingerprints, and made the CSV checker quote-aware with real-date validation.</td>
+            <td><span class="chip ok">Fixed</span> Secondary material remains usable and linked, but it cannot silently become first-party evidence. The empty log still passes strict validation.</td>
+          </tr>
+          <tr>
+            <td><strong>3 — requirements re-check</strong></td>
+            <td>Re-ran the ledger, citation, market-log and quotation audits; re-read the primary Blizzard pages used for launch, beta, Deep Dive, Found Photos, Krol’dok and known issues; checked that the nine class profiles remain explicitly unranked and that the five decisions are implemented rather than merely documented.</td>
+            <td><span class="chip ok">Pass</span> Current local totals are 63 registered sources, 112 claims, 11 pages and zero market rows. The source watcher expands to 78 URLs, including registered additional pages.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note caution">
+      <p><strong>Network limitation recorded, not hidden.</strong> The authoring shell cannot reach the public URLs, so
+      <code>node tools/check-sources.mjs --dry-run</code> reported 78 unreachable URLs in this environment. That is not
+      evidence that the pages are dead: the research pages were independently readable during this review, and the first
+      GitHub Action run must establish the real network baseline. The Action preserves old fingerprints on a transient
+      outage and opens an issue for human review; it never changes claim dates or publishes new facts.</p>
     </div>
   </section>
 
@@ -250,7 +290,7 @@
           <tr><td><strong>Search-result pollution</strong></td><td>Low-quality and RMT-adjacent pages outrank primary sources and mix truth with invention.</td><td>Primary-source-first policy, the flagged-source registry, and the irregularity log.</td></tr>
           <tr><td><strong>Static hosting</strong></td><td>GitHub Pages cannot run a backend, so no live price queries or server-side aggregation.</td><td>All content is pre-generated JSON/JS; any future live data would need a scheduled job committed to the repo.</td></tr>
           <tr><td><strong>Copyright and attribution</strong></td><td>Rehosting other sites' content would be both legally wrong and a single point of failure.</td><td>Summarise, link, credit; original analysis is clearly separated.</td></tr>
-          <tr><td><strong>Manual verification cost</strong></td><td>Line-by-line checking does not scale linearly as content volume grows.</td><td>The four offline checkers now enforce the mechanical half (registered sources, resolving links, valid claim IDs, schema, quotation anchoring), leaving human judgement for the part that needs it — wording, which is where I-11 and I-12 were caught.</td></tr>
+          <tr><td><strong>Manual verification cost</strong></td><td>Line-by-line checking does not scale linearly as content volume grows.</td><td>The four offline checkers now enforce the mechanical half (registered sources, resolving links, valid claim IDs, schema, quotation anchoring), leaving human judgement for the part that needs it — wording and provenance, which is where I-11, I-12 and I-13 were caught.</td></tr>
         </tbody>
       </table>
     </div>
@@ -319,12 +359,12 @@
         <thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Why now</th><th scope="col">Risk / blocker</th></tr></thead>
         <tbody>
           <tr><td>1</td>
-            <td>Dispatch the source watcher once from CI (<code>workflow_dispatch</code>, <em>init</em> unchecked) so the first fingerprint baseline exists, then let the weekly schedule diff against it.</td>
-            <td>The baseline could not be created from this environment; GitHub Actions has the network access it needs, and every source will simply be recorded as new on that first run.</td>
+            <td>Let the scheduled source watcher run once (or use <code>workflow_dispatch</code>) so the first fingerprint baseline exists, then let the weekly schedule diff against it.</td>
+            <td>The baseline could not be created from this environment; GitHub Actions has the network access it needs, and the first run records reachable sources as new without opening a change issue.</td>
             <td>If a guide site blocks the runner's user agent, those sources report as unreachable and need archive-link fallbacks.</td></tr>
           <tr><td>2</td>
-            <td>Read the IGN Nordic interview directly and the body of Blizzard's beta known-issues list, then upgrade the claims that currently rest on Wowhead's summaries.</td>
-            <td>Two of this session's most-cited statements (biome-buff itemisation, known issues) are one hop away from their primary source.</td>
+            <td>Read the IGN Nordic interview directly, then upgrade the remaining biome-buff itemisation claim if the primary text is available; the Blizzard beta known-issues post is now read and registered directly as C143.</td>
+            <td>The biome-buff statement remains one hop away from its primary source. The known-issues gap is closed for this snapshot, but the mutable list still needs watcher review.</td>
             <td>Interview pages sometimes load their body client-side; if the text is unavailable, record that as the reading note rather than paraphrasing the summary twice.</td></tr>
           <tr><td>3</td>
             <td>Build the addon-compatibility tracker as a dated table (TSM, Questie, Details, Auctionator and any price addon), re-checked at every beta build, with each listing registered as a source.</td>
@@ -339,12 +379,12 @@
             <td>Building it before launch means the first raid week produces verified data instead of a backlog.</td>
             <td>Item stats stay hidden until a drop is recorded; the pipeline cannot be tested with real data before 4 November.</td></tr>
           <tr><td>6</td>
-            <td>Re-read every quotation on the site against its live page, one page at a time. <code>tools/check-quotes.mjs</code> proves each quotation has a source nearby; only a human can prove the words match, and I-11 and I-12 were both found that way.</td>
+            <td>Re-read every quotation on the site against its live page, one page at a time. <code>tools/check-quotes.mjs</code> proves each quotation has a source nearby; only a human can prove the words match, and I-11, I-12 and I-13 were found in that review.</td>
             <td>The quote audit passes on anchoring today, which means the remaining risk is wording — the failure mode that shipped on the Gear page until this session.</td>
             <td>Quotes drift when the source page is edited, and the weekly watcher will flag the page without telling you which sentence changed.</td></tr>
           <tr><td>7</td>
             <td>Accessibility and print pass over all ten pages: table reading order on narrow screens, focus order under the sticky header, and print stylesheet verification for manual review.</td>
-            <td>The site is now ten pages and forty-plus tables, and the new home-page ledger strip has to degrade gracefully without JavaScript.</td>
+            <td>The site is now eleven pages and forty-plus tables, and the new home-page ledger strip has to degrade gracefully without JavaScript.</td>
             <td>None. This is straightforward work that has simply not been done yet.</td></tr>
         </tbody>
       </table>

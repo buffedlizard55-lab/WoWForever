@@ -17,8 +17,8 @@ was last checked. Nothing is published without one of these:
 
 | Evidence class | Meaning |
 | --- | --- |
-| `official` | Blizzard first-party: news article, product page, blue post |
-| `press` | A named outlet quoting a named Blizzard developer |
+| `official` | A first-party Blizzard URL: news article, product page, or official forum blue post |
+| `press` | Verified secondary reporting or a named outlet quoting a named Blizzard developer; never relabelled as official |
 | `datamine` | Data extracted from the beta client by a reputable guide site — always marked "may change" |
 | `guide` | A reputable guide site's own analysis, attributed and never stated as Blizzard's position |
 | `ours` | Our own reasoning from verified facts, explicitly labelled as analysis |
@@ -46,7 +46,7 @@ keep.
 | `gear.html` | BiS status, gearing framework, per-class slot tracker (CSV export), verification procedure |
 | `gold.html` | Economy rules, dated market catalysts, professions, tooling (TSM) status, launch watchlist |
 | `sources.html` | Full source registry and claims ledger (filterable) |
-| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-10 |
+| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-13 |
 | `work-plan.html` | Delivered work, this session's line-by-line record, blocked items, limitations, decisions, next steps |
 
 ## Repository layout
@@ -86,7 +86,7 @@ node tools/check-sources.mjs --dry-run # network: fingerprint every registered s
 
 CI (`.github/workflows/verify.yml`) runs the four offline checkers with `--strict` on every push and pull request.
 The checkers verify structure — that a quotation is anchored, not that its wording matches the live page. Wording is
-checked by hand, and the corrections found that way are logged as I-11 and I-12 on the Method page.
+checked by hand, and the corrections found that way are logged as I-11, I-12 and I-13 on the Method page.
 
 ## Running the site locally
 

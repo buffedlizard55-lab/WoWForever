@@ -8,8 +8,10 @@
  *   node tools/check-ledger.mjs --json     # machine-readable output
  *
  * Exits non-zero if an integrity problem is found (dangling source id, duplicate
- * id, bad status, malformed date, unused source). Staleness is reported but does
- * not fail the run, because a claim can be correct and old.
+ * id, bad status, malformed date, or evidence-class mismatch). Unused sources are
+ * warnings: a registered source may be a page-level reading link before it is
+ * needed by a claim. Staleness is reported but does not fail the run, because a
+ * claim can be correct and old.
  */
 
 import { readFile } from 'node:fs/promises';
@@ -36,21 +38,40 @@ const claims = await loadGlobal('claims.js', 'WOWF_CLAIMS');
 const VALID_TIERS = new Set(['official', 'press', 'datamine', 'guide', 'community']);
 const VALID_STATUS = new Set(['official', 'press', 'datamine', 'guide', 'community', 'ours', 'unknown']);
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const FIRST_PARTY_HOST = /(^|\.)blizzard\.com$|(^|\.)battle\.net$|(^|\.)blizzard\.net$|(^|\.)forums\.blizzard\.com$/i;
 
 const errors = [];
 const warnings = [];
 
 /* ---- sources ---- */
 const seenSource = new Set();
+const sourceById = new Map();
 for (const s of sources) {
   if (!s.id) errors.push('source with no id');
   if (seenSource.has(s.id)) errors.push(`duplicate source id: ${s.id}`);
   seenSource.add(s.id);
+  sourceById.set(s.id, s);
   if (!VALID_TIERS.has(s.tier)) errors.push(`source ${s.id}: invalid tier "${s.tier}"`);
   if (!s.url) errors.push(`source ${s.id}: no url`);
   if (!Array.isArray(s.supports) || s.supports.length === 0) warnings.push(`source ${s.id}: no "supports" lines`);
   if (!s.title) errors.push(`source ${s.id}: no title`);
   if (!s.publisher) errors.push(`source ${s.id}: no publisher`);
+
+  // “Official” is reserved for a first-party Blizzard URL. This prevents a
+  // secondary article or search snippet from silently becoming official just
+  // because it repeats a Blizzard statement.
+  let host = '';
+  if (/^https?:\/\//i.test(s.url || '')) {
+    try { host = new URL(s.url).hostname; } catch { errors.push(`source ${s.id}: invalid URL "${s.url}"`); }
+  } else if (s.tier !== 'community' || !/^method\.html#/i.test(s.url || '')) {
+    errors.push(`source ${s.id}: non-HTTP sources must be a documented internal flag link`);
+  }
+  if (s.tier === 'official') {
+    if (s.firstParty !== true) errors.push(`source ${s.id}: official sources must set firstParty: true`);
+    if (host && !FIRST_PARTY_HOST.test(host)) errors.push(`source ${s.id}: official source is not on a Blizzard first-party host (${host})`);
+  } else if (s.firstParty === true) {
+    errors.push(`source ${s.id}: firstParty is only valid for tier "official"`);
+  }
 }
 
 /* ---- claims ---- */
@@ -74,6 +95,25 @@ for (const c of claims) {
       if (!seenSource.has(sid)) errors.push(`claim ${c.id}: cites unknown source "${sid}"`);
       usedSources.add(sid);
     }
+  }
+
+  const citedTiers = (c.sources || [])
+    .map((sid) => sourceById.get(sid)?.tier)
+    .filter(Boolean);
+  if (c.status === 'official' && !citedTiers.includes('official')) {
+    errors.push(`claim ${c.id}: status "official" requires at least one first-party official source`);
+  }
+  if (c.status === 'press' && !citedTiers.some((tier) => tier === 'press' || tier === 'official')) {
+    errors.push(`claim ${c.id}: status "press" requires a press or official source`);
+  }
+  if (c.status === 'guide' && !citedTiers.includes('guide')) {
+    errors.push(`claim ${c.id}: status "guide" requires a guide source`);
+  }
+  if (c.status === 'datamine' && !citedTiers.includes('datamine')) {
+    errors.push(`claim ${c.id}: status "datamine" requires a datamine source`);
+  }
+  if (c.status === 'community' && !citedTiers.includes('community')) {
+    errors.push(`claim ${c.id}: status "community" requires a community source`);
   }
 
   // An "ours" claim is analysis; it must still point at the facts it reasons from.

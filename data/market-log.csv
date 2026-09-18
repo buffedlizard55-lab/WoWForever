@@ -11,7 +11,7 @@
 ##
 ## Columns
 ##   date          ISO date (UTC) the observation was taken
-##   faction       alliance | horde   (the auction house is US-wide but faction-separated)
+##   faction       alliance | horde   (the observer's faction; the auction house is US-wide)
 ##   item          exact in-game item name
 ##   item_id       Wowhead Forever item id, or blank if not yet confirmed in the Forever namespace
 ##   qty_listed    number of units listed at the time of observation
@@ -25,7 +25,9 @@
 ## on every row, and cross-checks the item column against the watchlist table on
 ## gold.html. Run it before committing a row:  node tools/check-market-log.mjs
 ##
-## Watchlist (justified on gold.html, each entry tied to a verified mechanic):
+## Watchlist labels (justified on gold.html, each tied to a verified mechanic):
+## The page currently has category labels, not fabricated item names. Add an exact
+## verified in-game item as its own Gold-page row before logging that item.
 ##   herbs, cooking spices (Mild/Hot), vials, camp-object materials per profession,
 ##   riding-training-relevant gold sinks (training is 100 g at the first mount tier
 ##   and 1,000 g at the higher tier, first mount free — claim C127), and from
