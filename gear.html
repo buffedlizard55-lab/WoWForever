@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gear and BiS in WoW Forever — status, framework, trackers | WoW Forever Hub</title>
+<meta name="description" content="Why no verified BiS list can exist yet, the official gearing framework for World of Warcraft: Forever, a per-class slot tracker template, and the exact verification procedure used for every item.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Gear &amp; BiS · snapshot <span data-snapshot>2026-09-18</span></p>
+    <h1>Best in Slot in WoW Forever: status, framework, and the tracker we will fill</h1>
+    <p class="lede">
+      “Find BiS guides for all classes” is a hard requirement of this project. It is also, today, impossible to satisfy
+      honestly — and Blizzard did that on purpose. This page explains the block with primary sources, publishes the
+      verified gearing framework you can already act on, and gives you the per-class tracker format that the item data
+      will be poured into the moment it exists.
+    </p>
+  </div>
+
+  <div id="status" class="banner">
+    <strong>BiS status: blocked by design, not by laziness.</strong>
+    <p>
+      Blizzard is <strong>obfuscating items</strong>. In the MMORPG interview, the developers said players
+      “will not see item stats until it drops for you or on your server”, there will be <strong>no Dungeon Journal</strong>,
+      and they expect the first raid week to be a “Wild West” before community BiS lists form.
+      <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/increased-bank-space-raid-items-hidden-until-it-drops-mmorpg-interview-on-wow-382960" rel="noopener">Wowhead summary of the MMORPG interview</a></span>
+    </p>
+    <p>
+      On top of that: the beta tops out at level 20 (30 later), the 55–60 dungeons and both raids are unreachable, and
+      every dungeon drop is being re-itemised. Any level-60 BiS list published today — for any class — is fiction.
+      Icy Veins says the same thing in its own class guides: <em>“WoW Forever has reworked itemization, so old Classic item lists
+      cannot establish your best equipment.”</em>
+      <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide" rel="noopener">Icy Veins Arms Warrior guide</a></span>
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#framework">The verified gearing framework (usable now)</a></li>
+      <li><a href="#brief">Brief, readable per-class plan (the short version)</a></li>
+      <li><a href="#tracker">Per-class BiS slot tracker</a></li>
+      <li><a href="#procedure">How each item is verified before it appears on this site</a></li>
+      <li><a href="#links">Official links for “how to obtain”</a></li>
+      <li><a href="#timeline">When the real BiS lists arrive</a></li>
+    </ul>
+  </nav>
+
+  <section id="framework" aria-labelledby="h-framework">
+    <h2 id="h-framework">The verified gearing framework</h2>
+    <p class="sub">
+      These are the sources of gear in Forever, as confirmed by Blizzard or by published datamines. This is what a BiS list
+      will eventually be built out of, so the framework is already useful for planning which content to run.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Source</th><th scope="col">What is verified</th><th scope="col">Why it matters for BiS</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nine new dungeons</strong></td>
+            <td>Official level bands: Hall of Thanes 13–18 · Ruins of Lordaeron 15–20 · Excavation Site: Wetlands 24–29 · City of Dalaran 28–33 · The Drowned City 35–40 · Krol'dok Stronghold 40–45 · Alcaz Prison 48–53 · Blackmaw Hold 55–60 · Shaper's Terrace 58–60.</td>
+            <td>Blackmaw Hold and Shaper's Terrace are the only level-60 slots; Alcaz Prison is the last pre-60 band. <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/guide/dungeons-overview-locations-details" rel="noopener">Wowhead</a><a class="src" href="https://www.wowhead.com/forever/news/blizzard-clarifies-krol-dok-stronghold-level-range-in-forever-382895" rel="noopener">Blizzard blue post</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Re-itemised dungeon loot</strong></td>
+            <td>Every dungeon drop re-examined; unique dungeon boss items are now blue quality; set bonuses improved; hundreds of new drops added. Blueprint recipes drop from bosses.</td>
+            <td>Classic BiS memory is unreliable: the same boss may now drop something different or better. <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Raids (from 9 Dec 2026)</strong></td>
+            <td>Barrow Deeps (10-player, max level) and Hyjal Summit (20-player); new tier sets; a legendary reward is teased; no raid attunements for the launch raids; raid items are hidden until they drop.</td>
+            <td>Tier sets and the legendary are the ceiling of the first phase. <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">Blizzard</a><a class="src" href="https://www.wowhead.com/forever/news/world-of-warcraft-live-q-a-liveblog-midnight-and-forever-382967" rel="noopener">Q&amp;A</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Crafted tier sets</strong> <span class="chip datamine">Datamine</span></td>
+            <td>Four craftable slots now (shoulders, boots, leggings, gloves) at 3× Malleable Essence of Nature each. The essence comes only from disenchanting Hyjal Summit or Barrow Deeps items. Crafted pieces are Bind on Equip. One may be equipped at first; a second is unlocked through Guardians of Hyjal reputation.</td>
+            <td>Professions feed endgame BiS directly, and disenchanting raid loot becomes a gated resource. Subject to change. <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/news/wow-forever-crafted-tier-sets-datamined-recipes-costs-and-set-bonuses/" rel="noopener">Icy Veins datamine</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>PvP gear</strong></td>
+            <td>The 14-rank Honor track awards “armor with PvP stats”; Honor comes from battlegrounds and PvP content.</td>
+            <td>A parallel gear path for slots your dungeon runs will not fill. <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/14-rank-pvp-honor-track-and-darkspear-islands-battleground-coming-in-wow-forever-382947" rel="noopener">WH/Kotaku</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Tarnished Undermine Reals</strong></td>
+            <td>A dungeon currency from Season of Discovery is coming to Forever; in SoD it bought gear, toys, patterns and reagents. It exists in Wowhead's Forever database as an item-level-60 bind-on-pickup currency added in patch 1.60.1, but its drop list there mixes in other game versions, so acquisition in Forever is still unverified. <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/item=226404/tarnished-undermine-real" rel="noopener">Forever item page</a></span></td>
+            <td><span class="chip ours">Our reading</span> A currency vendor is the likeliest deterministic route to specific slots, which matters when RNG refuses to cooperate. <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/tarnished-undermine-reals-coming-to-world-of-warcraft-forever-382969" rel="noopener">Wowhead</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Quest rewards</strong></td>
+            <td>Rewards updated or expanded for more classes and roles. Named examples: Ladimore Heirloom Ring (Mor'ladim, Duskwood) and Master Hunter's Spellsword (Hemet Nesingwary chain).</td>
+            <td>Long quest chains can now pay off for casters and healers where Classic rewarded only physical DPS. <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>World drops and rare creatures</strong></td>
+            <td>World-drop epics improved; hundreds of new rare-creature drops added; hundreds of biome- and creature-type-specific effects on items.</td>
+            <td>Situational BiS becomes a real concept — a “Deserts” or “vs Dragons” item may beat a stat-stick in the right fight. <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Stat rules that change every comparison</h3>
+    <div class="grid two">
+      <div class="card">
+        <ul class="clean">
+          <li><strong>One hit stat, one crit stat.</strong> Spell, melee and ranged hit were merged, and spell, melee and ranged crit were merged. Hybrid gear stops being a compromise — Blizzard names Retribution and Enhancement as beneficiaries.</li>
+          <li><strong>Bonus healing now carries one third as much bonus damage.</strong> Healers can quest and PvP without a second set.</li>
+          <li><strong>Caster weapons grant spell damage and healing</strong>, so a weapon upgrade matters for casters the way it always did for Warriors and Rogues.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="clean">
+          <li><strong>Weapon skill is worth less per item</strong>, so weapon-skill pieces are no longer automatic winners.</li>
+          <li><strong>New stats reduce the chance your attacks are dodged or parried</strong> — relevant for tanks holding threat and for melee in PvP.</li>
+          <li><strong>Trinkets are pushed toward situational effects</strong> (example: Worgenbane Talisman), plus environment and creature-type effects.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small">All six bullets: <a href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard Deep Dive recap</a>. Ledger claims C060–C064.</p>
+  </section>
+
+  <section id="brief" aria-labelledby="h-brief">
+    <h2 id="h-brief">Brief, readable per-class plan — the short version</h2>
+    <p class="sub">
+      This is the “easy to read version for our own site” the project asked for, written only from verified mechanics.
+      It tells you the <em>order of operations</em>, not fake item names, because ordering advice survives patch changes
+      while speculative item names do not.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Role you play</th><th scope="col">Chase first</th><th scope="col">Then</th><th scope="col">Do not skip</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Physical DPS</strong> (Warrior, Rogue, Hunter, Retribution, Enhancement, Feral)</td>
+            <td>Weapon quality. Blizzard explicitly ties caster weapons to spell damage so that casters get the same upgrade feeling Warriors and Rogues always had — for physical DPS the weapon remains the largest swing in performance.</td>
+            <td>Hit to a reliable threshold, then crit and attack power; check new anti-dodge/parry stats when a piece is otherwise close.</td>
+            <td>Dungeon quests before the instance, so you collect the expanded quest rewards while farming (dungeon mob XP was tuned down, quest XP up).</td>
+          </tr>
+          <tr>
+            <td><strong>Caster DPS</strong> (Mage, Warlock, Shadow Priest, Balance, Elemental)</td>
+            <td>Your weapon — it now grants spell damage and healing, which is a change from Classic weapon design.</td>
+            <td>Unified hit, then crit (DoTs can crit in Forever per Icy Veins' datamine notes), then spell damage. Situational items (vs Elementals, vs Undead, biome effects) can beat raw stats in the right content.</td>
+            <td>Re-check quest reward chains: examples like Ladimore Heirloom Ring and Master Hunter's Spellsword were added for casters.</td>
+          </tr>
+          <tr>
+            <td><strong>Healer</strong></td>
+            <td>Bonus healing pieces, now that they also contribute one-third bonus damage — one set covers group content and solo play.</td>
+            <td>Mana sustain (Spirit/Intellect) and then survivability, since PvP-focused healers are prime targets.</td>
+            <td>PvP armor from the Honor track as a parallel path, because it is confirmed to carry stats.</td>
+          </tr>
+          <tr>
+            <td><strong>Tank</strong></td>
+            <td>Survivability floor (health, armour, mitigation) before threat, because single-difficulty dungeons and 10-player raids punish under-geared tanks with no difficulty dial to turn down.</td>
+            <td>Threat reliability, using the new stats that reduce enemy dodge/parry.</td>
+            <td>Paladin tanks: Seal of Fury is your taunt vehicle, so weapon speed and Mana sustain are gear considerations. <span class="small">(Blizzard's Paladin changelist.)</span></td>
+          </tr>
+          <tr>
+            <td><strong>PvP-first player</strong></td>
+            <td>Stamina and your class's control/escape cooldowns' supporting stats; the ladder resets each cycle, so resilience comes from a balanced set rather than one trophy piece.</td>
+            <td>Honor track armour, then dungeon pieces for the slots it does not cover.</td>
+            <td>Remember that addon automation is restricted, so build a UI you can drive manually.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>What this is not:</strong> a list of items. Naming an item today would mean naming a stat block nobody
+      outside Blizzard has seen. The tracker below is where item names go <em>after</em> verification.</p>
+    </div>
+  </section>
+
+  <section id="tracker" aria-labelledby="h-tracker">
+    <h2 id="h-tracker">Per-class BiS slot tracker</h2>
+    <p class="sub">
+      The empty structure, replicated for every class. When item data becomes verifiable, this is the exact shape the data
+      will take — one row per slot, with a verified source link and a status stamp. Until then the honest value in every
+      row is “pending”.
+    </p>
+    <div class="controls">
+      <label class="field">Class
+        <select id="classPicker">
+          <option>Druid</option><option>Hunter</option><option>Mage</option><option>Paladin</option><option>Priest</option>
+          <option>Rogue</option><option>Shaman</option><option>Warlock</option><option>Warrior</option>
+        </select>
+      </label>
+      <span class="count" id="classNote">Showing tracker fields for the selected class.</span>
+      <button class="src btn" type="button" data-copy="#trackerCsv">Copy this class's tracker as CSV</button>
+    </div>
+    <div class="table-wrap">
+      <table class="compact" id="trackerTemplate">
+        <caption>Slots tracked per class. “Where it comes from” is filled only with a verified drop source, quest or vendor, always with a link.</caption>
+        <thead>
+          <tr><th scope="col">Slot</th><th scope="col">Item</th><th scope="col">Where it comes from</th><th scope="col">Band / phase</th><th scope="col">Status</th></tr>
+        </thead>
+        <tbody id="trackerBody"></tbody>
+      </table>
+    </div>
+    <p class="small">
+      Slot coverage follows Classic's paper-doll: head, neck, shoulders, back, chest, wrist, hands, waist, legs, feet,
+      two rings, two trinkets, main hand, off hand, ranged/relic. Weapons and trinkets are separate rows because Forever's
+      trinket design is explicitly situational.
+    </p>
+    <script type="text/plain" id="trackerCsv">slot,item,where_it_comes_from,band_phase,status</script>
+    <details>
+      <summary>Why the tracker shows no item names at all</summary>
+      <p>
+        Because two independent blockers apply: (1) item stats are hidden until a drop is recorded on a realm, and
+        (2) every dungeon drop has been re-itemised, so Classic item names are not a reliable proxy. Publishing names now
+        would create exactly the kind of unverifiable content this project exists to prevent. The tracker's rows are
+        therefore intentionally empty but structured, and the verification procedure below is the contract for filling them.
+      </p>
+    </details>
+  </section>
+
+  <section id="procedure" aria-labelledby="h-procedure">
+    <h2 id="h-procedure">How each item is verified before it appears on this site</h2>
+    <ol class="clean">
+      <li><strong>Locate the item in a Forever database.</strong> Wowhead's Forever namespace is separate from Classic, for example
+        <a href="https://www.wowhead.com/forever/item=226404/tarnished-undermine-real" rel="noopener">/forever/item=226404/tarnished-undermine-real</a>.
+        Record the item ID and permalink.</li>
+      <li><strong>Confirm the stats on the live page.</strong> Screenshot or quote the stat block, and note the date. Never copy a stat block from a
+        third-party summary.</li>
+      <li><strong>Confirm the source.</strong> Dungeon boss, quest, vendor, profession recipe or raid boss — with the dungeon's official level band
+        attached (for example, Blackmaw Hold 55–60) so readers know when it is obtainable.</li>
+      <li><strong>Check the version filters on the drop list.</strong> Forever item pages aggregate data from other game versions
+        (the worked example on this page carries Season of Discovery difficulty filters and vanilla raid bosses), so a drop source is only
+        accepted when it is confirmed by Forever-specific material. Logged as irregularity I-8, claim C110.</li>
+      <li><strong>Confirm the phase.</strong> Launch (4 Nov) or raid phase (9 Dec) or later. Any item from a raid is not a pre-raid BiS item and must not be labelled as one.</li>
+      <li><strong>Note the caveats.</strong> Datamined-only items get a <span class="chip datamine">Datamine</span> tag and are never presented as farmable facts.</li>
+      <li><strong>Add the claim row.</strong> Every item gets a claim ID in <code>data/claims.js</code> so a reviewer can trace it back to the URL and date.</li>
+      <li><strong>Re-verify on every content patch.</strong> Item changes after a patch are logged as diffs, not silent edits.</li>
+    </ol>
+  </section>
+
+  <section id="links" aria-labelledby="h-links">
+    <h2 id="h-links">Official links for “how to obtain”</h2>
+    <div class="grid three">
+      <div class="card tight">
+        <h4>Blizzard (primary)</h4>
+        <ul class="clean small">
+          <li><a href="https://worldofwarcraft.blizzard.com/en-us/forever" rel="noopener">Forever product page</a></li>
+          <li><a href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">What's Next panel recap</a> — content list, raid types</li>
+          <li><a href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Deep Dive recap</a> — itemisation, quest reward examples</li>
+        </ul>
+      </div>
+      <div class="card tight">
+        <h4>Wowhead Forever</h4>
+        <ul class="clean small">
+          <li><a href="https://www.wowhead.com/forever/guide/dungeons-overview-locations-details" rel="noopener">Dungeons overview</a> — bands and locations</li>
+          <li><a href="https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations" rel="noopener">Raids overview</a></li>
+          <li><a href="https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview" rel="noopener">Season 1 tier sets</a></li>
+          <li><a href="https://www.wowhead.com/forever/news/blizzard-clarifies-krol-dok-stronghold-level-range-in-forever-382895" rel="noopener">Official dungeon level bands (blue post)</a></li>
+        </ul>
+      </div>
+      <div class="card tight">
+        <h4>Icy Veins Forever</h4>
+        <ul class="clean small">
+          <li><a href="https://www.icy-veins.com/wow-forever/" rel="noopener">Hub</a> — class overviews and guides</li>
+          <li><a href="https://www.icy-veins.com/wow-forever/news/wow-forever-crafted-tier-sets-datamined-recipes-costs-and-set-bonuses/" rel="noopener">Crafted tier sets</a> — costs and set bonuses</li>
+          <li><a href="https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide" rel="noopener">Example class guide</a> — note their explicit “gear pending beta testing” status</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note caution">
+      <p><strong>Rule for our own pages:</strong> a “how to obtain” link must point at a Forever-namespace page. Linking a
+      Classic item page as if it were Forever's is the single most common error in the secondary material we reviewed.</p>
+    </div>
+  </section>
+
+  <section id="timeline" aria-labelledby="h-timeline">
+    <h2 id="h-timeline">When the real BiS lists arrive</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Date</th><th scope="col">What unlocks</th><th scope="col">What we publish</th></tr></thead>
+        <tbody>
+          <tr><td>Now → 21 Oct 2026</td><td>Beta, levels 1–30 only</td><td>Nothing claiming to be BiS. Beta-only “best at level 20” notes, clearly labelled, if we can verify item stats at all.</td></tr>
+          <tr><td>4 Nov 2026</td><td>Live level 60, dungeons 55–60 live, auction houses live</td><td>Verified pre-raid gear tables per slot, filled from live drops with permalinks.</td></tr>
+          <tr><td>9 Dec 2026</td><td>Barrow Deeps and Hyjal Summit; tier sets; crafted tier recipes become meaningful</td><td>Phase 1 BiS, split into pre-raid and raid sets, plus the Malleable Essence of Nature economy.</td></tr>
+          <tr><td>Each later patch</td><td>New dungeons, raids and seasons</td><td>Diffed updates with the previous version retained for review.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
+    <p>Snapshot <span data-snapshot>2026-09-18</span> · gear claims C060–C069, C110 · <a href="sources.html#claims">full ledger</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+/* Build the empty per-class tracker so every class has an identical, auditable structure,
+   and export the same rows as CSV for anyone who wants to fill them in offline. */
+(function () {
+  var slots = ['Head','Neck','Shoulders','Back','Chest','Wrist','Hands','Waist','Legs','Feet','Ring 1','Ring 2','Trinket 1','Trinket 2','Main hand','Off hand','Ranged / Relic'];
+  var body = document.getElementById('trackerBody');
+  var csv = document.getElementById('trackerCsv');
+  var picker = document.getElementById('classPicker');
+  var note = document.getElementById('classNote');
+  if (!body) return;
+
+  function csvCell(v) { return '"' + String(v).replace(/"/g, '""') + '"'; }
+
+  function render(cls) {
+    body.innerHTML = slots.map(function (s) {
+      return '<tr>' +
+        '<td><strong>' + s + '</strong></td>' +
+        '<td class="small">pending — ' + cls + '</td>' +
+        '<td class="small">awaiting verified Forever drop source</td>' +
+        '<td class="small">Launch (4 Nov) / Raid phase (9 Dec)</td>' +
+        '<td><span class="chip pending">Not announced</span></td>' +
+      '</tr>';
+    }).join('');
+    if (note) note.textContent = 'Tracker fields for ' + cls + ': ' + slots.length + ' slots, all pending verified data.';
+    if (csv) {
+      csv.textContent = ['class,slot,item,where_it_comes_from,band_or_phase,status,verified_source_url']
+        .concat(slots.map(function (s) {
+          return [csvCell(cls), csvCell(s), '""', '""', '""', csvCell('not announced'), '""'].join(',');
+        })).join('\n');
+    }
+  }
+  render(picker ? picker.value : 'Druid');
+  if (picker) picker.addEventListener('change', function () { render(picker.value); });
+})();
+</script>
+</body>
+</html>

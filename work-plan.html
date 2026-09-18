@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work plan, limitations and next steps | WoW Forever Hub</title>
+<meta name="description" content="The remaining work for the WoW Forever information project, scheduled against the game's own calendar: what is blocked, what is possible now, and what the next sessions will deliver.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Work plan · snapshot <span data-snapshot>2026-09-18</span></p>
+    <h1>What still needs doing — and what is genuinely blocked</h1>
+    <p class="lede">
+      This page is the project's honest backlog. It separates <strong>blocked work</strong> (cannot be done correctly
+      until Blizzard or the live economy produces data) from <strong>available work</strong> (can be done now), and
+      schedules both against dates the game itself has published.
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#done">Delivered so far</a></li>
+      <li><a href="#blocked">Blocked work (do not fake it)</a></li>
+      <li><a href="#phase1">Phase 1 — next session, before 4 November</a></li>
+      <li><a href="#phase2">Phase 2 — launch window, 4 November onward</a></li>
+      <li><a href="#phase3">Phase 3 — raid window, 9 December onward</a></li>
+      <li><a href="#limitations">Limitations and risks</a></li>
+      <li><a href="#decisions">Decisions requested</a></li>
+    </ul>
+  </nav>
+
+  <section id="done" aria-labelledby="h-done">
+    <h2 id="h-done">Delivered so far</h2>
+    <ul class="checklist">
+      <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics, each on its own page.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code>) and claims ledger (<code>data/claims.js</code>) with evidence classes and snapshot dates.</li>
+      <li>Public irregularity log (I-1 to I-6) including fabricated tier-list detection and the resolved dungeon-range conflicts.</li>
+      <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
+      <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
+      <li>A second verification round: 42 registered sources and 74 ledger claims (IDs C001–C110), including the datamined 14-rank reward table, the Legacy reward track, the pre-order/paywall facts, and a coverage audit of what the big guide sites actually publish for Forever (C103–C109).</li>
+    </ul>
+  </section>
+
+  <section id="blocked" aria-labelledby="h-blocked">
+    <h2 id="h-blocked">Blocked work — and why</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Deliverable</th><th scope="col">Blocked by (verified)</th><th scope="col">Unblocks at</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Per-class level-60 BiS lists</strong></td><td>Item stats are obfuscated until a drop is recorded on a realm; no Dungeon Journal; every dungeon drop re-itemised; raids closed.</td><td>After launch, realistic for raid-tier lists from 9 Dec 2026.</td></tr>
+          <tr><td><strong>Level-60 PvP tier list</strong></td><td>Beta capped at 20 (30 later); no rated play; Honor rates, thresholds and vendor tables unpublished.</td><td>Live 60 play from 4 Nov; meaningfully measurable after the first PvP season reports.</td></tr>
+          <tr><td><strong>Gold-per-hour and price projections</strong></td><td>No live auction house exists yet, and the market is US-wide rather than per-realm, so Classic-era baselines do not transfer.</td><td>4 Nov 2026, with a multi-week settling period.</td></tr>
+          <tr><td><strong>TSM-based market workflows</strong></td><td>TSM lists no Forever build; vanilla-ruleset price sources are limited and need external price addons.</td><td>When TSM publishes a Forever-supported release; tracked each update.</td></tr>
+          <tr><td><strong>Per-class PvP guides</strong></td><td>Only the Paladin changelist is published; other classes are datamine-only, and beta abilities stop at level 30.</td><td>Framework now; full guides during beta level-30 phase and after launch.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <p><strong>Rule:</strong> a blocked deliverable is never shipped in weakened form. It is replaced with a documented
+      gap plus the date it unblocks — that is the whole point of this project.</p>
+    </div>
+  </section>
+
+  <section id="phase1" aria-labelledby="h-phase1">
+    <h2 id="h-phase1">Phase 1 — next session, before 4 November</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Source completion (highest value first)</h3>
+        <ol class="clean">
+          <li>Read and ledger the remaining Blizzard first-party pages line by line: the pre-purchase article, the Found Photos recap, and the official news index for any Forever post since 18 September.</li>
+          <li>Read the outstanding Wowhead interview summaries we have only cited second-hand: <em>New Biome Buff Gear (IGN Nordic)</em>, <em>No Raid Attunements (But Why Tho?)</em>, <em>Dungeon Experience Changes (The Sun)</em>, <em>Official Controller Support &amp; Mount Skill Costs (Sportskeeda)</em>, and the beta known-issues blue posts.</li>
+          <li>Complete the Wowhead racials guide and the Warcraft Wiki article chunk-by-chunk, then convert every extracted fact into ledger rows.</li>
+          <li>Read the remaining Icy Veins race guides (Dwarf, Gnome, Human, Night Elf, Orc, Troll, Undead, Skyborne) and record the Classic-to-Forever racial diffs.</li>
+          <li>Work through the remaining Wowhead Forever guides (14 of the 17 had not been read line-by-line at this snapshot) and ledger each fact.</li>
+          <li>Verify the pre-order pack windows and the early name-reservation dates from Blizzard's own shop pages rather than the guide summary.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Site work</h3>
+        <ol class="clean">
+          <li><strong>Addon compatibility tracker</strong> — a dated table of which addons publish Forever builds (TSM, Questie, Details and others), re-checked every update.</li>
+          <li><strong>Per-class profile pages</strong> — one page per class using only verified abilities and racial interactions, with a “no PvP ranking yet” banner.</li>
+          <li><strong>Ability capture log</strong> — for each class, record what is testable at 20 and 30 in the beta, with the trainers/talents that define it.</li>
+          <li><strong>Ledger tooling</strong> — a small script that lists claims whose snapshot date is older than N days, so stale facts surface automatically.</li>
+          <li><strong>Accessibility and print pass</strong> — verify every table reads correctly on mobile and in print for manual review.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="phase2" aria-labelledby="h-phase2">
+    <h2 id="h-phase2">Phase 2 — launch window, 4 November onward</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Data pipeline</h3>
+        <ul class="clean">
+          <li>Stand up the level-60 item verification pipeline described on the <a href="gear.html#procedure">Gear page</a>: item ID, stat block, drop source, phase, permalink, verification date.</li>
+          <li>Publish pre-raid gear tables per class, split by armour type and role, with acquisition links only from the Forever namespace.</li>
+          <li>Begin the market baseline log: daily minimum buyouts for the watchlist items on the <a href="gold.html#watchlist">Gold page</a>.</li>
+          <li>Record which price addons actually function on Forever clients, then document a verified workflow.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>PvP work</h3>
+        <ul class="clean">
+          <li>Record battleground availability the moment the live client confirms it, replacing the current “implied only” status.</li>
+          <li>Collect Honor gain observations from real battlegrounds to replace the unpublished numbers with measured ones — clearly labelled as observed, not official.</li>
+          <li>Stand up battleground-role notes per class as play begins, using the published methodology on the <a href="classes.html#commitment">Classes page</a>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="phase3" aria-labelledby="h-phase3">
+    <h2 id="h-phase3">Phase 3 — raid window, 9 December onward</h2>
+    <ul class="clean">
+      <li><strong>First defensible BiS lists</strong> — pre-raid and phase-1 raid sets, each item source-verified, with the previous version retained.</li>
+      <li><strong>Crafted tier-set economy</strong> — track Malleable Essence of Nature supply, Guardians of Hyjal reputation gating, and the BoE crafted-piece market as it forms.</li>
+      <li><strong>First PvP value assessment</strong> — battleground-role based, minimum-sample enforced, version-stamped, with the evidence for every placement.</li>
+      <li><strong>Legendary and chase-item documentation</strong> — Blizzard has teased a legendary reward and every raid boss having chase items (press); document them when they are live.</li>
+    </ul>
+  </section>
+
+  <section id="limitations" aria-labelledby="h-limitations">
+    <h2 id="h-limitations">Limitations and risks</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Limitation</th><th scope="col">Impact</th><th scope="col">Mitigation in place</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Deliberate information hiding</strong></td><td>BiS lists cannot exist before launch, and in our assessment not before the first raid lockout.</td><td>Publish the framework and the tracker; date the unblock; refuse speculation.</td></tr>
+          <tr><td><strong>Beta scope</strong></td><td>Level 20 (then 30) means most class/spec behaviour is untestable for months.</td><td>Mark all class material as datamine with may-change warnings; schedule real assessments after launch.</td></tr>
+          <tr><td><strong>No rated PvP</strong></td><td>No ladder means no objective performance metric for tier lists.</td><td>Published methodology based on battleground roles and stated sample sizes.</td></tr>
+          <tr><td><strong>Datamine volatility</strong></td><td>Everything datamined can change between builds; stale pages become misinformation.</td><td>Snapshot dates, may-change tags, and re-verification at each beta build and patch.</td></tr>
+          <tr><td><strong>Unpublished economy numbers</strong></td><td>No Honor prices, no vendor lists, no Blueprint drop table, no recipe split.</td><td>Recorded as explicit gaps; the site will not fill them with guesses.</td></tr>
+          <tr><td><strong>Tooling absence</strong></td><td>No TSM Forever build and limited vanilla price sources slow market analysis.</td><td>Manual baseline logging from launch; addon tracker re-checked every update.</td></tr>
+          <tr><td><strong>Search-result pollution</strong></td><td>Low-quality and RMT-adjacent pages outrank primary sources and mix truth with invention.</td><td>Primary-source-first policy, the flagged-source registry, and the irregularity log.</td></tr>
+          <tr><td><strong>Static hosting</strong></td><td>GitHub Pages cannot run a backend, so no live price queries or server-side aggregation.</td><td>All content is pre-generated JSON/JS; any future live data would need a scheduled job committed to the repo.</td></tr>
+          <tr><td><strong>Copyright and attribution</strong></td><td>Rehosting other sites' content would be both legally wrong and a single point of failure.</td><td>Summarise, link, credit; original analysis is clearly separated.</td></tr>
+          <tr><td><strong>Manual verification cost</strong></td><td>Line-by-line checking does not scale linearly as content volume grows.</td><td>Ledger structure and staleness tooling planned in Phase 1.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="decisions" aria-labelledby="h-decisions">
+    <h2 id="h-decisions">Decisions requested</h2>
+    <p class="sub">These are judgement calls where the project needs a human answer; each has a default we can continue with if no answer arrives.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Decision</th><th scope="col">Options</th><th scope="col">Default if unanswered</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>How aggressive should launch coverage be?</strong></td>
+            <td>(a) Publish only verified item sources; (b) also publish clearly-labelled community-reported drop rates with a “reported” tag.</td>
+            <td>(a) — verification first; reported data can be added later behind a visible tag.</td>
+          </tr>
+          <tr>
+            <td><strong>Do we add automated source polling?</strong></td>
+            <td>(a) Keep everything manual; (b) add a scheduled GitHub Action that checks registered URLs for changes and opens an issue with a diff.</td>
+            <td>(b) is recommended and cheap, but requires approval because it adds a workflow to the repository.</td>
+          </tr>
+          <tr>
+            <td><strong>PvP tier list timing</strong></td>
+            <td>(a) Wait for a full season of data; (b) publish a provisional, explicitly-labelled assessment after launch week.</td>
+            <td>(a) — the project's credibility rests on not repeating the noise it criticises.</td>
+          </tr>
+          <tr>
+            <td><strong>Market logging effort</strong></td>
+            <td>(a) Manual daily log of the watchlist; (b) recruit volunteers; (c) no logging until tooling exists.</td>
+            <td>(a) for the watchlist only — small, bounded, and verifiable.</td>
+          </tr>
+          <tr>
+            <td><strong>Scope of class profiles</strong></td>
+            <td>(a) One page per class covering PvE and PvP; (b) PvP-only profiles.</td>
+            <td>(b) matches the project's stated focus, with PvE notes only where they affect gearing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
+    <p>Snapshot <span data-snapshot>2026-09-18</span> · plan reviewed each session · <a href="sources.html">sources</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
