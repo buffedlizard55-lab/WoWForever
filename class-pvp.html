@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Per-class PvP profiles — WoW Forever | WoW Forever Hub</title>
+<meta name="description" content="One PvP-only profile per class for World of Warcraft: Forever. Published abilities and racials only, each with an evidence tag and a source link. No tier list, no invented numbers.">
+<meta name="theme-color" content="#0d1117">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Per-class PvP profiles — WoW Forever">
+<meta property="og:description" content="One PvP-only profile per class for World of Warcraft: Forever. Published abilities and racials only, each with an evidence tag and a source link.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="class-pvp.html">Class PvP</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Class PvP profiles · snapshot <span data-snapshot>2026-09-18</span></p>
+    <h1>Per-class PvP profiles — published mechanics only</h1>
+    <p class="lede">
+      Nine profiles, one per class, written to answer a single question: <em>what has actually been published about this
+      class that matters in a battleground?</em> Each line is a mechanic Blizzard stated or a reputable guide site
+      reported from the BlizzCon build, with a link. Nothing here ranks classes — that cannot be done honestly yet, and
+      the reason is printed below rather than hidden.
+    </p>
+    <div class="tag-row">
+      <span class="chip official">Official</span>
+      <span class="chip guide">Guide analysis (may change)</span>
+      <span class="chip pending">Not announced</span>
+      <span class="chip ours">Our reasoning</span>
+    </div>
+  </div>
+
+  <div class="banner">
+    <strong>Read this before the profiles.</strong>
+    <p>
+      These are <strong>PvP-only</strong> profiles, per the project's stated focus. PvE detail appears only where it
+      changes gearing or is the source of the ability being described. Two hard limits apply to every profile:
+    </p>
+    <ul class="clean">
+      <li>Blizzard has published a full class changelist for <strong>one class of nine</strong> (Paladin). Every other
+        class rests on Icy Veins' reporting from the BlizzCon demo build, which those guides explicitly mark as subject
+        to change.
+        <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard Deep Dive</a></span></li>
+      <li>The beta is capped at level 20, rising to 30, and there is no rated PvP. No class has been played at level 60
+        in a battleground by anyone, so no strength claim about any class is verifiable.
+        <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/guide/beta-content-unlock-overview" rel="noopener">Wowhead beta guide</a></span></li>
+    </ul>
+    <p class="small">Ledger: C111–C121. Racial detail lives on the <a href="classes.html#racials">Classes page</a>; the PvP system itself is on the <a href="pvp.html">PvP page</a>.</p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#howtoread">How to read a profile</a></li>
+      <li><a href="#summary">One-line summary table (the brief version)</a></li>
+      <li><a href="#druid">Druid</a></li>
+      <li><a href="#hunter">Hunter</a></li>
+      <li><a href="#mage">Mage</a></li>
+      <li><a href="#paladin">Paladin</a></li>
+      <li><a href="#priest">Priest</a></li>
+      <li><a href="#rogue">Rogue</a></li>
+      <li><a href="#shaman">Shaman</a></li>
+      <li><a href="#warlock">Warlock</a></li>
+      <li><a href="#warrior">Warrior</a></li>
+      <li><a href="#gaps">What is missing from every profile</a></li>
+    </ul>
+  </nav>
+
+  <section id="howtoread" aria-labelledby="h-howtoread">
+    <h2 id="h-howtoread">How to read a profile</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>What each profile contains</h3>
+        <ul class="clean">
+          <li><strong>Battleground-relevant published changes</strong> — only mechanics that affect mobility, control,
+            control-breaks, survivability, burst or objective play.</li>
+          <li><strong>Evidence chip</strong> on every row: <span class="chip official">Official</span> means Blizzard's
+            own words; <span class="chip guide">Guide</span> means Icy Veins reported it from the BlizzCon build.</li>
+          <li><strong>Race options</strong> as documented, with the racials that have a stated PvP use.</li>
+          <li><strong>Open question</strong> — the specific thing about this class nobody can answer yet.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>What no profile contains</h3>
+        <ul class="checklist">
+          <li class="x">A tier, grade, score or ranking of any kind.</li>
+          <li class="x">Damage numbers, time-to-kill, or win rates.</li>
+          <li class="x">Best-in-slot gear (no level-60 item data exists — see <a href="gear.html">Gear</a>).</li>
+          <li class="x">Talent builds presented as optimal. Where a build is mentioned it is named as the source's sketch.</li>
+          <li class="x">Arena advice. Arenas have not been announced for Forever.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary" aria-labelledby="h-summary">
+    <h2 id="h-summary">One-line summary table <span class="chip ours">Our summary of sourced facts</span></h2>
+    <p class="sub">
+      The brief, easy-to-read version asked for in the project brief. Each cell compresses the sourced profile below it;
+      the “Published PvP lever” column contains only mechanics with a citation further down this page. The
+      “Still unknown” column is the honest counterweight — read both.
+    </p>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Compressed from the profiles below. No column is a ranking. Sorted alphabetically, deliberately.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Class</th>
+            <th scope="col">Published PvP lever</th>
+            <th scope="col">Evidence</th>
+            <th scope="col">Still unknown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#druid"><strong>Druid</strong></a></td>
+            <td>Baseline Nature's Grasp root on any attacker; Berserk grants fear immunity for 15s; bleeds can crit.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Whether Feral's lost power-shifting tempo matters in open-field flag play.</td>
+          </tr>
+          <tr>
+            <td><a href="#hunter"><strong>Hunter</strong></a></td>
+            <td>Traps usable in combat; abilities no longer clip Auto Shot; Survival reworked to melee; Lone Wolf pet-free damage.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Whether melee Survival has the defensives to survive a battleground scrum.</td>
+          </tr>
+          <tr>
+            <td><a href="#mage"><strong>Mage</strong></a></td>
+            <td>Fingers of Frost treats 2 spells as if the target were frozen; Ice Lance 300% into frozen; Shatter at 3 points.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Blizzard's chill was nerfed to 45% / 1.5s — the net effect on kiting is untested.</td>
+          </tr>
+          <tr>
+            <td><a href="#paladin"><strong>Paladin</strong></a></td>
+            <td>Only class with a first-party changelist. Voice of Truth gives Holy silence/interrupt immunity; Blizzard states Paladins still have no interrupt and no slow.</td>
+            <td><span class="chip official">Official</span></td>
+            <td>Whether Undead Paladin's Will of the Forsaken changes the Horde-side calculus.</td>
+          </tr>
+          <tr>
+            <td><a href="#priest"><strong>Priest</strong></a></td>
+            <td>Fear Ward baseline for every race; Shadowform reduces physical damage taken by 15%; Shadow Word: Death added.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Troll priest race-spells were not confirmed from the demo.</td>
+          </tr>
+          <tr>
+            <td><a href="#rogue"><strong>Rogue</strong></a></td>
+            <td>Restless Blades cuts Evasion / Sprint / Vanish cooldowns by 2s per combo point; Cutthroat enables Ambush out of stealth.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Stealth-vs-Perception balance at 60 with the reworked Human racial.</td>
+          </tr>
+          <tr>
+            <td><a href="#shaman"><strong>Shaman</strong></a></td>
+            <td>Instant, anywhere Ghost Wolf; totems relocatable 30 yards; Earthbind Totem roots on cast with Earthbound.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Whether Enhancement's Maelstrom casting survives battleground pressure.</td>
+          </tr>
+          <tr>
+            <td><a href="#warlock"><strong>Warlock</strong></a></td>
+            <td>Demon Move To command at 100 yards; Felhunter keeps Spell Lock; DoTs can crit; Banes stack with a Curse.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Haste currently does not affect DoTs or drains — may change in beta.</td>
+          </tr>
+          <tr>
+            <td><a href="#warrior"><strong>Warrior</strong></a></td>
+            <td>Recklessness / Retaliation / Shield Wall decoupled; Spearing Strike dismounts; Bloodthirst grants 10% movement speed.</td>
+            <td><span class="chip guide">Guide</span></td>
+            <td>Rage generation at 60 in gear nobody has seen.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>Why the “Evidence” column is almost all Guide.</strong> That is the finding, not a limitation of our
+      research: eight of nine classes have no first-party changelist. Anyone publishing a nine-class PvP tier list today
+      is ranking eight classes they have no Blizzard source for. Recorded as ledger claim C120.</p>
+    </div>
+  </section>
+
+  <section id="druid" aria-labelledby="h-druid">
+    <h2 id="h-druid">Druid <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Druid changes with battleground relevance. Source: Icy Veins Druid Class Overview (Meyra and Voulk), last updated 15 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Nature's Grasp is baseline</strong> with a 100% chance to entangle the next enemy that hits you.</td>
+            <td>A guaranteed root on any attacker, available to every Druid without a talent investment — directly relevant to flag carrying and peeling.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/druid-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Berserk</strong>, new, 3-minute cooldown, 15 seconds. Cat: doubles combo-point-generator crit chance. Bear: removes Mangle's cooldown, hits 3 targets. <strong>Fear immunity while active.</strong></td>
+            <td>A scheduled immunity to Fear is one of the few published counters to Warlock and Warrior control.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/druid-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Tiger's Fury</strong>: 15% physical damage for 6s, 30s cooldown, costs no energy; pairs with King of the Jungle for 60 energy.</td>
+            <td>A short, repeatable burst window rather than a resource trade.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/druid-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Bleeds and heal-over-time effects can critically strike</strong>; Omen of Clarity is baseline and procs from spells and heals.</td>
+            <td>Changes how crit gear is valued for both Feral pressure and Restoration sustain.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/druid-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Swiftmend no longer consumes the heal-over-time effect</strong>; Wild Growth added; Gift of the Earthmother cuts the global cooldown of Rejuvenation, Swiftmend and Wild Growth to 1 second.</td>
+            <td>Faster reactive healing under focus fire, which is the healer's whole job at a node.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/druid-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Furor reworked</strong>: power-shifting no longer generates extra energy.</td>
+            <td>The Classic Feral tempo technique is functionally removed; Icy Veins calls this a loss of long-term tempo.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/druid-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Races:</strong> Night Elf and Tauren (Classic), plus Skyborne (both factions). Night Elf Shadowmeld and Quickness, Tauren War Stomp and Plainsrunning, and Skyborne Walk on Air are the racials with stated mobility or control value —
+      see the <a href="classes.html#racials">racial table</a>.
+      <strong>Open question:</strong> whether the Furor change materially weakens Feral in open-field play. Nobody has tested it above level 20.
+      Ledger C111.</p>
+  </section>
+
+  <section id="hunter" aria-labelledby="h-hunter">
+    <h2 id="h-hunter">Hunter <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Hunter changes with battleground relevance. Source: Icy Veins Hunter Class Overview (Impakt), last updated 15 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Traps are usable in combat.</strong></td>
+            <td>The single largest functional change for Hunter PvP: Freezing and Explosive Trap stop requiring a disengage-and-reset.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Abilities no longer clip Auto Shot</strong>, though you still must stand still to shoot.</td>
+            <td>Removes the shot-timer skill tax while keeping the stand-still constraint that defines Hunter positioning.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Pets scale with the hunter's stats.</strong></td>
+            <td>Pet damage and durability stop falling off as gear improves, so the pet remains a real pressure and body-block tool.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Lone Wolf</strong>: early Marksmanship talent, 20% damage with no active pet.</td>
+            <td>A published trade-off — damage against losing the pet's control and body. Both sides of that trade are testable at launch.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Sniper Shot</strong>: Marksmanship capstone, 4-second cast, described as a large burst option.</td>
+            <td>A 4-second cast is interruptible and immobile; it suits defended positions, not a scrum.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Survival is redesigned as a melee specialization</strong> (Savage Strikes, Strider Kick, Predator's Edge, improved traps).</td>
+            <td>An entirely new archetype with no Classic precedent — it cannot be predicted from Classic experience.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Human is a new Hunter race.</strong> Icy Veins states Will to Survive breaks stuns and does not share a cooldown with the standard PvP trinket.</td>
+            <td>If accurate at launch, that is two stun-breaks per fight. We flag it: the trinket sharing rule is the guide's statement, not Blizzard's.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/hunter-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Flagged for review:</strong> the “does not share a cooldown with the PvP trinket” line implies a PvP trinket exists in Forever. No PvP vendor inventory has been published (see <a href="pvp.html#unknown">unpublished PvP facts</a>), so treat that as an assumption carried over from Classic, not a Forever fact. Ledger C112, C120.</p>
+  </section>
+
+  <section id="mage" aria-labelledby="h-mage">
+    <h2 id="h-mage">Mage <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Mage changes with battleground relevance. Source: Icy Veins Mage Class Overview (Wrdlbrmpft), last updated 13 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Fingers of Frost</strong>: chill effects have a 30% chance to treat your next 2 spells as if the target were frozen, for 15 seconds.</td>
+            <td>Shatter-level crit and Ice Lance damage without an actual root — a mobile burst window that Classic Frost never had.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/mage-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Ice Lance</strong>: instant, 300% increased damage to a frozen target.</td>
+            <td>An instant finisher that pairs with every freeze and with Fingers of Frost.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/mage-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Shatter</strong> reaches its 50% crit bonus against frozen targets at 3 points and no longer requires Improved Frost Nova.</td>
+            <td>Frees talent points that Classic Frost had to spend, widening build options.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/mage-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Improved Blizzard nerfed</strong>: chill is 45% for 1.5 seconds, down from 65% for 2 seconds in Classic.</td>
+            <td>Area slow pressure on a node is weaker than Classic players will expect. A rare published nerf worth planning around.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/mage-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Hot Streak</strong> stacks to 3, each stack cutting Pyroblast's cast time by 25% (to 4.5 / 3 / 1.5 seconds).</td>
+            <td>Makes a Fire burst window reachable without a six-second cast, which is the reason Fire was unplayable in Classic PvP.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/mage-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Frostfire Bolt</strong>: damages, slows and applies a damage-over-time effect, using whichever school the target resists less.</td>
+            <td>A slow that ignores single-school resistance gear.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/mage-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Races:</strong> Gnome, Human, Undead, Troll, plus new Orc Mage and Alliance Skyborne Mage.
+      Icy Veins notes Orc Axe Specialization is irrelevant to Mages because Mages cannot wield axes — a useful example of a racial that looks strong on a table and is not.
+      <strong>Open question:</strong> whether the Blizzard chill nerf outweighs the Fingers of Frost addition. Ledger C113.</p>
+  </section>
+
+  <section id="paladin" aria-labelledby="h-paladin">
+    <h2 id="h-paladin">Paladin <span class="chip official">Official — full changelist published</span></h2>
+    <p class="sub">The only class Blizzard has documented in full. Every row here is Blizzard's own text from the Deep Dive
+      recap, which is why this is the one profile that does not carry a “may change” caveat beyond normal beta tuning.</p>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Paladin changes with battleground relevance. Source: Blizzard, World of Warcraft: Forever Deep Dive Panel Recap, 13 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Blizzard's stated limits:</strong> Paladins still lack an interrupt, still cannot slow targets the way some other classes can, and still reach their taunt through the Seal and Judgment system.</td>
+            <td>Blizzard naming a class's gaps in writing is the strongest published evidence on this page. A Paladin cannot stop a cast or kite a runner.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Voice of Truth</strong> (Holy): temporary immunity to Silence and Interrupts.</td>
+            <td>A published counter to caster lockdown, on the spec most likely to be focused at a node.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Holy Strike</strong> at level 6: instant weapon strike dealing Holy damage, 12-second cooldown. <strong>Seals are no longer consumed by Judgment.</strong></td>
+            <td>Instant damage that is not blocked by school lockouts on physical attacks, and one less reason to stop and recast mid-fight.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Consecration baseline at level 20</strong>, with high damage and threat on the first four targets.</td>
+            <td>A baseline area effect: relevant to stealth detection around a flag and to contesting a capture point.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Templar's Bulwark</strong> (Protection): absorb shield based on maximum health, interacting with Forbearance.</td>
+            <td>Absorb-based survivability on top of the Classic bubble, with the Forbearance trade-off preserved.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Retribution</strong>: Vindication reduces enemy Attack Power while raising the Paladin's own; Instrument of the Law makes Holy Wrath instant; Twist of Light supports Seal twisting without a swing-timer addon.</td>
+            <td>An instant Holy Wrath is a usable stun against Undead and Demons only; Vindication is a published damage-reduction debuff.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Undead Paladin</strong> is one of the six new race/class combinations, bringing Paladin to the Horde.</td>
+            <td>Will of the Forsaken on a plate healer is a new combination that did not exist in Classic.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Secondary reading: <a href="https://www.icy-veins.com/wow-forever/paladin-class-overview" rel="noopener">Icy Veins Paladin Class Overview</a> (updated 16 Sep 2026). Ledger C114.</p>
+  </section>
+
+  <section id="priest" aria-labelledby="h-priest">
+    <h2 id="h-priest">Priest <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Priest changes with battleground relevance. Source: Icy Veins Priest Class Overview (Rainy), last updated 16 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Fear Ward is no longer Dwarf-only</strong> — it is baseline for every Priest race.</td>
+            <td>Removes the single biggest race-lock in Classic Priest PvP. Every Priest now has a fear pre-empt.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/priest-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Devouring Plague is no longer Undead-only</strong>; <strong>Shadow Word: Death</strong> is a new Shadow spell.</td>
+            <td>Shadow pressure and a finisher become race-independent.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/priest-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Shadowform</strong> now blocks healing spells rather than Holy spells; +10% Shadow damage, −50% Shadow mana cost, +100% Shadow crit damage, <strong>−15% physical damage taken</strong>.</td>
+            <td>A standing 15% physical mitigation is a defensive statistic, not a damage one — it changes how melee trades against a Shadow Priest.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/priest-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Race-specific Priest spells persist:</strong> Dwarf gains Chastise (a root against Humanoids) in place of Fear Ward; Human trades Desperate Prayer for Divine Grace (heals a target below 50% health and removes Weakened Soul); Undead gains Dark Sacrifice (health into mana); Night Elf Elune's Grace now grants 50% dodge against melee and ranged.</td>
+            <td>This is the one class where race choice still changes the spellbook, not just the racial bar.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/priest-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Divine Spirit</strong> is learned as a normal Priest spell rather than a Discipline talent.</td>
+            <td>Matches Blizzard's statement that Divine Spirit is baseline. One of the few guide lines corroborated first-party.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Gnome Priest</strong> is a new race/class combination, with two entirely new Priest racial spells: <strong>Confounding Flash</strong> (an area crowd-control effect that confuses up to 5 enemies) and <strong>Contingency Plan</strong>.</td>
+            <td>An area crowd-control effect on a healer is a genuinely new tool in this game, and Escape Artist answers the root-and-snare chains healers are killed by.</td>
+            <td><span class="chip official">Official</span> (combination) <span class="chip guide">Guide</span> (race-spells) <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/priest-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Explicit gap:</strong> Icy Veins states Troll Priest race-specific spells were not confirmed from the BlizzCon demo. We leave that blank rather than filling it.
+      <strong>Race note:</strong> Skyborne cannot be Priest; the playable Priest races are Human, Dwarf, Night Elf, Gnome, Undead and Troll. Ledger C115.</p>
+  </section>
+
+  <section id="rogue" aria-labelledby="h-rogue">
+    <h2 id="h-rogue">Rogue <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Rogue changes with battleground relevance. Source: Icy Veins Rogue Class Overview (Sellin), last updated 15 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Restless Blades</strong>: spending combo points reduces the cooldowns of Adrenaline Rush, Blade Flurry, <strong>Evasion, Sprint and Vanish</strong> by 2 seconds per point.</td>
+            <td>Sprint and Vanish are the flag-carrier and escape buttons; making them cooldown-reducible is the most PvP-relevant Rogue change published.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/rogue-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Cutthroat</strong>: Backstab has a chance to make the next Ambush usable outside stealth.</td>
+            <td>Opener-level burst without re-stealthing, which changes how a Rogue re-engages after a failed kill attempt.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/rogue-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Energy regenerates continuously</strong> instead of in two-second ticks.</td>
+            <td>Removes tick-timing from every stun-lock sequence; the whole class plays at a different pace.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/rogue-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Improved Kidney Shot</strong> now increases the Rogue's own damage against the target, scaling with points.</td>
+            <td>A stun that is also a personal damage amplifier during the stun.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/rogue-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Mutilate</strong> added (two combo points, bonus damage to poisoned targets); <strong>Venom</strong> is the Assassination capstone (+30% poison damage, +10% application chance, duration scaling with combo points).</td>
+            <td>Faster combo generation means faster access to Kidney Shot and Cheap Shot chains.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/rogue-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Hack and Slash</strong> gives per-weapon-type bonuses instead of forcing one weapon; Rogues can now use one-handed axes.</td>
+            <td>Weapon availability stops constraining spec choice, which matters when gear is scarce at launch.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/rogue-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Counterplay to record:</strong> Human Perception detects stealth for 20 seconds and Paladin Consecration is baseline at 20 — both are published stealth counters. Whether they are sufficient is untested. Ledger C116.</p>
+  </section>
+
+  <section id="shaman" aria-labelledby="h-shaman">
+    <h2 id="h-shaman">Shaman <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Shaman changes with battleground relevance. Source: Icy Veins Shaman Class Overview (Seksixeny), last updated 17 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Earthbound</strong>: Earthbind Totem roots nearby targets for 5 seconds when cast.</td>
+            <td>An instant area root on a 5-second window. Icy Veins calls it “incredibly powerful in PvP” — their words, attributed.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/shaman-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Ghost Wolf</strong>: base cast reduced to 2 seconds; Improved Ghost Wolf can make it instant and usable everywhere at full investment.</td>
+            <td>Instant travel form on a class that had none is a direct objective-running upgrade.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/shaman-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Totemic Projection and Totemic Recall</strong> move totems up to 30 yards; Call of the Elements drops a full set with a 3-second cast.</td>
+            <td>Totems stop being static liabilities when a fight moves across a capture point.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/shaman-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Maelstrom Weapon</strong>: melee attacks stack a buff reducing Lightning Bolt's cast time and mana cost.</td>
+            <td>Gives Enhancement instant ranged damage — relevant for finishing a fleeing flag carrier.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/shaman-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Riptide</strong> is the Restoration capstone: a direct heal plus a heal-over-time that also boosts Chain Heal on its target by 25%.</td>
+            <td>Instant-plus-HoT healing under pressure, the pattern healers need when they cannot stand still.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/shaman-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Lightning Bolt</strong> max rank casts in 2.5 seconds and <strong>Chain Lightning</strong> is 0.5 seconds faster than Vanilla, baseline.</td>
+            <td>Shorter casts are harder to interrupt and easier to land while moving between objectives.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/shaman-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Dwarf Shaman</strong> brings Shaman to the Alliance; Horde Skyborne can also be Shaman.</td>
+            <td>Dwarf Stoneform on a Shaman is new: a poison/bleed/disease cleanse plus 10% physical mitigation.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Faction note:</strong> Shaman is no longer Horde-only, which changes the faction-balance argument that shaped Classic battlegrounds. Blizzard has separately said the PvP ruleset uses Season-of-Discovery-style faction balance. Ledger C117.</p>
+  </section>
+
+  <section id="warlock" aria-labelledby="h-warlock">
+    <h2 id="h-warlock">Warlock <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Warlock changes with battleground relevance. Source: Icy Veins Warlock Class Overview (Crix), last updated 15 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Demons gain a Move To command with 100-yard range.</strong></td>
+            <td>Icy Veins explicitly calls this a major improvement for precise positioning “especially in PvP” — a Felhunter can be sent to a caster without the Warlock following.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Felhunter retains Spell Lock</strong>; demons scale with the Warlock's stats; Succubus was the strongest damage pet in the tested build; Voidwalker generated extreme threat.</td>
+            <td>Spell Lock remains the class's interrupt, and pet scaling means it stays relevant at 60.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Bane of Agony and Bane of Doom are no longer Curses.</strong></td>
+            <td>A Warlock can run a Bane and a Curse (for example Curse of the Elements) on the same target at once — more simultaneous pressure and debuff coverage.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Damage-over-time effects can critically strike</strong>; Pandemic raises DoT crit damage by up to 100%.</td>
+            <td>Fundamentally changes Affliction's damage profile and the value of crit gear in a dot-and-run playstyle.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Improved Drains</strong>: the Drain Soul bonus is tripled against enemies below 20% health.</td>
+            <td>A published execute window on a channelled spell.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Spellstone and Firestone reworked into weapon oils</strong> (1% haste and spell power, or 1% crit and crit damage), no longer occupying the wand slot.</td>
+            <td>A free wand slot and a permanent self-buff, which is a small but real gearing change.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Haste does not currently affect DoTs or drain channels</strong> in the tested build.</td>
+            <td>A stat-weight caveat flagged by the source itself. Re-check at each beta build before making gear decisions.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warlock-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Troll Warlock</strong> is a new race/class combination.</td>
+            <td>Berserking on a caster is a published 10% cast-speed cooldown.</td>
+            <td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap" rel="noopener">Blizzard</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Cross-reference:</strong> Blizzard named Fear as a form of crowd control that “still matters”, and Warlocks are the class built around it — while Undead Will of the Forsaken now only removes Fear without granting immunity afterwards. Those two published facts interact directly. Ledger C118.</p>
+  </section>
+
+  <section id="warrior" aria-labelledby="h-warrior">
+    <h2 id="h-warrior">Warrior <span class="chip guide">Guide-reported, may change</span></h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Warrior changes with battleground relevance. Source: Icy Veins Warrior Class Overview (Abide), last updated 13 Sep 2026, read 18 Sep 2026.</caption>
+        <thead><tr><th scope="col">Published change</th><th scope="col">Why it matters in a battleground</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Recklessness, Retaliation and Shield Wall no longer share cooldowns.</strong> Shield Wall is 60% damage reduction for 12 seconds; both Shield Wall and Retaliation sit on 15-minute cooldowns.</td>
+            <td>The Classic penalty of locking out your defensive by using your offensive is gone — the single biggest published Warrior PvP change.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Spearing Strike</strong>: 15 Rage, 40% weapon damage, +80% against Giants, Dragonkin or mounted targets, and <strong>forcibly dismounts mounted targets</strong>.</td>
+            <td>A published dismount tool. In a game where mounts are expensive and travel is slow, dismounting a runner is an objective-denial ability.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Bloodthirst</strong> deals 35% attack power (down from 45%) but grants <strong>10% increased movement speed</strong>.</td>
+            <td>A damage nerf traded for a mobility buff — an explicit sign the class is being tuned for chasing, not just standing.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Victory Rush</strong> restores 10% maximum health after a qualifying kill, on a 30-second cooldown.</td>
+            <td>Self-sustain between kills in a battleground, where kills are frequent.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Thunder Clap</strong> works in Defensive Stance, slows enemy attack speed by 20% and hits up to 4 targets; <strong>Shield Block</strong> blocks 2 attacks over 7 seconds on a 5-second cooldown.</td>
+            <td>Area attack-speed slow plus near-permanent block uptime for anyone defending a node.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Weaponmaster</strong> merges the weapon-specific talents; <strong>Bloodthrill</strong> procs Overpower from Rend targets without requiring a dodge; <strong>Mortal Strike</strong> remains the Arms capstone with its healing reduction.</td>
+            <td>Healing reduction is still the reason Arms exists in PvP, and Overpower access no longer depends on the enemy dodging.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Warrior can be every race</strong>, including Skyborne — the only class with no race restriction.</td>
+            <td>Maximum racial flexibility: Orc Hardiness, Human Will to Survive, Dwarf Stoneform and Skyborne Walk on Air are all available to a Warrior.</td>
+            <td><span class="chip guide">Guide</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><strong>Note on weapon skill:</strong> Blizzard states weapon skill still exists but items give less of it per item, so weapon-skill gear is no longer automatically correct. Ledger C119.</p>
+  </section>
+
+  <section id="gaps" aria-labelledby="h-gaps">
+    <h2 id="h-gaps">What is missing from every profile — and when it arrives</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Not announced for any class <span class="chip pending">Gap</span></h3>
+        <ul class="checklist">
+          <li class="x">Any PvP-specific tuning pass or class-balance statement for battlegrounds.</li>
+          <li class="x">A PvP stat system (a resilience equivalent). Blizzard has said only that PvP armor “has stats on it”.</li>
+          <li class="x">Honor gear itemisation, vendor inventories or prices — so no class can be gear-planned for PvP.</li>
+          <li class="x">Diminishing-returns rules on crowd control in Forever.</li>
+          <li class="x">Whether the Darkspear Islands battleground has a level bracket, and whether the Classic battlegrounds are in at launch.</li>
+        </ul>
+        <p class="small">Ledger C120. See <a href="pvp.html#unknown">every unpublished PvP fact</a>.</p>
+      </div>
+      <div class="card">
+        <h3>When each profile can be upgraded</h3>
+        <ul class="clean">
+          <li><strong>Now → 21 Oct 2026:</strong> beta at level 20, then 30. Abilities below 30 can be confirmed in-game; nothing above can.</li>
+          <li><strong>4 Nov 2026:</strong> live level 60. First real battleground observation. Profiles gain an “observed” column, clearly separated from “published”.</li>
+          <li><strong>9 Dec 2026:</strong> raids open, gear differentiates, and PvP performance becomes comparable at a stated gear level.</li>
+          <li><strong>After the first full PvP season:</strong> the earliest point a ranking can be published under our stated methodology.</li>
+        </ul>
+        <p class="small">The methodology is published in advance on the <a href="classes.html#commitment">Classes page</a> so the first ranking can be audited against it.</p>
+      </div>
+    </div>
+    <div class="note">
+      <p><strong>Our reasoning, labelled as such.</strong> <span class="chip ours">Ours</span> The only published class facts
+      with unambiguous battleground meaning today are mobility, control, control-break and immunity lines — Druid Berserk's
+      fear immunity, Shaman's instant Ghost Wolf and Earthbind root, Mage's frozen-target burst, Rogue's cooldown-reducible
+      Vanish and Sprint, Warrior's dismount, Warlock's pet Move To, Paladin's stated lack of an interrupt or slow, and the
+      racial cleanses (Will to Survive, Stoneform, Escape Artist, Hardiness, Will of the Forsaken). Damage tuning, gear
+      scaling and team composition are not measurable before live level-60 play, and we will not estimate them. Ledger C121.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard. No content from Wowhead, Icy Veins or any other site is rehosted here; sources are summarised, credited and linked.</p>
+    <p>Snapshot <span data-snapshot>2026-09-18</span> · class PvP claims C111–C121 · <a href="sources.html#claims">full ledger</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

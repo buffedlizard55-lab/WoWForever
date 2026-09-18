@@ -1,0 +1,28 @@
+##
+## MARKET BASELINE LOG — WoW Forever Hub
+##
+## Decision recorded on the Work plan page: option (a) — a bounded manual daily
+## log of the published watchlist only. No scraping, no borrowed price data, no
+## estimates. Every row is an observation a human read off the auction house.
+##
+## This file is INTENTIONALLY EMPTY of data rows until 4 November 2026, because
+## no auction house exists for World of Warcraft: Forever before then. Publishing
+## a single invented price would break the one rule this project keeps.
+##
+## Columns
+##   date          ISO date (UTC) the observation was taken
+##   faction       alliance | horde   (the auction house is US-wide but faction-separated)
+##   item          exact in-game item name
+##   item_id       Wowhead Forever item id, or blank if not yet confirmed in the Forever namespace
+##   qty_listed    number of units listed at the time of observation
+##   min_buyout_c  lowest buyout in COPPER for one unit (integer; 1g = 10000c)
+##   observer      who recorded it
+##   source_url    permalink to a screenshot or addon export, if any
+##   note          anything that explains an outlier (patch day, world event, etc.)
+##
+## Watchlist (justified on gold.html, each entry tied to a verified mechanic):
+##   herbs, cooking spices (Mild/Hot), vials, camp-object materials per profession,
+##   riding-training-relevant gold sinks, and from 9 Dec 2026 the enchanting
+##   materials from raid disenchants and crafted BoE tier pieces.
+##
+date,faction,item,item_id,qty_listed,min_buyout_c,observer,source_url,note

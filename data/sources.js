@@ -343,31 +343,6 @@ window.WOWF_SOURCES = [
     ]
   },
   {
-    id: "iv-hub",
-    title: "World of Warcraft Forever Builds, Guides and News (hub)",
-    publisher: "Icy Veins",
-    date: "2026-09-18 (checked)",
-    url: "https://www.icy-veins.com/wow-forever/",
-    tier: "guide",
-    supports: [
-      "Icy Veins maintains class overview pages for all nine classes plus race guides, a roadmap and a beta guide",
-      "Class guide URLs used on our site (e.g. /wow-forever/warrior-class-overview)",
-      "Site policy: links to Icy Veins are attribution to their analysis, never a copy of it"
-    ]
-  },
-  {
-    id: "iv-races",
-    title: "Best Race for Every Class in WoW Forever — Watch Our Breakdown",
-    publisher: "Icy Veins (Anshlun)",
-    date: "2026-09-17",
-    url: "https://www.icy-veins.com/wow-forever/news/best-race-for-every-class-in-wow-forever-watch-our-breakdown/",
-    tier: "guide",
-    supports: [
-      "Icy Veins' recommended race per class for the beta (analysis, not Blizzard fact)",
-      "Every race receives four new or reworked racial abilities in Forever"
-    ]
-  },
-  {
     id: "iv-tauren",
     title: "Tauren Race Guide for WoW Forever",
     publisher: "Icy Veins (Abide)",
@@ -505,7 +480,7 @@ window.WOWF_SOURCES = [
     tier: "guide",
     supports: [
       "A class overview page exists for every class: /wow-forever/druid-class-overview, hunter-, mage-, paladin-, priest-, rogue-, shaman-, warlock-, warrior-class-overview",
-      "Icy Veins' hub also hosts a Forever overview, roadmap, beta guide and subscription page",
+      "Icy Veins' hub also hosts a Forever overview, roadmap, beta access and subscription pages, plus a Forever news feed",
       "Class overviews are attributed analysis, not Blizzard statements; where they state gear recommendations they mark them as pending beta testing"
     ]
   },
@@ -519,7 +494,8 @@ window.WOWF_SOURCES = [
     supports: [
       "Per-class best-race picks: Druid Night Elf / Tauren; Hunter Human / Troll; Mage Gnome / Orc; Paladin Human / Undead; Priest Gnome / Undead; Rogue Night Elf / Troll; Shaman Dwarf / Orc; Warlock Gnome / Undead; Warrior Night Elf (Dwarf for tanking) / Orc or Tauren",
       "The article states the picks are based on the BlizzCon demos and datamining and that they will likely change before launch",
-      "Bonus tip: Tauren Plainsrunning is expected to be strong during a level-20 beta cap"
+      "Bonus tip: Tauren Plainsrunning is expected to be strong during a level-20 beta cap",
+      "Every race receives four new or reworked racial abilities in Forever"
     ]
   },
   {
@@ -566,6 +542,164 @@ window.WOWF_SOURCES = [
     ]
   },
   /* ---- FLAGGED SOURCES: recorded so reviewers can see what we deliberately did NOT use ---- */
+  {
+    id: "iv-druid",
+    title: "Druid Class Overview — WoW Forever",
+    publisher: "Icy Veins (Meyra and Voulk)",
+    date: "2026-09-15 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/druid-class-overview",
+    tier: "guide",
+    supports: [
+      "Omen of Clarity is baseline and procs from spells and heals as well as melee attacks",
+      "Nature's Grasp is baseline with a 100% chance to entangle the next attacker in Entangling Roots",
+      "Frenzied Regeneration heals 1% of maximum health per Rage consumed",
+      "Berserk is a new 3-minute cooldown; in Cat form it doubles combo-point-generator crit chance, in Bear form it removes Mangle's cooldown and hits 3 targets; the Druid is immune to fear during Berserk",
+      "Tiger's Fury is a 15% physical damage increase for 6s on a 30s cooldown and costs no energy",
+      "Restoration gains Wild Growth; Swiftmend no longer consumes a heal-over-time effect",
+      "Damage-over-time and heal-over-time effects can critically strike",
+      "Furor reworked: power-shifting no longer nets extra energy"
+    ]
+  },
+  {
+    id: "iv-hunter",
+    title: "Hunter Class Overview — WoW Forever",
+    publisher: "Icy Veins (Impakt)",
+    date: "2026-09-15 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/hunter-class-overview",
+    tier: "guide",
+    supports: [
+      "Traps are now usable in combat",
+      "Pets scale with the hunter's stats",
+      "Aimed Shot is baseline for all hunters and shares a cooldown with Multi-Shot",
+      "Abilities no longer clip Auto Shot, though the hunter must still stand still to shoot",
+      "Lone Wolf is an early Marksmanship talent giving 20% more damage while no pet is active",
+      "Sniper Shot is the Marksmanship capstone with a 4-second cast, described as a strong burst option",
+      "Survival is redesigned as a primarily melee specialization with Strider Kick, Savage Strikes and improved traps",
+      "Human is a new hunter race; Icy Veins states Will to Survive breaks stuns and does not share a cooldown with the standard PvP trinket"
+    ]
+  },
+  {
+    id: "iv-mage",
+    title: "Mage Class Overview — WoW Forever",
+    publisher: "Icy Veins (Wrdlbrmpft)",
+    date: "2026-09-13 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/mage-class-overview",
+    tier: "guide",
+    supports: [
+      "Ice Lance is an instant cast dealing 300% increased damage to frozen targets",
+      "Fingers of Frost gives chill effects a 30% chance to treat the next 2 spells as if the target were frozen",
+      "Shatter reaches its 50% crit bonus against frozen targets with 3 points and no longer depends on Improved Frost Nova",
+      "Improved Blizzard's chill lowers movement speed by 45% for 1.5s (down from 65% / 2s in Classic)",
+      "Hot Streak stacks up to 3 times, each stack cutting Pyroblast cast time by 25%",
+      "Frostfire Bolt damages, slows and applies a damage-over-time effect, using whichever school the target resists less",
+      "Arcane Blast stacks to 4, each stack increasing Arcane Blast damage by 175%",
+      "Orc Axe Specialization is irrelevant to mages because mages cannot wield axes"
+    ]
+  },
+  {
+    id: "iv-paladin",
+    title: "Paladin Class Overview — WoW Forever",
+    publisher: "Icy Veins (Meyra and Mytholxgy)",
+    date: "2026-09-16 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/paladin-class-overview",
+    tier: "guide",
+    supports: [
+      "Guide-side coverage of the Paladin changelist that Blizzard published in the Deep Dive recap",
+      "Used only as a secondary reading link; every Paladin fact on this site is cited to Blizzard's own recap"
+    ]
+  },
+  {
+    id: "iv-priest",
+    title: "Priest Class Overview — WoW Forever",
+    publisher: "Icy Veins (Rainy)",
+    date: "2026-09-16 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/priest-class-overview",
+    tier: "guide",
+    supports: [
+      "Fear Ward is no longer Dwarf-only and is baseline for every priest race",
+      "Devouring Plague is no longer Undead-only and is available to every priest race",
+      "Shadow Word: Death is a new Shadow spell",
+      "Shadowform now blocks healing spells rather than Holy spells; it increases Shadow damage by 10%, halves Shadow spell mana cost, adds 100% Shadow crit damage and reduces physical damage taken by 15%",
+      "Divine Spirit is learned as a normal priest spell instead of a Discipline talent",
+      "Race-specific priest spells persist: Dwarf gains Chastise (a root against Humanoids) in place of Fear Ward; Human trades Desperate Prayer for Divine Grace; Undead gains Dark Sacrifice; Night Elf Elune's Grace now gives 50% dodge against melee and ranged",
+      "Troll priest race spells were not confirmed from the BlizzCon demo at the time of writing",
+      "Gnome Priest racial spells are Confounding Flash (an area effect that confuses up to 5 enemies) and Contingency Plan",
+      "Skyborne cannot play Priest"
+    ]
+  },
+  {
+    id: "iv-rogue",
+    title: "Rogue Class Overview — WoW Forever",
+    publisher: "Icy Veins (Sellin)",
+    date: "2026-09-15 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/rogue-class-overview",
+    tier: "guide",
+    supports: [
+      "Energy is now a continuously regenerating resource instead of ticking in pulses",
+      "Restless Blades reduces the cooldowns of Adrenaline Rush, Blade Flurry, Evasion, Sprint and Vanish by 2 seconds per combo point spent",
+      "Cutthroat gives Backstab a chance to make the next Ambush usable outside stealth",
+      "Mutilate is added, generating two combo points and hitting harder against poisoned targets",
+      "Venom is the Assassination capstone: +30% poison damage and +10% application chance, duration scaling with combo points",
+      "Improved Kidney Shot increases the rogue's own damage against the target",
+      "Hack and Slash gives per-weapon-type bonuses instead of forcing a weapon choice",
+      "Rogues can use one-handed axes in Forever"
+    ]
+  },
+  {
+    id: "iv-shaman",
+    title: "Shaman Class Overview — WoW Forever",
+    publisher: "Icy Veins (Seksixeny)",
+    date: "2026-09-17 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/shaman-class-overview",
+    tier: "guide",
+    supports: [
+      "Ghost Wolf's base cast time drops to 2 seconds and Improved Ghost Wolf can make it instant and usable everywhere",
+      "Totemic Projection and Totemic Recall allow totems to be moved up to 30 yards; Call of the Elements drops a full set with a 3-second cast",
+      "Earthbound causes Earthbind Totem to root nearby targets for 5 seconds on cast — Icy Veins calls this incredibly powerful in PvP",
+      "Lava Burst is the Elemental capstone, 20% stronger against Flame Shock targets",
+      "Maelstrom Weapon reduces Lightning Bolt cast time and mana cost as it stacks; Rage of the Farseer is the Enhancement capstone",
+      "Riptide is the Restoration capstone and boosts Chain Heal on its target by 25%",
+      "Dwarf is the Alliance shaman race; Horde Skyborne can be shaman",
+      "Lightning Bolt max rank is a 2.5-second cast and Chain Lightning is 0.5s faster than Vanilla"
+    ]
+  },
+  {
+    id: "iv-warlock",
+    title: "Warlock Class Overview — WoW Forever",
+    publisher: "Icy Veins (Crix)",
+    date: "2026-09-15 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/warlock-class-overview",
+    tier: "guide",
+    supports: [
+      "Warlock damage-over-time effects can now critically strike",
+      "Demons scale with the warlock's stats and gain a Move To command with 100-yard range, which the guide calls a major improvement for positioning in PvP",
+      "Bane of Agony and Bane of Doom are no longer Curses, so they stack with a separate Curse",
+      "Spellstone grants 1% haste and spell power; Firestone grants 1% crit and crit damage; both are now weapon oils rather than wand-slot items",
+      "Felhunter retains Spell Lock; Succubus was the strongest damage pet in the tested build; Voidwalker generated extreme threat",
+      "Drain Soul's Improved Drains bonus is tripled below 20% target health",
+      "Haste does not currently affect damage-over-time effects or drain channels in the tested build"
+    ]
+  },
+  {
+    id: "iv-warrior",
+    title: "Warrior Class Overview — WoW Forever",
+    publisher: "Icy Veins (Abide)",
+    date: "2026-09-13 (last updated); read 2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/warrior-class-overview",
+    tier: "guide",
+    supports: [
+      "Recklessness, Retaliation and Shield Wall no longer share cooldowns with each other",
+      "Shield Wall reduces damage taken by 60% for 12 seconds on a 15-minute cooldown; Retaliation is also 15 minutes",
+      "Victory Rush restores 10% maximum health on a 30-second cooldown after a qualifying kill",
+      "Thunder Clap is usable in Defensive Stance, slows enemy attack speed by 20% and hits up to 4 targets",
+      "Shield Block blocks 2 attacks over 7 seconds on a 5-second cooldown",
+      "Taunt has an 8-second cooldown and benefits from the new universal Hit stat",
+      "Bloodthirst deals 35% attack power (down from 45%) and grants 10% movement speed",
+      "Spearing Strike deals bonus damage to Giants, Dragonkin and mounted targets and forcibly dismounts mounted targets",
+      "Weaponmaster merges the weapon-specific talents; Bloodthrill gives Overpower procs from Rend targets without requiring a dodge",
+      "Warriors can be every race including Skyborne"
+    ]
+  },
   {
     id: "flag-rmt-tierlists",
     title: "Gold/boosting-site 'tier lists' and 'BiS lists' for Forever (multiple domains)",
