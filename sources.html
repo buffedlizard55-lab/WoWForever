@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources and claims ledger | WoW Forever Hub</title>
+<meta name="description" content="Every source used by WoW Forever Hub, with publisher, date and the exact claims it supports, plus the full machine-readable claims ledger with evidence classes.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Sources &amp; ledger · snapshot <span data-snapshot>2026-09-18</span></p>
+    <h1>Sources and claims ledger</h1>
+    <p class="lede">
+      This is the audit trail. Every source is listed with its publisher, date, evidence class and the specific claims it
+      supports. Every claim on the site has an ID, a status and a snapshot date. Both tables are filterable, and both are
+      generated from the same data files a reviewer can read directly on the repository.
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#sources">Source registry</a></li>
+      <li><a href="#claims">Claims ledger</a></li>
+      <li><a href="#flagged">Flagged sources (recorded, not used)</a></li>
+    </ul>
+  </nav>
+
+  <section id="sources" aria-labelledby="h-sources">
+    <h2 id="h-sources">Source registry</h2>
+    <p class="sub">
+      Evidence classes: <span class="chip official">official</span> Blizzard first-party ·
+      <span class="chip press">press</span> developer interview or named-outlet reporting ·
+      <span class="chip datamine">datamine</span> client data ·
+      <span class="chip guide">guide</span> reputable guide-site analysis ·
+      <span class="chip community">community</span> unverified or flagged.
+    </p>
+    <div class="controls" data-filter-for="#sourceTable">
+      <label class="field">Search
+        <input type="search" placeholder="e.g. honor, profession, dungeon">
+      </label>
+      <label class="field">Class
+        <select data-key="tier">
+          <option value="">All</option>
+          <option value="official">Official</option>
+          <option value="press">Press</option>
+          <option value="datamine">Datamine</option>
+          <option value="guide">Guide</option>
+          <option value="community">Community / flagged</option>
+        </select>
+      </label>
+      <span class="count"></span>
+    </div>
+    <div class="table-wrap">
+      <table class="compact" id="sourceTable">
+        <thead>
+          <tr><th scope="col">Title</th><th scope="col">Publisher</th><th scope="col">Date</th><th scope="col">Class</th><th scope="col">Supports</th><th scope="col">Link</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="claims" aria-labelledby="h-claims">
+    <h2 id="h-claims">Claims ledger</h2>
+    <p class="sub">
+      Each claim lists the sources it rests on. “Unknown” rows are deliberate: they record what is <em>not</em> announced so
+      the gap stays visible between updates.
+    </p>
+    <div class="controls" data-filter-for="#claimTable">
+      <label class="field">Search
+        <input type="search" placeholder="e.g. BiS, honor, GDKP, Tauren">
+      </label>
+      <label class="field">Category
+        <select data-key="cat">
+          <option value="">All</option>
+          <option value="general">General / roadmap</option>
+          <option value="pvp">PvP</option>
+          <option value="classes">Classes</option>
+          <option value="gear">Gear / BiS</option>
+          <option value="gold">Gold / economy</option>
+          <option value="meta">Meta / irregularities</option>
+        </select>
+      </label>
+      <label class="field">Status
+        <select data-key="status">
+          <option value="">All</option>
+          <option value="official">Official</option>
+          <option value="press">Press</option>
+          <option value="datamine">Datamine</option>
+          <option value="guide">Guide</option>
+          <option value="community">Community</option>
+          <option value="ours">Our reasoning</option>
+          <option value="unknown">Unknown / not announced</option>
+        </select>
+      </label>
+      <span class="count"></span>
+    </div>
+    <div class="table-wrap">
+      <table class="compact" id="claimTable">
+        <thead>
+          <tr><th scope="col">ID</th><th scope="col">Claim</th><th scope="col">Status</th><th scope="col">Sources</th><th scope="col">Snapshot</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="flagged" aria-labelledby="h-flagged">
+    <h2 id="h-flagged">Flagged sources (recorded, not used)</h2>
+    <p class="sub">
+      We keep a record of sources we examined and rejected. This is deliberate: when a reader asks “why didn't you use
+      site X?”, the answer is on the record with a date.
+    </p>
+    <ul class="clean">
+      <li><strong>Gold/boosting-market sites</strong> — publish confident Forever tier lists, BiS lists and PvP rank numbers with no verifiable
+        basis, and many sell carries or currency. Registered with tier <span class="chip community">community</span>, excluded from every claim
+        about the game, and cited only as evidence that the irregularity exists (ledger rows C100–C101). No link is published to them.</li>
+      <li><strong>Unofficial “Forever” guide domains</strong> — a mix of honest “not announced” statements and unsupported claims
+        (for example, arena strategy for a game with no announced arena). Used only as negative examples.</li>
+      <li><strong>Community forum threads</strong> — useful for spotting questions, never used as evidence. A Blizzard-forum player post is a
+        player post, not a design document.</li>
+      <li><strong>Unattributed aggregator sites</strong> — pages that repeat a date or number with no link to Blizzard or to whoever first reported it.
+        If a claim cannot be traced to a first party, it does not enter the ledger.</li>
+    </ul>
+    <p class="small">
+      Full list with publishers and the reason for rejection:
+      <code>data/sources.js</code> → entries whose IDs begin with <code>flag-</code>.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
+    <p>Snapshot <span data-snapshot>2026-09-18</span> · raw data: <code>data/sources.js</code>, <code>data/claims.js</code></p>
+  </div>
+</footer>
+
+<script src="data/sources.js"></script>
+<script src="data/claims.js"></script>
+<script>
+(function () {
+  'use strict';
+  var idx = window.WOWF_SOURCE_INDEX || {};
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ---- source registry table ---- */
+  var sBody = document.querySelector('#sourceTable tbody');
+  if (sBody && window.WOWF_SOURCES) {
+    sBody.innerHTML = window.WOWF_SOURCES.map(function (s) {
+      var hay = (s.title + ' ' + s.publisher + ' ' + s.supports.join(' ')).toLowerCase();
+      var supports = s.supports.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+      return '<tr data-search="' + esc(hay) + '" data-tier="' + esc(s.tier) + '">' +
+        '<td><strong>' + esc(s.title) + '</strong>' + (s.note ? '<br><span class="small">' + esc(s.note) + '</span>' : '') + '</td>' +
+        '<td>' + esc(s.publisher) + '</td>' +
+        '<td class="small">' + esc(s.date) + '</td>' +
+        '<td><span class="chip ' + esc(s.tier) + '">' + esc(s.tier) + '</span></td>' +
+        '<td><ul class="clean small">' + supports + '</ul></td>' +
+        '<td><a href="' + esc(s.url) + '" rel="noopener">' + (s.url.indexOf('method.html') === 0 ? 'Details' : 'Open') + '</a></td>' +
+      '</tr>';
+    }).join('');
+  }
+
+  /* ---- claims ledger table ---- */
+  var cBody = document.querySelector('#claimTable tbody');
+  if (cBody && window.WOWF_CLAIMS) {
+    cBody.innerHTML = window.WOWF_CLAIMS.map(function (c) {
+      var hay = (c.id + ' ' + c.claim + ' ' + (c.note || '') + ' ' + c.cat).toLowerCase();
+      var links = (c.sources || []).map(function (id) {
+        var s = idx[id];
+        if (!s) return '<span class="src">' + esc(id) + '</span>';
+        return '<a class="src" href="' + esc(s.url) + '" rel="noopener" title="' + esc(s.title + ' — ' + s.publisher) + '">' + esc(id) + '</a>';
+      }).join(' ');
+      return '<tr data-search="' + esc(hay) + '" data-cat="' + esc(c.cat) + '" data-status="' + esc(c.status) + '">' +
+        '<td class="mono">' + esc(c.id) + '</td>' +
+        '<td>' + esc(c.claim) +
+          (c.note ? '<br><span class="small">' + esc(c.note) + '</span>' : '') + '</td>' +
+        '<td><span class="chip ' + esc(c.status) + '">' + esc(c.status) + '</span></td>' +
+        '<td><span class="srcs">' + links + '</span></td>' +
+        '<td class="small">' + esc(c.snapshot) + '</td>' +
+      '</tr>';
+    }).join('');
+  }
+})();
+</script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
