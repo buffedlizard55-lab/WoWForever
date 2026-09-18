@@ -10,6 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sources and claims ledger | WoW Forever Hub">
 <meta property="og:description" content="Every source used by WoW Forever Hub, with publisher, date and the exact claims it supports, plus the full machine-readable claims ledger with evidence classes.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/sources.html">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -192,7 +193,8 @@
         '<td class="small">' + esc(s.date) + '</td>' +
         '<td><span class="chip ' + esc(s.tier) + '">' + esc(s.tier) + '</span></td>' +
         '<td><ul class="clean small">' + supports + '</ul></td>' +
-        '<td><a href="' + esc(s.url) + '" rel="noopener">' + (s.url.indexOf('method.html') === 0 ? 'Details' : 'Open') + '</a></td>' +
+        '<td><a href="' + esc(s.url) + '" rel="noopener">' + (s.url.indexOf('method.html') === 0 ? 'Details' : 'Open') + '</a>' +
+          ((s.also && s.also.length) ? '<br><span class="small">+' + s.also.length + ' more link' + (s.also.length > 1 ? 's' : '') + ' from this source</span>' : '') + '</td>' +
       '</tr>';
     }).join('');
   }

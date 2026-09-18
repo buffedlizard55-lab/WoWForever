@@ -1,0 +1,5 @@
+# WoW Forever Hub — static documentation site, GitHub Pages.
+User-agent: *
+Allow: /
+
+Sitemap: https://buffedlizard55-lab.github.io/WoWForever/sitemap.xml

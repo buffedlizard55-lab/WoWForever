@@ -8,6 +8,11 @@
      datamine  = client data / beta build extraction, subject to change
      guide     = reputable standing guide site's own analysis
      community = unverified player post, forum opinion, or RMT-adjacent site
+   An entry may carry an optional `also: [urls]` list. Those URLs are additional
+   pages of the same source that this site links to (for example the other two
+   Warrior spec guides on the same site). tools/check-citations.mjs treats them
+   as registered, so a page can never link out to an unregistered URL; the
+   source watcher fingerprints the main `url` only.
    ========================================================================== */
 window.WOWF_SOURCES = [
   {
@@ -468,7 +473,17 @@ window.WOWF_SOURCES = [
       "Wowhead's full Forever guide index lists 17 guides at the snapshot date",
       "Class/spec coverage is limited to three pages: Feral Tank Druid overview, Protection Paladin abilities, Protection Paladin overview — all PvE tank guides",
       "There is no PvP guide, no Best-in-Slot guide and no gold-making guide in the Forever guide index",
+      "Re-checked 2026-09-18 (third round, this session): the index still reads \"17 of 17\", the four Classes-category entries are unchanged, and there is still no PvP, Best-in-Slot or gold guide",
       "The Class Guides category page (wowhead.com/forever/guides/classes) displayed a single guide while the full index showed the three class/spec pages — used as evidence of coverage, not of game facts"
+    ]
+    ,
+    also: [
+      "https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank",
+      "https://www.wowhead.com/forever/guide/classes/paladin/protection/abilities-pve-tank",
+      "https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank",
+      "https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations",
+      "https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview",
+      "https://www.wowhead.com/forever/guide/legacy-system-overview-rewards"
     ]
   },
   {
@@ -481,7 +496,24 @@ window.WOWF_SOURCES = [
     supports: [
       "A class overview page exists for every class: /wow-forever/druid-class-overview, hunter-, mage-, paladin-, priest-, rogue-, shaman-, warlock-, warrior-class-overview",
       "Icy Veins' hub also hosts a Forever overview, roadmap, beta access and subscription pages, plus a Forever news feed",
-      "Class overviews are attributed analysis, not Blizzard statements; where they state gear recommendations they mark them as pending beta testing"
+      "Class overviews are attributed analysis, not Blizzard statements; where they state gear recommendations they mark them as pending beta testing",
+      "Per-spec Forever PvE guides now exist for every class, not just a few: the class switcher on the Arms Warrior guide (opened 2026-09-18, last updated 17 Sep 2026) lists Balance Druid, Beast Mastery Hunter, Frost Mage, Holy Paladin, Discipline Priest, Assassination Rogue, Elemental Shaman, Affliction Warlock and Arms Warrior, with Fury and Protection Warrior alongside",
+      "Those spec guides are explicitly level-20 and PvE-scoped: the Arms guide says it \"covers leveling and PvE play through level 20\", that its advice is \"starting recommendations based on the available WoW Forever trainer and talent information\", and that its scores \"are early ratings based on the Level 20 toolkit and do not reflect end-game potential\"",
+      "Individually opened on 2026-09-18: the Warrior overview and the Arms Warrior guide. The other spec-guide URLs are registered from that switcher and have not each been read end to end — stated here so a reviewer is not misled",
+      "Warrior overview re-checked 2026-09-18: it states Dwarf Mace Specialization now gives 1% critical strike with all spells and abilities while a mace is equipped, and that the new Dwarf racial Big Game Hunter deals 5% more damage to Beasts"
+    ],
+    also: [
+      "https://www.icy-veins.com/wow-forever/balance-druid-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/beast-mastery-hunter-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/frost-mage-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/holy-paladin-healer-pve-guide",
+      "https://www.icy-veins.com/wow-forever/discipline-priest-healer-pve-guide",
+      "https://www.icy-veins.com/wow-forever/assassination-rogue-melee-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/elemental-shaman-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/affliction-warlock-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/fury-warrior-melee-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/protection-warrior-tank-pve-guide"
     ]
   },
   {
@@ -539,6 +571,175 @@ window.WOWF_SOURCES = [
       "The item exists in the Forever database: item level 60, binds when picked up, unique (250), max stack 250, \"Added in patch 1.60.1\"",
       "Used as the worked example of how an item is cited on this site (item ID + permalink)",
       "Caution recorded as irregularity I-8: the same page's drop list is aggregated across game versions — its filters include Season of Discovery difficulties (SoD Normal, Heat Level 1–3, Seasonal 40) and vanilla raid bosses (Molten Core, Blackwing Lair, Zul'Gurub, Stratholme), which cannot be treated as Forever drop sources"
+    ]
+  },
+  /* =========================================================================
+     ADDED 2026-09-18, THIRD VERIFICATION ROUND (this session)
+     Every entry below was opened and read on 18 September 2026. Where a page
+     could not be read end to end, the note says so explicitly.
+     ========================================================================= */
+  {
+    id: "bnet-beta-live",
+    title: "The World of Warcraft: Forever Beta Now Live",
+    publisher: "Blizzard Entertainment (news.blizzard.com)",
+    date: "2026-09-17",
+    url: "https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live",
+    tier: "official",
+    supports: [
+      "The beta runs from 17 September \"through October 21, the last full day of testing\"",
+      "The level cap starts at 20 and \"will be raised to 30 later in the beta\"",
+      "Week 1 beta content: Skyborne and Zephras Isle, Hall of Thanes (level 13–18), Ruins of Lordaeron (level 15–20), all zone content up to level 20",
+      "Blizzard's own words: \"Additional zones, dungeons, and the new battleground will open for testing as the beta continues\"",
+      "A \"Server Slam\" window will open the beta to everyone for several hours later in the test; details to be announced",
+      "Beta access routes: Battle.net opt-in invitations sent regularly through the test, or eligible digital bundle purchases; phishing warning and how to verify a licence on the Battle.net account"
+    ]
+  },
+  {
+    id: "sk-interview",
+    title: "\"They might have reasons to welcome the Forsaken\" — WoW Forever's Kris Zierhut and Michael Nuthals on visiting Gilneas, What-Ifs, and more [Exclusive]",
+    publisher: "Sportskeeda (Jason Parker); interview with Kris Zierhut (Principal Game Designer) and Michael Nuthals (Senior Game Designer)",
+    date: "2026-09-15 (modified 10:50 GMT); read 2026-09-18",
+    url: "https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive",
+    tier: "press",
+    supports: [
+      "Mount gold cost sits in the training, quoted from Kris Zierhut: \"when you buy the training, the training is the full first 100 or 1,000 gold depending on which level. And then you get your first mount for free after paying for the training.\"",
+      "Cosmetic bundle mounts give no gameplay advantage: \"They still need to buy their training. You still got to pay the 1,000 gold.\" Blizzard states it is \"dead set against\" selling gameplay advantage",
+      "Every raid boss carries low-drop-chance items that are better than its other drops; the designers' own comparison is the Dragonspine Trophy from Gruul's Lair",
+      "Items can carry special effects tied to environments (forests, mountains, underground) or to creature types (Worgen, Dwarves, Undead, Dragons) — the stated purpose is to keep old raid loot useful in later tiers",
+      "Blizzard does not plan permanently unobtainable content: \"we never plan to do something like what was in Naxxramas, where you can't do it anymore\"; world events such as the Ahn'Qiraj gates style event will still exist",
+      "Setting: \"an adjacent timeline\" roughly two years after Warcraft III, whose \"day they diverge is that first day of launch of WoW\" (November 2004)",
+      "Aspiration only, explicitly not a plan: \"I would love to have a Caverns of Time-themed battleground\", plus Gilneas and Uldum as long-term wishes — the designers repeat that these are \"nothing to be promising\""
+    ]
+  },
+  {
+    id: "wh-sportskeeda",
+    title: "Official Controller Supports, Training Mount Skill Costs - Sportskeeda Interview on WoW: Forever",
+    publisher: "Wowhead (Squishei) — full summary of the Sportskeeda interview",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/news/official-controller-supports-training-mount-skill-costs-sportskeeda-interview-on-382963",
+    tier: "press",
+    supports: [
+      "Controller play is officially supported in Forever and framed as an accessibility option",
+      "Mount training costs 100 or 1,000 gold depending on tier, with the first mount then free",
+      "Blizzard will keep adding leveling content, not only level 60 content",
+      "New quests were aimed at level ranges that had few options, \"a lot of level 30 to 50 zones\""
+    ]
+  },
+  {
+    id: "wh-bwt",
+    title: "No Raid Attunements for Launch Raids - But Why Tho? Interview on WoW: Forever",
+    publisher: "Wowhead (Squishei) — full summary of the But Why Tho? interview with Ana Resendez and Clayton Stone",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/news/no-raid-attunements-for-launch-raids-but-why-tho-interview-on-wow-forever-382964",
+    tier: "press",
+    supports: [
+      "\"The new raids at launch will not require attunement\"; Blizzard \"won't answer that at the moment\" for later raids",
+      "Raid sizes are fixed at 10, 20 and 40 players instead of flex",
+      "Difficulty never adapts: \"they don't want to automatically change the difficulty of the content or have it adapt to your level\", so groups can out-gear or out-level content",
+      "Forever starts from a pre-Season-of-Discovery baseline; more SoD ideas may be brought into classes later"
+    ]
+  },
+  {
+    id: "bwt-interview",
+    title: "BLIZZCON 2026: The 'World Of Warcraft: Forever' Developers Talk Balancing Old And New",
+    publisher: "But Why Tho? (Mick Abrahamson); interview with Ana Resendez (Lead Software Engineer) and Clayton Stone (Associate Production Director)",
+    date: "2026-09-13, updated 2026-09-16; read 2026-09-18",
+    url: "https://butwhytho.net/2026/09/wow-classic-devs-world-of-warcraft-forever/",
+    tier: "press",
+    supports: [
+      "Clayton Stone, quoted directly: \"For WoW Forever, we are starting a little bit on a more conservative side. We certainly heard feedback from players that with Season of Discovery, we pushed the envelope about as far as we could push it.\"",
+      "\"I think we will certainly bring in more and more of those interesting things that we brought into Season of Discovery\" — SoD material is a later direction, not a launch feature",
+      "Reading note: the opening and the design-philosophy sections were read directly; the attunement and raid-size answers sit in the later part of the same interview and are quoted on this site through Wowhead's full summary (wh-bwt), which was read end to end"
+    ]
+  },
+  {
+    id: "wh-tier-models",
+    title: "Updated: Raid Tier Set Models Datamined for WoW: Forever",
+    publisher: "Wowhead (Archimtiros)",
+    date: "2026-09-16",
+    url: "https://www.wowhead.com/forever/news/raid-tier-set-models-datamined-for-wow-forever-382938",
+    tier: "datamine",
+    supports: [
+      "Raid set appearances datamined for all nine classes in HD and SD variants, with alternate colour versions for each class",
+      "No items are attached to those appearances yet: \"We have not yet datamined any items associated with these sets\"",
+      "Wowhead notes the sets are tagged \"Hyjal\" (the first 20-player raid) and expects traditional tier set bonuses",
+      "Used as evidence that raid tier sets exist for every class while their stats, item levels and drop sources remain unpublished"
+    ]
+  },
+  {
+    id: "wh-talentcalc",
+    title: "Forever Talent Calculator (tool)",
+    publisher: "Wowhead (tool fronted by Archimtiros)",
+    date: "checked 2026-09-18 (calculator updated from the BlizzCon demo on 13–14 Sep 2026)",
+    url: "https://www.wowhead.com/forever/talent-calc",
+    tier: "datamine",
+    supports: [
+      "All nine classes are present, each with three 51-point talent trees — consistent with Blizzard's statement that trees keep the Classic structure and row count",
+      "Wowhead's own disclaimer on the tool page: the data \"uses information gathered from testing at Blizzcon, as well as streams from the event\" and \"will be refreshed and fully accurate once we have the beta client available to datamine\"",
+      "The only publicly browsable per-class Forever talent view at this snapshot; used on our site as a planning link, never as a source for a ranking"
+    ]
+  },
+  {
+    id: "wh-issues",
+    title: "WoW Forever Beta Known Issues — September 18 (Blue Tracker mirror of Blizzard's forum post)",
+    publisher: "Blizzard Entertainment blue post, mirrored by Wowhead's Blue Tracker",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/blue-tracker/topic/us/2352687",
+    tier: "official",
+    supports: [
+      "Blizzard maintains a dated beta known-issues post; the edition mirrored here is 18 September 2026",
+      "Registered as a monitoring target: beta issue lists change daily and are the fastest official signal that a datamined behaviour is a bug rather than a design change",
+      "The body of the list was not read line by line at this snapshot, so no claim on this site rests on its contents"
+    ]
+  },
+  {
+    id: "iv-issues",
+    title: "WoW Forever Beta Known Issues List: September 18th",
+    publisher: "Icy Veins (Starym)",
+    date: "2026-09-18",
+    url: "https://www.icy-veins.com/wow-forever/news/wow-forever-beta-known-issues-list-september-18th/",
+    tier: "guide",
+    supports: [
+      "Independent mirror of the same Blizzard known-issues list, confirming it is published in EU and US and re-issued as the beta progresses",
+      "Used as a monitoring target only"
+    ]
+  },
+  {
+    id: "cf-tsm",
+    title: "TradeSkillMaster — CurseForge addon page (distribution listing)",
+    publisher: "CurseForge",
+    date: "checked 2026-09-18",
+    url: "https://www.curseforge.com/wow/addons/tradeskill-master",
+    tier: "datamine",
+    supports: [
+      "Second distribution channel checked alongside Wago for a Forever-compatible TSM build",
+      "Used only as a tooling-status link on the Gold page and in the Method coverage map; no game fact rests on it"
+    ]
+  },
+  {
+    id: "wh-forever-news",
+    title: "Forever News and Guides (Wowhead news index)",
+    publisher: "Wowhead",
+    date: "checked 2026-09-18",
+    url: "https://www.wowhead.com/forever/news",
+    tier: "guide",
+    supports: [
+      "The index used to find the interview write-ups, datamines and beta posts recorded in this round",
+      "At the snapshot it carried, among others: the guide compendium, Season of Discovery class quests returning, raid tier set models datamined, the Legacy system calculator, the talent calculator and the beta known-issues posts",
+      "Used as evidence of what the largest Forever coverage source is publishing, never as a game fact by itself"
+    ]
+  },
+  {
+    id: "sc-coverage",
+    title: "Skill Capped PvP addons and UI guide (coverage check)",
+    publisher: "Skill Capped",
+    date: "checked 2026-09-18",
+    url: "https://www.skill-capped.com/wowarticles/general/pvp-addons-ui-guide/",
+    tier: "guide",
+    supports: [
+      "Checked as part of the coverage audit requested by the brief: Skill Capped's PvP material found at the snapshot covers retail (Midnight) and TBC Classic — battleground UI profiles, addon set-ups and spec guides",
+      "No Forever-specific PvP guide, battleground guide or tier list was found on the domain, which is recorded as a coverage gap rather than as a source of facts",
+      "Not cited for any statement about Forever anywhere on this site"
     ]
   },
   /* ---- FLAGGED SOURCES: recorded so reviewers can see what we deliberately did NOT use ---- */

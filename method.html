@@ -10,6 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Verification method and irregularity log | WoW Forever Hub">
 <meta property="og:description" content="How WoW Forever Hub verifies facts: evidence classes, the line-by-line procedure, what we refuse to publish, the irregularity log of unverifiable sources, and how to submit a correction.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/method.html">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -54,7 +55,7 @@
       <li><a href="#classes">Evidence classes</a></li>
       <li><a href="#procedure">The line-by-line procedure</a></li>
       <li><a href="#refuse">What we refuse to publish</a></li>
-      <li><a href="#irregularities">Irregularity log</a></li>
+      <li><a href="#irregularities">Irregularity log (I-1 … I-12)</a></li>
       <li><a href="#teardown">Source-coverage map (Wowhead, Icy Veins, Skill Capped, TSM)</a></li>
       <li><a href="#corrections">Corrections process</a></li>
     </ul>
@@ -89,6 +90,24 @@
       <li><strong>Date-stamp and re-check.</strong> Every claim carries the date it was last verified. Beta claims are expected to churn; official launch facts are not.</li>
       <li><strong>Leave the tombstone.</strong> Superseded numbers are kept in the ledger with a note, so reviewers can see what changed and when.</li>
     </ol>
+    <div class="note">
+      <p><strong>The procedure is enforced by machine, not by intention.</strong> Four offline tools run on every push
+      and pull request (<code>.github/workflows/verify.yml</code>) and each one refuses a specific failure:</p>
+      <ul class="clean">
+        <li><code>tools/check-ledger.mjs</code> — a claim with no source, a source that does not exist, a duplicate id or a
+        broken category fails the build; <code>--stale 30</code> lists claims older than 30 days as a warning.</li>
+        <li><code>tools/check-citations.mjs</code> — any external link that is not a registered source, any internal link or
+        <code>#anchor</code> that does not resolve, any claim id printed in prose that is missing from the ledger, and any
+        unbalanced tag fails the build.</li>
+        <li><code>tools/check-market-log.mjs</code> — a market row that breaks the CSV schema, lacks an observer, or carries
+        a date before 4 November 2026 fails the build: there is no auction house to observe yet.</li>
+        <li><code>tools/check-quotes.mjs</code> — every quotation of three or more words must sit within 1400 characters of a
+        source link or a claim id. A quotation that <em>looks</em> sourced but has no source next to it fails the build.</li>
+      </ul>
+      <p><strong>What the tools cannot do:</strong> they check that a quotation is anchored, never that its words match the live
+      page. That is a human check, and it is the one that caught I-11 and I-12 in this session. Treating a green build as proof
+      of accuracy would be exactly the kind of overclaiming this page exists to prevent.</p>
+    </div>
   </section>
 
   <section id="refuse" aria-labelledby="h-refuse">
@@ -163,7 +182,6 @@
       (for example 62014 and 63998 for the same Alchemy milestone). The cause is not documented.
     </p>
     <p class="small"><strong>Our handling:</strong> we cite the achievement names and effects, never the IDs, and keep this open until the duplication is explained.</p>
-  </section>
 
     <h3>I-7 · The new race is behind a paywall, which is easy to misstate <span class="chip guide">Purchase gating</span></h3>
     <p>
@@ -191,6 +209,73 @@
       acquisition line is published. Ledger claim C110.
     </p>
 
+    <h3>I-9 · The mount price was reported two different ways <span class="chip press">Resolved by quoting both</span></h3>
+    <p>
+      Kotaku's BlizzCon report said riding training “costs more gold than before”. Two days later the Sportskeeda interview
+      gave exact figures: <em>“the training is the full first 100 or 1,000 gold depending on which level … and then you get
+      your first mount for free”</em>. Read carelessly, the two statements can produce three wrong claims — “mounts cost
+      1,000 gold”, “mounts are free”, “training is 100 gold”.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> the figure is always quoted with its tier (“100 or 1,000 gold depending on level”) and the
+      100 % / 1,000 g split is never presented as a single price; the earlier claim (C082) stays in the ledger with a
+      cross-reference to C127 so the sequence is visible. We also do <em>not</em> publish a Classic-versus-Forever
+      comparison of the total mount cost, because “more than before” was said about the training line item and no
+      first-party Classic price page is registered here — an unsourced comparison would be a new invented number wearing
+      a historical costume. Gold page, Catalysts table.
+    </p>
+
+    <h3>I-10 · Interview “what ifs” circulating as roadmap items <span class="chip pending">Watch item</span></h3>
+    <p>
+      In the same interview a Blizzard designer said “I would love to have a <em>Caverns of Time</em>-themed battleground”,
+      and others mentioned Gilneas and Uldum as places they would like to visit — each time with the explicit caveat that
+      these are long-term wishes and “nothing to be promising”. Aggregation sites routinely drop the caveat.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> every one of those lines is recorded in the ledger with status
+      <span class="chip pending">Not announced</span> (C140) and the caveat attached, and the PvP page states it next to the
+      battleground section so a reader cannot mistake a wish for a plan. This is the same failure mode as I-1, caught one
+      step earlier — before a false roadmap entry exists to be cited.
+    </p>
+
+    <h3>I-11 · A quotation on our own Gear page we could not find in its source <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      The <a href="gear.html">Gear page</a> attributed a sentence to Icy Veins' class guides — “WoW Forever has reworked
+      itemization, so old Classic item lists cannot establish your best equipment” — as an italic quotation. Re-opening the
+      Guides page in this session, that sentence was not in it, and no registered page carried it word for word. The <em>meaning</em>
+      was supported by the guides' own scope statements, but a reader clicking through would not have found the quoted text,
+      which is exactly the failure this project exists to prevent.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> the invented-looking quotation was deleted and replaced with three fragments that
+      <em>are</em> on the page — “covers leveling and PvE play through level 20”, “starting recommendations based on the
+      available WoW Forever trainer and talent information”, and “are early ratings based on the Level 20 toolkit and do
+      not reflect end-game potential” — each read from
+      <a href="https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide" rel="noopener">the Arms Warrior guide</a>
+      on 18 September 2026. The Gear page states the correction inline so the change is visible rather than silent.
+      <strong>Lesson applied:</strong> every future italic quotation must be copy-checked against the live page in the same
+      pass that adds it; a paraphrase may be presented as a paraphrase, never as a quotation.
+    </p>
+
+    <h3>I-12 · Our own coverage audit was too pessimistic <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      This session's coverage claim (C139) recorded per-spec Forever guides as arriving “class by class”, with Warrior as the
+      only verified set. That came from the Warrior hub page alone. Opening the
+      <a href="https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide" rel="noopener">Arms Warrior guide</a>
+      showed a class switcher covering Balance Druid, Beast Mastery Hunter, Frost Mage, Holy Paladin, Discipline Priest,
+      Assassination Rogue, Elemental Shaman, Affliction Warlock and Arms Warrior, with Fury and Protection Warrior alongside
+      — every class has at least one spec guide, and all of them are level-20/beta-scoped, with ratings the guide itself
+      says “do not reflect end-game potential”.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> C139 was corrected in place with the correction recorded in its own note, the source
+      entry now lists all eleven spec-guide URLs (with the honest note that only the Warrior overview and the Arms guide were
+      read end to end), and the class reading list links each one with the level-20 caveat attached. The direction of this
+      error matters: the first version understated what other sites publish. Understating is still wrong, and it is the kind
+      of error a reader cannot detect — so it is logged here rather than quietly fixed.
+    </p>
+  </section>
+
   <section id="teardown" aria-labelledby="h-teardown">
     <h2 id="h-teardown">Source-coverage map</h2>
     <p class="sub">
@@ -203,12 +288,12 @@
         <tbody>
           <tr>
             <td><strong>Wowhead</strong> <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news" rel="noopener">/forever/news</a></span></td>
-            <td>News, datamines, item/spell database in a dedicated <code>/forever/</code> namespace, talent calculator, legacy calculator, guides for dungeons, raids, zones, camping, Legacy, tier sets. Class guides are limited: the guide index lists 17 Forever guides, of which the only class/spec pages are three PvE tank guides (all PvE tank). The Class Guides category page listed one guide on first check and four on re-check (2026-09-18) — the three tank guides plus the racials guide. There is still no Forever PvP guide, BiS list or gold guide on the site.</td>
+            <td>News, datamines, item/spell database in a dedicated <code>/forever/</code> namespace, talent calculator, legacy calculator, guides for dungeons, raids, zones, camping, Legacy, tier sets. Class guides are limited: the guide index lists 17 Forever guides, of which the only class/spec pages are three PvE tank guides (all PvE tank). The Class Guides category page listed one guide on first check and four on re-check (2026-09-18, unchanged in the third pass) — the three tank guides plus the racials guide. There is still no Forever PvP guide, BiS list or gold guide on the site. Their talent calculator carries all nine classes with three 51-point trees, with Wowhead's own warning that the data came from BlizzCon demo testing and streams and will be rebuilt from the beta client.</td>
             <td>Cross-source verification, official-vs-estimate separation, and a per-claim audit trail in one place.</td>
           </tr>
           <tr>
             <td><strong>Icy Veins</strong> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/" rel="noopener">hub</a></span></td>
-            <td>Class overviews for all nine classes, race guides with Classic-to-Forever comparison tables, spec guides (PvE/beta scope), roadmaps and news. Their guides state explicitly when gear recommendations are pending beta testing.</td>
+            <td>Class overviews for all nine classes, race guides with Classic-to-Forever comparison tables, per-spec PvE guides for every class, each scoped to the beta level cap — the Arms Warrior guide was read in full on 2026-09-18 and its own ratings are labelled provisional — plus roadmaps and news. Their guides state explicitly when gear recommendations are pending beta testing, and each carries a “last updated” stamp we record.</td>
             <td>We aggregate the PvP-facing implications and link out, instead of duplicating their class content.</td>
           </tr>
           <tr>
@@ -250,7 +335,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-18</span> · irregularities I-1 to I-8 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-18</span> · irregularities I-1 to I-12 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 

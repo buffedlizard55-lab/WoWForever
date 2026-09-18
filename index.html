@@ -10,6 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="WoW Forever Hub — verified PvP, gear and gold information">
 <meta property="og:description" content="A source-verified information hub for World of Warcraft: Forever, focused on PvP, gear progression and gold-making. Every claim carries an evidence tag and a link for manual review.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/index.html">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -71,6 +72,12 @@
     </p>
   </div>
 
+  <section aria-labelledby="h-ledger">
+    <h2 id="h-ledger">Ledger status — counted from the data files, not typed by hand</h2>
+    <p class="sub" id="ledgerStatus" hidden></p>
+    <noscript><p class="small">Enable JavaScript to see live ledger counts; the underlying lists are readable on the <a href="sources.html">Sources page</a> either way.</p></noscript>
+  </section>
+
   <section aria-labelledby="h-now">
     <h2 id="h-now">Forever at a glance</h2>
     <p class="sub">
@@ -85,7 +92,7 @@
       <div class="card">
         <div class="k">Beta</div>
         <div class="v">17 Sep – 21 Oct 2026</div>
-        <p class="small">Level 20 cap, then 30. <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/guide/beta-content-unlock-overview" rel="noopener">Wowhead</a></span></p>
+        <p class="small">Level 20 cap, then 30; a free “Server Slam” window opens later. <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard</a></span></p>
       </div>
       <div class="card">
         <div class="k">Level cap</div>
@@ -106,6 +113,16 @@
         <div class="k">What is paid</div>
         <div class="v">Skyborne race &amp; Zephras Isle: $29.99 pack</div>
         <p class="small">Forever itself is free with a subscription; the new race is not. <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/guide/pre-order-packs-rewards" rel="noopener">Wowhead</a></span></p>
+      </div>
+      <div class="card">
+        <div class="k">Biggest gold sink</div>
+        <div class="v">Riding training: 100 g, then 1,000 g</div>
+        <p class="small">The mount itself is free once training is paid; cosmetic mounts give no advantage. <span class="srcs"><a class="src" href="https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive" rel="noopener">Sportskeeda</a></span></p>
+      </div>
+      <div class="card">
+        <div class="k">Loot design</div>
+        <div class="v">Every raid boss keeps a chase item</div>
+        <p class="small">Blizzard's comparison is the Dragonspine Trophy; old-tier gear is meant to stay useful. <span class="srcs"><a class="src" href="https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive" rel="noopener">Sportskeeda</a></span></p>
       </div>
       <div class="card">
         <div class="k">Economy stance</div>
@@ -196,7 +213,7 @@
           <tr>
             <td>Classic battleground roster at launch (WSG / AB / AV)</td>
             <td><span class="chip pending">Implied only</span></td>
-            <td>Blizzard's written recaps name Darkspear Islands; the Q&amp;A refers to Alterac Valley when discussing Honor tuning. <a href="pvp.html#bg">Detail</a></td>
+            <td>Blizzard's written recaps name Darkspear Islands; the <a href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">beta article</a> confirms “the new battleground” is testable in beta; the Q&amp;A refers to Alterac Valley when discussing Honor tuning. The classic three are still not named. <a href="pvp.html#bg">Detail</a></td>
           </tr>
           <tr>
             <td>Profession skill cap and recipe split</td>
@@ -250,6 +267,28 @@
   </div>
 </footer>
 
+<script src="data/sources.js"></script>
+<script src="data/claims.js"></script>
+<script>
+/* The home page shows its own audit numbers so a reader can sanity-check the
+   project at a glance. Everything is counted from data/sources.js and
+   data/claims.js — nothing here is hand-typed, so the figures cannot drift. */
+(function () {
+  var el = document.getElementById('ledgerStatus');
+  if (!el || !window.WOWF_CLAIMS || !window.WOWF_SOURCES) return;
+  var claims = window.WOWF_CLAIMS, sources = window.WOWF_SOURCES;
+  var by = function (st) { return claims.filter(function (c) { return c.status === st; }).length; };
+  var oldest = claims.reduce(function (a, c) { return !a || c.snapshot < a ? c.snapshot : a; }, '');
+  el.innerHTML =
+    '<strong>' + sources.length + '</strong> registered sources (of which ' +
+    sources.filter(function (s) { return s.tier === 'official'; }).length + ' are Blizzard first-party) · ' +
+    '<strong>' + claims.length + '</strong> claims: ' + by('official') + ' official, ' + by('press') + ' press, ' +
+    by('datamine') + ' datamined, ' + by('guide') + ' guide analysis, ' + by('ours') + ' explicit reasoning, ' +
+    by('unknown') + ' recorded as not announced, ' + by('community') + ' flagged. Every claim carries a snapshot date; ' +
+    'the oldest still in the ledger is ' + oldest + '.';
+  el.hidden = false;
+})();
+</script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>
