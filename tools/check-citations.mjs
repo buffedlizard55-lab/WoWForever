@@ -26,7 +26,7 @@
  */
 
 import { readFile, readdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
 
@@ -77,7 +77,7 @@ const htmlFiles = (await readdir(ROOT)).filter((f) => f.endsWith('.html')).sort(
 
 const errors = [];
 const warnings = [];
-const info = { pages: [], externalLinks: new Map(), citations: new Map() };
+const info = { pages: [], externalLinks: new Map(), citations: new Map(), selfLinks: [] };
 
 /* The site's own canonical base URL. Canonical <link> tags are absolute
    self-references, not citations, so they are resolved to a local file and
@@ -97,10 +97,14 @@ for (const file of htmlFiles) {
   for (const m of raw.matchAll(EXTERNAL_RE)) {
     const url = m[1];
     if (url.startsWith(SITE)) {
-      const local = url.slice(SITE.length).split('#')[0];
-      if (local && !existsSync(join(ROOT, local))) {
-        errors.push(`${file}: canonical/self link points at a file that does not exist → ${local}`);
+      const rest = url.slice(SITE.length).split('#')[0];
+      /* The home page is served as both / and /index.html, so both forms are
+         legal self-references; anything else must resolve to a real file. */
+      const local = rest === '' ? 'index.html' : rest;
+      if (!existsSync(join(ROOT, local))) {
+        errors.push(`${file}: canonical/self link points at a file that does not exist → ${rest}`);
       }
+      info.selfLinks.push({ file, url, resolved: local });
       continue; // self-reference, not a citation
     }
     externals.add(url);
@@ -164,7 +168,43 @@ for (const file of htmlFiles) {
     if (open !== close) errors.push(`${file}: <${tag}> opened ${open}× but closed ${close}×`);
   }
 
+  /* ---------- 7. the canonical link must point at this page ---------- */
+  const canonical = raw.match(/<link rel="canonical" href="([^"]+)"/i);
+  if (file === '404.html') {
+    if (canonical) warnings.push('404.html: has a canonical link; a 404 page should not claim one URL as its address');
+  } else {
+    const expected = file === 'index.html' ? SITE : SITE + file;
+    if (!canonical) errors.push(`${file}: no <link rel="canonical">`);
+    else if (canonical[1] !== expected) {
+      errors.push(`${file}: canonical is ${canonical[1]} but this page is served at ${expected}`);
+    }
+  }
+
   info.pages.push(file);
+}
+
+/* ---------- 8. sitemap.xml and the page list must agree ---------- */
+{
+  const sitemapPath = join(ROOT, 'sitemap.xml');
+  if (!existsSync(sitemapPath)) {
+    errors.push('sitemap.xml is missing');
+  } else {
+    const locs = [...readFileSync(sitemapPath, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    const expected = new Set([
+      SITE,
+      ...htmlFiles.filter((f) => f !== '404.html' && f !== 'index.html').map((f) => SITE + f),
+    ]);
+    for (const loc of locs) {
+      if (!expected.has(loc)) errors.push(`sitemap.xml lists ${loc}, which is not one of this site's pages`);
+      expected.delete(loc);
+    }
+    for (const missing of expected) errors.push(`sitemap.xml does not list ${missing}`);
+  }
+  const robotsPath = join(ROOT, 'robots.txt');
+  if (!existsSync(robotsPath)) errors.push('robots.txt is missing');
+  else if (!/Sitemap:\s*\S+/i.test(readFileSync(robotsPath, 'utf8'))) {
+    errors.push('robots.txt does not point at the sitemap');
+  }
 }
 
 /* ---------- every registered source should be used somewhere ---------- */
