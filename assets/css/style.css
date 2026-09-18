@@ -148,6 +148,7 @@ table.compact th, table.compact td { padding: 8px 10px; }
   white-space: nowrap; vertical-align: middle;
 }
 .chip.official { color: #bfe3c9; border-color: #2e6b45; background: #12281b; }
+.chip.ok       { color: #bfe3c9; border-color: #2e6b45; background: #12281b; }
 .chip.press    { color: #cfe2f5; border-color: #2f5d84; background: #10202e; }
 .chip.datamine { color: #e8d3f7; border-color: #5c3f7d; background: #1e1529; }
 .chip.guide    { color: #f4e2bb; border-color: #77602c; background: #262012; }

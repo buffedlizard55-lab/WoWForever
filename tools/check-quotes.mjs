@@ -13,7 +13,7 @@
  * covers a table cell, its row and the caption above it.
  *
  * The tool checks anchoring, not wording. Whether the words match the live page
- * is a human job, and the Method page says so (I-11, I-12). What this removes is
+ * is a human job, and the Method page says so (I-11–I-13). What this removes is
  * the silent case: a quotation that looks sourced but has no source anywhere
  * near it.
  *
@@ -100,7 +100,7 @@ if (asJson) {
     console.log(
       `\nNo unanchored quotations: every quotation of ${minWords}+ words sits within ${window} characters of a source link or a claim id.`
     );
-    console.log('Anchoring is checked here; wording is checked by hand against the live page (method.html I-11).');
+    console.log('Anchoring is checked here; wording and provenance are checked by hand against the live page (method.html I-11–I-13).');
   } else {
     console.log(`\n${findings.length} quotation(s) with no source link or claim id nearby:`);
     for (const f of findings) console.log(`  !!  ${f.page} “${f.quote.slice(0, 110)}”`);

@@ -161,7 +161,7 @@ for (const file of htmlFiles) {
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ');
-  const tracked = ['html', 'head', 'body', 'main', 'header', 'footer', 'nav', 'section', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'div', 'ul', 'ol', 'li', 'details', 'summary', 'caption'];
+  const tracked = ['html', 'head', 'body', 'main', 'header', 'footer', 'nav', 'section', 'table', 'thead', 'tbody', 'tr', 'td', 'th', 'div', 'ul', 'ol', 'li', 'details', 'summary', 'caption', 'p', 'h1', 'h2', 'h3', 'h4'];
   for (const tag of tracked) {
     const open = (stripped.match(new RegExp(`<${tag}(\\s|>)`, 'gi')) || []).length;
     const close = (stripped.match(new RegExp(`</${tag}>`, 'gi')) || []).length;

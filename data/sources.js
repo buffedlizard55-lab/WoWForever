@@ -3,8 +3,8 @@
    Every entry below was opened and read by the maintainer on 2026-09-18 (UTC)
    unless its note says otherwise. `tier` describes the *evidence class*, not how
    much we like the site:
-     official  = Blizzard first-party (news article, product page, blue post)
-     press     = developer interview or reporting by a named outlet
+     official  = a first-party Blizzard URL (news article, product page, or blue post)
+     press     = developer interview or reporting by a named outlet; verified secondary reporting
      datamine  = client data / beta build extraction, subject to change
      guide     = reputable standing guide site's own analysis
      community = unverified player post, forum opinion, or RMT-adjacent site
@@ -12,7 +12,7 @@
    pages of the same source that this site links to (for example the other two
    Warrior spec guides on the same site). tools/check-citations.mjs treats them
    as registered, so a page can never link out to an unregistered URL; the
-   source watcher fingerprints the main `url` only.
+   source watcher fingerprints the main `url` and every HTTP URL in `also`.
    ========================================================================== */
 window.WOWF_SOURCES = [
   {
@@ -22,6 +22,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-12 (updated through 2026-09-18)",
     url: "https://worldofwarcraft.blizzard.com/en-us/forever",
     tier: "official",
+    firstParty: true,
     supports: [
       "Forever is included with an active WoW subscription",
       "Launch 4 Nov 2026 with a countdown clock on the page",
@@ -36,6 +37,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-12",
     url: "https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap",
     tier: "official",
+    firstParty: true,
     supports: [
       "Four launch pillars: approachable/familiar, world as main character, journey before destination, protect social play",
       "No flying mounts, no level scaling, level cap stays 60 'indefinitely'",
@@ -56,6 +58,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-13",
     url: "https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap",
     tier: "official",
+    firstParty: true,
     supports: [
       "Campsites: vendors, repairs, profession workspaces, one-hour buffs; campfire lasts 10 min (per dev interview) and holds up to 3 crafted objects, upgraded campfires hold 5 or 10",
       "600+ new recipes; Blueprint recipes from dungeon bosses; crafted food gives a small XP bonus plus stat boosts",
@@ -81,9 +84,12 @@ window.WOWF_SOURCES = [
     date: "2026-09-12",
     url: "https://news.blizzard.com/en-us/article/24304071/world-of-warcraft-forever-found-photos-panel-recap",
     tier: "official",
+    firstParty: true,
     supports: [
-      "Exists and is linked from the official product page",
-      "Detail of this panel was NOT read by the maintainer — listed for completeness only, no claim in this repo depends on it"
+      "Found Photos framing: Forever begins in the early Year 1 period and occupies its own time bubble",
+      "New ship routes, Riverglades and Powderfuse Port, including the roughly Stranglethorn-sized zone and nearly 200 quests",
+      "Forsaken Paladin journey beginning at Bandarion Keep and an epic mount quest at level 60",
+      "Skyborne and Zephras Isle context, including the Windshapers, High Order and Al’Aketh"
     ]
   },
   {
@@ -93,6 +99,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-12",
     url: "https://news.blizzard.com/en-us/article/24301508/pre-purchase-world-of-warcraft-forever-upgrades-and-begin-your-next-journey-in-azeroth",
     tier: "official",
+    firstParty: true,
     supports: [
       "Paid packs exist (Skyborne Heroic, Skyborne Epic, Warcraft Forever Collection)",
       "Links Forever to beta access for eligible bundles",
@@ -129,13 +136,13 @@ window.WOWF_SOURCES = [
   {
     id: "wh-kroldok",
     title: "Blizzard Clarifies Krol'dok Stronghold Level Range in Forever — All 9 Dungeons Listed",
-    publisher: "Wowhead (reproducing a Blizzard blue post)",
+    publisher: "Wowhead (reporting a Blizzard blue post)",
     date: "2026-09-15",
     url: "https://www.wowhead.com/forever/news/blizzard-clarifies-krol-dok-stronghold-level-range-in-forever-382895",
-    tier: "official",
+    tier: "press",
     supports: [
-      "Blizzard's correction: Krol'dok Stronghold is level 40–45, superseding earlier 40–55 material",
-      "Confirms the level band table for all nine new dungeons"
+      "Wowhead's report of Blizzard's correction: Krol'dok Stronghold is level 40–45, superseding earlier 40–55 material",
+      "Secondary copy of the level-band table; the direct Blizzard forum post is registered as bnet-kroldok"
     ]
   },
   {
@@ -183,10 +190,10 @@ window.WOWF_SOURCES = [
   {
     id: "wh-qa",
     title: "World of Warcraft: Live Q&A Liveblog — Midnight and Forever",
-    publisher: "Wowhead (liveblog of the Blizzard Q&A)",
+    publisher: "Wowhead (liveblog of a Blizzard Q&A)",
     date: "2026-09-17",
     url: "https://www.wowhead.com/forever/news/world-of-warcraft-live-q-a-liveblog-midnight-and-forever-382967",
-    tier: "official",
+    tier: "press",
     supports: [
       "PvP: no Rated PvP; a new PvP track that resets each season/tier; Honor gains adjusted so parking in Alterac Valley is not the best play; a new battleground with a new reputation",
       "Realmless rulesets: PvE, PvP, Roleplay, Hardcore; battlegrounds are shared across rulesets; no character transfer between rulesets",
@@ -200,10 +207,10 @@ window.WOWF_SOURCES = [
   {
     id: "wh-gdkp",
     title: "GDKP Will Not Be Allowed in WoW: Forever",
-    publisher: "Wowhead",
+    publisher: "Wowhead (reporting the Blizzard Q&A)",
     date: "2026-09-17",
     url: "https://www.wowhead.com/forever/news/gdkp-will-not-be-allowed-in-wow-forever-382968",
-    tier: "official",
+    tier: "press",
     supports: [
       "GDKP banned in Forever",
       "Blizzard's stated reasons: GDKP overtaking guild structures, pricing players out of content, gold laundering, RMT stigma",
@@ -213,10 +220,10 @@ window.WOWF_SOURCES = [
   {
     id: "wh-reals",
     title: "Tarnished Undermine Reals Coming to World of Warcraft: Forever",
-    publisher: "Wowhead",
+    publisher: "Wowhead (reporting the Blizzard Q&A)",
     date: "2026-09-17",
     url: "https://www.wowhead.com/forever/news/tarnished-undermine-reals-coming-to-world-of-warcraft-forever-382969",
-    tier: "official",
+    tier: "press",
     supports: [
       "Tarnished Undermine Reals (a Season of Discovery currency) are coming to Forever, announced by Josh Greenfield in the live Q&A",
       "In SoD they were earned in dungeons and spent on gear, toys, patterns and reagents; how they are earned in Forever is not yet known",
@@ -593,6 +600,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-17",
     url: "https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live",
     tier: "official",
+    firstParty: true,
     supports: [
       "The beta runs from 17 September \"through October 21, the last full day of testing\"",
       "The level cap starts at 20 and \"will be raised to 30 later in the beta\"",
@@ -601,6 +609,35 @@ window.WOWF_SOURCES = [
       "A \"Server Slam\" window will open the beta to everyone for several hours later in the test; details to be announced",
       "Beta access routes: Battle.net opt-in invitations sent regularly through the test, or eligible digital bundle purchases; phishing warning and how to verify a licence on the Battle.net account"
     ]
+  },
+  {
+    id: "bnet-kroldok",
+    title: "Krol’dok Stronghold — Blizzard forum clarification",
+    publisher: "Blizzard Entertainment / Kaivax",
+    date: "2026-09-14",
+    url: "https://us.forums.blizzard.com/en/wow/t/krol%E2%80%99dok-stronghold/2349672",
+    tier: "official",
+    firstParty: true,
+    supports: [
+      "Blizzard corrects Krol’dok Stronghold to level 40–45",
+      "The blue post lists the level bands for all nine new dungeons"
+    ]
+  },
+  {
+    id: "bnet-beta-issues",
+    title: "WoW Forever Beta Known Issues — September 18",
+    publisher: "Blizzard Entertainment / Kaivax",
+    date: "2026-09-17; updated in-topic 2026-09-18",
+    url: "https://us.forums.blizzard.com/en/wow/t/2352687/1",
+    tier: "official",
+    firstParty: true,
+    supports: [
+      "Blizzard’s dated beta known-issues list for the 18 September test opening",
+      "Incorrect Glancing Blow penalties, incomplete pet-stat display and class-varying Cooldown Manager work in progress",
+      "Bear Form armor interaction with consumables and buffs, On-Next Attack spell-queue interaction and lower-level resurrection-sickness duration",
+      "The topic says it will be updated as issues are resolved or added"
+    ],
+    note: "Read both returned page chunks, including the later in-topic update. The list is a dated snapshot and can change."
   },
   {
     id: "sk-interview",
@@ -690,14 +727,14 @@ window.WOWF_SOURCES = [
   {
     id: "wh-issues",
     title: "WoW Forever Beta Known Issues — September 18 (Blue Tracker mirror of Blizzard's forum post)",
-    publisher: "Blizzard Entertainment blue post, mirrored by Wowhead's Blue Tracker",
+    publisher: "Wowhead Blue Tracker (mirror of Blizzard's forum post)",
     date: "2026-09-18",
     url: "https://www.wowhead.com/blue-tracker/topic/us/2352687",
-    tier: "official",
+    tier: "press",
     supports: [
       "Blizzard maintains a dated beta known-issues post; the edition mirrored here is 18 September 2026",
-      "Registered as a monitoring target: beta issue lists change daily and are the fastest official signal that a datamined behaviour is a bug rather than a design change",
-      "The body of the list was not read line by line at this snapshot, so no claim on this site rests on its contents"
+      "Secondary mirror of the primary list; the direct Blizzard forum entry is bnet-beta-issues",
+      "Registered as a monitoring target, not used as the primary evidence for the individual issue wording"
     ]
   },
   {
