@@ -497,7 +497,7 @@ window.WOWF_SOURCES = [
       "A class overview page exists for every class: /wow-forever/druid-class-overview, hunter-, mage-, paladin-, priest-, rogue-, shaman-, warlock-, warrior-class-overview",
       "Icy Veins' hub also hosts a Forever overview, roadmap, beta access and subscription pages, plus a Forever news feed",
       "Class overviews are attributed analysis, not Blizzard statements; where they state gear recommendations they mark them as pending beta testing",
-      "Per-spec Forever PvE guides now exist for every class, not just a few: the class switcher on the Arms Warrior guide (opened 2026-09-18, last updated 17 Sep 2026) lists Balance Druid, Beast Mastery Hunter, Frost Mage, Holy Paladin, Discipline Priest, Assassination Rogue, Elemental Shaman, Affliction Warlock and Arms Warrior, with Fury and Protection Warrior alongside",
+      "Per-spec Forever PvE guides now exist for every class, not just a few: the class switcher on the Arms Warrior guide (opened 2026-09-18, last updated 17 Sep 2026) lists Balance Druid, Beast Mastery Hunter, Frost Mage, Holy Paladin, Discipline Priest, Assassination Rogue, Elemental Shaman, Affliction Warlock and Arms Warrior, with Fury and Protection Warrior alongside. All eleven URLs are registered below and are on the weekly watcher",
       "Those spec guides are explicitly level-20 and PvE-scoped: the Arms guide says it \"covers leveling and PvE play through level 20\", that its advice is \"starting recommendations based on the available WoW Forever trainer and talent information\", and that its scores \"are early ratings based on the Level 20 toolkit and do not reflect end-game potential\"",
       "Individually opened on 2026-09-18: the Warrior overview and the Arms Warrior guide. The other spec-guide URLs are registered from that switcher and have not each been read end to end — stated here so a reviewer is not misled",
       "Warrior overview re-checked 2026-09-18: it states Dwarf Mace Specialization now gives 1% critical strike with all spells and abilities while a mace is equipped, and that the new Dwarf racial Big Game Hunter deals 5% more damage to Beasts"
@@ -513,7 +513,15 @@ window.WOWF_SOURCES = [
       "https://www.icy-veins.com/wow-forever/affliction-warlock-ranged-dps-pve-guide",
       "https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide",
       "https://www.icy-veins.com/wow-forever/fury-warrior-melee-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/protection-warrior-tank-pve-guide"
+      "https://www.icy-veins.com/wow-forever/protection-warrior-tank-pve-guide",
+      "https://www.icy-veins.com/wow-forever/balance-druid-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/beast-mastery-hunter-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/frost-mage-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/holy-paladin-healer-pve-guide",
+      "https://www.icy-veins.com/wow-forever/discipline-priest-healer-pve-guide",
+      "https://www.icy-veins.com/wow-forever/assassination-rogue-melee-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/elemental-shaman-ranged-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/affliction-warlock-ranged-dps-pve-guide"
     ]
   },
   {
