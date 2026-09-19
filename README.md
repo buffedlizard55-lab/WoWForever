@@ -75,7 +75,7 @@ index.html … work-plan.html   static pages, no build step
 assets/css/style.css          one stylesheet, dark theme, print styles
 assets/js/site.js             progressive enhancement only (nav state, table filters, copy buttons)
 data/sources.js               source registry  (window.WOWF_SOURCES, optional `also: [urls]` per source)
-data/claims.js                claims ledger    (window.WOWF_CLAIMS; 171 claims today, IDs are not contiguous)
+data/claims.js                claims ledger    (window.WOWF_CLAIMS; 174 claims today, IDs are not contiguous)
 data/market-log.csv           market observation log — schema documented inside, empty until launch
 data/apis.js                  public endpoint register (window.WOWF_APIS; verified / rejected / pending, with the eligibility rule)
 data/patterns.js              site-pattern register  (window.WOWF_PATTERNS; dated observations, plus the unverified questions)
