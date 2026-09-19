@@ -54,7 +54,7 @@ observed in the beta, with the rule for upgrading a claim from *reported* to *ob
 | `addons.html` | Add-on and tooling compatibility tracker: dated release listings, Blizzard's addon-API statements, gold/PvP consequences |
 | `beta.html` | Beta observation log: dated beta calendar, per-class observation status, the reported → observed rule, false positives to avoid |
 | `sources.html` | Full source registry and claims ledger (filterable) |
-| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-18 |
+| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-19 |
 | `work-plan.html` | Delivered work, this session's line-by-line record, blocked items, limitations, decisions, next steps |
 
 ## Repository layout
@@ -64,7 +64,7 @@ index.html … work-plan.html   static pages, no build step
 assets/css/style.css          one stylesheet, dark theme, print styles
 assets/js/site.js             progressive enhancement only (nav state, table filters, copy buttons)
 data/sources.js               source registry  (window.WOWF_SOURCES, optional `also: [urls]` per source)
-data/claims.js                claims ledger    (window.WOWF_CLAIMS; 132 claims today, IDs are not contiguous)
+data/claims.js                claims ledger    (window.WOWF_CLAIMS; 149 claims today, IDs are not contiguous)
 data/market-log.csv           market observation log — schema documented inside, empty until launch
 tools/check-ledger.mjs        ledger integrity + staleness
 tools/check-citations.mjs     offline audit: registered sources, links, anchors, claim IDs, tag balance
@@ -101,7 +101,7 @@ node tools/check-sources.mjs --dry-run # network: fingerprint every registered s
 CI (`.github/workflows/verify.yml`) runs the five offline checkers with `--strict`, plus the watcher's self-test, on
 every push and pull request. `source-watch.yml` runs the network step weekly (and on demand).
 The checkers verify structure — that a quotation is anchored, not that its wording matches the live page. Wording is
-checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page (every one of them a
+checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page (and I-19 records the unofficial beta-tracker pattern flagged the same day) (every one of them a
 failure on this project's own pages, not in someone else's reporting). The ledger checker also warns when a claim cites
 only first-party sources but carries a lower evidence class, the one under-classification pattern found so far (C031).
 
@@ -118,13 +118,17 @@ a real HTTP origin in some browsers.
 ## Flags and corrections
 
 Sections marked **our reasoning** contain argument, not sourced fact. The source-watch fingerprint baseline
-(`tools/source-state.json`) was established by the first run on 19 September 2026: **86 of the 87 registered URLs** were
-fingerprinted; the one miss was the Sportskeeda interview (`sk-interview`, HTTP 403 to the runner), which is held to the
-two-strike rule rather than flagged on a single failure. The baseline
+(`tools/source-state.json`) was established by the first run on 19 September 2026: **86 of the 87 URLs then registered**
+(74 source pages plus 13 additional pages) were fingerprinted; the one miss was the Sportskeeda interview
+(`sk-interview`, HTTP 403 to the runner), which is held to the two-strike rule rather than flagged on a single failure.
+The registry has since grown to 96 sources; the baseline covers 74 of them, and the sources registered after it ran —
+including the six added by the 19 September live-web pass — are picked up (as “newly fingerprinted”, with no issue) by the
+next weekly run. The baseline
 is created and repaired by `source-watch.yml` — the weekly schedule, a manual dispatch with *Baseline only* ticked, or
 automatically by the next push to `main` while no baseline exists (a preflight job keeps ordinary pushes from running the
-network step). The authoring environment that builds this site has no outbound network and no workflow-dispatch permission,
-so it cannot create one itself. Everything else carries a source link.
+network step). The authoring shell has no direct outbound network (the 19 September live-web pass read its sources
+through the platform's research tools instead, which is how every post-baseline source was verified), and no
+workflow-dispatch permission, so it cannot create or refresh the baseline itself. Everything else carries a source link.
 Corrections are welcome as issues: give the claim ID (for example `C127`), the corrected statement, and a link to a
 primary source. Superseded numbers are kept in the ledger so changes are visible — see the irregularity log on the
 Method page for worked examples.

@@ -886,8 +886,12 @@ window.WOWF_SOURCES = [
     id: "iv-rogue",
     title: "Rogue Class Overview — WoW Forever",
     publisher: "Icy Veins (Sellin)",
-    date: "2026-09-15 (last updated); read 2026-09-18",
+    date: "2026-09-15 (last updated); read 2026-09-18; spec guides read 2026-09-19",
     url: "https://www.icy-veins.com/wow-forever/rogue-class-overview",
+    also: [
+      "https://www.icy-veins.com/wow-forever/combat-rogue-melee-dps-pve-guide",
+      "https://www.icy-veins.com/wow-forever/subtlety-rogue-melee-dps-pve-guide"
+    ],
     tier: "guide",
     supports: [
       "Energy is now a continuously regenerating resource instead of ticking in pulses",
@@ -897,15 +901,19 @@ window.WOWF_SOURCES = [
       "Venom is the Assassination capstone: +30% poison damage and +10% application chance, duration scaling with combo points",
       "Improved Kidney Shot increases the rogue's own damage against the target",
       "Hack and Slash gives per-weapon-type bonuses instead of forcing a weapon choice",
-      "Rogues can use one-handed axes in Forever"
+      "Rogues can use one-handed axes in Forever",
+      "From the 17 Sep spec guides (read 2026-09-19): Combat is a two-button Sinister Strike/Eviscerate core with Kick as one of the few early interrupts and Sap/Blind arriving later; Subtlety notes energy regeneration is slow in Forever, names Human (Perception, sword crit) and Orc (stun resistance, Blood Fury) as the PvP race picks, recommends Engineering for PvP (grenades and gadgets) and First Aid bandaging after Gouge or Blind"
     ]
   },
   {
     id: "iv-shaman",
     title: "Shaman Class Overview — WoW Forever",
     publisher: "Icy Veins (Seksixeny)",
-    date: "2026-09-17 (last updated); read 2026-09-18",
+    date: "2026-09-17 (last updated); read 2026-09-18; spec guide read 2026-09-19",
     url: "https://www.icy-veins.com/wow-forever/shaman-class-overview",
+    also: [
+      "https://www.icy-veins.com/wow-forever/enhancement-shaman-melee-dps-pve-guide"
+    ],
     tier: "guide",
     supports: [
       "Ghost Wolf's base cast time drops to 2 seconds and Improved Ghost Wolf can make it instant and usable everywhere",
@@ -915,7 +923,8 @@ window.WOWF_SOURCES = [
       "Maelstrom Weapon reduces Lightning Bolt cast time and mana cost as it stacks; Rage of the Farseer is the Enhancement capstone",
       "Riptide is the Restoration capstone and boosts Chain Heal on its target by 25%",
       "Dwarf is the Alliance shaman race; Horde Skyborne can be shaman",
-      "Lightning Bolt max rank is a 2.5-second cast and Chain Lightning is 0.5s faster than Vanilla"
+      "Lightning Bolt max rank is a 2.5-second cast and Chain Lightning is 0.5s faster than Vanilla",
+      "From the 17 Sep Enhancement guide (Wordup, read 2026-09-19): Maelstrom Weapon is carried forward to hybridise melee and spells; the talent tree targets Enhancement's Mana economy and ability cooldowns so Windfury Weapon can pair with Windfury Totem; more AoE via Fire Nova; Improved Ghost Wolf is usable indoors"
     ]
   },
   {
@@ -1090,14 +1099,15 @@ window.WOWF_SOURCES = [
   },
   {
     id: "flag-unofficial-wikis",
-    title: "Unofficial 'WoW Forever' guide domains",
-    publisher: "world-of-warcraft-forever.wiki, wowforeverbuilds.com, wowforeverguides.com, foreverwisp.com and similar",
-    date: "checked 2026-09-18",
+    title: "Unofficial 'WoW Forever' guide domains and beta 'tracker' sites",
+    publisher: "world-of-warcraft-forever.wiki, wowforeverbuilds.com, wowforeverguides.com, foreverwisp.com, wowdata.app, wowforevertalents.com and similar",
+    date: "checked 2026-09-18; re-checked 2026-09-19",
     url: "method.html#irregularities",
     tier: "community",
     note: "No direct link is published for this entry; the finding is documented on the Method page.",
     supports: [
       "Some pages state 'not published yet' honestly; others describe an 'arena strategy' for a game with no announced arenas",
+      "Re-checked 2026-09-19: the family now includes beta-client 'tracker' sites that publish specific numbers - a Darkspear Islands level 30-60 range joining the random battleground pool, 'Hyjal Crater' and 'Mak'gora Arena' queues, a 15,000 Honor Points cap, PvP set piece counts - none of it corroborated by an established outlet, and one 'Battle for Gilneas (rated)' string that contradicts the developer statement that there is no rated PvP (C021)",
       "FLAGGED: not used as sources. Where they point at a primary source we follow the primary source instead"
     ]
   },
@@ -1351,6 +1361,93 @@ window.WOWF_SOURCES = [
     supports: [
       "Vanity companion pets in Forever: Zergling Leash, Panda Collar, Diablo Stone, Pachimari from Epic/Collection packs",
       "All companions are purely cosmetic non-combat collector items"
+    ]
+  },
+
+  /* ---------- added in the 2026-09-19 second pass (live web verification) ---------- */
+  {
+    id: "wh-ellis-beta",
+    title: "Behind the Scenes of the WoW: Forever Beta Issues - Tom Ellis Explains on X",
+    publisher: "Wowhead (Squishei), quoting Senior Game Producer Tom Ellis",
+    date: "2026-09-19",
+    url: "https://www.wowhead.com/forever/news/behind-the-scenes-of-the-wow-forever-beta-issues-tom-ellis-explains-on-x-382993",
+    tier: "press",
+    supports: [
+      "The beta runs on the smaller BETA/PTR environment stack, not a production stack, because WoW betas are not usually large traffic events",
+      "Day-one disconnects after the login queue were traced to the Battle.net Game Service metering system: one regional realm with two connections distorted its load math, and scaling two connections to eight fixed it",
+      "Slow looting and quest acceptance were database statistics failing to keep up with new tables and heavy inserts; a manual table analysis plus automated jobs cleared the delays immediately",
+      "A restart was required because WORLD pools ran hot and approached out-of-memory: empty maps were not being shut down correctly; the fix passed QA, extra WORLDs were added and the regional service was given a second instance",
+      "Ellis's summary after the fixes: things were incredibly smooth for the first few hours of a public beta"
+    ]
+  },
+  {
+    id: "wh-phasing",
+    title: "New Phasing Notification in WoW: Forever - Changing Phases Safely",
+    publisher: "Wowhead (Squishei)",
+    date: "2026-09-19",
+    url: "https://www.wowhead.com/forever/news/new-phasing-notification-in-wow-forever-changing-phases-safely-382994",
+    tier: "guide",
+    supports: [
+      "Forever adds a notification when a forced phase change (a zone refresh) is about to occur, giving players 5 minutes to reach a safe location",
+      "A Refresh Now button triggers the phase early once the player is safe; Okay hides the notification and a chat-box arrow tracks the remaining time",
+      "Wowhead reports the technology was revealed at BlizzCon as created with Hardcore players in mind, since a forced phase at the wrong time might mean certain death; all players can use Refresh",
+      "Wowhead's framing of what a new phase can contain: mobs alive again and immediately aggroed, quest mobs or pickups despawned, or new herb and mining nodes appearing"
+    ]
+  },
+  {
+    id: "wh-bags",
+    title: "Grab Free Bags in Beginner Zones with Quests",
+    publisher: "Wowhead (Jurdi)",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/news/grab-free-bags-in-beginner-zones-with-quests-382982",
+    tier: "guide",
+    supports: [
+      "A new quest around level 3-4 in Dun Morogh (Grund and Gozwin: down a Snow Leopard Prowler, recover Gozwin's Mechanic's Log) rewards an early bind-on-pickup 6-slot bag",
+      "The known quest Carry Your Weight also rewards one; Wowhead expects each starting zone to have its own version",
+      "In Forever, bags automatically go into bag slots when an empty slot is available",
+      "Seven 6-slot quest bags are listed from the beta database (Collecting Basket, Book Bag, Soft Saber Sack, Simple Leather Satchel, Scorched Leather Pouch, Handmade Leather Bag, Canvas Latchbag), item level 5-6, all bind-on-pickup"
+    ]
+  },
+  {
+    id: "wh-openworld",
+    title: "What We Know About the Open World So Far in WoW: Forever",
+    publisher: "Wowhead (Jurdi)",
+    date: "2026-09-19",
+    url: "https://www.wowhead.com/forever/news/what-we-know-about-the-open-world-so-far-in-wow-forever-382931",
+    tier: "guide",
+    supports: [
+      "All starting zones get new NPCs, quests and experiences alongside the original content (attributed to Lead Content Designer Evan Lee, Found Photos panel); Desolace and the Wetlands received major quest additions",
+      "Three ports: Stormwind Harbor (Auberdine/Wetlands to Stormwind), Southshore's dock as a stop between Menethil Harbor and Auberdine, and a Steamwheedle Port boat to Riverglades",
+      "Riverglades targets the mid-30s to early-40s leveling drought and also has a second access point: a new travel point in Redridge through an entrance in the Burning Steppes; the zone is inhabited by Ogres and the Twilight's Hammer",
+      "Zephras Isle serves levels 1-12, after which Skyborne characters join their faction's level 10-20 zones",
+      "Camping profession objects imitate class buffs (Blacksmithing Sharpening Wheel = Strength, Tailoring Faction Banner = Spirit, Herbalism Incense Candle = Intellect, Fishing Fish Bowl = all stats), consistent with the Camping guide",
+      "Cooking gains a new Well Fed buff type that grants +5% Experience - a second guide source for the number Blizzard describes only as a small XP bonus"
+    ]
+  },
+  {
+    id: "iv-changelog",
+    title: "WoW Forever Changelog (Icy Veins)",
+    publisher: "Icy Veins",
+    date: "2026-09-19 (site last updated 2026-09-19)",
+    url: "https://www.icy-veins.com/wow-forever/changelog",
+    tier: "guide",
+    supports: [
+      "17-18 September: Icy Veins added its first per-spec Forever beta guides - Elemental, Enhancement and Restoration Shaman; Assassination, Combat and Subtlety Rogue; Affliction, Demonology and Destruction Warlock; Arms, Fury and Protection Warrior; Balance Druid, Feral Druid and Restoration Druid; Holy, Protection and Retribution Paladin; Frost Mage; Beast Mastery Hunter - all scoped to the level-20 beta cap and written for PvE",
+      "18 September: a Name Reservation guide was added (Blizzard's own dates for that window are already ledgered as C162/C163)",
+      "16 September: a Tier List Directory was added (see iv-tierlists); 15 September: an all-class-guides index page and the remaining race guides"
+    ]
+  },
+  {
+    id: "iv-tierlists",
+    title: "Tier Lists for WoW Forever - directory",
+    publisher: "Icy Veins (Petko)",
+    date: "2026-09-16 (added); read 2026-09-19",
+    url: "https://www.icy-veins.com/wow-forever/tier-list-hub",
+    tier: "guide",
+    supports: [
+      "Icy Veins created a Forever tier-list directory on 16 September 2026; as of 19 September every list on it is marked COMING SOON, including the DPS and Healer PvP tier lists and all three raiding lists (DPS, Tank, Healer)",
+      "The page carries Icy Veins' own disclaimer that its tier lists are not final and differences in opinion may be had",
+      "Used as dated evidence that no reputable guide site has published a Forever PvP class ranking yet"
     ]
   }
 ];
