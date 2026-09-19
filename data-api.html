@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public endpoints (no key, no sign-up) | WoW Forever Hub</title>
+<meta name="description" content="Which World of Warcraft data endpoints this project may use under the no-key, no-sign-up rule: what was fetched, what came back, what each one is used for, and which candidates were rejected and why.">
+<meta name="theme-color" content="#0d1117">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Public endpoints (no key, no sign-up) | WoW Forever Hub">
+<meta property="og:description" content="Verified public data endpoints for WoW: Forever, plus the candidates that were rejected and the evidence for each decision.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/data-api.html">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="class-pvp.html">Class PvP</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
+      <a href="data-api.html">Endpoints</a>
+      <a href="site-patterns.html">Site patterns</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Data sources · snapshot <span data-snapshot>2026-09-19</span></p>
+    <h1>Public endpoints this project is allowed to use</h1>
+    <p class="lede">
+      The brief allows a <strong>free API key that anyone can obtain without registering</strong>, and rules out anything
+      that needs an account, a signup or a tier. This page is the register: <strong>every endpoint was fetched</strong>, the
+      response is described, and the candidates that failed the test are recorded with the evidence for the refusal —
+      including Blizzard's own game APIs.
+    </p>
+  </div>
+
+  <div class="banner">
+    <strong>The finding, in one line.</strong>
+    <p>
+      Blizzard's <em>forums</em> and Blizzard's <em>build service</em> both answer a plain request with no credential at all,
+      so a Forever beta build moving or a blue post landing can be noticed without asking anyone's permission. Blizzard's
+      <em>game data</em> APIs cannot: Blizzard's own documentation requires an account, an authenticator and an OAuth client
+      before the first request is served (C194).
+    </p>
+    <p class="small">
+      Tested on <strong>19 September 2026</strong>. Each decision is a ledger claim with a source, so it can be re-checked by
+      hand:
+      <span class="srcs"><a class="src" href="https://us.forums.blizzard.com/en/wow/latest.json" rel="noopener">forum feed</a><a class="src" href="https://us.version.battle.net/v2/products/wow_classic/versions" rel="noopener">build service</a><a class="src" href="https://community.developer.battle.net/documentation/guides/getting-started" rel="noopener">developer docs</a></span>
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#rule">The eligibility rule</a></li>
+      <li><a href="#verified">Verified and in use</a></li>
+      <li><a href="#rejected">Read, understood, rejected</a></li>
+      <li><a href="#changes">What this changes — and what it does not</a></li>
+      <li><a href="#protocol">How the register stays honest</a></li>
+    </ul>
+  </nav>
+
+  <section id="rule" aria-labelledby="h-rule">
+    <h2 id="h-rule">The eligibility rule</h2>
+    <p class="sub">
+      Three tests, applied before an endpoint is touched. A source has to pass all three, and the tests are written to be
+      checkable by a reader rather than to be flattering to this project.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>The three tests a data source must pass, and what each one excludes. Recorded in <code>data/apis.js</code>.</caption>
+        <thead><tr><th scope="col">Test</th><th scope="col">What it demands</th><th scope="col">What it excludes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>No secret required</strong></td>
+            <td>The endpoint answers a plain request. If a credential is needed at all, it must be one anyone can generate without an account.</td>
+            <td>Endpoints that only answer with a token, and anything that expects a personal key to be pasted into a page.</td>
+          </tr>
+          <tr>
+            <td><strong>No account, no registration</strong></td>
+            <td>No Battle.net account, no developer portal client, no OAuth application, no two-factor enrolment, no acceptance of a developer agreement before the first byte comes back.</td>
+            <td>Blizzard's Game Data and Community APIs, and any service that gates its documentation or its data behind a login.</td>
+          </tr>
+          <tr>
+            <td><strong>No free-tier gate</strong></td>
+            <td>Public use that does not depend on a paid plan, a commercial licence, a partner agreement, or a permission the provider can withdraw to make this site stop working.</td>
+            <td>Freemium APIs whose useful rate needs registration, and licences that forbid or restrict the way the data would be shown here.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p>
+        <strong>What happens when something fails.</strong> It is not used, and the gap is published instead — the same rule
+        this site applies to unpublished Honor values and hidden item stats. Every source on every page is a public page a
+        reader can open in a browser without registering; that is why the site has no automated price or character feed, and
+        why the market log is designed around dated human observations with permalinks.
+      </p>
+    </div>
+  </section>
+
+  <section id="verified" aria-labelledby="h-verified">
+    <h2 id="h-verified">Verified and in use</h2>
+    <p class="sub">
+      Each row was fetched on the date shown with no credentials of any kind. <em>What came back</em> is a description of the actual
+      response, not a summary of a documentation page. These endpoints are registered as sources as well
+      (<span data-count="apis">5</span> of them here, <span data-count="sources">113</span> sources in total), so the weekly
+      watcher fingerprints each one and this page cannot quietly grow a URL nobody checks.
+    </p>
+    <div class="table-wrap">
+      <table class="compact" id="apiTable">
+        <caption>Verified public endpoints. Columns: Endpoint, Publisher, What a plain request returned (dated), Used for, Never to be used for.</caption>
+        <thead>
+          <tr><th scope="col">Endpoint</th><th scope="col">Publisher</th><th scope="col">What a plain request returned (dated)</th><th scope="col">Used for</th><th scope="col">Never to be used for</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="caution">
+      <p>
+        <strong>A machine-readable endpoint is not a better source than a page.</strong> The forum feed tells this project
+        that a thread exists; it does not say whether the poster is Blizzard staff, and it cannot distinguish a blue post from
+        a player argument. Every forum-derived statement is opened on the thread page and checked against the blue-tracker
+        listing before it is recorded — the feed makes discovery cheap, and changes nothing about the evidence standard.
+      </p>
+    </div>
+  </section>
+
+  <section id="rejected" aria-labelledby="h-rejected">
+    <h2 id="h-rejected">Read, understood, rejected</h2>
+    <p class="sub">
+      A refusal is only worth anything if it is specific. Each row below was opened and read; the middle column quotes the
+      provider's own condition, and the last column says what the refusal costs this project, because a rejection with a
+      cost attached is a decision rather than a pose.
+    </p>
+    <div class="table-wrap">
+      <table class="compact" id="rejectTable">
+        <caption>Rejected and pending candidates. Columns: Candidate, Status, The condition that decided it, What the refusal costs.</caption>
+        <thead>
+          <tr><th scope="col">Candidate</th><th scope="col">Status</th><th scope="col">The condition that decided it</th><th scope="col">What the refusal costs</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p>
+        <strong>One candidate is deliberately described as unknown.</strong> Warcraft Logs' API documentation served an
+        anti-bot challenge to this project's retrieval tool on 19 September 2026, so nothing is claimed about its credential
+        requirements — not that a key is needed, and not that one is not. It stays in the register marked pending, with no URL
+        published, until the page can be read and the requirement quoted (C194 covers the Blizzard API; the Warcraft Logs row
+        is the worked example of refusing to guess).
+      </p>
+    </div>
+  </section>
+
+  <section id="changes" aria-labelledby="h-changes">
+    <h2 id="h-changes">What this changes — and what it does not</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Now watchable without a credential</h3>
+        <ul>
+          <li><strong>Client builds.</strong> A build number straight from Blizzard, dated when read — the cheapest possible answer to “did the beta move today?” (C192).</li>
+          <li><strong>New Forever forum topics.</strong> A category feed scoped to Forever on both regions, so a known-issues post or a blue reply is noticed the day it lands (C190, C191).</li>
+          <li><strong>Add-on declarations.</strong> A release listing's game-version chips can be cross-checked against Blizzard's build service instead of being taken on trust (C197).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Still impossible under the rule</h3>
+        <ul>
+          <li><strong>Prices.</strong> No auction house exists before 4 November 2026, and no public price endpoint will exist after it without a credential (C194).</li>
+          <li><strong>Characters and items.</strong> No armory-style feed, so no automated Best-in-Slot verification and no per-character checks.</li>
+          <li><strong>Loot tables.</strong> Item stats stay hidden until a drop is recorded (C062), which no endpoint can work around.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub">
+      One consequence is worth stating on its own. The project's market work is a human workflow by construction, not by
+      preference: a price observation has to be captured by hand, dated, and tied to a permalink, because the alternative
+      would be an API key this rule does not allow — and, more importantly, an account that a reader cannot check.
+    </p>
+  </section>
+
+  <section id="protocol" aria-labelledby="h-protocol">
+    <h2 id="h-protocol">How the register stays honest</h2>
+    <ul class="checklist">
+      <li><strong>Fetched, not assumed.</strong> An endpoint is listed as verified only after a plain request came back, on a stated date, and the response is described. Two candidate URLs for a Forever build were tried and returned no data — that negative is published as an open gap (C193) rather than papered over with a plausible-looking number.</li>
+      <li><strong>Registered as a source.</strong> Every verified endpoint is also in <code>data/sources.js</code>, so the weekly watcher fingerprints it and a change in behaviour surfaces as an issue instead of a silent break.</li>
+      <li><strong>Limits are mandatory.</strong> Each verified row states what the endpoint must never be used for. An endpoint with no stated limit is treated as unusable.</li>
+      <li><strong>Status changes are claim changes.</strong> If an endpoint starts requiring a key, the claim that cites it is superseded with a new date, in the same way the ledger handles every other correction.</li>
+    </ul>
+    <div class="note">
+      <p>
+        The full machine-readable register is <code>data/apis.js</code>; the checks that enforce it are
+        <code>tools/check-apis.mjs</code> (schema, eligibility flags, and that a rejected URL never appears as a link) and
+        <code>tools/check-citations.mjs</code> (that every URL linked here is a registered source). See
+        <a href="method.html#procedure">how the site is verified</a> and <a href="work-plan.html#limitations">the limitations list</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · endpoint claims C190–C197 · <a href="sources.html#claims">full ledger</a></p>
+  </div>
+</footer>
+
+<script src="data/sources.js"></script>
+<script src="data/apis.js"></script>
+<script>
+(function () {
+  'use strict';
+  var idx = window.WOWF_SOURCE_INDEX || {};
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function link(url, label) {
+    if (!url) return '<span class="small">no URL published</span>';
+    return '<a class="src" href="' + esc(url) + '" rel="noopener">' + esc(label || url.replace(/^https?:\/\//, '')) + '</a>';
+  }
+
+  var apis = window.WOWF_APIS || [];
+
+  /* ---- verified endpoints ---- */
+  var body = document.querySelector('#apiTable tbody');
+  if (body) {
+    body.innerHTML = apis.filter(function (a) { return a.status === 'verified'; }).map(function (a) {
+      var hay = (a.name + ' ' + a.publisher + ' ' + a.observed + ' ' + a.use).toLowerCase();
+      return '<tr data-search="' + esc(hay) + '">' +
+        '<td><strong>' + esc(a.name) + '</strong><br>' + link(a.url) +
+          '<br><span class="small">format: ' + esc(a.format) + '</span></td>' +
+        '<td class="small">' + esc(a.publisher) + '<br><span class="chip ' + esc(a.tier) + '">' + esc(a.tier) + '</span></td>' +
+        '<td class="small"><strong>Verified ' + esc(a.verified) + '</strong><br>' + esc(a.observed) + '</td>' +
+        '<td class="small">' + esc(a.use) + '</td>' +
+        '<td class="small">' + esc(a.limit) + '</td>' +
+      '</tr>';
+    }).join('');
+  }
+
+  /* ---- rejected and pending candidates ---- */
+  var rbody = document.querySelector('#rejectTable tbody');
+  if (rbody) {
+    rbody.innerHTML = apis.filter(function (a) { return a.status !== 'verified'; }).map(function (a) {
+      var chip = a.status === 'rejected' ? '<span class="chip community">rejected</span>' : '<span class="chip pending">pending</span>';
+      var name = a.id === 'bnet-game-data' ? 'Blizzard Battle.net developer APIs (Game Data / Community)' : a.name;
+      return '<tr data-status="' + esc(a.status) + '">' +
+        '<td><strong>' + esc(name) + '</strong><br>' + link(a.url) +
+          '<br><span class="small">' + esc(a.publisher) + '</span></td>' +
+        '<td>' + chip + '<br><span class="small">' + (a.verified ? 'read ' + esc(a.verified) : 'not readable') + '</span></td>' +
+        '<td class="small">' + esc(a.observed) + '</td>' +
+        '<td class="small">' + esc(a.limit) + '</td>' +
+      '</tr>';
+    }).join('');
+  }
+})();
+</script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site patterns we verified (Wowhead, Icy Veins, Skill Capped) | WoW Forever Hub</title>
+<meta name="description" content="The public URL and section patterns this project verified by hand on Wowhead, Icy Veins, Skill Capped, Wago and Blizzard pages — what was observed, what it is used for, and the pattern that failed verification.">
+<meta name="theme-color" content="#0d1117">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Site patterns we verified (Wowhead, Icy Veins, Skill Capped) | WoW Forever Hub">
+<meta property="og:description" content="Verified URL and section patterns from the WoW guide sites that cover Forever — structure only, observed and dated, with the failures recorded too.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/site-patterns.html">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="class-pvp.html">Class PvP</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
+      <a href="data-api.html">Endpoints</a>
+      <a href="site-patterns.html">Site patterns</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">How the guide sites are organised · snapshot <span data-snapshot>2026-09-19</span></p>
+    <h1>Site patterns we verified, and the one that failed</h1>
+    <p class="lede">
+      The brief asks this project to reverse engineer portions of established WoW sites. The honest version of that is
+      <strong>structure</strong>: which namespaces exist, how news is told apart from guides, how a Blizzard post is indexed,
+      and where the sites that <em>do</em> cover Forever keep it. Every pattern below was confirmed by opening the pages —
+      and the guess that did not survive verification is published too.
+    </p>
+  </div>
+
+  <div class="banner">
+    <strong>The answer to the question behind the request.</strong>
+    <p>
+      Wowhead and Icy Veins each run a dedicated Forever namespace — <code>/forever/</code> and <code>/wow-forever/</code> —
+      and both keep news, guides and datamined material in separate sections a reader can tell apart. Skill Capped, the third
+      site the brief names, has <strong>no Forever section at all</strong>: its live PvP tier list is retail Midnight Season 2
+      Solo Shuffle, because Forever launches without rated PvP to rank (C199).
+    </p>
+    <p class="small">
+      Verified by opening the pages on <strong>19 September 2026</strong>. Sources, in the order they are named:
+      <span class="srcs"><a class="src" href="https://www.wowhead.com/forever" rel="noopener">Wowhead /forever</a><a class="src" href="https://www.icy-veins.com/wow-forever/" rel="noopener">Icy Veins /wow-forever</a><a class="src" href="https://www.skill-capped.com/wowarticles/tier-lists/solo-shuffle/" rel="noopener">Skill Capped tier list</a></span>
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#rules">What “reverse engineering” means here</a></li>
+      <li><a href="#patterns">Verified patterns</a></li>
+      <li><a href="#failed">What failed verification</a></li>
+      <li><a href="#reading">What we take from them — and what we refuse to take</a></li>
+    </ul>
+  </nav>
+
+  <section id="rules" aria-labelledby="h-rules">
+    <h2 id="h-rules">What “reverse engineering” means here</h2>
+    <p class="sub">
+      A URL shape is public information. A guide's text is somebody's work. This project keeps the line between the two
+      explicit, because that is the difference between learning how a site is built and taking it apart for parts.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>The boundary this project holds to, recorded in <code>data/patterns.js</code>.</caption>
+        <thead><tr><th scope="col">Allowed</th><th scope="col">Refused</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Read a page, note its URL shape, section namespaces, and how it separates news, guides and datamined material; credit it by name and link to it; use the structure to organise this site's own navigation.</td>
+            <td>Scrape, mirror, rehost, translate or republish another site's content; paraphrase it at length; present its analysis as this project's finding; treat a guide as a primary source when a Blizzard page exists.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p>
+        The result is a map, not a copy. Where this site has learned something about <em>how</em> a site organises Forever
+        coverage, that is recorded with the date it was observed. Where it has learned something about the <em>game</em>, the
+        claim is attributed to whoever published it and linked so a reader can check the original.
+      </p>
+    </div>
+  </section>
+
+  <section id="patterns" aria-labelledby="h-patterns">
+    <h2 id="h-patterns">Verified patterns</h2>
+    <p class="sub">
+      <span data-count="patterns">16</span> patterns, each observed rather than inferred. “Observed” says what was actually
+      seen; “limit” says what the pattern must never be used for, because knowing a URL shape does not make a site's contents
+      this project's to reproduce.
+    </p>
+    <div class="table-wrap">
+      <table class="compact" id="patternTable">
+        <caption>Verified URL and section patterns. Columns: Site, Pattern, Observed, Why it matters, Limit.</caption>
+        <thead>
+          <tr><th scope="col">Site</th><th scope="col">Pattern</th><th scope="col">Observed</th><th scope="col">Why it matters</th><th scope="col">Limit</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="failed" aria-labelledby="h-failed">
+    <h2 id="h-failed">What failed verification</h2>
+    <p class="sub">
+      A pattern register that only lists successes is a sales brochure. The failures below are the reason this page exists in
+      this shape: each one is a URL or an assumption that looked right and did not survive being opened.
+    </p>
+    <div class="table-wrap">
+      <table class="compact" id="failedTable">
+        <caption>Patterns that could not be verified. Columns: Question, Status, What happened.</caption>
+        <thead>
+          <tr><th scope="col">Question</th><th scope="col">Status</th><th scope="col">What happened</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="caution">
+      <p>
+        <strong>The worked example.</strong> This session guessed a plausible Icy Veins news address by shortening a headline
+        and it returned a 404 page, while the real, registered URL for the same story exists and ends in a trailing slash. The
+        lesson is not that Icy Veins broke a link — it is that a plausible slug is not a URL: news on that site has no numeric id,
+        so the slug <em>is</em> the address, and inventing one produces a dead link that looks like a deleted article. Every URL
+        on this site is copied from the site that serves it, and the failure is on the record rather than quietly retried until
+        something returns 200.
+      </p>
+    </div>
+  </section>
+
+  <section id="reading" aria-labelledby="h-reading">
+    <h2 id="h-reading">What we take from them — and what we refuse to take</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Taken: structure</h3>
+        <ul>
+          <li><strong>The namespace split.</strong> A dedicated Forever section on both major sites is the clearest editorial statement available that a page is about this game and not the 2004 client — so this project's links are all drawn from those namespaces.</li>
+          <li><strong>News versus guides.</strong> Dated posts and revised-in-place guides live in different sections, and this site's ledger keeps the same distinction by carrying a reading date on every source.</li>
+          <li><strong>Visible caveats.</strong> Both sites label datamined material as changeable and mark unfinished sections as coming soon. This site's evidence classes and its “not announced” rows are the same discipline, written down.</li>
+          <li><strong>Blizzard indexing.</strong> A tracker that mirrors Blizzard's news and forum posts is the fastest way to notice a statement, while the Blizzard page itself stays the citation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Refused: conclusions</h3>
+        <ul>
+          <li><strong>Their rankings.</strong> No tier list is copied, restated or used as a basis for one here; where a reputable site has declined to rank Forever classes, that refusal is itself the finding (C198).</li>
+          <li><strong>Their data tables.</strong> Item, recipe, camp-object and set-bonus tables are summarised in this project's own words with the original linked, never lifted wholesale.</li>
+          <li><strong>Their datamining.</strong> Client datamining is credited to the outlet that did it and tagged as changeable — this project does not strip a client and present the result as its own.</li>
+          <li><strong>Anything unreadable.</strong> A page that blocks automated retrieval, or a URL that cannot be opened, produces a recorded gap rather than a summary of a summary.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub">
+      Every source named on this page sits in <a href="sources.html#sources">the source registry</a> with its publisher, the
+      date it was read and the claims it supports, and it is fingerprinted weekly by the
+      <a href="work-plan.html#decisions">source-watch Action</a> — so a site that reorganises, moves Forever to a new
+      namespace or drops coverage entirely shows up as a dated issue rather than as a quietly stale link.
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard. Site names and URLs belong to their owners and are used here for attribution and navigation only.</p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · pattern claims C190–C207 · <a href="sources.html#claims">full ledger</a></p>
+  </div>
+</footer>
+
+<script src="data/sources.js"></script>
+<script src="data/patterns.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function links(list) {
+    if (!list || !list.length) return '';
+    return '<br><span class="srcs">' + list.map(function (u) {
+      return '<a class="src" href="' + esc(u) + '" rel="noopener">open</a>';
+    }).join(' ') + '</span>';
+  }
+
+  var body = document.querySelector('#patternTable tbody');
+  if (body && window.WOWF_PATTERNS) {
+    body.innerHTML = window.WOWF_PATTERNS.map(function (p) {
+      var hay = (p.site + ' ' + p.kind + ' ' + p.pattern + ' ' + p.observed + ' ' + p.use).toLowerCase();
+      return '<tr data-search="' + esc(hay) + '" data-site="' + esc(p.site) + '">' +
+        '<td><strong>' + esc(p.site) + '</strong><br><span class="small">' + esc(p.kind) + '</span></td>' +
+        '<td><code>' + esc(p.pattern) + '</code>' + links(p.examples) +
+          '<br><span class="small">verified ' + esc(p.verified) + '</span></td>' +
+        '<td class="small">' + esc(p.observed) + '</td>' +
+        '<td class="small">' + esc(p.reading) + '</td>' +
+        '<td class="small">' + esc(p.limit) + '</td>' +
+      '</tr>';
+    }).join('');
+  }
+
+  var fbody = document.querySelector('#failedTable tbody');
+  if (fbody && window.WOWF_PATTERNS_UNVERIFIED) {
+    fbody.innerHTML = window.WOWF_PATTERNS_UNVERIFIED.map(function (u) {
+      return '<tr data-status="' + esc(u.status) + '">' +
+        '<td><strong>' + esc(u.question) + '</strong></td>' +
+        '<td><span class="chip pending">' + esc(u.status) + '</span></td>' +
+        '<td class="small">' + esc(u.note) + '</td>' +
+      '</tr>';
+    }).join('');
+  }
+})();
+</script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

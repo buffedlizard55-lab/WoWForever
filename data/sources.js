@@ -774,9 +774,15 @@ window.WOWF_SOURCES = [
     id: "wh-forever-news",
     title: "Forever News and Guides (Wowhead news index)",
     publisher: "Wowhead",
-    date: "checked 2026-09-18",
+    date: "checked 2026-09-18; hub, blue tracker and item-author pages re-checked 2026-09-19",
     url: "https://www.wowhead.com/forever/news",
     tier: "guide",
+    also: [
+      "https://www.wowhead.com/forever",
+      "https://www.wowhead.com/forever/blue-tracker",
+      "https://www.wowhead.com/blue-tracker/news/us/24301508",
+      "https://www.wowhead.com/blue-tracker/topic/us/2354340"
+    ],
     supports: [
       "The index used to find the interview write-ups, datamines and beta posts recorded in this round",
       "At the snapshot it carried, among others: the guide compendium, Season of Discovery class quests returning, raid tier set models datamined, the Legacy system calculator, the talent calculator and the beta known-issues posts",
@@ -1512,7 +1518,204 @@ window.WOWF_SOURCES = [
       "Classic PvP rank sets present under the Champion's, Lieutenant Commander's, Field Marshal's and Warlord's names with changed bonuses (2-piece Parry replaced by Attack Power 40 or Agility 20; 6-piece Stamina 15 to 20; hybrid healing/spell damage 44/15) and effect bonuses (Gouge, Blink, Psychic Scream); several sets renamed (Lieutenant Commander's Arcanum to Champion's Regalia; Investiture to Champion's Raiment; Lieutenant Commander's Refuge removed)",
       "Wowhead's own caveats: the datamine 'may not be reflective of what reaches live servers', and 'some effects from Season of Discovery have also appeared in our datamining, though we have taken care to filter them out of this article to the best of our ability'"
     ]
+  },
+  /* ---------- added 2026-09-19: public-endpoint and pattern verification pass ---------- */
+  {
+    id: "bnet-forum-us-json",
+    title: "World of Warcraft forum (US) — public topic feed",
+    publisher: "Blizzard Entertainment (us.forums.blizzard.com)",
+    date: "read 2026-09-19",
+    url: "https://us.forums.blizzard.com/en/wow/latest.json",
+    tier: "official",
+    firstParty: true,
+    note: "Blizzard's forums run on Discourse, so this is a documented platform API serving first-party Blizzard data. Fetched with no credentials on 2026-09-19 (HTTP 200); the newest topics in the payload were posted the same evening. Registered as evidence that the endpoint works — not as a source of game facts.",
+    supports: [
+      "A Blizzard-hosted, machine-readable topic feed is publicly reachable with no account, no key and no registration (see the Public endpoints page)",
+      "Each topic carries id, title, slug, created_at, last_posted_at and posts_count; a topic id resolves to a public page at /en/wow/t/<slug>/<id>",
+      "The endpoint is fetchable by the site's own tooling under the project rule, unlike Blizzard's Game Data API (bnet-dev-getting-started)"
+    ]
+  },
+  {
+    id: "bnet-forum-forever-us",
+    title: "World of Warcraft forum (US) — WoW: Forever category feed",
+    publisher: "Blizzard Entertainment (us.forums.blizzard.com)",
+    date: "read 2026-09-19",
+    url: "https://us.forums.blizzard.com/en/wow/c/wow-forever/l/latest.json",
+    tier: "official",
+    firstParty: true,
+    note: "Same public Discourse API, scoped to the Forever category. The request resolves through /c/wow-forever/346/l/latest.json, which is how the US category id (346, slug wow-forever) was established on 2026-09-19.",
+    supports: [
+      "A dedicated 'WoW: Forever' forum category exists on Blizzard's US forum (id 346, slug wow-forever) and is readable without an account",
+      "On 19 September 2026 the category carried active Forever threads on recruitment, mob tagging and beta discussion",
+      "Category membership is not authority: only a post by a Blizzard employee is a blue post, and that is verified on the thread page before anything is recorded"
+    ]
+  },
+  {
+    id: "bnet-forum-forever-eu",
+    title: "World of Warcraft forum (EU) — WoW: Forever category record",
+    publisher: "Blizzard Entertainment (eu.forums.blizzard.com)",
+    date: "read 2026-09-19",
+    url: "https://eu.forums.blizzard.com/en/wow/c/wow-forever.json",
+    tier: "official",
+    firstParty: true,
+    note: "Resolves to /c/wow-forever/359.json: the EU category id is 359 and shares the slug wow-forever with the US category. Fetched with no credentials on 2026-09-19.",
+    supports: [
+      "The EU forum carries its own Forever category (id 359), separate from the US category (id 346)",
+      "A regional equivalent exists for every blue post that matters, which gives the site a second address to check before treating a forum statement as one-region-only"
+    ]
+  },
+  {
+    id: "bnet-forum-topic-page",
+    title: "About the WoW: Forever category (official forum thread)",
+    publisher: "Blizzard Entertainment (us.forums.blizzard.com)",
+    date: "read 2026-09-19",
+    url: "https://us.forums.blizzard.com/en/wow/t/about-the-wow-forever-category/2347159",
+    tier: "official",
+    firstParty: true,
+    note: "The public page form of a forum topic, taken from the topic_url that the categories payload itself returns for the Forever category. Used as the worked example that a topic id read from the structured feed resolves to a page a reader can open.",
+    supports: [
+      "Blizzard's own forum data advertises its public page URL shape as /en/wow/t/<slug>/<id>",
+      "A topic id is stable across the structured feed and the public page, so a machine-read topic can always be cited as something a human can inspect"
+    ]
+  },
+  {
+    id: "bnet-version-classic",
+    title: "Blizzard version service — Classic product line",
+    publisher: "Blizzard Entertainment (us.version.battle.net)",
+    date: "read 2026-09-19",
+    url: "https://us.version.battle.net/v2/products/wow_classic/versions",
+    tier: "official",
+    firstParty: true,
+    note: "Fetched with no credentials on 2026-09-19 (HTTP 200). Returns a pipe-delimited TACT version table, one row per region; that day it read 5.5.4.69585 (BuildId 69585) for us, eu, cn, kr and tw. This is Blizzard's own build manifest, not a third party's mirror of it.",
+    supports: [
+      "An authoritative first-party build number is publicly readable with no key, no account and no registration",
+      "The value seen on 2026-09-19 was 5.5.4.69585 for the Classic product line, which matches the 'Supported Mists of Pandaria patch5.5.4' chip that the TSM release listing displayed the same day (see claim C197)",
+      "It reports a build, never a changelist: a new number proves a client changed and says nothing about what changed"
+    ]
+  },
+  {
+    id: "bnet-version-era",
+    title: "Blizzard version service — Classic Era product",
+    publisher: "Blizzard Entertainment (us.version.battle.net)",
+    date: "read 2026-09-19",
+    url: "https://us.version.battle.net/v2/products/wow_classic_era/versions",
+    tier: "official",
+    firstParty: true,
+    note: "Same public service, different product: read 1.15.9.69722 (BuildId 69722) on 2026-09-19. Used as the control that proves the URL shape works, because the same request against two guessed Forever product codes returned 'No matched data' instead.",
+    supports: [
+      "The version-service path shape is real and works unauthenticated, which makes the negative result on a Forever product code a genuine 'not found' rather than a broken request",
+      "The Era build seen on 2026-09-19 (1.15.9.69722) matches the 'Supported Classic Era patch1.15.9' chip on the TSM release listing from the same day (see claim C197)"
+    ]
+  },
+  {
+    id: "bnet-dev-getting-started",
+    title: "Battle.net developer documentation — Getting Started",
+    publisher: "Blizzard Entertainment (community.developer.battle.net)",
+    date: "read 2026-09-19",
+    url: "https://community.developer.battle.net/documentation/guides/getting-started",
+    tier: "official",
+    firstParty: true,
+    note: "Fetched 2026-09-19 (develop.battle.net now redirects to community.developer.battle.net). The page itself needs no account; the APIs it documents do. It states that a caller must log in or create a Battle.net account, attach an authenticator because two-factor authentication is required for any API usage, accept the Blizzard Developer API Terms of Use, create a client, and obtain tokens through OAuth.",
+    supports: [
+      "Blizzard's own developer APIs require account creation, two-factor authentication and a registered OAuth client — the exact conditions the brief excludes",
+      "The exclusion of first-party game APIs from this project is therefore Blizzard's documented requirement, not this site's preference",
+      "It also states the consequence the project publishes plainly: with no credential, there can be no automated auction-house, character or item feed, which is why market data must arrive as dated human observations"
+    ]
+  },
+  {
+    id: "bnet-collectors-edition",
+    title: "Pre-Purchase the World of Warcraft: Forever Collector's Edition",
+    publisher: "Blizzard Entertainment (news.blizzard.com)",
+    date: "2026-09-11 (posted); read 2026-09-19",
+    url: "https://news.blizzard.com/en-us/article/24302498/pre-purchase-the-world-of-warcraft-forever-collectors-edition",
+    also: [
+      "https://worldofwarcraft.blizzard.com/en-us/news/24302498"
+    ],
+    tier: "official",
+    firstParty: true,
+    note: "Read on 2026-09-19 alongside its shorter mirror at worldofwarcraft.blizzard.com/en-us/news/24302498. Blizzard's own description of the physical edition and of the digital Warcraft Forever Collection it contains, including the beta-access code terms and the invite-a-friend dates.",
+    supports: [
+      "A physical Collector's Edition exists in addition to the digital packs already recorded (Skyborne Heroic, Skyborne Epic, Warcraft Forever Collection)",
+      "Contents listed by Blizzard: a Warcraft Forever Collection digital code (Skyborne Epic Pack plus Warcraft III: Reforged and its Forsaken Kingdom campaign), a 13-inch Dwarf and Bear statue, a Zephras Isle mousepad, art prints, collectible pins and a companion journal",
+      "Beta-access instructions arrive by email and benefits expire after the access period Blizzard prints as September 17 through October 21 PDT (the pre-purchase article prints the same window labelled PST — recorded as irregularity I-21)",
+      "A Battle.net Balance credit equal to the amount paid is possible when a Collector's Edition code is redeemed by December 31, 2027, for some qualifying digital purchases",
+      "Australia and New Zealand pre-orders run through participating regional retailers (JB Hi-Fi, EB Games Australia)"
+    ]
+  },
+  {
+    id: "raiderio-api",
+    title: "Raider.IO Developer API documentation",
+    publisher: "Raider.IO",
+    date: "read 2026-09-19",
+    url: "https://raider.io/api",
+    tier: "tooling",
+    note: "Read in full on 2026-09-19. Recorded as a rejected candidate so the decision is visible: it needs no key for basic use, but its own terms describe rate limits that registration lifts, a mandatory attribution link, a community/personal-use restriction that rules out competing services, and revocable access.",
+    supports: [
+      "Rejected on the project's no-free-tier test: the usable rate is a permission the provider can withdraw, and the acceptable-use terms go beyond a link back",
+      "Rejected again on scope: the API describes 'character and guild rankings for Raiding and Mythic+ content' sourced from Blizzard's modern API, and Forever has neither Mythic+ nor a public character API",
+      "Not used anywhere on this site; recorded so a later session does not have to re-argue it"
+    ]
+  },
+  {
+    id: "sc-tierlist-live",
+    title: "WoW PvP Tier List — Best Classes and Specs (retail, checked for Forever coverage)",
+    publisher: "Skill Capped",
+    date: "2026-09-01 (last updated); read 2026-09-19",
+    url: "https://www.skill-capped.com/wowarticles/tier-lists/solo-shuffle/",
+    tier: "guide",
+    note: "Read 2026-09-19 as part of the standing coverage check on Skill Capped. The live article is a retail Midnight Season 2 Solo Shuffle ranking and makes no Forever claims; no Forever page was found in the /wowarticles/ namespace.",
+    supports: [
+      "Skill Capped's current PvP tier list is about retail Midnight Season 2 Solo Shuffle (updated 1 September 2026) and says nothing about Forever",
+      "The site named in the brief as a PvP source still has no Forever coverage, because Forever has no rated PvP to rank — the coverage gap continues",
+      "Their article namespace follows /wowarticles/<category>/<slug>/, which is what this site watches for the day a Forever page appears"
+    ]
+  },
+  {
+    id: "iv-choosing-main",
+    title: "World of Warcraft: Forever — Choosing Your Class",
+    publisher: "Icy Veins — Crix",
+    date: "2026-09-18 (posted); read 2026-09-19",
+    url: "https://www.icy-veins.com/wow-forever/choosing-your-main",
+    tier: "guide",
+    note: "Read 2026-09-19. A class-choice guide for all nine classes that deliberately stops short of ranking them, by a named Classic specialist, and states its own condition for publishing rankings.",
+    supports: [
+      "A role table for all nine classes (Druid tank/healer/melee/ranged; Hunter melee/ranged; Mage ranged; Paladin tank/healer/melee; Priest healer/ranged; Rogue melee; Shaman healer/melee/ranged; Warlock ranged; Warrior tank/melee)",
+      "The guide's own words: it can be updated with 'links to our Tank, Healer, DPS, and PvP rankings' only once 'reliable level 60 raid, dungeon, and PvP data becomes available', and until then the useful basis for choosing is role and playstyle",
+      "Class mechanics it reports: Restoration Shaman gains Riptide; Destruction Warlock adds Incinerate, Bane of Havoc and Shadow and Flame; Arms Warrior gains talents linking Rend and Overpower plus Spearing Strike, described as especially powerful against mounted players"
+    ]
+  },
+  {
+    id: "iv-legacy",
+    title: "WoW Forever Legacy System Guide",
+    publisher: "Icy Veins",
+    date: "2026-09-15 (posted); read 2026-09-19",
+    url: "https://www.icy-veins.com/wow-forever/legacy-system",
+    tier: "guide",
+    note: "Read 2026-09-19. Summarises Blizzard's announcements and the BlizzCon 2026 build, and carries its own warning that exact perks, values, requirements and point limits may still change during the beta.",
+    supports: [
+      "Legacy points: up to 65 earnable initially, with 16 spendable per character at launch, unlocked account-wide but spent independently per character",
+      "Three Legacy trees at launch: Adventure (levelling, exploration, rested experience), Professions (tradeskills, gathering, fishing, cooking, crafting) and Resourcefulness (reagents, durability, reputation, honor, camps and buffs)",
+      "Legacy challenge categories shown: Classes, Tradeskills, Player vs. Player, Adventure, Dungeons and Raids",
+      "Hardcore rules: progress earned outside Hardcore does not transfer in, while Legacy progress earned in Hardcore can flow outward",
+      "Its explicit unknowns list includes the complete launch challenge list, final perk values, tree pathing, whether points can be respecced and when the 16-point cap rises"
+    ]
+  },
+  {
+    id: "iv-subscription",
+    title: "Warcraft Forever Subscription Explained",
+    publisher: "Icy Veins",
+    date: "2026-09-13 (posted); read 2026-09-19",
+    url: "https://www.icy-veins.com/wow-forever/wow-forever-subscription",
+    tier: "guide",
+    note: "Read 2026-09-19 for the practical access rules: what a subscription covers, how the client is installed, and the character and faction limits a new player will meet.",
+    supports: [
+      "A standard WoW subscription covers Forever; no additional purchase is required, and the client is a dedicated Forever entry in the Battle.net launcher's version dropdown",
+      "There is no free trial or starter edition for Forever, as with the other Classic modes",
+      "Character limits: up to 10 characters per realm and 50 across one Battle.net license; on the PvP ruleset only characters of one faction can be created",
+      "System requirements as printed: Windows 10 64-bit minimum (Windows 11 recommended), 6-core 4.0 GHz minimum, DirectX 12 capable 4 GB GPU minimum, 8 GB RAM minimum, 128 GB SSD"
+    ]
   }
+
 ];
 
 /* Convenience index used by pages to render a source link by id. */

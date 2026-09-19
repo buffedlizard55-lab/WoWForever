@@ -32,6 +32,8 @@
       <a href="gold.html">Gold</a>
       <a href="addons.html">Add-ons</a>
       <a href="beta.html">Beta log</a>
+      <a href="data-api.html">Endpoints</a>
+      <a href="site-patterns.html">Site patterns</a>
       <a href="sources.html">Sources</a>
       <a href="method.html">Method</a>
       <a href="work-plan.html">Work plan</a>
@@ -57,7 +59,7 @@
       <li><a href="#classes">Evidence classes</a></li>
       <li><a href="#procedure">The line-by-line procedure</a></li>
       <li><a href="#refuse">What we refuse to publish</a></li>
-      <li><a href="#irregularities">Irregularity log (I-1 … I-20)</a></li>
+      <li><a href="#irregularities">Irregularity log (I-1 … I-22)</a></li>
       <li><a href="#teardown">Source-coverage map (Wowhead, Icy Veins, Skill Capped, TSM)</a></li>
       <li><a href="#corrections">Corrections process</a></li>
     </ul>
@@ -436,6 +438,47 @@
       built from set bonuses alone is missing exactly the item-level data that is still hidden (see I-1). Recorded during
       the 19 September queue-closing pass.
     </p>
+
+    <h3>I-21 · Blizzard's own pages label the same beta window with two different timezones <span class="chip official">Official</span></h3>
+    <p>
+      The pre-purchase article says the beta “begins September 17, 2026, PST, and is available through October 21, 2026,
+      PST”. The Collector's Edition article, published the same week, prints the same window as the “access period of
+      September 17 through October 21 PDT”. Both sentences are Blizzard's, about the same window, one day apart. The
+      <em>date</em> is not in dispute and this site does not rewrite it; what differs is the zone label. Our reading — and it
+      is our reading, not a Blizzard statement — is that the Collector's Edition label is right for a window that sits
+      entirely inside US daylight time, that the pre-purchase article's PST is loose, and that PST is correct for the
+      4 November launch time because US daylight time ends on 1 November 2026. Recorded because a reader comparing the two
+      Blizzard pages will see the difference, and because pretending it is not there is exactly the kind of tidying this
+      project exists to avoid.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> both pages are registered (bnet-prepurchase, bnet-collectors-edition) and the
+      discrepancy is a claim of its own (C204) rather than a silent correction in either direction. The site's own rule
+      follows from it: a date is printed with the zone label its source printed, and never with a label this project added
+      to make two pages agree — the same discipline as I-17, applied to a discrepancy between two first-party pages instead
+      of between a page and a summary. Found during the 19 September endpoint-and-pattern pass.
+    </p>
+
+    <h3>I-22 · For months this site said no credential-free source could exist, without ever testing it <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      The limitations list carried a row headed “No credentials by design”, which explained that because the brief rules out
+      API keys that need a sign-up, “there is no automated price or character data feed”. The first half of that is correct,
+      and its citation is now stronger than it was: Blizzard's own Getting Started page documents the account, the mandatory
+      authenticator and the OAuth client a caller must have before the first request is served (C194). The second half was
+      an assumption wearing the clothes of a finding. It implied that nothing machine-readable is available at all, when two
+      Blizzard-hosted services answer a plain request with no credential whatsoever — the forum's topic feed and the build
+      manifest (C190–C192). Nobody had checked, so the row was true by default rather than by test, which is the same failure
+      mode as I-17 and I-18 one level up: a statement about our own coverage that no one had verified.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> the endpoint register (<code>data/apis.js</code>, published on
+      <a href="data-api.html">Public endpoints</a> with its own checker) now records each candidate, the date it was fetched,
+      what came back, what it may be used for and what it must never be used for — including the two rejected candidates and
+      the one left deliberately unknown because its documentation could not be read. Three candidates failed this pass
+      (Raider.IO on its terms and its scope, Blizzard's developer APIs on Blizzard's own requirement, Warcraft Logs on
+      unreadability) and are published with the evidence for the refusal. The Work plan limitation row has been rewritten to
+      name what is now watchable and what remains impossible. Recorded during the 19 September pass.
+    </p>
   </section>
 
   <section id="teardown" aria-labelledby="h-teardown">
@@ -461,12 +504,12 @@
           </tr>
           <tr>
             <td><strong>Skill Capped</strong> <span class="srcs"><a class="src" href="https://www.skill-capped.com/wowarticles/general/pvp-addons-ui-guide/" rel="noopener">PvP UI guide</a></span></td>
-            <td>The material their guides index surfaced at the snapshot date covers <em>Midnight</em> (current retail) and TBC Classic — PvP UI/addon set-ups, battleground addon profiles and spec guides — and nothing for Forever. Their PvP articles on the site are dated before Forever's announcement, so no Forever PvP guide can exist on that domain yet.</td>
+            <td>The material their guides index surfaced at the snapshot date covers <em>Midnight</em> (current retail) and TBC Classic — PvP UI/addon set-ups, battleground addon profiles and spec guides — and nothing for Forever. Their PvP articles on the site are dated before Forever's announcement, so no Forever PvP guide can exist on that domain yet. <strong>Re-checked 19 September 2026:</strong> the live tier list is still a retail Midnight Season 2 Solo Shuffle ranking (updated 1 September), and no Forever page was found in their <code>/wowarticles/</code> namespace (C199).</td>
             <td>Recorded as a coverage gap. Their format (per-spec PvP guides, curated addon profiles, battleground tooling) is the template we will use when Forever PvP data exists. <span class="chip ours">Our reading</span> Because Forever shares Mainline WoW's UI architecture and most 12.1.5 APIs, modern battleground UI addons are the most likely to be portable — but none is confirmed for Forever yet.</td>
           </tr>
           <tr>
             <td><strong>TradeSkillMaster</strong> <span class="srcs"><a class="src" href="https://www.curseforge.com/wow/addons/tradeskill-master" rel="noopener">CurseForge</a></span></td>
-            <td>Gold-making suite with price sources, groups and operations — but no Forever build yet. The release list is re-checked each session.</td>
+            <td>Gold-making suite with price sources, groups and operations — but no Forever build yet. <strong>Re-checked 19 September 2026:</strong> the newest stable release is v4.14.77 (13 September), declaring Retail 12.1.0, Mists of Pandaria 5.5.4, Burning Crusade 2.5.6 and Classic Era 1.15.9 — and no 1.60.x entry (C196). Its declared versions were then cross-checked against Blizzard's own build service on the same day (C197).</td>
             <td>We document the gap and will publish a verified TSM-on-Forever workflow only once a supported build ships. The dated add-on tracker exists because this one row changes silently.</td>
           </tr>
           <tr>
@@ -486,6 +529,11 @@
       <p><strong>On “reverse engineering” other sites:</strong> we study their information architecture — namespaces, guide
       categories, how they separate datamine from news — and adopt the useful structural ideas. We do not scrape, rehost or
       re-publish their content, and every page we rely on is credited with a link.</p>
+    <p class="small">That work now has its own register: <a href="site-patterns.html">Site patterns</a> records each observed
+      URL shape with the date it was seen, what it is for and what it must never be used for — including the patterns that
+      failed verification. The evidence for what is machine-readable at all, with no key or sign-up, is on
+      <a href="data-api.html">Public endpoints</a>; both registers are checked offline in CI
+      (<code>tools/check-patterns.mjs</code>, <code>tools/check-apis.mjs</code>).</p>
     </div>
   </section>
 
@@ -508,7 +556,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-19</span> · irregularities I-1 to I-20 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · irregularities I-1 to I-22 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 
