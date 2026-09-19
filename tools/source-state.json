@@ -469,20 +469,6 @@
       "checked": "2026-09-19T00:20:26.639Z",
       "failures": 0
     },
-    "wh-guide-index::also-1": {
-      "hash": "4a1a16a190e3e3e9957b0937c9ed41faa538cbe655f89e4a169316fa5c470b13",
-      "length": 7117,
-      "url": "https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank",
-      "checked": "2026-09-19T00:20:26.639Z",
-      "failures": 0
-    },
-    "wh-guide-index::also-3": {
-      "hash": "69aeff625cd034e5a59a1bccd154a665cd35cc9f7985dc8d184d64c932e09f19",
-      "length": 13179,
-      "url": "https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank",
-      "checked": "2026-09-19T00:20:26.639Z",
-      "failures": 0
-    },
     "wago-questie": {
       "hash": "15fa335efa817db3843e6c271e09d412e7f377396f34495e083cdceb48cb607f",
       "length": 73,
@@ -490,38 +476,10 @@
       "checked": "2026-09-19T00:20:26.639Z",
       "failures": 0
     },
-    "wh-guide-index::also-5": {
-      "hash": "53b565eb1bb026e28b98d834a3f4c75da9d3e3bb67f2c6c7e099381129af7400",
-      "length": 7934,
-      "url": "https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview",
-      "checked": "2026-09-19T00:20:26.639Z",
-      "failures": 0
-    },
-    "wh-guide-index::also-2": {
-      "hash": "bf98f2d57f2fb919b1c3b5bba37c78bf841c8a157d7c9f831017044f0d1bdd6e",
-      "length": 12044,
-      "url": "https://www.wowhead.com/forever/guide/classes/paladin/protection/abilities-pve-tank",
-      "checked": "2026-09-19T00:20:26.639Z",
-      "failures": 0
-    },
-    "wh-guide-index::also-4": {
-      "hash": "366708fa1b2a5b4f6ea3023482945062ac0469731af929b3f27add054df35df8",
-      "length": 4176,
-      "url": "https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations",
-      "checked": "2026-09-19T00:20:26.639Z",
-      "failures": 0
-    },
     "cf-details": {
       "hash": "015bb1ec71413f8e4f0e7bb31caac9d16d90e89cdf67278ed7c22abd924aa4f3",
       "length": 5215,
       "url": "https://www.curseforge.com/wow/addons/details/files",
-      "checked": "2026-09-19T00:20:26.639Z",
-      "failures": 0
-    },
-    "wh-guide-index::also-6": {
-      "hash": "46c42769b3a2cd71ec60fa6cf54304797a3c8c3610dd63fc33418231ba594166",
-      "length": 12231,
-      "url": "https://www.wowhead.com/forever/guide/legacy-system-overview-rewards",
       "checked": "2026-09-19T00:20:26.639Z",
       "failures": 0
     },
@@ -606,6 +564,48 @@
       "hash": "665cf14fff3aed3b8906b4ffb7b891b7781ed1b27204c1f4a329c1ae72c32074",
       "length": 7219,
       "url": "https://nl.ign.com/world-of-warcraft-forever/167066/world-of-warcraft-forever-moet-echt-voor-altijd-zijn-interview",
+      "checked": "2026-09-19T00:20:26.639Z",
+      "failures": 0
+    },
+    "wh-druid-feral": {
+      "hash": "4a1a16a190e3e3e9957b0937c9ed41faa538cbe655f89e4a169316fa5c470b13",
+      "length": 7117,
+      "url": "https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank",
+      "checked": "2026-09-19T00:20:26.639Z",
+      "failures": 0
+    },
+    "wh-paladin-prot::also-1": {
+      "hash": "bf98f2d57f2fb919b1c3b5bba37c78bf841c8a157d7c9f831017044f0d1bdd6e",
+      "length": 12044,
+      "url": "https://www.wowhead.com/forever/guide/classes/paladin/protection/abilities-pve-tank",
+      "checked": "2026-09-19T00:20:26.639Z",
+      "failures": 0
+    },
+    "wh-paladin-prot": {
+      "hash": "69aeff625cd034e5a59a1bccd154a665cd35cc9f7985dc8d184d64c932e09f19",
+      "length": 13179,
+      "url": "https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank",
+      "checked": "2026-09-19T00:20:26.639Z",
+      "failures": 0
+    },
+    "wh-raids": {
+      "hash": "366708fa1b2a5b4f6ea3023482945062ac0469731af929b3f27add054df35df8",
+      "length": 4176,
+      "url": "https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations",
+      "checked": "2026-09-19T00:20:26.639Z",
+      "failures": 0
+    },
+    "wh-season1-tiersets": {
+      "hash": "53b565eb1bb026e28b98d834a3f4c75da9d3e3bb67f2c6c7e099381129af7400",
+      "length": 7934,
+      "url": "https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview",
+      "checked": "2026-09-19T00:20:26.639Z",
+      "failures": 0
+    },
+    "wh-legacy-guide": {
+      "hash": "46c42769b3a2cd71ec60fa6cf54304797a3c8c3610dd63fc33418231ba594166",
+      "length": 12231,
+      "url": "https://www.wowhead.com/forever/guide/legacy-system-overview-rewards",
       "checked": "2026-09-19T00:20:26.639Z",
       "failures": 0
     }
