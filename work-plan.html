@@ -883,43 +883,48 @@
         <thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Why now</th><th scope="col">Risk / blocker</th></tr></thead>
         <tbody>
         <tr><td>1</td>
-          <td><strong>Identify the Forever client's product code in Blizzard's version service and, if it exists, register the check.</strong> Candidate codes were tried and failed: <code>wow_forever</code> and <code>wow_classic_forever</code> both returned “No matched data for selector”. Try the remaining plausible codes, and if none works, record the search as exhausted rather than leaving it open forever.</td>
-          <td>The build service is the cheapest possible answer to “did the beta move today?”, and it needs no key, no account and no registration (C192). The control runs prove the request shape is right, so a further negative is genuinely informative (C193).</td>
-          <td>Blizzard may not publish a Forever manifest at all before launch; the acceptable outcome is a documented “not published — checked on this date”, not a guessed build number. A version bump is never a changelog, so it can only be used to prompt a human to look.</td></tr>
+          <td><strong>Observe whether the auction house follows the ruleset</strong>, from 4 November, and record the answer as a dated claim the moment any first-party page or blue post states it. Until it is stated, keep the Gold page's open question standing.</td>
+          <td>It is the single fact that decides the shape of every market this site will describe: one deep market or several mid-sized ones with no arbitrage between them. The realmless model is official (C209); only the AH scope is unstated.</td>
+          <td>Cannot be answered before launch. If the answer arrives only from observation rather than a statement, it must be labelled as observed with the date and the ruleset it was observed on — and re-checked on a second ruleset before being generalised.</td></tr>
         <tr><td>2</td>
+          <td><strong>Identify the Forever client's product code in Blizzard's version service</strong> — the endpoint that answers with no key (C192) — so the weekly watcher can notice a Forever build without reading a news page.</td>
+          <td>The build service is public, keyless and authoritative: it is the cheapest possible <em>"did a new build ship?"</em> signal, and the cross-check against third-party version strings already works (C197). Two candidate codes returned no data on 19 September, so this is a search, not a confirmation.</td>
+          <td>If the code cannot be found before launch, say so and stop — a plausible-looking code must never be published as identified.</td></tr>
+        
+        <tr><td>3</td>
           <td><strong>Wire the two verified Blizzard endpoints into the source-watch workflow as a dated “watch” step</strong> — a build number and the newest Forever forum topics, recorded as lines a human reads, not as claims.</td>
           <td>Both were verified as answering with no credential (C190, C191), so a scheduled check costs nothing and replaces repeated manual visits. This is the automation the brief actually allows.</td>
           <td>The step must not silently become a source of game facts. A new thread id is discovery only: the thread has to be opened and its author confirmed as Blizzard staff before anything is ledgered, exactly as the endpoint page states.</td></tr>
         
-          <tr><td>3</td>
+          <tr><td>4</td>
             <td>Confirm the second source-watch run (the first Monday after baseline) diffs against the existing baseline — the weekly schedule does this on its own; a maintainer can also dispatch <code>source-watch.yml</code> to see it sooner.</td>
             <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed — 87 entries, recomputed against the data files today as covering 74 of the 113 registered sources and 14 of the 21 additional pages. The second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will fingerprint the 39 sources and 7 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them; 13 of those sources were added by this endpoint pass.</td>
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
-          <tr><td>4</td>
+          <tr><td>5</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
             <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist.</td>
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
-          <tr><td>5</td>
+          <tr><td>6</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
             <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> a fourth fetch attempt, from the queue-closing pass's environment, again returned HTTP 403 — four independent clients have now been blocked the same way, which confirms the block is on the article itself. I-14 remains open; the limitation is recorded on the source and in this session's note (#session-5), and the Dutch mirror listed on the source carries the same block.</td>
             <td>If the article is edited or its text differs, the affected claims need their quotations tightened rather than re-argued.</td></tr>
-          <tr><td>6</td>
+          <tr><td>7</td>
             <td>Record the new battleground when it enters the beta: objective count, scoring, respawn rules, travel times — first-hand if possible, otherwise dated and attributed.</td>
             <td>It is the only PvP content that can be observed before launch, and its rules decide what "good class" even means in it. <strong>Status this session:</strong> as of 19 September no established outlet reports Darkspear Islands as playable; the only “details” in circulation are unofficial beta-tracker reads (C184), which are flagged and not adopted.</td>
             <td>Without client access nothing can be observed; the log says so instead of borrowing someone else's experience.</td></tr>
-          <tr><td>7</td>
+          <tr><td>8</td>
             <td>Re-check the four add-on listings and add any release that declares 1.60.x; note on the tracker when a declaration is confirmed working on a live client.</td>
             <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status:</strong> re-checked again from their own pages during the queue-closing pass (19 September, after the merges) — Auctionator 337 (17 Sep) still the only release declaring Classic Forever 1.60.1; TSM still v4.14.77 (13 Sep, retail 12.1.0); Questie still v11.38.0 (15 Sep); Details! newest file still the 18 September build. No listing has moved since the live-web pass; next check on the next beta build.</td>
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
-          <tr><td>8</td>
+          <tr><td>9</td>
             <td>Read the remaining Wowhead Forever guides and the seven unread Icy Veins race guides, ledgering each fact.</td>
             <td>With the Blizzard recaps and the pre-purchase article read line by line, this completed the largest remaining pool of unread near-primary material. <strong>Status this session:</strong> Completed. All 7 remaining Icy Veins race guides (Human, Dwarf, Night Elf, Gnome, Orc, Undead, Troll) and remaining Wowhead guides (Overview, Zones, Raids, Feral Druid, Protection Paladin, Season 1 Tier Sets, Mounts, Pets, Legacy) were fetched, read end-to-end, registered in sources (90 total), and ledgered as claims C169–C176.</td>
             <td>Guide pages are revised in place; snapshot dates and the watcher are the mitigation.</td></tr>
-          <tr><td>9</td>
+          <tr><td>10</td>
             <td>Human quotation pass over the two new pages, one page at a time, checking each quotation word for word against its source.</td>
             <td>The checker proves anchoring, never wording — and I-14, I-17 and I-18 all came from exactly this kind of pass.</td>
             <td>Some sources cannot be fetched automatically (IGN returns 403), so this pass may need a browser.</td></tr>
-          <tr><td>10</td>
+          <tr><td>11</td>
             <td>Watch for Blizzard to put three things in writing that the site currently holds at press: the level cap staying at 60 (C160), the original battleground roster (C161), and a ruleset-transfer policy beyond the Hardcore path (C024). Promote each row to official only with the link.</td>
             <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does. <strong>Status this session:</strong> re-verified on 19 September via web search — no new written Blizzard page promotes C160, C161 or C024; all three stay at their current class, and the aggregator "confirmed" claims are explicitly not adopted.</td>
             <td>Aggregators will state all three as confirmed long before Blizzard does; the ledger row, not the aggregator, decides.</td></tr>
