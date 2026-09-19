@@ -106,7 +106,7 @@
     </p>
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">15</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">113</span> sources, <span data-count="official-sources">16</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">171</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">113</span> sources, <span data-count="official-sources">16</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">174</span> claims) with evidence classes and snapshot dates.</li>
       <li>Public endpoint register (<code>data/apis.js</code> — <span data-count="apis">5</span> verified keyless endpoints, 2 rejected candidates and 1 left pending, each with what it returned and what it must never be used for) and site-pattern register (<code>data/patterns.js</code> — <span data-count="patterns">16</span> dated URL/section patterns with the failures recorded), both published and both enforced offline.</li>
         <li>Public irregularity log (I-1 to I-22) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement; and I-20: set bonuses datamined out of a client whose item data Blizzard said would stay hidden until looted, with Season-of-Discovery contamination acknowledged by the dataminer itself.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
@@ -545,6 +545,48 @@
   </p>
 </section>
 
+  <h3 id="session-8">Live re-verification pass, 19 September (latest) — the named PvP sources re-read, the Deep Dive re-read, and three systems facts that were missing</h3>
+  <p class="sub">
+    Pass 2 of the three-pass method asks a narrower question than Pass 1: not “what is missing?” but “is what we already
+    printed still true, and is any of it resting on an assumption we never tested?” This pass re-opened the sources behind the
+    site's most load-bearing claims and then read Blizzard's Deep Dive recap end to end again, rather than trusting the
+    excerpts earlier passes had already extracted from it.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <caption>Re-verification pass, line by line: what was re-read, what it confirmed, and what it added.</caption>
+      <thead><tr><th scope="col">Re-read / checked</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Icy Veins tier-list directory <span class="chip guide">Guide</span></td>
+          <td>The page behind the site's central PvP answer was re-opened on 19 September: the directory still carries its 17 September stamp, and the <strong>DPS PvP tier list, the healer PvP tier list and the racial ranking are all still marked <em>coming soon</em></strong>. The finding is unchanged, so the answer on the PvP profiles page is unchanged — now with a second dated observation behind it.</td>
+          <td>C198 (re-verified)</td>
+        </tr>
+        <tr>
+          <td>TradeSkillMaster release listing <span class="chip tooling">Tooling</span></td>
+          <td>Unchanged since the previous pass: newest stable release v4.14.77, dated 13 September, declaring Retail, MoP, TBC and Classic Era — and still <strong>no Forever build</strong>. Its declared versions then matched Blizzard's own build manifests read the same day (MoP 5.5.4 and Classic Era 1.15.9 against 5.5.4.69585 and 1.15.9.69722). That is the cross-check this project now runs when an add-on listing names a build: a third party's version string confirms what it was compiled against, never what the game contains.</td>
+          <td>C196, C197 (re-verified)</td>
+        </tr>
+        <tr>
+          <td>Blizzard: Forever Deep Dive panel recap, read in full rather than excerpted <span class="chip official">Official</span></td>
+          <td>Every systems claim the site already carries out of this page held: the ruleset model and its faction-balance support, merged hit and critical chance, the Dwarf and Undead racial changes, the mount-cost shift, the re-examined dungeon loot with blue-quality boss items, the named quest-reward examples, camping, and the Legacy profession perks. Reading the whole page instead of the extracted quotes surfaced <strong>three facts that were in the source and not yet on the site</strong>, now published and ledgered: the new <strong>16-point talent milestone</strong> (C208), the <strong>realmless naming and language detail, together with the auction-house scope Blizzard never states</strong> (C209), and the <strong>official transmogrification and loot-appearance rules</strong> (C210).</td>
+          <td>C208, C209, C210 (new); eleven existing claims re-confirmed</td>
+        </tr>
+        <tr>
+          <td>Table renderers, tested for the first time <span class="chip ours">Ours</span></td>
+          <td>Three pages build their tables in JavaScript, which no offline checker could see. A new test runs each renderer against the real data files with a small DOM stub and fails on a table that never fills, an empty table, a literal <code>undefined</code>, <code>null</code> or <code>NaN</code> in a cell, or a link with no target. It passes on all four rendered tables today and runs in CI.</td>
+          <td>— (tooling)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">
+    The one thing this pass could <em>not</em> confirm is the auction-house scope: the same Blizzard page that makes Forever
+    realmless never says whether the auction house follows the ruleset. Rather than picking the convenient answer, the
+    question is now printed on the Gold page as the first thing to observe from launch, because either answer changes how
+    every market on that page should be read.
+  </p>
+
   <section id="passes" aria-labelledby="h-passes">
     <h2 id="h-passes">Three-pass verification record</h2>
     <p class="sub">
@@ -590,6 +632,11 @@
           <td><strong>Endpoint/pattern session — all three again</strong></td>
           <td>Pass 1: build the endpoint register and the site-pattern register from pages that were actually opened, publish both, and wire two new offline checkers into CI. Pass 2: hunt for the failure this project is most exposed to here — a register that asserts eligibility nobody tested, a pattern that is really a guess, a refused URL still linked somewhere, or an unverified address published as an example. Pass 3: the brief again (PvP first, gold catalysts dated and sourced, nothing invented, official links for review) plus every printed count re-verified against the data files.</td>
           <td><span class="chip ok">Pass</span> Two new pages and two new checkers; 18 new claims (C190–C207); 13 new registered sources; two self-corrections logged (I-21, I-22). The first checker run failed on a real inconsistency of the project's own making — the page documenting a refusal had linked the refused URL — which is why the rule now permits that one page to carry the evidence and forbids every other page from doing so.</td>
+        </tr>
+        <tr>
+          <td><strong>Re-verification pass — Pass 2 and Pass 3 again</strong></td>
+          <td>Pass 2 re-opened the sources behind the site's largest claims and hunted for statements resting on untested assumptions; Pass 3 read the brief again against the result, including the requirements the endpoint and pattern registers were built for (keyless public sources, and a checkable reading of the sites the brief names).</td>
+          <td><span class="chip ok">Pass</span> Two claims re-verified live and unchanged (C196, C197, C198); eleven already-published systems claims re-confirmed against the source page they came from; three new official claims added from that same page (C208–C210) and published on the Gearing, Classes and Gold pages. One assumption was found and is now printed as an open question rather than an answer: nobody has stated whether the auction house follows the ruleset, so the Gold page says so instead of assuming a market shape.</td>
         </tr>
         </tbody>
       </table>
