@@ -34,4 +34,25 @@
 ##   9 Dec 2026 the enchanting materials from raid disenchants and crafted BoE
 ##   tier pieces.
 ##
+## FIRST-ROW PROCEDURE (written before launch so the first entry takes seconds):
+##   1. Confirm the item exists in the live client and copy its exact name.
+##   2. Add that name as its own row on gold.html#watchlist, with the verified
+##      mechanic that puts it on the list. The checker refuses an off-list item
+##      under --strict, which is how an invented item name is stopped.
+##   3. Read ONE unit's lowest buyout (not the stack price) and convert to copper:
+##      1 gold = 10,000 copper. Record the quantity listed at that moment.
+##   4. Put your own name in `observer`, save the screenshot or add-on export
+##      somewhere it can be linked, and note anything unusual (patch day, event).
+##   5. Run `node tools/check-market-log.mjs --strict` before committing.
+##
+## TOOLING NOTE (2026-09-19): Auctionator release 337 declares "Supported Classic
+## Forever patch1.60.1", so a verified auction-house add-on exists for the beta
+## client. It helps a human read prices; it does not replace an observation, and
+## nothing in this file may be copied from add-on price data or another site.
+##
+## TEMPLATE ROW — do not uncomment before 2026-11-04, and do not copy it verbatim.
+## Replace every placeholder, including the date, with something you actually read
+## off the auction house:
+## 2026-11-04,alliance,<exact in-game item name>,<item id or blank>,<qty>,<copper>,<observer>,<permalink>,<note>
+##
 date,faction,item,item_id,qty_listed,min_buyout_c,observer,source_url,note

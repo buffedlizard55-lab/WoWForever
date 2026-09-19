@@ -399,9 +399,9 @@ window.WOWF_SOURCES = [
     id: "wago-tsm",
     title: "TradeSkillMaster — versions (addon distribution)",
     publisher: "Wago Addons",
-    date: "2026-09-13 (latest build listed), checked 2026-09-18",
+    date: "2026-09-13 (latest build listed), checked 2026-09-19",
     url: "https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable",
-    tier: "datamine",
+    tier: "tooling",
     supports: [
       "TSM v4.14.77 supports Retail 12.1.0, Mists of Pandaria Classic 5.5.4, Burning Crusade 2.5.6 and Classic Era 1.15.9",
       "No Forever / 1.60.x build is listed, so TSM does not yet ship a Forever-supported release"
@@ -520,15 +520,7 @@ window.WOWF_SOURCES = [
       "https://www.icy-veins.com/wow-forever/affliction-warlock-ranged-dps-pve-guide",
       "https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide",
       "https://www.icy-veins.com/wow-forever/fury-warrior-melee-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/protection-warrior-tank-pve-guide",
-      "https://www.icy-veins.com/wow-forever/balance-druid-ranged-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/beast-mastery-hunter-ranged-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/frost-mage-ranged-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/holy-paladin-healer-pve-guide",
-      "https://www.icy-veins.com/wow-forever/discipline-priest-healer-pve-guide",
-      "https://www.icy-veins.com/wow-forever/assassination-rogue-melee-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/elemental-shaman-ranged-dps-pve-guide",
-      "https://www.icy-veins.com/wow-forever/affliction-warlock-ranged-dps-pve-guide"
+      "https://www.icy-veins.com/wow-forever/protection-warrior-tank-pve-guide"
     ]
   },
   {
@@ -753,9 +745,9 @@ window.WOWF_SOURCES = [
     id: "cf-tsm",
     title: "TradeSkillMaster — CurseForge addon page (distribution listing)",
     publisher: "CurseForge",
-    date: "checked 2026-09-18",
+    date: "checked 2026-09-19",
     url: "https://www.curseforge.com/wow/addons/tradeskill-master",
-    tier: "datamine",
+    tier: "tooling",
     supports: [
       "Second distribution channel checked alongside Wago for a Forever-compatible TSM build",
       "Used only as a tooling-status link on the Gold page and in the Method coverage map; no game fact rests on it"
@@ -944,6 +936,125 @@ window.WOWF_SOURCES = [
       "Spearing Strike deals bonus damage to Giants, Dragonkin and mounted targets and forcibly dismounts mounted targets",
       "Weaponmaster merges the weapon-specific talents; Bloodthrill gives Overpower procs from Rend targets without requiring a dodge",
       "Warriors can be every race including Skyborne"
+    ]
+  },
+  /* ---------- added in the 2026-09-19 session ---------- */
+  {
+    id: "ign-nordic",
+    title: "'World of Warcraft Forever needs to truly be forever' — Interview",
+    publisher: "IGN Nordic (Nick Nijland); interview with Michael Nuthals (Senior Game Designer) and Tim Jones (Lead Game Designer)",
+    date: "2026-09-13 (published); read 2026-09-19",
+    url: "https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview",
+    tier: "press",
+    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page.",
+    also: [
+      "https://nl.ign.com/world-of-warcraft-forever/167066/world-of-warcraft-forever-moet-echt-voor-altijd-zijn-interview"
+    ],
+    supports: [
+      "Nuthals: Forever \"really is a promise to create a 'forever' home for our Classic players\"",
+      "A server-side system keeps players meeting people they have already met — the Elwynn Forest example, seeing them again \"thirty levels later in Desolace\"",
+      "Items carry biome buffs and creature-type bonuses: \"you could also find a trinket that gives you extra damage against dragons or dwarves\", worth collecting early and using later in a dungeon or raid",
+      "The developers' stated purpose: \"These biomes and creature types give us the opportunity to expand progression horizontally\"",
+      "On power growth: \"We've now tested the extreme variations, and we're going to be very responsible with how we approach this. Tier 2 and Tier 3 raids will therefore have better gear, but we're going to be responsible about it. We still want gear from previous raids to remain useful, such as the Onslaught Girdle.\"",
+      "Pre-beta class-balance statement: \"In the beta, we're going to look at class balance now that some classes have new spells, and we'll make adjustments where necessary.\"",
+      "The article's own framing of the itemisation change: it \"encourages them to return to older content and switch between different pieces of gear depending on the situation\""
+    ]
+  },
+  {
+    id: "wh-ign-nordic",
+    title: "New Biome Buff Gear — IGN Nordic Interview on WoW: Forever",
+    publisher: "Wowhead (Squishei) — full summary of the IGN Nordic interview",
+    date: "2026-09-18 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/forever/news/new-biome-buff-gear-ign-nordic-interview-on-wow-forever-382936",
+    tier: "press",
+    note: "Read end to end on 2026-09-19, including the link out to the IGN Nordic original. Where its wording rounds off the interview's own phrasing — it says a Tier 2 raid \"will have better loot\" where IGN Nordic writes \"Tier 2 and Tier 3 raids will therefore have better gear\" — this site follows the IGN Nordic wording and says so in claim C149.",
+    supports: [
+      "Full summary of the IGN Nordic interview, naming Michael Nuthals (Senior Game Designer) and Tim Jones (Lead Game Designer)",
+      "Horizontal progression: biome buffs on gear, creature-type damage bonuses, better loot in later tiers without extreme power growth, and older-raid gear such as the Onslaught Girdle staying useful",
+      "New content: the questless kobold cave in northern Elwynn Forest, and expanded existing questlines alongside new quests",
+      "Class balance: the beta is where the new spells get looked at"
+    ]
+  },
+  {
+    id: "wh-addon-api",
+    title: "WoW: Forever Will Have Addon Changes from Midnight",
+    publisher: "Wowhead (Squishei) — reproducing a Blizzard statement posted in the WoW UI Discord",
+    date: "2026-09-16 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921",
+    tier: "press",
+    note: "The original statement is a Blizzard message in the WoW UI Discord, which is not a public page this project can register or link. Wowhead is therefore cited as the outlet that reproduces it, never as its author, and the statements stay Press rather than Official.",
+    supports: [
+      "Blizzard, via the WoW UI Discord: Forever \"shares Mainline WoW's UI architecture, including the vast majority of APIs available in 12.1.5\"",
+      "The Midnight addon disarmament changes, \"including secrets\", are active in Forever, and further UI changes can be expected in both Modern WoW and Forever",
+      "The 12.1.0 AuraContainer/AuraButton changes are available in Forever as well",
+      "Every Forever addon has to adapt to the new API: Classic-built addons will likely need to be remade, while current Midnight addons are expected to port more easily",
+      "WeakAuras stopped development before Midnight; the article treats a Forever build as unlikely"
+    ]
+  },
+  {
+    id: "wh-kotaku",
+    title: "No Summoning Stones & Mount Cost Changes — Kotaku Interview",
+    publisher: "Wowhead (Squishei) — full summary of the Kotaku interview",
+    date: "2026-09-16 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/forever/news/no-summoning-stones-and-mount-cost-changes-kotaku-interview-382944",
+    tier: "press",
+    note: "Wowhead's summary links to the Kotaku interview already registered as kotaku-interview; claims that rest on it cite both ids so a reader can open either.",
+    supports: [
+      "Meeting Stones will not summon players; a new LFG feature is intended for listing and discovering groups, and groups make their own way to a dungeon unless a Warlock helps",
+      "The mount gold cost was moved from the mount to the training",
+      "\"Computational addons will be restricted\"",
+      "No flex raiding: every tier keeps at least one 10-player and one 20-player option, and some tiers will have a 40-player raid"
+    ]
+  },
+  {
+    id: "wago-auctionator",
+    title: "Auctionator — release list (stable channel)",
+    publisher: "Wago Addons (release listing maintained by the Auctionator project)",
+    date: "checked 2026-09-19; latest release 337 published 2026-09-17",
+    url: "https://addons.wago.io/addons/auctionator/versions?stability=stable",
+    tier: "tooling",
+    note: "Evidence about a piece of software, not about the game: the listing shows which game versions a build declares. Recorded because it is the first auction-house tool this project has verified as Forever-capable, which is a gold-making fact of the tooling kind.",
+    supports: [
+      "Auctionator release 337 (17 Sep 2026) declares \"Supported Classic Forever patch1.60.1\" alongside Retail 12.1.0, MoP 5.5.4, Wrath 3.80.0, TBC 2.5.6 and Classic Era 1.15.8/1.15.9",
+      "The two releases before it (336 of 13 Sep and 335 of 24 Aug 2026) list Classic Era but no Forever entry, so the Forever line appears with release 337"
+    ]
+  },
+  {
+    id: "wago-questie",
+    title: "Questie — release list (stable channel)",
+    publisher: "Wago Addons (release listing maintained by the Questie project)",
+    date: "checked 2026-09-19; latest release v11.38.0 published 2026-09-15",
+    url: "https://addons.wago.io/addons/questie/versions?stability=stable",
+    tier: "tooling",
+    supports: [
+      "The ten most recent Questie releases listed (10 Aug – 15 Sep 2026) declare Mists of Pandaria 5.5.4, Wrath 3.80.2, Burning Crusade 2.5.6 and Classic Era 1.15.9",
+      "No Forever (1.60.x) build is listed, so quest routing over the new Forever zones is uncovered by Questie as of this check"
+    ]
+  },
+  {
+    id: "cf-details",
+    title: "Details! Damage Meter — file list",
+    publisher: "CurseForge (release listing maintained by the Details! project)",
+    date: "checked 2026-09-19; newest file listed 2026-09-18",
+    url: "https://www.curseforge.com/wow/addons/details/files",
+    tier: "tooling",
+    supports: [
+      "The newest Details! file (listed 18 Sep 2026) is tagged with the 12.1.0 and MoP Classic families",
+      "The project's game-version filter offers 12.1.0 through 2.5.x, 1.15.x, 1.14.x and 1.13.x — no 1.60.x",
+      "Recorded consequence for PvP and gold work: combat-log parsers have not been ported, so the in-game damage meter is the supported measurement path for now"
+    ]
+  },
+  {
+    id: "wh-bt-midnight-tuning",
+    title: "Class Tuning Incoming — September 22 (patch 12.1.0)",
+    publisher: "Wowhead Blue Tracker (mirror of a Blizzard forum post)",
+    date: "2026-09-18 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/blue-tracker/topic/us/2354340",
+    tier: "press",
+    note: "Registered as an accuracy guard rather than as Forever news. The post appears in the same blue-tracker feed as the Forever beta posts, but it is tagged Patch 12.1.0 and its text is about modern WoW's Mythic+, raid and PvP tuning. A future session must not file it as Forever class tuning.",
+    supports: [
+      "Blizzard posted a class-tuning announcement for 22 September 2026 that belongs to patch 12.1.0 (Midnight), not to Forever",
+      "That blue-tracker feed mixes Forever topics (beta known issues, beta access problems) with modern-WoW topics, so an entry appearing there is not Forever evidence by default"
     ]
   },
   {

@@ -75,9 +75,30 @@ for (const s of sources) {
    scanned for links; their content is checked elsewhere. */
 const htmlFiles = (await readdir(ROOT)).filter((f) => f.endsWith('.html')).sort();
 
+/* Numbers a page prints about this project are written as
+   <span data-count="sources">63</span> and verified against the data files here,
+   so a hand-typed total cannot drift out of date unnoticed. This is the class of
+   bug that produced irregularity I-14 (a page describing our own registry
+   inaccurately). */
+const marketCsv = await readFile(join(ROOT, 'data', 'market-log.csv'), 'utf8');
+const marketRows = marketCsv
+  .split(/\r?\n/)
+  .filter((line) => line.trim() !== '' && !line.trim().startsWith('##'))
+  .slice(1).length; // first non-comment line is the header
+const DATA_COUNTS = {
+  sources: sources.length,
+  'official-sources': sources.filter((s) => s.tier === 'official').length,
+  'tooling-sources': sources.filter((s) => s.tier === 'tooling').length,
+  claims: claims.length,
+  pages: htmlFiles.length,
+  'market-rows': marketRows
+};
+
 const errors = [];
 const warnings = [];
 const info = { pages: [], externalLinks: new Map(), citations: new Map(), selfLinks: [] };
+const siteSnapshot = new Set();
+const countClaims = [];
 
 /* The site's own canonical base URL. Canonical <link> tags are absolute
    self-references, not citations, so they are resolved to a local file and
@@ -154,6 +175,21 @@ for (const file of htmlFiles) {
   if (snaps.size > 1) errors.push(`${file}: mixed snapshot dates ${[...snaps].join(', ')}`);
   for (const s of snaps) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) errors.push(`${file}: malformed snapshot date "${s}"`);
+    siteSnapshot.add(s);
+  }
+
+  /* ---------- 5b. numbers printed about our own data are machine-checked ---------- */
+  for (const m of raw.matchAll(/data-count="([a-z-]+)"\s*>\s*([0-9]+)\s*</g)) {
+    const key = m[1];
+    const printed = Number(m[2]);
+    const actual = DATA_COUNTS[key];
+    if (actual === undefined) {
+      errors.push(`${file}: data-count="${key}" is not a counter this checker knows`);
+    } else if (printed !== actual) {
+      errors.push(`${file}: data-count="${key}" is printed as ${printed} but the data files hold ${actual}`);
+    } else {
+      countClaims.push(`${file}: ${key}=${printed}`);
+    }
   }
 
   /* ---------- 6. crude tag balance, ignoring script/style bodies ---------- */
@@ -207,6 +243,48 @@ for (const file of htmlFiles) {
   }
 }
 
+/* ---------- 9. one snapshot date for the whole site, and site.js must agree ----
+   The stamp is the documentation date; each claim keeps its own verification
+   date in the ledger. If the JavaScript stamp and the markup stamp disagree, a
+   reader without JavaScript sees a different date than a reader with it. */
+{
+  const SNAPSHOT_RE = /var SNAPSHOT = '(\d{4}-\d{2}-\d{2})';/;
+  const jsRaw = await readFile(join(ROOT, 'assets', 'js', 'site.js'), 'utf8');
+  const jsSnap = (jsRaw.match(SNAPSHOT_RE) || [])[1];
+  if (!jsSnap) {
+    errors.push('assets/js/site.js has no SNAPSHOT date');
+  } else if (siteSnapshot.size === 0) {
+    warnings.push('no page carries a data-snapshot date');
+  } else {
+    for (const s of siteSnapshot) {
+      if (s !== jsSnap) errors.push(`pages are stamped ${s} but assets/js/site.js stamps ${jsSnap}`);
+    }
+  }
+  if (siteSnapshot.size > 1) {
+    errors.push(`pages disagree on the site snapshot date: ${[...siteSnapshot].sort().join(', ')}`);
+  }
+}
+
+/* ---------- 10. every evidence class must be documented on the Method page ----
+   Sources and claims may only use classes the Method page explains, and usage
+   counts are printed so a reader can see the spread. This is the check that
+   would have caught a registry entry silently carrying an undocumented tier. */
+{
+  const methodRaw = await readFile(join(ROOT, 'method.html'), 'utf8');
+  const ALIAS = { unknown: 'pending' }; // "unknown" is documented as the "not announced" chip
+  const used = new Set([
+    ...sources.map((s) => s.tier).filter(Boolean),
+    ...claims.map((c) => c.status).filter(Boolean)
+  ]);
+  for (const cls of used) {
+    const chip = ALIAS[cls] || cls;
+    if (!methodRaw.includes(`class="chip ${chip}"`)) {
+      errors.push(`method.html does not document the evidence class "${cls}" (no chip.${chip} anywhere on the page)`);
+    }
+  }
+  info.classes = [...used].sort();
+}
+
 /* ---------- every registered source should be used somewhere ---------- */
 const usedIds = new Set(info.citations.keys());
 for (const c of claims) for (const id of c.sources || []) usedIds.add(id);
@@ -215,7 +293,7 @@ for (const s of sources) {
 }
 
 /* ---------- output ---------- */
-const result = { pages: info.pages.length, sources: sources.length, claims: claims.length, errors, warnings };
+const result = { pages: info.pages.length, sources: sources.length, claims: claims.length, dataCounts: DATA_COUNTS, evidenceClasses: info.classes || [], errors, warnings };
 
 if (JSON_OUT) {
   console.log(JSON.stringify(result, null, 2));
@@ -236,6 +314,12 @@ if (JSON_OUT) {
   void unused;
   console.log('');
   console.log('Registered sources linked from pages: ' + info.citations.size + ' distinct ids');
+  if (countClaims.length) {
+    console.log('Self-reported numbers verified against the data files: ' + countClaims.join(', '));
+  }
+  if (info.classes) {
+    console.log('Evidence classes in use and documented on method.html: ' + info.classes.join(', '));
+  }
 }
 
 process.exit(errors.length || (STRICT && warnings.length) ? 1 : 0);

@@ -35,8 +35,8 @@ async function loadGlobal(file, key) {
 const sources = await loadGlobal('sources.js', 'WOWF_SOURCES');
 const claims = await loadGlobal('claims.js', 'WOWF_CLAIMS');
 
-const VALID_TIERS = new Set(['official', 'press', 'datamine', 'guide', 'community']);
-const VALID_STATUS = new Set(['official', 'press', 'datamine', 'guide', 'community', 'ours', 'unknown']);
+const VALID_TIERS = new Set(['official', 'press', 'datamine', 'guide', 'community', 'tooling']);
+const VALID_STATUS = new Set(['official', 'press', 'datamine', 'guide', 'community', 'tooling', 'ours', 'unknown']);
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const FIRST_PARTY_HOST = /(^|\.)blizzard\.com$|(^|\.)battle\.net$|(^|\.)blizzard\.net$|(^|\.)forums\.blizzard\.com$/i;
 
@@ -114,6 +114,12 @@ for (const c of claims) {
   }
   if (c.status === 'community' && !citedTiers.includes('community')) {
     errors.push(`claim ${c.id}: status "community" requires a community source`);
+  }
+  // Tooling rows are about software (addon builds, price tools), never about the
+  // game. The class exists so an addon listing cannot be filed as a datamine,
+  // which would overstate it.
+  if (c.status === 'tooling' && !citedTiers.includes('tooling')) {
+    errors.push(`claim ${c.id}: status "tooling" requires a tooling source`);
   }
 
   // An "ours" claim is analysis; it must still point at the facts it reasons from.

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add-on and tooling compatibility tracker | WoW Forever Hub</title>
+<meta name="description" content="Dated compatibility tracker for World of Warcraft: Forever add-ons: which auction-house, quest and meter add-ons declare a Forever build, what Blizzard has said about the addon API, and what it means for gold-making and PvP measurement.">
+<meta name="theme-color" content="#0d1117">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Add-on and tooling compatibility tracker | WoW Forever Hub">
+<meta property="og:description" content="Which add-ons declare a Forever build, what Blizzard has said about the API, and what it means for gold-making and PvP measurement.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/addons.html">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="class-pvp.html">Class PvP</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Add-ons &amp; tooling · snapshot <span data-snapshot>2026-09-19</span></p>
+    <h1>Add-on and tooling compatibility, dated</h1>
+    <p class="lede">
+      Gold-making depends on tooling, and tooling depends on the addon API. This page records, with a date and a link,
+      <strong>which add-ons declare a Forever build</strong>, what Blizzard has actually said about the API, and what is
+      still missing. Every row is re-checked each session; nothing here is copied from another site's compatibility list.
+    </p>
+  </div>
+
+  <div class="banner">
+    <strong>The finding that changed this page.</strong>
+    <p>
+      <strong>Auctionator release 337 (17 September 2026) declares “Supported Classic Forever patch1.60.1”.</strong>
+      It is the first auction-house add-on this project has verified as Forever-capable, and it arrived on the day the
+      beta opened. TradeSkillMaster, Questie and Details! all still list no Forever build.
+      <span class="srcs"><a class="src" href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Wago listing</a><a class="src" href="https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable" rel="noopener">TSM listing</a></span>
+    </p>
+    <p class="small">
+      A version list is tooling evidence, not proof that the add-on works in the live client. Treat “declares support”
+      and “works on 4 November” as two different statements — see <a href="#unknown">what is still unknown</a>.
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#status">Compatibility status, dated</a></li>
+      <li><a href="#rules">What Blizzard has said about the addon API</a></li>
+      <li><a href="#gold">What this means for gold-making</a></li>
+      <li><a href="#pvp">What this means for PvP measurement</a></li>
+      <li><a href="#recheck">How this table stays honest</a></li>
+      <li><a href="#unknown">Still unknown</a></li>
+    </ul>
+  </nav>
+
+  <section id="status" aria-labelledby="h-status">
+    <h2 id="h-status">Compatibility status, dated</h2>
+    <p class="sub">
+      Checked on <strong>19 September 2026</strong> from each project's own release listing. The evidence class for a
+      release listing is <span class="chip tooling">tooling</span>: it is first-party evidence about the software and no
+      evidence at all about the game. The citation checker refuses a page that links to a listing nobody registered
+      (C153).
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>Add-on support declared by each project's own listing, 19 September 2026. “Forever” means the 1.60.x client.</caption>
+        <thead><tr><th scope="col">Add-on</th><th scope="col">Declares a Forever build?</th><th scope="col">What the listing says</th><th scope="col">Consequence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Auctionator</strong><br><span class="small">auction house</span></td>
+            <td><strong>Yes</strong> <span class="chip ok">release 337 · 17 Sep 2026</span></td>
+            <td>“Supported Classic Forever patch1.60.1”, alongside Retail 12.1.0, MoP 5.5.4, Wrath 3.80.0, TBC 2.5.6 and Classic Era 1.15.8/1.15.9. Releases 335 and 336 list Classic Era but no Forever line.
+              <span class="srcs"><a class="src" href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Wago</a></span></td>
+            <td>The first verified auction-house tool for Forever. It makes the manual market-log workflow practical without changing the rule that <em>we</em> record observations, not scraped prices.</td>
+          </tr>
+          <tr>
+            <td><strong>TradeSkillMaster (TSM)</strong><br><span class="small">market operations</span></td>
+            <td><strong>No</strong> <span class="chip pending">v4.14.77 · 13 Sep 2026</span></td>
+            <td>Retail 12.1.0, MoP 5.5.4, TBC 2.5.6, Classic Era 1.15.9 — no 1.60.x entry in the ten most recent stable releases.
+              <span class="srcs"><a class="src" href="https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable" rel="noopener">Wago</a><a class="src" href="https://www.curseforge.com/wow/addons/tradeskill-master" rel="noopener">CurseForge</a></span></td>
+            <td>No TSM price data, no TSM crafting/shopping operations, no TSM accounting for Forever yet. The TSM-based market workflows described in the original brief remain blocked.</td>
+          </tr>
+          <tr>
+            <td><strong>Questie</strong><br><span class="small">quest routing</span></td>
+            <td><strong>No</strong> <span class="chip pending">v11.38.0 · 15 Sep 2026</span></td>
+            <td>MoP 5.5.4, Wrath 3.80.2, TBC 2.5.6, Classic Era 1.15.9 across the ten most recent releases.
+              <span class="srcs"><a class="src" href="https://addons.wago.io/addons/questie/versions?stability=stable" rel="noopener">Wago</a></span></td>
+            <td>Leveling routes through the new Forever zones are not covered. The Gold page's levelling advice therefore relies on Blizzard's own quest counts (1,000+ new quests) rather than an addon map.</td>
+          </tr>
+          <tr>
+            <td><strong>Details! Damage Meter</strong><br><span class="small">combat measurement</span></td>
+            <td><strong>No</strong> <span class="chip pending">newest file 18 Sep 2026</span></td>
+            <td>The newest file declares 12.1.0 and MoP Classic; the project's game-version filter offers 12.1.0 down to 2.5.x, 1.15.x, 1.14.x and 1.13.x, with no 1.60.x.
+              <span class="srcs"><a class="src" href="https://www.curseforge.com/wow/addons/details/files" rel="noopener">CurseForge</a></span></td>
+            <td>Combat-log parsers are not ported. Logging damage or healing for PvP analysis means using the in-game meter until that changes.</td>
+          </tr>
+          <tr>
+            <td><strong>WeakAuras</strong><br><span class="small">aura / proc display</span></td>
+            <td><strong>Not expected</strong> <span class="chip press">Press</span></td>
+            <td>Wowhead's report of Blizzard's WoW UI Discord statement notes that WeakAuras stopped development before Midnight and that every Forever add-on has to target the new API; it treats a Forever build as unlikely.
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921" rel="noopener">Wowhead</a></span></td>
+            <td>Rotation and proc tracking cannot be assumed. For PvP this removes a whole layer of third-party assistance that players may expect from Classic-era setups.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note caution">
+      <p><strong>Two rows are absences.</strong> “No Forever entry” is a statement about a release list on one day, not a
+      prediction about the add-on's future. It is recorded with the version number and the date precisely so that the next
+      session can see what changed instead of re-arguing the point.</p>
+    </div>
+  </section>
+
+  <section id="rules" aria-labelledby="h-rules">
+    <h2 id="h-rules">What Blizzard has said about the addon API</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>First-party statements and one reproduced Blizzard message. The Discord statement is cited as Wowhead's reproduction, never as a Blizzard web page (C106).</caption>
+        <thead><tr><th scope="col">Statement</th><th scope="col">Who said it</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Forever “shares Mainline WoW's UI architecture, including the vast majority of APIs available in 12.1.5”, and the addon disarmament changes from Midnight — “including secrets” — are active in Forever. The 12.1.0 AuraContainer/AuraButton changes are available too.</td>
+            <td>Blizzard, posted in the WoW UI Discord and reproduced by Wowhead.</td>
+            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921" rel="noopener">Wowhead</a></span></td>
+          </tr>
+          <tr>
+            <td>Every Forever add-on has to adapt to the new API: Classic-built add-ons will likely need to be remade, while current Midnight add-ons port over more easily.</td>
+            <td>Blizzard, same statement; Wowhead's reading of the consequence.</td>
+            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921" rel="noopener">Wowhead</a></span></td>
+          </tr>
+          <tr>
+            <td>Addons are supported under modern WoW's rules: no computational automation of marking or communicating, and no one-button rotation; a built-in damage meter is in, with a cooldown manager planned.</td>
+            <td>Blizzard developers in the Kotaku and MMORPG interviews.</td>
+            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a><a class="src" href="https://www.icy-veins.com/wow-forever/news/addons-in-wow-forever-blizzard-devs-just-addressed-the-big-question/" rel="noopener">Icy Veins</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">
+      Read together, these statements explain the pattern in the table above: add-ons must be rebuilt against a
+      modern-era API, so the fastest movers are the projects already maintaining a Mainline build. Auctionator matches
+      that shape; the TSM, Questie and Details! listings do not yet.
+    </p>
+  </section>
+
+  <section id="gold" aria-labelledby="h-gold">
+    <h2 id="h-gold">What this means for gold-making <span class="chip ours">Our reasoning</span></h2>
+    <ul class="clean">
+      <li><strong>The first auction-house tool exists, and it is not TSM.</strong> Auctionator's Forever build means a player can
+        scan and compare auctions on 4 November without waiting for TradeSkillMaster. What it does not do is produce an
+        automated price feed for this site: the market log stays a human observation log by design
+        (<code>data/market-log.csv</code>), and the tool that fills the log is the same tool a reader can install.</li>
+      <li><strong>TSM-shaped workflows are still blocked.</strong> Crafting cost, shopping operations and accounting are the
+        parts of TSM most used by gold-makers, and none of them are available for Forever today. The earlier blanket position recorded for TSM alone
+        (C093) remains true for TSM specifically.</li>
+      <li><strong>Quest routing is a manual cost.</strong> With no Questie build, leveling and gathering routes through the new
+        zones have to be learned rather than displayed — which is also why the site publishes quest counts and zone
+        lists rather than route maps.</li>
+      <li><strong>Restrictions are a market factor.</strong> Restricted computational add-ons mean fewer players running automated
+        decision tools, so knowledge and attention keep more of their value. That is stated here as reasoning, not as a
+        measured effect.</li>
+    </ul>
+  </section>
+
+  <section id="pvp" aria-labelledby="h-pvp">
+    <h2 id="h-pvp">What this means for PvP measurement <span class="chip ours">Our reasoning</span></h2>
+    <ul class="clean">
+      <li><strong>No combat-log parser means no objective performance data we can publish yet.</strong> Details! has no Forever
+        build, and the built-in meter is the supported path. Any damage or healing figures this site ever publishes must
+        say which tool produced them.</li>
+      <li><strong>No rotation assistance means class advice stays advice.</strong> The Class PvP profiles describe published
+        mechanics; they cannot claim a measured performance edge, and the tier-list hold is unchanged — a full season must
+        produce participation, matchup, reward and tuning evidence first.</li>
+      <li><strong>What would change the picture:</strong> a Forever build of a meter or parser, a rated ladder, or Blizzard
+        publishing Honor thresholds and vendor tables. Each of those is watched on this page and in the
+        <a href="beta.html#pvp">Beta log</a>.</li>
+    </ul>
+  </section>
+
+  <section id="recheck" aria-labelledby="h-recheck">
+    <h2 id="h-recheck">How this table stays honest</h2>
+    <ul class="checklist">
+      <li><strong>Every listing is a registered source.</strong> Wago and CurseForge pages are in <code>data/sources.js</code> with the
+        <span class="chip tooling">tooling</span> evidence class, so a page cannot cite an add-on listing that no one
+        registered and re-checked.</li>
+      <li><strong>They are watched automatically.</strong> The weekly <a href="work-plan.html#decisions">source-watch Action</a>
+        fingerprints every registered URL — including these listings — and opens an issue when one changes.</li>
+      <li><strong>The class is deliberately narrow.</strong> A tooling source can support a claim about software versions, and
+        nothing else. Game facts still need Blizzard, press or datamine evidence.</li>
+      <li><strong>Dates are printed, not implied.</strong> Each row carries the version number and the date it was read, because an
+        add-on listing changes without notice.</li>
+    </ul>
+  </section>
+
+  <section id="unknown" aria-labelledby="h-unknown">
+    <h2 id="h-unknown">Still unknown</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Still unknown. Columns: Open question, Why it is open, What would settle it.</caption>
+        <thead><tr><th scope="col">Open question</th><th scope="col">Why it is open</th><th scope="col">What would settle it</th></tr></thead>
+        <tbody>
+          <tr><td>Does Auctionator's Forever build actually run on the live client?</td><td>A version list declares intent and game version; it does not prove a working install.</td><td>First-hand confirmation on the live client after 4 November 2026, or the add-on shipping fixes for Forever-specific bugs.</td></tr>
+          <tr><td>Will TSM, Questie or Details! follow?</td><td>Nothing has been announced by any of the three projects.</td><td>A release listing that names 1.60.x. Re-checked every session.</td></tr>
+          <tr><td>Will the addon API change again before launch?</td><td>Blizzard has said further UI changes will be introduced to both Modern WoW and Forever.</td><td>A new first-party statement or patch note; existing builds would need to be rebuilt.</td></tr>
+          <tr><td>What exactly is blocked by “computational addons will be restricted”?</td><td>Blizzard has described the principle, not a list of prohibited calls.</td><td>A published API policy, or observable behaviour in the live client.</td></tr>
+          <tr><td>Can the market log be filled from an add-on export?</td><td>The log is designed for human observations with a source permalink; no export format is verified yet.</td><td>A documented export from a Forever-capable add-on that a human can verify item by item.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>Nothing on this page is a compatibility guarantee.</strong> It is a dated record of what four projects'
+      own listings said on 19 September 2026, plus Blizzard's own statements about how the API works.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard. Add-on names belong to their authors.</p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · tooling claims C093, C106, C153 · <a href="sources.html#claims">full ledger</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

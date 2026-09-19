@@ -30,6 +30,8 @@
       <a href="class-pvp.html">Class PvP</a>
       <a href="gear.html">Gear / BiS</a>
       <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
       <a href="sources.html">Sources</a>
       <a href="method.html">Method</a>
       <a href="work-plan.html">Work plan</a>
@@ -40,7 +42,7 @@
 <main id="main" class="wrap">
 
   <div class="hero">
-    <p class="eyebrow">Gold &amp; markets · snapshot <span data-snapshot>2026-09-18</span></p>
+    <p class="eyebrow">Gold &amp; markets · snapshot <span data-snapshot>2026-09-19</span></p>
     <h1>Gold-making in WoW Forever: the verified market map</h1>
     <p class="lede">
       A fresh Classic economy with no WoW Token, no GDKP, no paid boosts, an aggressive anti-gold-buyer policy, a
@@ -61,9 +63,14 @@
       <span class="srcs"><a class="src" href="https://www.curseforge.com/wow/addons/price-answer" rel="noopener">Price Answer docs</a></span>
     </p>
     <p>
-      So there is <strong>no TSM price data for Forever today</strong>, and no live auction data of any kind to analyse.
-      What we can publish is the mechanics — which is what actually decides markets — plus a tracked plan for standing up
-      the data pipeline in November.
+      <strong>Auctionator is the exception, and it arrived on 17 September 2026:</strong> release 337 declares
+      “Supported Classic Forever patch1.60.1”, so an auction-house tool now exists for the beta client even though the
+      market operations suite does not.
+      <span class="srcs"><a class="src" href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Auctionator listing</a></span>
+      That still leaves <strong>no TSM price data and no live auction data of any kind</strong>, because no auction house
+      exists before 4 November 2026. What we can publish is the mechanics — which is what actually decides markets — plus a
+      tracked plan for standing up the data pipeline in November.
+      <a href="addons.html">Full add-on tracker →</a>
     </p>
   </div>
 
@@ -88,6 +95,7 @@
     </p>
     <div class="table-wrap">
       <table>
+        <caption>Economy rules that define the market. Columns: Rule, Verified detail, Market consequence, Evidence.</caption>
         <thead>
           <tr><th scope="col">Rule</th><th scope="col">Verified detail</th><th scope="col">Market consequence</th><th scope="col">Evidence</th></tr>
         </thead>
@@ -118,15 +126,15 @@
           </tr>
           <tr>
             <td><strong>No summoning stones</strong></td>
-            <td>Meeting Stones open a Looking-for-Group window but do not summon; a Warlock is required to summon players.</td>
-            <td>Travel and summons keep value. Warlocks gain a standing social/economic role; time-per-run rises, which slows farm throughput for everyone.</td>
-            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a></span></td>
+            <td>Meeting Stones will not summon players; a new LFG feature is intended for listing and discovering groups, and groups “make your way across to each other if you don't have a Warlock”.</td>
+            <td>Travel and summons keep value. Warlocks gain a standing social/economic role; time-per-run rises, which slows farm throughput for everyone — and every gathering profession stays in contact with the world for longer per session.</td>
+            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a><a class="src" href="https://www.wowhead.com/forever/news/no-summoning-stones-and-mount-cost-changes-kotaku-interview-382944" rel="noopener">Wowhead summary</a></span></td>
           </tr>
           <tr>
             <td><strong>No permanent retirement of content</strong></td>
-            <td>The interview reports that Blizzard does not plan content that becomes permanently unavailable, and that world events will still run; every raid is meant to keep a reason to return, including rare chase items on every boss.</td>
+            <td>The interview reports that Blizzard does not plan content that becomes permanently unavailable, and that world events will still run; every raid is meant to keep a reason to return, including rare chase items on every boss. The itemisation interview adds the item-level half of the same idea: older-raid pieces stay worth keeping (the Onslaught Girdle) and biome/creature-type bonuses are meant to bring players “back to older content”.</td>
             <td>Legacy materials stay sellable for longer: the content that consumes them does not get switched off at the end of a phase. Slower decay than a Classic realm, where the previous tier is abandoned.</td>
-            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive" rel="noopener">Sportskeeda interview</a></span></td>
+            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive" rel="noopener">Sportskeeda interview</a><a class="src" href="https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview" rel="noopener">IGN Nordic</a></span></td>
           </tr>
           <tr>
             <td><strong>Bigger banks, same bags</strong></td>
@@ -136,9 +144,9 @@
           </tr>
           <tr>
             <td><strong>Addons: modern WoW's rules</strong></td>
-            <td>Addons <em>are</em> supported, and Forever “shares Mainline WoW's UI architecture, including the vast majority of APIs available in 12.1.5” — a Blizzard message quoted by Icy Veins, i.e. the modern-era restrictions. Addons that computationally automate marking or communicating are out, and there is no one-button rotation. A built-in damage meter and cooldown manager ship with the game.</td>
+            <td>Addons <em>are</em> supported, and Forever “shares Mainline WoW's UI architecture, including the vast majority of APIs available in 12.1.5”, with the Midnight addon disarmament changes “including secrets” active as well. Addons that computationally automate marking or communicating are out, and there is no one-button rotation. A built-in damage meter and cooldown manager ship with the game, and every add-on has to be rebuilt against the new API.</td>
             <td>Automated auction-house behaviour is constrained; manual efficiency and knowledge keep more of an edge than macro automation. The API parity also makes a modern addon build the closest technical starting point — the addon still has to declare support for the game version.</td>
-            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/news/addons-in-wow-forever-blizzard-devs-just-addressed-the-big-question/" rel="noopener">Icy Veins</a><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a></span></td>
+            <td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/news/addons-in-wow-forever-blizzard-devs-just-addressed-the-big-question/" rel="noopener">Icy Veins</a><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a><a class="src" href="https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921" rel="noopener">Wowhead / WoW UI Discord</a></span></td>
           </tr>
         </tbody>
       </table>
@@ -153,6 +161,7 @@
     </p>
     <div class="table-wrap">
       <table>
+        <caption>Dated market catalysts. Columns: Date / trigger, Verified mechanic, Likely market direction Our reading.</caption>
         <thead>
           <tr><th scope="col">Date / trigger</th><th scope="col">Verified mechanic</th><th scope="col">Likely market direction <span class="chip ours">Our reading</span></th></tr>
         </thead>
@@ -251,7 +260,7 @@
     </p>
     <div class="grid three">
       <div class="card tight">
-        <h4>Launch week (4 Nov)</h4>
+        <h3>Launch week (4 Nov)</h3>
         <p class="small">
           A brand-new economy with no Token and no carried-over stock: everyone starts at level 1 with empty bags.
           <strong>Verified basis:</strong> no Token/boosts planned, everyone starts fresh, one US-wide auction house.
@@ -260,7 +269,7 @@
         </p>
       </div>
       <div class="card tight">
-        <h4>Leveling window (Nov, all levels)</h4>
+        <h3>Leveling window (Nov, all levels)</h3>
         <p class="small">
           Healing potions move from Alchemy to First Aid and consume herbs, vials and Mild/Hot Spices; crafted food carries a small
           XP bonus; campsite objects are crafted and sold as buffs that do not stack with class buffs.
@@ -268,7 +277,7 @@
         </p>
       </div>
       <div class="card tight">
-        <h4>Mount window (level 40+ and 60)</h4>
+        <h3>Mount window (level 40+ and 60)</h3>
         <p class="small">
           Training costs 100 gold at the first tier and 1,000 gold at the higher tier, and the mount is free once training is paid.
           <strong>Read:</strong> a predictable, population-wide gold sink competes with consumable spending at two moments, and a free epic
@@ -276,7 +285,7 @@
         </p>
       </div>
       <div class="card tight">
-        <h4>Pre-raid (Nov 4 – Dec 9)</h4>
+        <h3>Pre-raid (Nov 4 – Dec 9)</h3>
         <p class="small">
           Nine dungeons, re-itemised loot, hundreds of new rare drops, Blueprint recipes from dungeon bosses, quest rewards widened
           for casters and healers, dungeon mob XP tuned down with quest XP up.
@@ -285,7 +294,7 @@
         </p>
       </div>
       <div class="card tight">
-        <h4>Raid week (9 Dec)</h4>
+        <h3>Raid week (9 Dec)</h3>
         <p class="small">
           Barrow Deeps and Hyjal Summit open with no attunements; crafted tier sets need Malleable Essence of Nature from
           disenchanting those raids' items; crafted pieces are Bind on Equip.
@@ -293,7 +302,7 @@
         </p>
       </div>
       <div class="card tight">
-        <h4>Every PvP cycle</h4>
+        <h3>Every PvP cycle</h3>
         <p class="small">
           A new 14-rank Honor track each cycle; combat potions are unlocked at rank 5 in the datamine; armour upgrades arrive from
           rank 8 and weapons at rank 14.
@@ -336,6 +345,7 @@
     <h2 id="h-demand">Demand-side drivers</h2>
     <div class="table-wrap">
       <table>
+        <caption>Demand-side drivers. Columns: Driver, Verified basis, What to watch.</caption>
         <thead><tr><th scope="col">Driver</th><th scope="col">Verified basis</th><th scope="col">What to watch</th></tr></thead>
         <tbody>
           <tr><td><strong>Raiders, from 9 Dec</strong></td><td>Two raids open with no attunements; every raid boss has chase items (press).</td><td>Consumable, food and enchant demand concentrated in a single week rather than spread across attunement steps.</td></tr>
@@ -356,8 +366,10 @@
         <h3>Status of the standard tools <span class="chip datamine">Verified listing</span></h3>
         <ul class="clean">
           <li><strong>TradeSkillMaster (TSM):</strong> latest build v4.14.77 (13 Sep 2026) lists Retail, MoP Classic, TBC Classic and Classic Era support. <strong>No Forever build.</strong> <a href="https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable" rel="noopener">Wago listing</a> · <a href="https://www.curseforge.com/wow/addons/tradeskill-master" rel="noopener">CurseForge page</a></li>
+          <li><strong>Auctionator:</strong> release 337 (17 Sep 2026) declares <strong>“Supported Classic Forever patch1.60.1”</strong> — the first auction-house add-on verified here as Forever-capable. <a href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Wago listing</a></li>
+          <li><strong>Questie and Details!:</strong> no Forever build listed on 19 Sep 2026, so quest routing and combat-log parsing are uncovered. <a href="addons.html">Full tracker with dates →</a></li>
           <li><strong>TSM price data on vanilla-ruleset clients:</strong> native sources are limited to crafting and destroy value; market values require an external price addon (Auctionator, Auctioneer or AHDB). <a href="https://www.curseforge.com/wow/addons/price-answer" rel="noopener">Price Answer documentation</a></li>
-          <li><strong>Implication:</strong> plan on manual auction scanning (or a scan addon you verify yourself) for the first weeks of Forever, and re-check TSM's version list at launch.</li>
+          <li><strong>Implication:</strong> plan on manual auction scanning with Auctionator for the first weeks of Forever — verify on the live client, because a version list declares support rather than proving it — and re-check TSM's version list at launch.</li>
         </ul>
       </div>
       <div class="card">
@@ -371,6 +383,13 @@
           <li><strong>Re-verify tool support at launch.</strong> Addon compatibility is the single most likely thing to change between now and 4 November.</li>
         </ol>
       </div>
+    </div>
+    <div class="note caution">
+      <p><strong>Before the first row is logged:</strong> the item column must hold an <em>exact, verified in-game item name</em>,
+      and each new item gets its own row in the table above first — the market-log checker refuses a row whose item is not on
+      this watchlist, and it refuses any row dated before 4 November 2026. Read a minimum buyout of one unit, in copper, record
+      who observed it and when, and keep a screenshot or export permalink as the source. Nothing here is estimated, rounded or
+      scraped.</p>
     </div>
     <div class="note">
       <p><strong>Why we do not publish gold-per-hour numbers.</strong> Rates depend on the live economy, population and
@@ -414,7 +433,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard. Nothing on this page is financial advice for a video game economy.</p>
-    <p>Snapshot <span data-snapshot>2026-09-18</span> · gold claims C080–C096, C104, C127, C128, C130, C142, C144, C145 · <a href="sources.html#claims">full ledger</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · gold claims C080–C096, C104, C106, C127, C128, C130, C142, C144, C145, C153, C155, C156 · <a href="sources.html#claims">full ledger</a></p>
   </div>
 </footer>
 
