@@ -16,6 +16,14 @@ on:
         description: 'Baseline only — record fingerprints without reporting changes'
         type: boolean
         default: false
+  push:
+    branches: [main]
+    # Self-healing, not noise: the preflight job below lets a push run only when
+    # no fingerprint baseline exists yet, so a lost or never-created
+    # tools/source-state.json repairs itself on the next push to main. When the
+    # baseline is present, pushes skip the network job entirely. (A baseline
+    # commit made with the default token does not re-trigger workflows, so this
+    # cannot loop.)
 
 permissions:
   contents: write
@@ -26,7 +34,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      run_check: ${{ steps.decide.outputs.run_check }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Decide whether to run the network check
+        id: decide
+        run: |
+          if [ "${RUNNER_EVENT}" = "push" ] && [ -f tools/source-state.json ]; then
+            echo "run_check=false" >> "$GITHUB_OUTPUT"
+            echo "A fingerprint baseline already exists; this push does not need a network run."
+          else
+            echo "run_check=true" >> "$GITHUB_OUTPUT"
+            echo "No usable baseline yet (or a scheduled/manual run): proceeding to the network check."
+          fi
+        env:
+          RUNNER_EVENT: ${{ github.event_name }}
+
   check:
+    needs: preflight
+    if: needs.preflight.outputs.run_check == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

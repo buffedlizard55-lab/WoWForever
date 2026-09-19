@@ -117,8 +117,10 @@ a real HTTP origin in some browsers.
 ## Flags and corrections
 
 Sections marked **our reasoning** contain argument, not sourced fact. The source-watch fingerprint baseline is created
-by the first `source-watch.yml` run (weekly schedule, or a manual dispatch with *Baseline only* ticked): the authoring
-environment used to build this site has no outbound network, so it cannot create one itself. Everything else carries a source link.
+by the first `source-watch.yml` run — the weekly schedule, a manual dispatch with *Baseline only* ticked, or automatically
+by the next push to `main` while no baseline exists (a preflight job keeps ordinary pushes from running the network step).
+The authoring environment used to build this site has no outbound network and no workflow-dispatch permission, so it cannot
+create one itself. Everything else carries a source link.
 Corrections are welcome as issues: give the claim ID (for example `C127`), the corrected statement, and a link to a
 primary source. Superseded numbers are kept in the ledger so changes are visible — see the irregularity log on the
 Method page for worked examples.
