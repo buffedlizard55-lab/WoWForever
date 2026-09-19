@@ -214,7 +214,7 @@ window.WOWF_CLAIMS = [
   { id: "C091", cat: "gold", status: "official", snapshot: "2026-09-18",
     claim: "Crafted food grants a small experience bonus plus stat boosts.",
     sources: ["bnet-deep-dive"],
-    note: "The popular '+5% kill XP' figure is an Icy Veins number, not Blizzard's; we show Blizzard's wording." },
+    note: "The popular '+5% kill XP' figure is an Icy Veins number, not Blizzard's; we show Blizzard's wording. Corroboration update, 2026-09-19: Wowhead's open-world roundup now also prints +5% (a Well Fed buff granting +5% Experience) — two guide sources, still not first-party (C180)." },
   { id: "C092", cat: "gold", status: "press", snapshot: "2026-09-18",
     claim: "Meeting Stones open a Looking-for-Group window but do not summon players; a Warlock is still required for summons.",
     sources: ["kotaku-interview", "mop-addons"] },

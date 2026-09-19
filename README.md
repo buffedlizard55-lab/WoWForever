@@ -101,8 +101,9 @@ node tools/check-sources.mjs --dry-run # network: fingerprint every registered s
 CI (`.github/workflows/verify.yml`) runs the five offline checkers with `--strict`, plus the watcher's self-test, on
 every push and pull request. `source-watch.yml` runs the network step weekly (and on demand).
 The checkers verify structure — that a quotation is anchored, not that its wording matches the live page. Wording is
-checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page (and I-19 records the unofficial beta-tracker pattern flagged the same day) (every one of them a
-failure on this project's own pages, not in someone else's reporting). The ledger checker also warns when a claim cites
+checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page (every one of them a
+failure on this project's own pages, not in someone else's reporting); I-19 records the unofficial beta-tracker pattern
+flagged during the 19 September live-web pass. The ledger checker also warns when a claim cites
 only first-party sources but carries a lower evidence class, the one under-classification pattern found so far (C031).
 
 ## Running the site locally
