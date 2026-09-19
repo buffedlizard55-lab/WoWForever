@@ -19,3 +19,4 @@ buy this now
 what is the best PvP class?
 break the effect
 still worth farming
+Resource not accessible by integration

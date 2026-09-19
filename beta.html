@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beta observation log | WoW Forever Hub</title>
+<meta name="description" content="The WoW Forever beta observation log: dated beta calendar, what is testable at level 20 and 30, the per-class observation status, the rules for upgrading a claim from reported to observed, and the two false positives to avoid.">
+<meta name="theme-color" content="#0d1117">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Beta observation log | WoW Forever Hub">
+<meta property="og:description" content="Dated beta calendar, per-class observation status, the reported-to-observed upgrade rule, and the false positives to avoid.">
+<link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/beta.html">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">WF</span>
+      <span>WoW Forever Hub<small>Verified information only</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="pvp.html">PvP</a>
+      <a href="classes.html">Classes</a>
+      <a href="class-pvp.html">Class PvP</a>
+      <a href="gear.html">Gear / BiS</a>
+      <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
+      <a href="sources.html">Sources</a>
+      <a href="method.html">Method</a>
+      <a href="work-plan.html">Work plan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Beta observation · snapshot <span data-snapshot>2026-09-19</span></p>
+    <h1>The beta observation log</h1>
+    <p class="lede">
+      The beta is the last window in which a class claim can be improved before launch — and the window in which Blizzard
+      has said it will <em>change</em> class balance. This page dates that window, shows exactly which claims could be
+      upgraded, and states plainly that <strong>none of them has been observed first-hand by this project yet</strong>.
+      It exists so a future session can do the work without inventing any of it.
+    </p>
+  </div>
+
+  <div class="banner">
+    <strong>Status of this log: empty on purpose.</strong>
+    <p>
+      No row below has been marked <em>observed</em>, because observing means running the beta client and capturing the
+      result — which this project has not done. Every class claim it holds is still
+      <span class="chip guide">guide</span> or <span class="chip datamine">datamine</span> evidence, which is precisely
+      why <a href="class-pvp.html">Class PvP</a> carries no ranking.
+    </p>
+  </div>
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ul>
+      <li><a href="#calendar">Dated beta calendar</a></li>
+      <li><a href="#classes">Per-class observation status</a></li>
+      <li><a href="#rule">The reported → observed rule</a></li>
+      <li><a href="#balance">Why class claims are expected to move</a></li>
+      <li><a href="#traps">Two false positives to avoid</a></li>
+      <li><a href="#issues">Dated known-issues monitoring</a></li>
+      <li><a href="#pvp">PvP items being watched</a></li>
+    </ul>
+  </nav>
+
+  <section id="calendar" aria-labelledby="h-calendar">
+    <h2 id="h-calendar">Dated beta calendar</h2>
+    <p class="sub">
+      Official rows come from Blizzard. Anything labelled as an expectation is a guide site's reading, kept separate so it
+      cannot acquire first-party authority by sitting in the same table (that mistake is irregularity I-15).
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>The beta window and its content waves. Blizzard has published the window and the level-cap change; the two-wave content schedule is Wowhead's expectation.</caption>
+        <thead><tr><th scope="col">Date</th><th scope="col">What happens</th><th scope="col">Evidence</th></tr></thead>
+        <tbody>
+          <tr><td><strong>17 Sep 2026</strong></td><td>Beta opens after the live Q&amp;A; level cap 20</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard</a></span></td></tr>
+          <tr><td><strong>during testing</strong></td><td>Further zones, dungeons and <em>the new battleground</em> open; the level cap rises to 30; a free “Server Slam” window follows later</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard</a></span></td></tr>
+          <tr><td>“after two weeks” <span class="small">(≈1 Oct 2026, not confirmed)</span></td><td>Wowhead expects the second wave: level 30, new class abilities and talents, the dungeon Excavation Site, more profession items. Its first wave lists level 20, new class abilities and talents, new profession items, Hall of Thanes and Ruins of Lordaeron, starter zones and the Legacy system.</td><td><span class="chip guide">Guide expectation</span> <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/guide/beta-content-unlock-overview" rel="noopener">Wowhead</a></span></td></tr>
+          <tr><td><strong>21 Oct 2026</strong></td><td>“The last full day of testing”</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard</a></span></td></tr>
+          <tr><td><strong>4 Nov 2026</strong></td><td>Forever launches; the market and PvP data this site is waiting for can begin to exist</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">Blizzard</a></span></td></tr>
+          <tr><td><strong>9 Dec 2026</strong></td><td>New raids unlock — the earliest date any defensible BiS list could start forming</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">Blizzard</a></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note caution">
+      <p><strong>What the beta cannot settle.</strong> A level-20 or level-30 cap means no level-60 talents, no level-60
+      gear, no raids and — until Blizzard enables it — no rated PvP. Class material gathered in the beta is useful for
+      rotations, ability text and bugs; it is not a level-60 performance measurement, and this site will not present it as
+      one.</p>
+    </div>
+  </section>
+
+  <section id="classes" aria-labelledby="h-classes">
+    <h2 id="h-classes">Per-class observation status</h2>
+    <p class="sub">
+      The per-class rows on <a href="class-pvp.html">Class PvP</a> currently rest on Wowhead's talent calculator
+      (<span class="chip datamine">datamine</span>, built from BlizzCon demo material rather than the beta client) and on
+      Icy Veins' beta-scope class guides (<span class="chip guide">guide</span>, level-20 content). This table tracks what
+      each class would need before its row can be upgraded.
+    </p>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>Nine classes, the published material available for each, and the first-hand status. Every “observed” column reads <em>no</em> until someone records a dated capture from the beta client.</caption>
+        <thead><tr><th scope="col">Class</th><th scope="col">Published material available now</th><th scope="col">First-hand observation</th><th scope="col">What an upgrade would need</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Druid</strong><br><span class="small"><a href="class-pvp.html#druid">profile</a></span></td><td>Class overview and a per-spec beta guide (Icy Veins); structural talent data (Wowhead)</td><td><span class="chip pending">not observed</span></td><td>A dated capture of the level-20/30 ability and talent state, with the build number</td></tr>
+          <tr><td><strong>Hunter</strong><br><span class="small"><a href="class-pvp.html#hunter">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same, plus pet-behaviour confirmation — the known-issues list flags pet-stat display</td></tr>
+          <tr><td><strong>Mage</strong><br><span class="small"><a href="class-pvp.html#mage">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same, plus a check of the spell-queue interaction flagged on the known-issues list</td></tr>
+          <tr><td><strong>Paladin</strong><br><span class="small"><a href="class-pvp.html#paladin">profile</a></span></td><td>Class overview and a per-spec beta guide; the only class with a full first-party changelist</td><td><span class="chip pending">not observed</span></td><td>Same; the changelist facts are official, the beta behaviour still is not</td></tr>
+          <tr><td><strong>Priest</strong><br><span class="small"><a href="class-pvp.html#priest">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same</td></tr>
+          <tr><td><strong>Rogue</strong><br><span class="small"><a href="class-pvp.html#rogue">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same</td></tr>
+          <tr><td><strong>Shaman</strong><br><span class="small"><a href="class-pvp.html#shaman">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same, plus totem behaviour at 20/30</td></tr>
+          <tr><td><strong>Warlock</strong><br><span class="small"><a href="class-pvp.html#warlock">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same, plus a damage-over-time interaction check — the tested build handles haste in a specific way</td></tr>
+          <tr><td><strong>Warrior</strong><br><span class="small"><a href="class-pvp.html#warrior">profile</a></span></td><td>Class overview and a per-spec beta guide; structural talent data</td><td><span class="chip pending">not observed</span></td><td>Same, plus a check of the higher-level melee Glancing Blow maths flagged on the known-issues list</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">
+      Sources for the “published material” column: <a href="https://www.icy-veins.com/wow-forever/" rel="noopener">Icy Veins' Forever class guides</a>
+      and <a href="https://www.wowhead.com/forever/talent-calc" rel="noopener">Wowhead's talent calculator</a>, both registered in the source
+      registry with their scope stated. Wowhead's calculator carries its own warning that the data came from BlizzCon demo testing and
+      will be rebuilt from the beta client.
+    </p>
+  </section>
+
+  <section id="rule" aria-labelledby="h-rule">
+    <h2 id="h-rule">The reported → observed rule</h2>
+    <ol class="clean">
+      <li><strong>Client access first.</strong> Without the beta client, no row can be upgraded, and the log says so rather than borrowing someone else's observation as if it were a measurement.</li>
+      <li><strong>Name the build.</strong> Forever's patch numbering is 1.60.x — Auctionator's Forever-capable release declares
+        “Supported Classic Forever patch1.60.1” and Wowhead tags its Forever pages “Patch 1.60.1”; an observation without a
+        build number cannot be reproduced.
+        <span class="srcs"><a class="src" href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Wago listing</a><a class="src" href="https://www.wowhead.com/forever/guide/beta-content-unlock-overview" rel="noopener">Wowhead</a></span></li>
+      <li><strong>Capture the state.</strong> Ability text, talent tree state and the level at which each was seen — a screenshot or an in-game export, not a memory.</li>
+      <li><strong>Add a ledger row.</strong> New evidence becomes a claim with a snapshot date, citing the capture; the older guide-based claim keeps its ID and gains a note.</li>
+      <li><strong>Change the chip on the profile.</strong> The class row moves from <span class="chip guide">guide</span> to observed evidence, and the profile says who observed it and when.</li>
+      <li><strong>Re-check at each build.</strong> A beta build can invalidate an observation; the weekly source watcher already watches the pages these claims rest on.</li>
+    </ol>
+    <div class="note">
+      <p><strong>Why the bar is this high.</strong> A class claim that cannot be reproduced is indistinguishable from a
+      guess, and the site's whole promise is that a reader can check every statement. Being slow here is the feature.</p>
+    </div>
+  </section>
+
+  <section id="balance" aria-labelledby="h-balance">
+    <h2 id="h-balance">Why class claims are expected to move</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Blizzard's own statement</h3>
+        <p>
+          Asked about class design before the beta, the developers said:
+          “In the beta, we're going to look at class balance now that some classes have new spells, and we'll make
+          adjustments where necessary.”
+          <span class="srcs"><a class="src" href="https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview" rel="noopener">IGN Nordic</a></span>
+        </p>
+        <p class="small">
+          That is a statement of intent, not a tuning list. It means the balance picture is expected to change during the
+          test, so any class comparison written before it is provisional by the publisher's own admission (C151, C152).
+        </p>
+      </div>
+      <div class="card">
+        <h3>No Forever tuning changelist yet</h3>
+        <p>
+          Two days into the beta, <strong>no Forever class-tuning changelist had been published</strong>. The only dated
+          tuning post in the adjacent feed belongs to modern WoW's patch 12.1.0 (C157, C159).
+        </p>
+        <p class="small">
+          Recorded as an observation with a date, so that a later session can show when the situation changed rather than
+          assuming it never did.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="traps" aria-labelledby="h-traps">
+    <h2 id="h-traps">Two false positives to avoid</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Both of these have been seen in circulation during the first beta days; both would put a wrong fact on this site.</caption>
+        <thead><tr><th scope="col">Trap</th><th scope="col">Why it looks right</th><th scope="col">How to tell it is wrong</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>“Class Tuning Incoming — September 22”</strong></td>
+            <td>It sits in the same blue-tracker feed as the Forever beta posts and is dated inside the beta window.</td>
+            <td>The post is tagged <strong>patch 12.1.0</strong> and its text is about modern WoW's Mythic+, raid and PvP tuning. It is not Forever content (C157).
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/blue-tracker/topic/us/2354340" rel="noopener">Blue tracker</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>The talent calculator as “beta data”</strong></td>
+            <td>It is the most complete structural class view available, and it shows all nine classes with three 51-point trees.</td>
+            <td>Wowhead states the data came from BlizzCon demo testing and streams and will be rebuilt from the beta client. It is BlizzCon material, not a beta extraction (C138).
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/talent-calc" rel="noopener">Talent calculator</a></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="issues" aria-labelledby="h-issues">
+    <h2 id="h-issues">Dated known-issues monitoring</h2>
+    <p class="sub">
+      Blizzard's beta known-issues list is the most useful dated document the beta produces, because it names mechanics
+      that are currently wrong rather than simply unfinished. It is a moving list, so it is treated as dated material.
+    </p>
+    <ul class="clean">
+      <li><strong>Last read:</strong> 18 September 2026 — caster and higher-level melee Glancing Blow maths, pet-stat display, consumable and buff armour multiplying with Bear Form, On-Next Attack abilities disabling the spell-queue window, and class-varying Cooldown Manager work in progress (C143).
+        <span class="srcs"><a class="src" href="https://us.forums.blizzard.com/en/wow/t/2352687/1" rel="noopener">Blizzard forum post</a><a class="src" href="https://www.wowhead.com/blue-tracker/topic/us/2352687" rel="noopener">Wowhead mirror</a><a class="src" href="https://www.icy-veins.com/wow-forever/news/wow-forever-beta-known-issues-list-september-18th/" rel="noopener">Icy Veins</a></span></li>
+      <li><strong>Why it matters to PvP:</strong> Glancing Blow maths and spell-queue behaviour are exactly the mechanics that decide melee-versus-caster outcomes, so any battleground impression formed while they are broken is not evidence about final balance.</li>
+      <li><strong>Next check:</strong> (1) whether a later dated post replaces it, and (2) whether each listed item is resolved — the source watcher fingerprints the page and will flag a change, but only a human can read which line moved.</li>
+    </ul>
+    <div class="note warn">
+      <p><strong>A known issue is not a preview.</strong> The list describes current defects. Nothing on this site may be
+      rewritten on the assumption that a listed bug will be fixed in a particular way.</p>
+    </div>
+  </section>
+
+  <section id="pvp" aria-labelledby="h-pvp">
+    <h2 id="h-pvp">PvP items being watched</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>PvP items being watched. Columns: Item, Confirmed today, What is being waited for.</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Confirmed today</th><th scope="col">What is being waited for</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Darkspear Islands</strong> (new battleground)</td>
+            <td>15-versus-15 with control points and Arathi-Basin-style flag capture and defence; Blizzard says the new battleground opens during the beta test.
+              <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">Blizzard</a><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Beta article</a></span></td>
+            <td>A dated confirmation that it is open in the beta, then first-hand match observations — objective count, scoring, respawn rules and travel times are all unpublished.</td>
+          </tr>
+          <tr>
+            <td><strong>Honor and rank pacing</strong></td>
+            <td>A 14-rank Honor track that resets each season or patch cycle, with rank-by-rank rewards described but no thresholds, rates or vendor prices.
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/14-rank-pvp-honor-track-and-darkspear-islands-battleground-coming-in-wow-forever-382947" rel="noopener">Wowhead</a></span></td>
+            <td>Published thresholds or measured battleground Honor gains; until then <a href="pvp.html#unknown">PvP's unknown list</a> stays as it is.</td>
+          </tr>
+          <tr>
+            <td><strong>Rated PvP</strong></td>
+            <td>Not announced. No arena or rated battleground has been confirmed for Forever.</td>
+            <td>A first-party statement. Without a ladder, no tier list can be measured — which is why <a href="class-pvp.html">Class PvP</a> stays unranked.</td>
+          </tr>
+          <tr>
+            <td><strong>Class balance evidence</strong></td>
+            <td>Developer intent to adjust classes during the beta (C151); no tuning changelist yet (C159).</td>
+            <td>A dated Forever tuning post, then battleground participation data over a full season before any ranking is attempted.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · claims C003, C138, C143, C148, C151, C152, C154, C157, C159 · <a href="sources.html#claims">full ledger</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

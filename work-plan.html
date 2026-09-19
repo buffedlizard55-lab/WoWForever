@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work plan, limitations and next steps | WoW Forever Hub</title>
-<meta name="description" content="The remaining work for the WoW Forever information project, scheduled against the game's own calendar: what is blocked, what is possible now, the five project decisions and their follow-through, and what the next sessions will deliver.">
+<meta name="description" content="The remaining work for the WoW Forever information project, scheduled against the game's own calendar: what is blocked, what is possible now, the five project decisions and their follow-through, the source-watch baseline, and what the next sessions will deliver.">
 <meta name="theme-color" content="#0d1117">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Work plan, limitations and next steps | WoW Forever Hub">
-<meta property="og:description" content="The remaining work for the WoW Forever information project, scheduled against the game's own calendar: what is blocked, what is possible now, the five project decisions and their follow-through, and what the next sessions will deliver.">
+<meta property="og:description" content="What is blocked, what is possible now, the five project decisions and their follow-through, the source-watch baseline, and what the next sessions will deliver.">
 <link rel="canonical" href="https://buffedlizard55-lab.github.io/WoWForever/work-plan.html">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -30,6 +30,8 @@
       <a href="class-pvp.html">Class PvP</a>
       <a href="gear.html">Gear / BiS</a>
       <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
       <a href="sources.html">Sources</a>
       <a href="method.html">Method</a>
       <a href="work-plan.html">Work plan</a>
@@ -40,13 +42,24 @@
 <main id="main" class="wrap">
 
   <div class="hero">
-    <p class="eyebrow">Work plan · snapshot <span data-snapshot>2026-09-18</span></p>
+    <p class="eyebrow">Work plan · snapshot <span data-snapshot>2026-09-19</span></p>
     <h1>What still needs doing — and what is genuinely blocked</h1>
     <p class="lede">
-      This page is the project's honest backlog. It separates <strong>blocked work</strong> (cannot be done correctly
-      until Blizzard or the live economy produces data) from <strong>available work</strong> (can be done now), records
+      This page is the project's honest backlog. It separates <strong>blocked work</strong> (which cannot be done correctly
+      until Blizzard or the live economy produces data) from <strong>available work</strong> (which can be done now), records
       the five project decisions and what each one has actually delivered, and schedules the rest against dates the game
       itself has published.
+    </p>
+  </div>
+
+  <div class="banner">
+    <strong>This session closed the four items that were still open.</strong>
+    <p>
+      The IGN Nordic interview was reviewed at primary-source level (with a retrieval limitation recorded, not hidden),
+      the beta observation log was built with per-class status and an upgrade rule, the add-on compatibility tracker was
+      created with dated listings, and an accessibility/print pass was completed and put under machine check. The one thing
+      this environment still cannot do is create the source-watch fingerprint baseline, because it has no outbound network
+      access and its GitHub token cannot dispatch workflows — <a href="#baseline">what was done about that is below</a>.
     </p>
   </div>
 
@@ -56,8 +69,9 @@
       <li><a href="#done">Delivered so far</a></li>
       <li><a href="#session">This session, line by line</a></li>
       <li><a href="#passes">Three-pass verification record</a></li>
+      <li><a href="#baseline">The source-watch baseline</a></li>
       <li><a href="#blocked">Blocked work (do not fake it)</a></li>
-      <li><a href="#phase1">Phase 1 — next session, before 4 November</a></li>
+      <li><a href="#phase1">Phase 1 — before 4 November</a></li>
       <li><a href="#phase2">Phase 2 — launch window, 4 November onward</a></li>
       <li><a href="#phase3">Phase 3 — raid window, 9 December onward</a></li>
       <li><a href="#limitations">Limitations and risks</a></li>
@@ -68,19 +82,22 @@
 
   <section id="done" aria-labelledby="h-done">
     <h2 id="h-done">Delivered so far</h2>
+    <p class="sub">
+      Counts are computed from the data files by the checkers and verified against the numbers printed here, so a total on
+      this page cannot drift out of date unnoticed.
+    </p>
     <ul class="checklist">
-      <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics, each on its own page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code>) and claims ledger (<code>data/claims.js</code>) with evidence classes and snapshot dates.</li>
-      <li>Public irregularity log (I-1 to I-13) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, and secondary reports that had been labelled too strongly as first-party.</li>
+      <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">13</span> HTML pages including the 404 page.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">71</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">123</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Public irregularity log (I-1 to I-16) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, and now three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
-      <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip and source link on every row, a one-line summary table, an explicit “no ranking” contract, and a verified per-class reading list (C111–C121, C138–C139).</li>
-      <li><strong>Automated source watching</strong> — a weekly GitHub Action fingerprints every registered URL and opens an issue when a cited page changes or dies (<code>tools/check-sources.mjs</code>).</li>
-      <li><strong>Four offline verification tools now gate the repository</strong> — <code>tools/check-ledger.mjs</code> (integrity, staleness), <code>tools/check-citations.mjs</code> (every external link must be a registered source, every internal anchor must resolve, every claim ID printed in prose must exist, tag balance), <code>tools/check-market-log.mjs</code> (market-log schema, with a hard refusal of any pre-launch price row) and <code>tools/check-quotes.mjs</code> (no quotation of three or more words may sit more than 1400 characters from a source link or a claim id). <code>.github/workflows/verify.yml</code> runs all four on every push and pull request, which is what makes the “fails the build” claim on this page true.</li>
-      <li><strong>Market log scaffold</strong> — <code>data/market-log.csv</code> with a documented schema and deliberately zero data rows until an auction house exists, validated against the Gold page watchlist by the tool above.</li>
-      <li><strong>Quotation audit and self-corrections</strong> — <code>tools/check-quotes.mjs</code> found 22 quotations with no source or claim id nearby; the four real ones were anchored and the rest allow-listed as interface labels. The human half of the same check (re-reading borrowed wording against the live page) found and fixed a quotation that did not exist in its source, a coverage claim that understated another site's output, and provenance labels that overstated secondary evidence — I-11, I-12 and I-13, all logged rather than quietly rewritten.</li>
-      <li><strong>Machine-checked citation rule</strong> — the registry now supports multi-page sources (<code>also: []</code>), so a page cannot link to a URL that no one registered and read. The first run of the checker found 18 unregistered outbound links on five pages; all 18 were resolved by registering the sources rather than by deleting the links.</li>
-      <li><strong>Primary-source gate</strong> — <code>official</code> is now reserved for a Blizzard-hosted URL with <code>firstParty: true</code>; secondary reports of Blizzard statements are labelled <span class="chip press">Press</span>. The ledger fails an official claim that has no first-party source, and the direct Krol’dok and beta known-issues forum posts are registered and read, with future manual review still required when they change.</li>
+      <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip and source link on every row, a one-line summary table, an explicit “no ranking” contract, a pre-beta warning, and a verified per-class reading list.</li>
+      <li><strong><a href="addons.html">Add-on and tooling tracker</a></strong> — dated status for Auctionator, TradeSkillMaster, Questie, Details! and WeakAuras, built on a new <span class="chip tooling">tooling</span> evidence class so software metadata can never be presented as a game fact.</li>
+      <li><strong><a href="beta.html">Beta observation log</a></strong> — the dated beta calendar, per-class observation status (all nine marked <em>not observed</em>, because they are), the reported → observed upgrade rule, and two false positives that would otherwise become fake facts.</li>
+      <li><strong>Market log scaffold</strong> — <code>data/market-log.csv</code> with a documented schema, a written first-row procedure and deliberately zero data rows until an auction house exists (<span data-count="market-rows">0</span> rows today), validated against the Gold page watchlist.</li>
+      <li><strong>Six machine checks now gate the repository</strong> — <code>tools/check-ledger.mjs</code> (integrity, staleness), <code>tools/check-citations.mjs</code> (registered sources, resolving anchors, canonical and sitemap agreement, claim IDs, tag balance, machine-checked self-reported counts, and evidence-class documentation), <code>tools/check-market-log.mjs</code> (schema, with a hard refusal of any pre-launch price row), <code>tools/check-quotes.mjs</code> (no quotation may sit far from a source), <code>tools/check-a11y.mjs</code> (landmarks, headings, captions, labels, focus, reduced motion, print) and <code>tools/test-source-watch.mjs</code> (an offline fixture test of the watcher itself). <code>.github/workflows/verify.yml</code> runs them on every push and pull request.</li>
+      <li><strong>Automated source watching</strong> — a weekly GitHub Action fingerprints every registered URL (87 after de-duplication) and opens an issue when a cited page changes, has gone, or has never been reachable.</li>
       <li>All five open project decisions taken and implemented; see <a href="#decisions">Decisions</a>.</li>
     </ul>
   </section>
@@ -88,69 +105,67 @@
   <section id="session" aria-labelledby="h-session">
     <h2 id="h-session">This session, line by line</h2>
     <p class="sub">
-      Everything below was read on 18 September 2026 and converted into ledger rows in the same pass. Totals are counted
-      from the data files by the tools, not typed by hand: the Home page prints the live numbers.
+      Everything below was read on 19 September 2026 and converted into ledger rows in the same pass. Where a page could not
+      be read directly, that is stated in the row rather than smoothed over.
     </p>
     <div class="table-wrap">
       <table>
-        <caption>New verified material added this session. Anything not read end to end says so in its own ledger note.</caption>
+        <caption>New verified material added this session, with what it changed. Anything not read end to end says so in its own ledger note.</caption>
         <thead><tr><th scope="col">Read</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
         <tbody>
           <tr>
-            <td><a href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard: The Forever Beta Now Live</a> <span class="chip official">Official</span></td>
-            <td>Beta runs to 21 October (“the last full day of testing”); cap 20 → 30; week-one content list; further zones, dungeons and <em>“the new battleground”</em> open during the test; a free “Server Slam” window later.</td>
-            <td>C135 (with C003 and C029 updated to cite it)</td>
+            <td><a href="https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview" rel="noopener">IGN Nordic interview (Nuthals, Jones)</a> <span class="chip press">Press</span></td>
+            <td>The primary source behind the biome-buff story: items carry biome buffs and creature-type bonuses such as extra damage “against dragons or dwarves”, biomes and creature types “give us the opportunity to expand progression horizontally”, the designers “tested the extreme variations” and will be responsible with power growth (“Tier 2 and Tier 3 raids will therefore have better gear”), and gear from earlier raids should stay useful (the Onslaught Girdle example). Also the seen-before server system, the expanded questlines, and the pre-beta statement that class balance will be adjusted in the beta.</td>
+            <td>C149, C150, C151</td>
           </tr>
           <tr>
-            <td><a href="https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive" rel="noopener">Sportskeeda interview (Zierhut, Nuthals)</a> <span class="chip press">Press</span></td>
-            <td>A key gold finding of the project: training is “100 or 1,000 gold depending on which level” and the first mount is free; cosmetic mounts give no advantage. Plus chase items on every boss, environment/creature-type item effects, no permanently retired content, the adjacent-timeline framing, and the Caverns of Time wish.</td>
-            <td>C127, C128, C129, C130, C131, C140, C144, C145</td>
+            <td><a href="https://www.wowhead.com/forever/news/new-biome-buff-gear-ign-nordic-interview-on-wow-forever-382936" rel="noopener">Wowhead's full summary of the IGN Nordic interview</a> <span class="chip press">Press</span></td>
+            <td>Read end to end so the interview is no longer one hop from its summary. Its wording rounds one sentence (“a Tier 2 raid will have better loot” where IGN Nordic says Tier 2 and Tier 3), so this site follows the outlet's own wording and records the difference in C149.</td>
+            <td>C149</td>
           </tr>
           <tr>
-            <td><a href="https://www.wowhead.com/forever/news/official-controller-supports-training-mount-skill-costs-sportskeeda-interview-on-382963" rel="noopener">Wowhead summaries of the Sportskeeda and But Why Tho? interviews</a> <span class="chip press">Press</span></td>
-            <td>Official controller support; mount figures restated; no attunements for launch raids with later tiers unanswered; fixed 10/20/40 raid sizes; difficulty never scales; questing aimed at thin level 30–50 bands.</td>
-            <td>C132, C133, C136, C142</td>
+            <td><a href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Auctionator release list</a>, <a href="https://addons.wago.io/addons/questie/versions?stability=stable" rel="noopener">Questie release list</a>, <a href="https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable" rel="noopener">TSM release list</a>, <a href="https://www.curseforge.com/wow/addons/details/files" rel="noopener">Details! file list</a> <span class="chip tooling">Tooling</span></td>
+            <td><strong>Auctionator release 337 (17 Sep 2026) declares “Supported Classic Forever patch1.60.1”</strong> — the first auction-house add-on verified as Forever-capable, published on the day the beta opened. TSM (v4.14.77), Questie (v11.38.0) and Details! (newest file 18 Sep) still list no Forever build. This narrows the previous blanket tooling position (I-5) and is the single most consequential gold-side finding of the session.</td>
+            <td>C093 (reclassified), C153</td>
           </tr>
           <tr>
-            <td><a href="https://butwhytho.net/2026/09/wow-classic-devs-world-of-warcraft-forever/" rel="noopener">But Why Tho? interview (Resendez, Stone)</a> <span class="chip press">Press</span></td>
-            <td>The pre-Season-of-Discovery baseline is deliberate: “we are starting a little bit on a more conservative side”, with more SoD ideas possible later.</td>
-            <td>C134</td>
+            <td><a href="https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921" rel="noopener">Wowhead: Forever will have addon changes from Midnight</a> <span class="chip press">Press</span></td>
+            <td>Blizzard's WoW UI Discord statement, reproduced in full: Forever shares Mainline's UI architecture and most of the 12.1.5 API, the Midnight disarmament changes “including secrets” are active, the 12.1.0 AuraContainer changes apply, every add-on must be rebuilt, and weak-aura-style tooling is unlikely to return. Explains the pattern in the tooling table and why Classic add-ons do not simply load.</td>
+            <td>C106 (updated), C153</td>
           </tr>
           <tr>
-            <td><a href="https://www.wowhead.com/forever/news/raid-tier-set-models-datamined-for-wow-forever-382938" rel="noopener">Wowhead: raid tier set models datamined</a> <span class="chip datamine">Datamine</span></td>
-            <td>Raid set appearances exist for all nine classes, tagged “Hyjal” — and <em>no items are attached to them yet</em>. The cleanest available proof of why BiS lists cannot exist.</td>
-            <td>C137</td>
+            <td><a href="https://www.wowhead.com/forever/news/no-summoning-stones-and-mount-cost-changes-kotaku-interview-382944" rel="noopener">Wowhead's full summary of the Kotaku interview</a> <span class="chip press">Press</span></td>
+            <td>Meeting Stones will not summon players; a new LFG feature is for listing and discovering groups, and groups make their own way unless a Warlock helps. The mount cost sits on the training rather than the mount, corroborating C127. No flex raiding; every tier keeps a 10- and a 20-player option.</td>
+            <td>C155, C156</td>
           </tr>
           <tr>
-            <td><a href="https://www.wowhead.com/forever/talent-calc" rel="noopener">Wowhead Forever talent calculator</a> <span class="chip datamine">Datamine</span></td>
-            <td>All nine classes, three 51-point trees each, with Wowhead's own warning that the data came from BlizzCon demo testing and streams and will be rebuilt from the beta client.</td>
-            <td>C138</td>
+            <td><a href="https://www.wowhead.com/forever/guide/beta-content-unlock-overview" rel="noopener">Wowhead: Forever beta overview</a> <span class="chip guide">Guide</span></td>
+            <td>Wowhead's two-wave beta schedule (initial: level 20, new abilities and talents, Hall of Thanes and Ruins of Lordaeron, starter zones, Legacy; “after two weeks”: level 30, more abilities, Excavation Site, more profession items) is explicitly its own expectation, not a Blizzard confirmation. This is what dates the class-observation window — and what our own pages had been overstating.</td>
+            <td>C154 (claim), I-15 (correction)</td>
           </tr>
           <tr>
-            <td><a href="https://www.icy-veins.com/wow-forever/warrior-class-overview" rel="noopener">Icy Veins Warrior overview</a> and the <a href="https://www.icy-veins.com/wow-forever/news/healing-potions-now-crafted-by-first-aid-in-wow-forever/" rel="noopener">First Aid potion article</a> <span class="chip guide">Guide</span></td>
-            <td>Dwarf racial numbers confirmed independently (1% crit with a mace, +5% damage to Beasts); Icy Veins publishes a per-spec Forever guide for <em>every</em> class, and all of them are beta-scope — the Arms Warrior guide says it “covers leveling and PvE play through level 20” and its gear section is titled “Level 20 Gear, Stat Priority, and Consumables”. A quotation on the Gear page that could not be found in its source was replaced with text that is on the page (I-11), and the coverage claim that described guides as arriving “class by class” was corrected in place (I-12). Third pass also re-quoted source phrases word for word against the live pages (Wowhead racials, Icy Veins Tauren and Shaman) and tightened two statements that had rounded off a condition — Plainsrunning does not work in combat or in instances, and instant Ghost Wolf needs Improved Ghost Wolf at full investment. The class reading list gained a per-class spec-guide column. Ledger C139, C147, C148.</td>
-            <td>C088 (re-verified), C139, C141, C147, C148</td>
+            <td><a href="https://www.wowhead.com/blue-tracker/topic/us/2354340" rel="noopener">Blue tracker: “Class Tuning Incoming — September 22”</a> <span class="chip press">Press</span></td>
+            <td>Checked because it appears in the Forever-adjacent feed during the beta: it is tagged <strong>patch 12.1.0</strong> and concerns modern WoW's Mythic+, raid and PvP tuning. Registered as an accuracy guard so a future session cannot file it as Forever class tuning.</td>
+            <td>C157, C159</td>
           </tr>
           <tr>
-            <td><a href="https://www.wowhead.com/forever/guides" rel="noopener">Wowhead guide index re-check</a> and <a href="https://www.skill-capped.com/wowarticles/general/pvp-addons-ui-guide/" rel="noopener">Skill Capped coverage check</a> <span class="chip guide">Guide</span></td>
-            <td>Still 17 of 17 guides with no PvP, BiS or gold guide; Skill Capped still carries nothing for Forever.</td>
-            <td>C107, C139</td>
+            <td>Re-verified: Blizzard's <a href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">beta article</a>, the dated <a href="https://us.forums.blizzard.com/en/wow/t/2352687/1" rel="noopener">known-issues post</a> and the <a href="https://www.icy-veins.com/wow-forever/" rel="noopener">Icy Veins class guides</a> <span class="chip official">Official</span></td>
+            <td>No Forever class-tuning changelist had been published two days into the beta; the known-issues list is still the 18 September edition; the Icy Veins class guides remain level-20/beta scope. Two days of beta did not change any of the site's class claims, which is itself the finding.</td>
+            <td>C143, C148, C159 (re-checked)</td>
           </tr>
           <tr>
-            <td><a href="https://us.forums.blizzard.com/en/wow/t/2352687/1" rel="noopener">Blizzard's dated beta known-issues post</a> <span class="chip official">Official</span>, with <a href="https://www.wowhead.com/blue-tracker/topic/us/2352687" rel="noopener">Wowhead</a> and <a href="https://www.icy-veins.com/wow-forever/news/wow-forever-beta-known-issues-list-september-18th/" rel="noopener">Icy Veins</a> mirrors <span class="chip press">Press</span></td>
-            <td>Read line by line for this snapshot: it flags caster and higher-level melee Glancing Blow math, pet-stat display, Bear Form armor multiplication, spell-queue interaction and other beta issues. It also says the list will change, so treat it as dated monitoring rather than permanent mechanics.</td>
-            <td>C143</td>
+            <td>Accessibility and print pass over all <span data-count="pages">13</span> pages, plus the first self-check of our own registry claims <span class="chip ours">Ours</span></td>
+            <td>Found and fixed: heading levels skipped on four pages, tables without captions, no reduced-motion handling for smooth scrolling, no sticky-header anchor offset, and a print stylesheet that would have clipped wide tables on paper. Also caught that <code>method.html</code> did not document the new <span class="chip tooling">tooling</span> class — now a build failure, not a review note.</td>
+            <td>I-14, I-15, I-16</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="note warn">
-      <p><strong>Correction discipline.</strong> Corrections were recorded rather than quietly rewritten: the stray
-      <code>&lt;/section&gt;</code> in the Method irregularity log (found by the new tag-balance check) and the Classes page
-      claim that Wowhead's talent calculator was “data extracted from the beta client” — it is BlizzCon demo data, and the
-      page now says so. Both are recorded here because a silent fix is indistinguishable from a cover-up. Every correction this session is
-      in the Method log: I-11 (a quotation on the Gear page that could not be found in its source, replaced with text that is
-      on the page), I-12 (a coverage claim that understated how much another site publishes), and I-13 (secondary reports carrying first-party labels).</p>
+      <p><strong>Correction discipline.</strong> Three failures were found on our own pages this session and are recorded
+      rather than quietly rewritten: an unregistered source described as registered (I-14), a guide's expectation stated
+      with first-party confidence (I-15), and add-on release lists labelled as datamined client data (I-16). A silent fix
+      would be indistinguishable from a cover-up — the Method page keeps all three with the reasoning.</p>
     </div>
   </section>
 
@@ -158,37 +173,72 @@
     <h2 id="h-passes">Three-pass verification record</h2>
     <p class="sub">
       The implementation was not stopped after the first pass. Each pass used the previous pass's output, and the final
-      checks are recorded here so a reviewer can distinguish a code check from a judgement call.
+      checks are recorded here so a reviewer can tell a machine check from a judgement call.
     </p>
     <div class="table-wrap">
       <table>
-        <caption>Passes completed on the 18 September 2026 snapshot.</caption>
+        <caption>Passes completed on the 19 September 2026 snapshot.</caption>
         <thead><tr><th scope="col">Pass</th><th scope="col">What was checked</th><th scope="col">Result</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>1 — implement</strong></td>
-            <td>Applied the five project decisions: verification-first coverage, scheduled URL watching, full-season wait for rankings, bounded watchlist logging, and PvP-only class profiles. Added the source registry, claims ledger, empty market log, tracker, CI checks and the public pages.</td>
-            <td><span class="chip ok">Shipped</span> The artifacts are the pages and tools linked throughout this plan; no tier list, level-60 BiS list or pre-launch price is presented as fact.</td>
+            <td>The four remaining follow-ups: the IGN Nordic primary review, the beta observation framework, the add-on compatibility tracker, and the accessibility/print pass. Plus the source-watch robustness work and the <span class="chip tooling">tooling</span> evidence class.</td>
+            <td><span class="chip ok">Shipped</span> Two new pages (<a href="addons.html">Add-ons</a>, <a href="beta.html">Beta log</a>), eleven new claims (C149–C159), eight new registered sources, one new checker, one new self-test.</td>
           </tr>
           <tr>
             <td><strong>2 — adversarial review</strong></td>
-            <td>Looked for incorrect assumptions, provenance drift, source labels that overclaimed “official”, malformed CSV edge cases, and a watcher that would miss changed numbers. Reclassified secondary Q&amp;A/news reports as <span class="chip press">Press</span>, added the direct Blizzard Krol’dok and known-issues posts, made the ledger reject an official claim without a first-party URL, preserved meaningful numbers in fingerprints, and made the CSV checker quote-aware with real-date validation.</td>
-            <td><span class="chip ok">Fixed</span> Secondary material remains usable and linked, but it cannot silently become first-party evidence. The empty log still passes strict validation.</td>
+            <td>Looked for the failures this session was most likely to make: a source described as registered when it was not, a guide's expectation dressed as first-party fact, add-on metadata filed as game evidence, a watcher that would write an empty baseline from a blocked runner, and a print stylesheet that hides content.</td>
+            <td><span class="chip ok">Fixed</span> I-14, I-15 and I-16 logged; the ledger now rejects a tooling claim without a tooling source; the citation checker verifies every number the site prints about itself and every evidence class it uses; the watcher refuses to write a baseline made of nothing and separates regressions from sources that were never reachable.</td>
           </tr>
           <tr>
             <td><strong>3 — requirements re-check</strong></td>
-            <td>Re-ran the ledger, citation, market-log and quotation audits; re-read the primary Blizzard pages used for launch, beta, Deep Dive, Found Photos, Krol’dok and known issues; checked that the nine class profiles remain explicitly unranked and that the five decisions are implemented rather than merely documented.</td>
-            <td><span class="chip ok">Pass</span> Current local totals are 63 registered sources, 112 claims, 11 pages and zero market rows. The source watcher expands to 78 URLs, including registered additional pages.</td>
+            <td>Re-read the original brief against the site: PvP first, gold and market dynamics dated and sourced, no invented tier list, no invented BiS list, no invented prices, every external link registered, every claim traceable, and official/press/datamine/guide/tooling kept distinct.</td>
+            <td><span class="chip ok">Pass</span> Ledger, citation, market-log, quotation, accessibility and watcher self-tests all pass locally. The one requirement that cannot be completed from this environment — the source-watch baseline — is documented with the exact command a maintainer can run.</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </section>
+
+  <section id="baseline" aria-labelledby="h-baseline">
+    <h2 id="h-baseline">The source-watch baseline</h2>
+    <p class="sub">
+      A fingerprint baseline is the record of what each cited page looked like the first time we checked it. Until it
+      exists, change detection has nothing to compare against. This is the one deliverable the authoring environment
+      cannot produce by itself.
+    </p>
+    <div class="grid two">
+      <div class="card">
+        <h3>Why it could not be created here</h3>
+        <ul class="clean">
+          <li><strong>The shell has no outbound network.</strong> Re-confirmed this session: requests to the registered
+            hosts fail at the TLS handshake, so <code>node tools/check-sources.mjs --dry-run</code> reports every URL
+            unreachable. That is an environment limitation, not evidence that the pages are dead — the same pages were read
+            through the research tools during this session.</li>
+          <li><strong>This session's GitHub token cannot dispatch workflows.</strong> <code>gh workflow run</code> returns
+            HTTP 403 “Resource not accessible by integration”, so the baseline could not be triggered from here either.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How the baseline gets created, and what proves it will work</h3>
+        <ul class="clean">
+          <li><strong>Scheduled:</strong> the Action runs every Monday at 07:00 UTC and always runs on <code>main</code>.</li>
+          <li><strong>By hand:</strong> a maintainer with the repository's own token can run
+            <code>gh workflow run source-watch.yml --ref main -f init=true</code>, or use “Run workflow” in the Actions tab
+            with <em>Baseline only</em> ticked.</li>
+          <li><strong>The watcher's behaviour is now machine-tested offline</strong> (<code>tools/test-source-watch.mjs</code>):
+            a first run writes a baseline and files no issue; an edited page is reported; a previously reachable page that
+            stops responding is reported as a regression and keeps its old fingerprint; a runner that can reach nothing
+            writes <em>no</em> baseline at all and fails the job loudly, so a broken runner cannot silently become an empty
+            “baseline” that later runs compare against.</li>
+        </ul>
+      </div>
+    </div>
     <div class="note caution">
-      <p><strong>Network limitation recorded, not hidden.</strong> The authoring shell cannot reach the public URLs, so
-      <code>node tools/check-sources.mjs --dry-run</code> reported 78 unreachable URLs in this environment. That is not
-      evidence that the pages are dead: the research pages were independently readable during this review, and the first
-      GitHub Action run must establish the real network baseline. The Action preserves old fingerprints on a transient
-      outage and opens an issue for human review; it never changes claim dates or publishes new facts.</p>
+      <p><strong>What the first run will do.</strong> It records every reachable source as newly baselined (no issue is
+      filed for that), commits <code>tools/source-state.json</code>, and prints a step summary with the counts. If it
+      reports zero reachable sources, the job fails on purpose: that means the runner itself is blocked and the citations
+      need another route, not that the whole citation set is dead.</p>
     </div>
   </section>
 
@@ -196,14 +246,16 @@
     <h2 id="h-blocked">Blocked work — and why</h2>
     <div class="table-wrap">
       <table>
+        <caption>Deliverables that cannot be done correctly yet, with what unblocks each one. A blocked deliverable is never shipped in weakened form.</caption>
         <thead><tr><th scope="col">Deliverable</th><th scope="col">Blocked by (verified)</th><th scope="col">Unblocks at</th></tr></thead>
         <tbody>
           <tr><td><strong>Per-class level-60 BiS lists</strong></td><td>Item stats are obfuscated until a drop is recorded on a realm; raid tier <em>appearances</em> exist for all nine classes with no items attached; no Dungeon Journal; every dungeon drop re-itemised; raids closed until 9 Dec.</td><td>After launch, realistic for raid-tier lists from 9 December 2026.</td></tr>
-          <tr><td><strong>Level-60 PvP tier list</strong></td><td>Beta capped at 20 (30 later); no rated play; Honor rates, thresholds and vendor tables unpublished.</td><td>Live 60 play from 4 Nov; meaningfully measurable after the first PvP season reports.</td></tr>
+          <tr><td><strong>Level-60 PvP tier list</strong></td><td>Beta capped at 20 (30 later); no rated play; Honor rates, thresholds and vendor tables unpublished; class balance explicitly expected to change during the beta.</td><td>Live 60 play from 4 Nov; meaningfully measurable after the first full PvP season, with participation, matchup, reward and tuning evidence.</td></tr>
           <tr><td><strong>Gold-per-hour and price projections</strong></td><td>No live auction house exists yet, and the market is US-wide rather than per-realm, so Classic-era baselines do not transfer.</td><td>4 Nov 2026, with a multi-week settling period.</td></tr>
-          <tr><td><strong>TSM-based market workflows</strong></td><td>Checked again this session on both Wago and CurseForge: no Forever build listed; vanilla-ruleset price sources remain limited and need an external price addon.</td><td>When TSM publishes a Forever-supported release; tracked each update.</td></tr>
-          <tr><td><strong>Per-class PvP <em>rankings</em></strong><br><span class="small">The profiles themselves are published.</span></td><td>Only the Paladin changelist is first-party; the other eight classes rest on guide reporting from the BlizzCon build; the talent calculator is structural, not a performance measurement.</td><td><a href="class-pvp.html">Profiles shipped</a> with published mechanics only. Rankings wait for a full PvP season after 4 Nov.</td></tr>
-          <tr><td><strong>Source-watch baseline</strong></td><td>The authoring environment has no outbound network access from the shell, so fingerprints cannot be written locally even though the pages themselves were read through the research tools.</td><td><strong>Effectively unblocked:</strong> the first scheduled or manually dispatched Action run records every source as new — that path does not file an issue — and later runs diff against it.</td></tr>
+          <tr><td><strong>TSM-based market workflows</strong></td><td>TSM (v4.14.77, 13 Sep 2026) still lists no Forever build. Auctionator <em>does</em> declare one, which covers scanning but not TSM operations, accounting or price sourcing.</td><td>When TSM publishes a Forever-supported release; tracked each session on <a href="addons.html">Add-ons</a>.</td></tr>
+          <tr><td><strong>Per-class PvP <em>rankings</em></strong><br><span class="small">The profiles themselves are published.</span></td><td>Only the Paladin changelist is first-party; the other eight classes rest on guide reporting from the BlizzCon build; the talent calculator is structural demo data, not a performance measurement; Blizzard says balance will move in the beta.</td><td><a href="class-pvp.html">Profiles shipped</a> with published mechanics only. Rankings wait for a full PvP season after 4 Nov.</td></tr>
+          <tr><td><strong>First-hand beta class observation</strong></td><td>Requires beta client access, which this project does not have; the observation log records the status as <em>not observed</em> rather than borrowing someone else's run.</td><td>Anyone with beta access can follow the documented rule on <a href="beta.html#rule">Beta log</a> and upgrade a row with a dated, build-numbered capture.</td></tr>
+          <tr><td><strong>Source-watch baseline</strong></td><td>No outbound network from the authoring shell, and this session's token cannot dispatch workflows (HTTP 403).</td><td><strong>Effectively unblocked:</strong> the weekly schedule or a maintainer's manual run creates it, and the watcher's logic is now proven offline. See <a href="#baseline">above</a>.</td></tr>
         </tbody>
       </table>
     </div>
@@ -214,26 +266,28 @@
   </section>
 
   <section id="phase1" aria-labelledby="h-phase1">
-    <h2 id="h-phase1">Phase 1 — next session, before 4 November</h2>
+    <h2 id="h-phase1">Phase 1 — before 4 November</h2>
     <div class="grid two">
       <div class="card">
-        <h3>Source completion (highest value first)</h3>
+        <h3>Source completion</h3>
         <ol class="clean">
-          <li><s>Read the outstanding Wowhead interview summaries line by line.</s> <strong>Done this session</strong> — IGN Nordic, But Why Tho?, Sportskeeda and the beta known-issues posts are registered, and the two primary interviews were opened directly.</li>
-          <li><s>Complete the Wowhead racials guide.</s> Partly done: Dwarf re-verified against Icy Veins; the remaining races still need a chunk-by-chunk pass.</li>
-          <li>Read the remaining Icy Veins race guides (Dwarf, Gnome, Human, Night Elf, Orc, Troll, Undead, Skyborne) and record the Classic-to-Forever racial diffs.</li>
+          <li><s>Open the IGN Nordic primary article.</s> <strong>Done this session</strong> — read at primary level through its indexed text, cross-checked against the Dutch edition, and the HTTP 403 limitation recorded on the source and in I-14.</li>
+          <li><s>Build the addon-compatibility tracker.</s> <strong>Done this session</strong> — see <a href="addons.html">Add-ons</a>, with four listings checked and dated.</li>
+          <li><s>Capture the beta ability set and mark rows observed vs reported.</s> <strong>Framework done, capture blocked</strong> — the status table and upgrade rule are published on <a href="beta.html#classes">Beta log</a>; no row can be marked observed without client access.</li>
+          <li><s>Accessibility and print pass.</s> <strong>Done this session</strong> — structural issues fixed and now enforced by <code>tools/check-a11y.mjs</code>.</li>
           <li>Read the pre-purchase article and the Found Photos recap line by line on Blizzard's own pages, replacing the shop-summary citations where they overlap.</li>
           <li>Work through the remaining Wowhead Forever guides (14 of the 17 still unread) and ledger each fact.</li>
-          <li>Open the IGN Nordic primary article (the biome-buff interview is currently quoted through Wowhead's summary) and the body of Blizzard's beta known-issues list.</li>
+          <li>Read the remaining Icy Veins race guides (Gnome, Human, Night Elf, Orc, Troll, Undead, Skyborne) and record the Classic-to-Forever racial diffs; Dwarf and Tauren are done.</li>
         </ol>
       </div>
       <div class="card">
         <h3>Site work</h3>
         <ol class="clean">
-          <li><strong>Addon compatibility tracker</strong> — a dated table of which addons publish Forever builds (TSM, Questie, Details, Auctionator), re-checked every update, wired into the citation checker so it cannot cite an unregistered page.</li>
-          <li><strong>Ability capture log</strong> — for each class, record what is testable at 20 and 30 in the beta, and mark which class-profile rows can be upgraded from <em>reported</em> to <em>observed</em>.</li>
-          <li><strong>Accessibility and print pass</strong> — verify every table reads correctly on mobile and in print, check focus order, and confirm the new anchor links behave with the sticky header.</li>
-          <li><strong>Market-log dry run</strong> — walk the CSV and the watchlist once with a real (labelled) observation format so the first launch-week entry takes seconds, not minutes.</li>
+          <li><strong>Re-check the add-on tracker on every beta build</strong> and after launch — a version list changes without warning, and the watcher will flag the pages but not which line moved.</li>
+          <li><strong>Watch for Forever class tuning.</strong> No changelist existed two days into the beta (C159); when one lands it becomes the first dated class evidence since BlizzCon.</li>
+          <li><strong>Watch for the new battleground entering the beta</strong>, then record its objective count, scoring and respawn rules if Blizzard publishes them.</li>
+          <li><strong>Market-log dry run</strong> — walk the CSV and the watchlist once with a real (labelled) observation format so the first launch-week entry takes seconds; the procedure is now written into <code>data/market-log.csv</code>.</li>
+          <li><strong>Human quotation pass</strong> over the two new pages, one page at a time: the checker proves a quotation has a source nearby, never that its words match.</li>
         </ol>
       </div>
     </div>
@@ -248,13 +302,13 @@
           <li>Stand up the level-60 item verification pipeline described on the <a href="gear.html#procedure">Gear page</a>: item ID, stat block, drop source, phase, permalink, verification date.</li>
           <li>Publish pre-raid gear tables per class, split by armour type and role, with acquisition links only from the Forever namespace.</li>
           <li>Begin the market baseline log: daily minimum buyouts for the watchlist items on the <a href="gold.html#watchlist">Gold page</a>, with the 100 g / 1,000 g training tiers as the calendar anchors.</li>
-          <li>Record which price addons actually function on Forever clients, then document a verified workflow.</li>
+          <li>Confirm on the live client which add-ons actually work, starting with Auctionator's declared Forever build — a version list is a claim, not a verification.</li>
         </ul>
       </div>
       <div class="card">
         <h3>PvP work</h3>
         <ul class="clean">
-          <li>Record battleground availability the moment the live client confirms it, replacing the current “implied only” status — the beta article already confirms a new battleground enters testing during the beta, so the first observation may arrive before launch.</li>
+          <li>Record battleground availability the moment the live client confirms it, replacing the current “implied only” status.</li>
           <li>Collect Honor gain observations from real battlegrounds to replace the unpublished numbers with measured ones — clearly labelled as observed, not official.</li>
           <li>Stand up battleground-role notes per class as play begins, using the published methodology on the <a href="classes.html#commitment">Classes page</a>.</li>
         </ul>
@@ -269,7 +323,7 @@
       <li><strong>Crafted tier-set economy</strong> — track Malleable Essence of Nature supply, Guardians of Hyjal reputation gating, and the BoE crafted-piece market as it forms.</li>
       <li><strong>Chase-item tracking</strong> — every boss keeps low-drop-rate items that Blizzard intends to stay useful in later tiers, so the tracker keeps a per-boss “still worth farming” column rather than closing a tier when the set is complete.</li>
       <li><strong>First PvP value assessment</strong> — battleground-role based, minimum-sample enforced, version-stamped, with the evidence for every placement.</li>
-      <li><strong>Legendary and chase-item documentation</strong> — Blizzard has teased a legendary reward and every raid boss having chase items; document them when they are live.</li>
+      <li><strong>Legendary and chase-item documentation</strong> — document them when they are live.</li>
     </ul>
   </section>
 
@@ -277,20 +331,24 @@
     <h2 id="h-limitations">Limitations and risks</h2>
     <div class="table-wrap">
       <table>
+        <caption>Limitations and risks. Columns: Limitation, Impact, Mitigation in place.</caption>
         <thead><tr><th scope="col">Limitation</th><th scope="col">Impact</th><th scope="col">Mitigation in place</th></tr></thead>
         <tbody>
           <tr><td><strong>Deliberate information hiding</strong></td><td>BiS lists cannot exist before launch, and in our assessment not before the first raid lockout.</td><td>Publish the framework and the tracker; date the unblock; refuse speculation.</td></tr>
-          <tr><td><strong>Beta scope</strong></td><td>Level 20 (then 30) means most class/spec behaviour is untestable for months.</td><td>Mark all class material as datamine with may-change warnings; schedule real assessments after launch.</td></tr>
-          <tr><td><strong>No rated PvP</strong></td><td>No ladder means no objective performance metric for tier lists.</td><td>Published methodology based on battleground roles and stated sample sizes.</td></tr>
-          <tr><td><strong>Datamine volatility</strong></td><td>Everything datamined can change between builds; stale pages become misinformation.</td><td>Snapshot dates, may-change tags, and re-verification at each beta build and patch — the talent calculator's own disclaimer is reproduced wherever we link it.</td></tr>
-          <tr><td><strong>Unpublished economy numbers</strong></td><td>No Honor prices, no vendor lists, no Blueprint drop table, no recipe split.</td><td>Recorded as explicit gaps; the site will not fill them with guesses. The market-log checker refuses pre-launch price rows outright.</td></tr>
-          <tr><td><strong>Interview statements are not patches</strong></td><td>A designer's interview answer can be changed, and a wish can be mistaken for a plan.</td><td>Interview material is a distinct evidence class, dated and attributed; wishes are recorded as <span class="chip pending">not announced</span> (C140) and irregularity I-10 exists to catch the pattern.</td></tr>
-          <tr><td><strong>Tooling absence</strong></td><td>No TSM Forever build and limited vanilla price sources slow market analysis.</td><td>Manual baseline logging from launch; tooling status re-checked on two distribution channels this session.</td></tr>
+          <tr><td><strong>Beta scope</strong></td><td>Level 20 (then 30) means most class/spec behaviour is untestable for months.</td><td>Mark all class material as pre-beta; the <a href="beta.html#classes">Beta log</a> tracks exactly which rows could be upgraded and what that requires.</td></tr>
+          <tr><td><strong>No rated PvP</strong></td><td>No ladder means no objective performance metric for tier lists.</td><td>Published methodology based on battleground roles and stated sample sizes; rankings held until a full season exists.</td></tr>
+          <tr><td><strong>Class balance is expected to move</strong></td><td>Blizzard says the beta is where classes get adjusted, so any class comparison is provisional by the publisher's own admission.</td><td>Every class page carries the pre-beta warning and cites the statement; profiles stay unranked.</td></tr>
+          <tr><td><strong>Datamine volatility</strong></td><td>Everything datamined can change between builds; stale pages become misinformation.</td><td>Snapshot dates, may-change tags, and re-verification at each beta build and patch.</td></tr>
+          <tr><td><strong>Unpublished economy numbers</strong></td><td>No Honor prices, no vendor lists, no Blueprint drop table, no recipe split.</td><td>Recorded as explicit gaps; the market-log checker refuses pre-launch price rows outright.</td></tr>
+          <tr><td><strong>Interview statements are not patches</strong></td><td>A designer's interview answer can be changed, and a wish can be mistaken for a plan.</td><td>Interview material is a distinct evidence class, dated and attributed; wishes are recorded as <span class="chip pending">not announced</span>.</td></tr>
+          <tr><td><strong>Tooling declares, it does not prove</strong></td><td>An add-on's version list can name a game version the build does not work on.</td><td>The tooling class says exactly this on the <a href="addons.html#unknown">Add-ons page</a>, and whether a declared build actually runs in the live client is listed there as an open question until someone verifies it (C153).</td></tr>
           <tr><td><strong>No credentials by design</strong></td><td>The brief forbids API keys that need a sign-up, so there is no automated price or character data feed — Blizzard's own APIs are out of scope under that rule.</td><td>Every source is a public page a human can open and check; automation is limited to fetching and diffing those pages.</td></tr>
+          <tr><td><strong>Authoring-environment limits</strong></td><td>No outbound network and no workflow-dispatch permission here, so the fingerprint baseline cannot be created or verified from this session.</td><td>Recorded publicly in plain terms, with the exact maintainer command; the watcher's logic is machine-tested offline so the scheduled run is not a leap of faith.</td></tr>
+          <tr><td><strong>One page could not be read directly</strong></td><td>IGN Nordic returns HTTP 403 to automated fetches, so the interview was read via its indexed text and cross-checked against the Dutch edition.</td><td>Recorded on the source itself and in I-14, with a browser confirmation outstanding for the next session; no sentence is quoted that is not in both editions.</td></tr>
           <tr><td><strong>Search-result pollution</strong></td><td>Low-quality and RMT-adjacent pages outrank primary sources and mix truth with invention.</td><td>Primary-source-first policy, the flagged-source registry, and the irregularity log.</td></tr>
           <tr><td><strong>Static hosting</strong></td><td>GitHub Pages cannot run a backend, so no live price queries or server-side aggregation.</td><td>All content is pre-generated JSON/JS; any future live data would need a scheduled job committed to the repo.</td></tr>
           <tr><td><strong>Copyright and attribution</strong></td><td>Rehosting other sites' content would be both legally wrong and a single point of failure.</td><td>Summarise, link, credit; original analysis is clearly separated.</td></tr>
-          <tr><td><strong>Manual verification cost</strong></td><td>Line-by-line checking does not scale linearly as content volume grows.</td><td>The four offline checkers now enforce the mechanical half (registered sources, resolving links, valid claim IDs, schema, quotation anchoring), leaving human judgement for the part that needs it — wording and provenance, which is where I-11, I-12 and I-13 were caught.</td></tr>
+          <tr><td><strong>Manual verification cost</strong></td><td>Line-by-line checking does not scale linearly as content volume grows.</td><td>Six machine checks now cover the mechanical half (registered sources, resolving links, valid claim IDs, schema, quotation anchoring, structure and print, and the watcher itself), leaving human judgement for wording and provenance — which is where I-11 to I-16 were all caught.</td></tr>
         </tbody>
       </table>
     </div>
@@ -299,54 +357,54 @@
   <section id="decisions" aria-labelledby="h-decisions">
     <h2 id="h-decisions">The five decisions, and their follow-through <span class="chip ours">Project policy</span></h2>
     <p class="sub">
-      The five open decisions were taken on 2026-09-18 and implemented in the same session; the second column below
-      records what the following session actually did with each one. These are editorial policies, not game facts, and
-      they are in the ledger as claim C122 so the site's own rules are auditable alongside its claims.
+      The five open decisions were taken on 2026-09-18 and implemented in the same session. These are editorial policies,
+      not game facts, and they are in the ledger as claim C122 so the site's own rules are auditable alongside its
+      claims. The last column records what the 19 September session did with each one.
     </p>
     <div class="table-wrap">
       <table>
-        <caption>Decisions taken, the artefact that implements each one, and what the third pass added.</caption>
+        <caption>Decisions taken, the artefact that implements each one, and what this session added.</caption>
         <thead><tr><th scope="col">Decision</th><th scope="col">Chosen</th><th scope="col">What shipped</th><th scope="col">Follow-through this session</th></tr></thead>
         <tbody>
           <tr>
             <td><strong>Launch-coverage aggressiveness</strong><br><span class="small">Verified sources only, or also community-reported drop rates?</span></td>
             <td><strong>(a) Verification first</strong>, with community-reported data admitted later only behind a visible <span class="chip community">reported</span> tag and never mixed into a verified table.</td>
-            <td>The rule is enforced by the ledger: a claim needs a registered source and an evidence class, and <code>tools/check-ledger.mjs</code> fails the build if either is missing.</td>
-            <td>Strengthened from a rule into a machine check: <code>tools/check-citations.mjs</code> now fails the build if any page links to a URL that is not in the registry, and it found 18 such links on five pages in its first run. All 18 were registered with publisher, date and tier instead of being deleted. The <code>community</code> class is still unused for game facts, which is the honest state of play before launch.</td>
+            <td>The rule is enforced by the ledger: a claim needs a registered source and an evidence class, and the checkers fail the build if either is missing.</td>
+            <td>Held, and tightened twice: a new <span class="chip tooling">tooling</span> class keeps software metadata out of game evidence, and the citation checker now verifies every number the site prints about its own data. The <code>community</code> class is still unused for game facts — the honest state of play before launch.</td>
           </tr>
           <tr>
             <td><strong>Scheduled URL-watch Action</strong><br><span class="small">Manual re-checking, or automated polling?</span></td>
             <td><strong>(b) Add the Action.</strong> It checks whether cited pages moved; it never edits site content.</td>
             <td><code>.github/workflows/source-watch.yml</code> runs every Monday at 07:00 UTC (and on demand), fingerprints every registered URL with volatile chrome stripped, and opens an issue listing changed and unreachable sources.</td>
-            <td>The watcher stayed as designed, and a second workflow (<code>verify.yml</code>) was added so the ledger, citation and market-log checks run on every push and pull request as well. The watcher still cannot publish or re-date a claim — that boundary is unchanged.</td>
+            <td>Hardened. The watcher now counts consecutive failures, separates a regression from a source that was never reachable, never writes a baseline made of nothing, writes a step summary, and fails loudly when a runner can reach no source at all. Its logic is proven offline by <code>tools/test-source-watch.mjs</code>, which is exactly what the missing baseline needed.</td>
           </tr>
           <tr>
             <td><strong>PvP tier-list timing</strong><br><span class="small">Wait for a season, or publish provisionally after launch week?</span></td>
             <td><strong>(a) Wait for a full season.</strong> No tier, grade or score is published before then, under any label.</td>
             <td>The <a href="class-pvp.html">Class PvP profiles</a> page ships the useful half of a tier list — published, sourced, battleground-relevant mechanics per class — with an explicit “no ranking” contract.</td>
-            <td>Held. The new material strengthened the profiles instead of tempting a ranking: nine per-class rows now carry a per-spec, per-class reading list, and C138 records that the only public build view is structural. A separate ledger row (C140) exists purely so a “Caverns of Time battleground” wish cannot leak into the PvP page as a plan.</td>
+            <td>Held, and given a reason with a source: Blizzard's own statement that the beta is where class balance is adjusted now appears on the Classes and Class PvP pages, and <a href="beta.html">Beta log</a> records that nothing has been observed first-hand and what would change that.</td>
           </tr>
           <tr>
             <td><strong>Market-logging effort</strong><br><span class="small">Manual daily log, volunteers, or wait for tooling?</span></td>
             <td><strong>(a) Manual, watchlist only.</strong> Small, bounded, and verifiable by one person.</td>
-            <td><code>data/market-log.csv</code> exists with a documented schema and <strong>zero data rows</strong>, because no auction house exists before 4 November 2026.</td>
-            <td>Made auditable: <code>tools/check-market-log.mjs</code> validates the schema, refuses any observation dated before launch or in the future, requires an observer on every row, and cross-checks item names against the Gold page watchlist. The largest gold finding of the project landed here too — 100 g / 1,000 g riding training (C127) — and the catalyst table now dates both gold-sink waves.</td>
+            <td><code>data/market-log.csv</code> exists with a documented schema and zero data rows (<span data-count="market-rows">0</span> today), because no auction house exists before 4 November 2026.</td>
+            <td>Strengthened on a real finding: Auctionator release 337 declares Forever support, so the manual workflow now has a verified auction-house tool — recorded in the CSV as a procedure, never as price data. The written first-row procedure and the strict checker keep invented item names out.</td>
           </tr>
           <tr>
             <td><strong>Scope of class profiles</strong><br><span class="small">PvE and PvP, or PvP-only?</span></td>
             <td><strong>(b) PvP-only</strong>, with PvE notes only where they affect gearing or are the source of the ability described.</td>
             <td>Nine profiles, one per class, each row carrying an evidence chip and a source link, plus a one-line summary table and a per-class “still unknown” column.</td>
-            <td>Held, and extended: the profile page gained a verified reading list per class, and the Classes page corrected its description of Wowhead's talent calculator after the re-check showed the underlying data is BlizzCon demo material, not beta-client extraction.</td>
+            <td>Held, and given its upgrade path: the Beta log's per-class table lists the published material behind each profile, the first-hand status (not observed), and what a dated capture would need to change. The profiles also carry a new pre-beta warning citing the developers' own words.</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="note">
       <p><strong>Why the defaults were adopted rather than overridden.</strong> Four of the five defaults were the
-      conservative option and nothing found in either verification pass argued against them. The one that required
-      approval — the scheduled Action — was adopted because it only <em>detects</em> change and files an issue for a
-      human; it cannot publish, edit or re-date a claim. That boundary is what makes automation compatible with a
-      no-hallucination rule.</p>
+      conservative option and nothing found in any verification pass has argued against them. The one that required
+      approval — the scheduled Action — was adopted because it only <em>detects</em> change and files an issue for a human;
+      it cannot publish, edit or re-date a claim. That boundary is what makes automation compatible with a no-hallucination
+      rule, and this session widened the automation without crossing it.</p>
     </div>
   </section>
 
@@ -359,35 +417,40 @@
         <thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Why now</th><th scope="col">Risk / blocker</th></tr></thead>
         <tbody>
           <tr><td>1</td>
-            <td>Let the scheduled source watcher run once (or use <code>workflow_dispatch</code>) so the first fingerprint baseline exists, then let the weekly schedule diff against it.</td>
-            <td>The baseline could not be created from this environment; GitHub Actions has the network access it needs, and the first run records reachable sources as new without opening a change issue.</td>
-            <td>If a guide site blocks the runner's user agent, those sources report as unreachable and need archive-link fallbacks.</td></tr>
+            <td>Create the source-watch baseline — let the Monday schedule run, or dispatch <code>source-watch.yml</code> with <em>Baseline only</em> ticked — then confirm that the second run diffs against it.</td>
+            <td>It is the last piece of the citation pipeline that has never run in its real environment, and every later session depends on change detection to know which pages moved.</td>
+            <td>If the runner cannot reach guide sites, the job fails by design and the affected citations need archive links. That outcome is visible, not silent.</td></tr>
           <tr><td>2</td>
-            <td>Read the IGN Nordic interview directly, then upgrade the remaining biome-buff itemisation claim if the primary text is available; the Blizzard beta known-issues post is now read and registered directly as C143.</td>
-            <td>The biome-buff statement remains one hop away from its primary source. The known-issues gap is closed for this snapshot, but the mutable list still needs watcher review.</td>
-            <td>Interview pages sometimes load their body client-side; if the text is unavailable, record that as the reading note rather than paraphrasing the summary twice.</td></tr>
+            <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
+            <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material.</td>
+            <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
           <tr><td>3</td>
-            <td>Build the addon-compatibility tracker as a dated table (TSM, Questie, Details, Auctionator and any price addon), re-checked at every beta build, with each listing registered as a source.</td>
-            <td>Tooling absence is the biggest practical blocker on the gold side, and the citation checker now guarantees every addon listing it cites is registered and re-checkable.</td>
-            <td>Addon listings change silently; the tracker needs the same fingerprinting treatment as the source watcher.</td></tr>
+            <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
+            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement; a browser check is the only outstanding verification step.</td>
+            <td>If the article is edited or its text differs, the affected claims need their quotations tightened rather than re-argued.</td></tr>
           <tr><td>4</td>
-            <td>Capture the beta ability set at levels 20 and 30 per class — including the battleground once it opens — and mark which class-profile rows are now <em>observed</em> rather than <em>reported</em>.</td>
-            <td>The beta is the last pre-launch window where a class claim can be upgraded from guide to first-hand, and Blizzard has confirmed the new battleground enters testing during it.</td>
-            <td>Requires beta access. Without it, every profile stays at guide-level evidence until 4 November.</td></tr>
+            <td>Record the new battleground when it enters the beta: objective count, scoring, respawn rules, travel times — first-hand if possible, otherwise dated and attributed.</td>
+            <td>It is the only PvP content that can be observed before launch, and its rules decide what "good class" even means in it.</td>
+            <td>Without client access nothing can be observed; the log says so instead of borrowing someone else's experience.</td></tr>
           <tr><td>5</td>
-            <td>Stand up the level-60 item verification pipeline described on the <a href="gear.html">Gear page</a> so BiS work can start the moment items drop.</td>
-            <td>Building it before launch means the first raid week produces verified data instead of a backlog.</td>
-            <td>Item stats stay hidden until a drop is recorded; the pipeline cannot be tested with real data before 4 November.</td></tr>
+            <td>Re-check the four add-on listings and add any release that declares 1.60.x; note on the tracker when a declaration is confirmed working on a live client.</td>
+            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta.</td>
+            <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
           <tr><td>6</td>
-            <td>Re-read every quotation on the site against its live page, one page at a time. <code>tools/check-quotes.mjs</code> proves each quotation has a source nearby; only a human can prove the words match, and I-11, I-12 and I-13 were found in that review.</td>
-            <td>The quote audit passes on anchoring today, which means the remaining risk is wording — the failure mode that shipped on the Gear page until this session.</td>
-            <td>Quotes drift when the source page is edited, and the weekly watcher will flag the page without telling you which sentence changed.</td></tr>
+            <td>Read the remaining Wowhead Forever guides (14 of 17) and the pre-purchase and Found Photos recaps line by line, ledgering each fact.</td>
+            <td>It is the largest remaining pool of unread primary and near-primary material, and several guides sit close to the gold and gear questions.</td>
+            <td>Guide pages are revised in place; snapshot dates and the watcher are the mitigation.</td></tr>
           <tr><td>7</td>
-            <td>Accessibility and print pass over all ten pages: table reading order on narrow screens, focus order under the sticky header, and print stylesheet verification for manual review.</td>
-            <td>The site is now eleven pages and forty-plus tables, and the new home-page ledger strip has to degrade gracefully without JavaScript.</td>
-            <td>None. This is straightforward work that has simply not been done yet.</td></tr>
+            <td>Human quotation pass over the two new pages, one page at a time, checking each quotation word for word against its source.</td>
+            <td>The checker proves anchoring, never wording — and the I-14 finding came from exactly this kind of pass.</td>
+            <td>Some sources cannot be fetched automatically (IGN returns 403), so this pass may need a browser.</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="note">
+      <p><strong>What the next session should not do:</strong> publish a tier list, a BiS list, a gold-per-hour figure, or
+      any level-60 class ranking. None of the evidence for those exists yet, and the whole value of this project is that it
+      will still be true when it does.</p>
     </div>
   </section>
 
@@ -396,7 +459,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-18</span> · plan reviewed each session · decisions recorded as claim C122 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · plan reviewed each session · decisions recorded as claim C122 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 

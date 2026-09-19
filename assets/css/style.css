@@ -28,6 +28,16 @@
 
 html { scroll-behavior: smooth; }
 
+/* Motion-sensitive readers get instant jumps instead of animated scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Anchor targets sit under a sticky header, so they need an offset or the
+   heading is hidden behind it when a table-of-contents link is followed. */
+main [id] { scroll-margin-top: 84px; }
+:target { scroll-margin-top: 84px; }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -155,6 +165,7 @@ table.compact th, table.compact td { padding: 8px 10px; }
 .chip.community{ color: #f0cfcf; border-color: #7d4141; background: #291515; }
 .chip.ours     { color: #d8e6ef; border-color: #4a6272; background: #16212a; }
 .chip.pending  { color: #d6dde4; border-color: #3b4a58; background: #161e27; }
+.chip.tooling  { color: #cfe6e2; border-color: #35625c; background: #102421; }
 
 /* source chips under a fact */
 .srcs { display: inline-flex; gap: 6px; flex-wrap: wrap; vertical-align: middle; }
@@ -235,7 +246,36 @@ footer.site-footer .wrap { display: grid; gap: 10px; }
 /* evidence bar used on claim rows */
 .evidence { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 
+/* ---------- print ----------
+   The site is read on paper by reviewers checking claims line by line, so a
+   printed page keeps its tables, its evidence chips and the URLs behind its
+   links. Interactive chrome is removed. */
 @media print {
-  .site-header, .nav, .controls { display: none; }
-  body { background: #fff; color: #000; }
+  :root {
+    --bg: #fff; --bg-2: #fff; --bg-3: #fff;
+    --line: #999; --line-2: #666;
+    --text: #000; --muted: #333;
+    --gold: #6b4c10; --blue: #14416b;
+  }
+  html { scroll-behavior: auto; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .site-header, .nav, .controls, .skip-link, noscript, .toc { display: none !important; }
+  main { padding: 0; }
+  .wrap { max-width: none; padding: 0; }
+  .table-wrap { overflow: visible; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #999 !important; background: #fff !important; color: #000 !important; }
+  thead { display: table-header-group; }
+  tr, .card, .note, .banner, li { break-inside: avoid; page-break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+  h1 { font-size: 20pt; }
+  h2 { font-size: 15pt; }
+  h3 { font-size: 12.5pt; }
+  .card, .note, .banner, .kpi .card { background: #fff !important; border: 1px solid #999 !important; color: #000 !important; }
+  .chip { background: #fff !important; color: #000 !important; border: 1px solid #666 !important; }
+  .src { background: #fff !important; color: #000 !important; border: 1px solid #666 !important; }
+  a { color: #000; text-decoration: underline; }
+  /* A printed claim is only checkable if the reader can see where it came from. */
+  main a[href^="http"]::after { content: " <" attr(href) ">"; font-size: 9pt; word-break: break-all; }
+  .site-footer { border-top: 1px solid #999; }
 }

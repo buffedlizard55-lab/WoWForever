@@ -9,6 +9,11 @@ name: Verify
 # The Work plan page states that "tools/check-ledger.mjs fails the build if a
 # claim has no registered source" — this workflow is what makes that sentence
 # true rather than aspirational.
+#
+# Six checks now run here: ledger integrity, citation integrity (registered
+# sources, resolving anchors, machine-checked self-reported counts), market-log
+# schema, quotation anchoring, accessibility/print structure, and an offline
+# self-test of the source watcher that runs in the other workflow.
 
 on:
   push:
@@ -44,3 +49,9 @@ jobs:
 
       - name: Quote anchoring (every quotation needs a nearby source or claim id)
         run: node tools/check-quotes.mjs --strict
+
+      - name: Accessibility and print structure
+        run: node tools/check-a11y.mjs --strict
+
+      - name: Source watcher self-test (offline fixtures, no network)
+        run: node tools/test-source-watch.mjs

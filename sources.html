@@ -30,6 +30,8 @@
       <a href="class-pvp.html">Class PvP</a>
       <a href="gear.html">Gear / BiS</a>
       <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
       <a href="sources.html">Sources</a>
       <a href="method.html">Method</a>
       <a href="work-plan.html">Work plan</a>
@@ -40,7 +42,7 @@
 <main id="main" class="wrap">
 
   <div class="hero">
-    <p class="eyebrow">Sources &amp; ledger · snapshot <span data-snapshot>2026-09-18</span></p>
+    <p class="eyebrow">Sources &amp; ledger · snapshot <span data-snapshot>2026-09-19</span></p>
     <h1>Sources and claims ledger</h1>
     <p class="lede">
       This is the audit trail. Every source is listed with its publisher, date, evidence class and the specific claims it
@@ -65,6 +67,7 @@
       <span class="chip press">press</span> verified secondary reporting or developer interview ·
       <span class="chip datamine">datamine</span> client data, subject to change ·
       <span class="chip guide">guide</span> reputable guide-site analysis ·
+      <span class="chip tooling">tooling</span> a software project's own release metadata — evidence about the add-on, never about the game ·
       <span class="chip community">community</span> unverified or flagged.
       <strong>Official is reserved for a source hosted by Blizzard;</strong> a secondary report of a Blizzard statement stays Press.
     </p>
@@ -79,6 +82,7 @@
           <option value="press">Press</option>
           <option value="datamine">Datamine</option>
           <option value="guide">Guide</option>
+          <option value="tooling">Tooling (add-on listings)</option>
           <option value="community">Community / flagged</option>
         </select>
       </label>
@@ -86,6 +90,7 @@
     </div>
     <div class="table-wrap">
       <table class="compact" id="sourceTable">
+        <caption>Source registry. Columns: Title, Publisher, Date, Evidence class, Supports, Link.</caption>
         <thead>
           <tr><th scope="col">Title</th><th scope="col">Publisher</th><th scope="col">Date</th><th scope="col">Evidence class</th><th scope="col">Supports</th><th scope="col">Link</th></tr>
         </thead>
@@ -123,6 +128,7 @@
           <option value="datamine">Datamine</option>
           <option value="guide">Guide</option>
           <option value="community">Community</option>
+          <option value="tooling">Tooling</option>
           <option value="ours">Our reasoning</option>
           <option value="unknown">Unknown / not announced</option>
         </select>
@@ -131,6 +137,7 @@
     </div>
     <div class="table-wrap">
       <table class="compact" id="claimTable">
+        <caption>Claims ledger. Columns: ID, Claim, Status, Sources, Snapshot.</caption>
         <thead>
           <tr><th scope="col">ID</th><th scope="col">Claim</th><th scope="col">Status</th><th scope="col">Sources</th><th scope="col">Snapshot</th></tr>
         </thead>
@@ -167,7 +174,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-18</span> · raw data: <code>data/sources.js</code>, <code>data/claims.js</code></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · raw data: <code>data/sources.js</code>, <code>data/claims.js</code></p>
   </div>
 </footer>
 

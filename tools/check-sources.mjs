@@ -16,7 +16,13 @@
  *    registered `also` URL are checked once.
  *  - A source that fails to fetch is reported as "unreachable", never silently
  *    dropped, and its previous fingerprint is preserved so a transient outage
- *    does not destroy the baseline.
+ *    does not destroy the baseline. Failures are counted: a source that was
+ *    reachable before and is not now is a regression worth an issue, while a
+ *    source that has never been reachable needs two consecutive failures
+ *    before it is worth anyone's attention.
+ *  - A first run that fingerprints nothing writes no baseline at all, so a
+ *    network-blocked runner cannot silently establish an empty "baseline" that
+ *    every later run compares against.
  *  - Exit code is always 0 unless the script itself is broken; change detection
  *    is signalled through the report file, not through process failure.
  *
@@ -35,8 +41,10 @@ import { dirname, join } from 'node:path';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const SOURCES_JS = join(ROOT, 'data', 'sources.js');
-const STATE_FILE = join(HERE, 'source-state.json');
-const REPORT_FILE = join(HERE, 'source-report.md');
+/* Paths can be redirected by the offline harness (tools/test-source-watch.mjs)
+   so a test run never touches the repository's real baseline. */
+const STATE_FILE = process.env.WOWF_STATE_FILE || join(HERE, 'source-state.json');
+const REPORT_FILE = process.env.WOWF_REPORT_FILE || join(HERE, 'source-report.md');
 
 const args = new Set(process.argv.slice(2));
 const DRY_RUN = args.has('--dry-run');
@@ -159,9 +167,10 @@ const previous = firstRun ? { checked: null, sources: {} } : JSON.parse(await re
 const results = await fetchAll(sources);
 const byId = new Map(sources.map((s) => [s.id, s]));
 
-const changed = [];
-const unreachable = [];
-const added = [];
+const changed = [];        // fingerprint moved: the page was edited
+const regressed = [];      // was reachable, now is not
+const neverBaselined = []; // has never been reachable from this runner
+const added = [];          // newly fingerprinted, nothing to compare against
 const state = { checked: new Date().toISOString(), sources: { ...previous.sources } };
 
 for (const r of results) {
@@ -169,15 +178,19 @@ for (const r of results) {
   const before = previous.sources[r.id];
 
   if (!r.ok) {
-    unreachable.push({ ...r, title: meta.title, reason: r.reason });
-    // Preserve the old fingerprint: a transient outage must not reset the baseline.
-    if (before) state.sources[r.id] = { ...before, lastError: r.reason, lastErrorAt: state.checked };
+    const failures = (before && before.failures ? before.failures : 0) + 1;
+    const entry = { failures, lastError: r.reason, lastErrorAt: state.checked, url: r.url };
+    if (before && before.hash) Object.assign(entry, { hash: before.hash, length: before.length, checked: before.checked });
+    state.sources[r.id] = entry;
+    const row = { ...r, title: meta.title, tier: meta.tier, failures, previouslyReachable: Boolean(before && before.hash) };
+    if (row.previouslyReachable) regressed.push(row);
+    else neverBaselined.push(row);
     continue;
   }
 
-  const entry = { hash: r.hash, length: r.length, url: r.url, checked: state.checked };
+  const entry = { hash: r.hash, length: r.length, url: r.url, checked: state.checked, failures: 0 };
 
-  if (!before) {
+  if (!before || !before.hash) {
     added.push({ ...r, title: meta.title });
   } else if (before.hash !== r.hash) {
     changed.push({
@@ -192,6 +205,13 @@ for (const r of results) {
   state.sources[r.id] = entry;
 }
 
+const fingerprinted = Object.values(state.sources).filter((entry) => entry && entry.hash).length;
+const baselineEstablished = fingerprinted > 0;
+
+/* Sources that have never been reachable need a second consecutive failure
+   before they are worth an issue: one blocked request is usually transient. */
+const persistentlyBlocked = neverBaselined.filter((u) => u.failures >= 2);
+
 /* ---------- report ---------- */
 
 const lines = [];
@@ -199,9 +219,10 @@ lines.push(`# Source watch report — ${state.checked.slice(0, 10)}`);
 lines.push('');
 lines.push(`Checked **${results.length}** registered source URLs from \`data/sources.js\`.`);
 lines.push('');
+lines.push(`- Fingerprints on file after this run: **${fingerprinted}**`);
 lines.push(`- Changed since last check: **${changed.length}**`);
-lines.push(`- Unreachable this run: **${unreachable.length}**`);
-lines.push(`- New sources baselined: **${added.length}**`);
+lines.push(`- Unreachable this run: **${regressed.length + neverBaselined.length}** (${regressed.length} regressions, ${neverBaselined.length} never reachable)`);
+lines.push(`- Newly fingerprinted: **${added.length}**`);
 lines.push('');
 
 if (changed.length) {
@@ -217,25 +238,38 @@ if (changed.length) {
   lines.push('');
 }
 
-if (unreachable.length) {
-  lines.push('## Unreachable — check for a moved or deleted page');
+if (regressed.length) {
+  lines.push('## Regressions — a source that was reachable is not any more');
   lines.push('');
-  lines.push('| Source | URL | Reason |');
-  lines.push('| --- | --- | --- |');
-  for (const u of unreachable) lines.push(`| \`${u.id}\` — ${u.title || ''} | ${u.url} | ${u.reason} |`);
+  lines.push('| Source | URL | Reason | Consecutive failures |');
+  lines.push('| --- | --- | --- | --- |');
+  for (const u of regressed) lines.push(`| \`${u.id}\` — ${u.title || ''} | ${u.url} | ${u.reason} | ${u.failures} |`);
   lines.push('');
-  lines.push('Previous fingerprints were preserved, so a transient outage will resolve itself on the next run. A persistent failure means the citation needs an archive link or a replacement source.');
+  lines.push('The previous fingerprint was kept, so a transient outage resolves itself on the next run. A persistent regression means the citation needs an archive link or a replacement source.');
+  lines.push('');
+}
+
+if (neverBaselined.length) {
+  lines.push('## Never reachable from this runner');
+  lines.push('');
+  lines.push('| Source | URL | Reason | Consecutive failures |');
+  lines.push('| --- | --- | --- | --- |');
+  for (const u of neverBaselined) lines.push(`| \`${u.id}\` — ${u.title || ''} | ${u.url} | ${u.reason} | ${u.failures} |`);
+  lines.push('');
+  lines.push(neverBaselined.length && persistentlyBlocked.length < neverBaselined.length
+    ? 'One failure is treated as transient and does not file an issue by itself; two in a row does. If a site blocks the runner permanently, those citations need archive links or an exception recorded on the Work plan page.'
+    : 'Two or more consecutive failures: either the runner is blocked or the page has gone. Check by hand before changing anything.');
   lines.push('');
 }
 
 if (added.length) {
-  lines.push('## Newly baselined (no action needed)');
+  lines.push('## Newly fingerprinted (no action needed)');
   lines.push('');
   for (const a of added) lines.push(`- \`${a.id}\` — ${a.title || ''}`);
   lines.push('');
 }
 
-if (!changed.length && !unreachable.length) {
+if (!changed.length && !regressed.length && !neverBaselined.length) {
   lines.push('No changes and no unreachable sources. Nothing to do.');
   lines.push('');
 }
@@ -243,14 +277,48 @@ if (!changed.length && !unreachable.length) {
 const report = lines.join('\n');
 await writeFile(REPORT_FILE, report, 'utf8');
 
-if (!DRY_RUN) await writeFile(STATE_FILE, JSON.stringify(state, null, 2) + '\n', 'utf8');
+/* Never write a baseline made of nothing: if the runner cannot reach a single
+   source, leave the file absent so the next run is still a first run and the
+   failure stays visible instead of becoming a silent empty comparison. */
+const writeState = !DRY_RUN && (baselineEstablished || !firstRun);
+if (writeState) await writeFile(STATE_FILE, JSON.stringify(state, null, 2) + '\n', 'utf8');
 
 // Machine-readable outcome for the workflow.
-const needsIssue = !INIT && !firstRun && (changed.length > 0 || unreachable.length > 0);
+const needsIssue = !INIT && (
+  changed.length > 0 ||
+  regressed.length > 0 ||
+  persistentlyBlocked.length > 0 ||
+  !baselineEstablished
+);
 if (process.env.GITHUB_OUTPUT) {
   await writeFile(
     process.env.GITHUB_OUTPUT,
-    `needs_issue=${needsIssue ? 'true' : 'false'}\nchanged=${changed.length}\nunreachable=${unreachable.length}\n`,
+    [
+      `needs_issue=${needsIssue ? 'true' : 'false'}`,
+      `changed=${changed.length}`,
+      `regressed=${regressed.length}`,
+      `unreachable=${regressed.length + neverBaselined.length}`,
+      `baseline_established=${baselineEstablished ? 'true' : 'false'}`,
+      `fingerprinted=${fingerprinted}`,
+      ''
+    ].join('\n'),
+    { flag: 'a' }
+  );
+}
+if (process.env.GITHUB_STEP_SUMMARY) {
+  await writeFile(
+    process.env.GITHUB_STEP_SUMMARY,
+    [
+      '### Source watch',
+      '',
+      `- URLs checked: ${results.length}`,
+      `- Fingerprints on file: ${fingerprinted}`,
+      `- Changed: ${changed.length}`,
+      `- Unreachable: ${regressed.length + neverBaselined.length} (${regressed.length} regressions)`,
+      `- Baseline established: ${baselineEstablished ? 'yes' : 'no'}`,
+      writeState ? '' : '- State file not written: no source was reachable, so this run stays a first run.',
+      ''
+    ].join('\n'),
     { flag: 'a' }
   );
 }

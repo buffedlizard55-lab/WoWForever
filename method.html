@@ -30,6 +30,8 @@
       <a href="class-pvp.html">Class PvP</a>
       <a href="gear.html">Gear / BiS</a>
       <a href="gold.html">Gold</a>
+      <a href="addons.html">Add-ons</a>
+      <a href="beta.html">Beta log</a>
       <a href="sources.html">Sources</a>
       <a href="method.html">Method</a>
       <a href="work-plan.html">Work plan</a>
@@ -40,7 +42,7 @@
 <main id="main" class="wrap">
 
   <div class="hero">
-    <p class="eyebrow">Method · snapshot <span data-snapshot>2026-09-18</span></p>
+    <p class="eyebrow">Method · snapshot <span data-snapshot>2026-09-19</span></p>
     <h1>How this site verifies facts</h1>
     <p class="lede">
       The project brief was blunt: work line by line, verify against trusted sources, provide links for manual review,
@@ -55,7 +57,7 @@
       <li><a href="#classes">Evidence classes</a></li>
       <li><a href="#procedure">The line-by-line procedure</a></li>
       <li><a href="#refuse">What we refuse to publish</a></li>
-      <li><a href="#irregularities">Irregularity log (I-1 … I-13)</a></li>
+      <li><a href="#irregularities">Irregularity log (I-1 … I-16)</a></li>
       <li><a href="#teardown">Source-coverage map (Wowhead, Icy Veins, Skill Capped, TSM)</a></li>
       <li><a href="#corrections">Corrections process</a></li>
     </ul>
@@ -65,12 +67,14 @@
     <h2 id="h-classes">Evidence classes</h2>
     <div class="table-wrap">
       <table>
+        <caption>Evidence classes. Columns: Chip, Meaning, How it is treated on this site.</caption>
         <thead><tr><th scope="col">Chip</th><th scope="col">Meaning</th><th scope="col">How it is treated on this site</th></tr></thead>
         <tbody>
           <tr><td><span class="chip official">official</span></td><td>A first-party Blizzard URL: news article, product page or Blizzard-hosted blue post.</td><td>Stated as fact, with the primary link. A report about a Blizzard post is not official evidence.</td></tr>
           <tr><td><span class="chip press">press</span></td><td>Verified secondary reporting or a named outlet quoting a named Blizzard developer.</td><td>Stated with attribution to the report or interview, and never relabelled as first-party authority.</td></tr>
           <tr><td><span class="chip datamine">datamine</span></td><td>Data extracted from the beta client by a reputable guide site.</td><td>Stated as “currently in the build”, always with a may-change warning.</td></tr>
           <tr><td><span class="chip guide">guide</span></td><td>A reputable guide site's own analysis or recommendation.</td><td>Attributed to the author and labelled as analysis; never restated as Blizzard's position.</td></tr>
+          <tr><td><span class="chip tooling">tooling</span></td><td>A software project's own release metadata: an add-on's version list, the game versions a build declares, a distribution listing.</td><td>First-party evidence about the <em>software</em> and no evidence at all about the game. Used for the add-on tracker and tooling status rows; a tooling claim must cite a tooling source, and the checker enforces both directions.</td></tr>
           <tr><td><span class="chip community">community</span></td><td>Forum posts, wikis of unknown provenance, boosting sites.</td><td>Not used as evidence. Only appears in the irregularity log.</td></tr>
           <tr><td><span class="chip ours">ours</span></td><td>Our own inference from verified facts.</td><td>Explicitly labelled, separated from sourced statements, and reversible.</td></tr>
           <tr><td><span class="chip pending">not announced</span></td><td>No first-party or press statement exists.</td><td>Published as a gap with the closest related on-record material, so the absence is visible.</td></tr>
@@ -91,8 +95,9 @@
       <li><strong>Leave the tombstone.</strong> Superseded numbers are kept in the ledger with a note, so reviewers can see what changed and when.</li>
     </ol>
     <div class="note">
-      <p><strong>The procedure is enforced by machine, not by intention.</strong> Four offline tools run on every push
-      and pull request (<code>.github/workflows/verify.yml</code>) and each one refuses a specific failure:</p>
+      <p><strong>The procedure is enforced by machine, not by intention.</strong> Five offline tools run on every push
+      and pull request (<code>.github/workflows/verify.yml</code>), plus a sixth self-test, and each one refuses a
+      specific failure:</p>
       <ul class="clean">
         <li><code>tools/check-ledger.mjs</code> — a claim with no source, a source that does not exist, a duplicate id or a
         broken category fails the build; <code>--stale 30</code> lists claims older than 30 days as a warning.</li>
@@ -104,10 +109,19 @@
         a date before 4 November 2026 fails the build: there is no auction house to observe yet.</li>
         <li><code>tools/check-quotes.mjs</code> — every quotation of three or more words must sit within 1400 characters of a
         source link or a claim id. A quotation that <em>looks</em> sourced but has no source next to it fails the build.</li>
+        <li><code>tools/check-a11y.mjs</code> — landmarks, one <code>h1</code> with no skipped heading levels, labelled
+        navigation that matches on every page, table captions and scoped headers, labelled controls, no duplicate ids, and the
+        presence of focus styles, reduced-motion handling, print rules and sticky-header anchor offsets.</li>
+        <li><code>tools/test-source-watch.mjs</code> — runs the source watcher against a fixture server to prove, offline,
+        that a first run writes a baseline, an edited page is reported, a regression keeps its old fingerprint, and a runner
+        that can reach nothing writes no baseline at all. It tests the checker, which is the part a green build would
+        otherwise hide.</li>
       </ul>
       <p><strong>What the tools cannot do:</strong> they check that a quotation is anchored, never that its words match the live
-      page. That is a human check, and it is the one that caught I-11, I-12 and I-13 in this session. Treating a green build as proof
-      of accuracy would be exactly the kind of overclaiming this page exists to prevent.</p>
+      page, and they cannot read a source on your behalf. That is a human check, and it is the one that caught I-11, I-12 and I-13
+      in the previous session and I-14, I-15 and I-16 in this one — three of them on our own pages rather than in someone else's
+      reporting. Treating a green build as proof of accuracy would be exactly the kind of overclaiming this page exists to
+      prevent.</p>
     </div>
   </section>
 
@@ -120,6 +134,8 @@
       <li class="x">Routes, bots, exploits, gold buying, account sales, or GDKP organisation — the last is explicitly banned in Forever.</li>
       <li class="x">Rehosted content from Wowhead, Icy Veins or any other site. We summarise, link and credit.</li>
       <li class="x">Screenshots or quotes presented as Blizzard statements when they come from a press interview; the distinction is always shown.</li>
+      <li class="x">Anything behind a sign-up, a paywall or a key-gated API — including Blizzard's own developer APIs. Every source on this site is a public page any reader can open without registering; that is why there is no automated price or character feed.</li>
+      <li class="x">A fact borrowed from a page we could not read. If a source blocks automated retrieval, the limitation goes on the source and into the irregularity log — it is never filled in from a summary without saying so.</li>
     </ul>
   </section>
 
@@ -168,13 +184,21 @@
     </p>
     <p class="small"><strong>Our handling:</strong> marked <span class="chip press">press</span> everywhere, with the caveat printed next to the claim.</p>
 
-    <h3>I-5 · Economy tooling does not yet support the game <span class="chip datamine">Verified status</span></h3>
+    <h3>I-5 · Economy tooling does not yet support the game <span class="chip tooling">Verified status</span></h3>
     <p>
       TradeSkillMaster's current release supports Retail, MoP Classic, TBC Classic and Classic Era — there is no Forever
       build, and on vanilla-ruleset clients TSM's native price sources are limited, requiring an external price addon.
     </p>
+    <p>
+      <strong>Updated 19 September 2026:</strong> the blanket form of this entry was too broad. Auctionator release 337
+      (17 September 2026) declares “Supported Classic Forever patch1.60.1”, making it the first auction-house add-on this
+      project has verified as Forever-capable; TradeSkillMaster, Questie and Details! still list no Forever build. The
+      status is now tracked row by row, with dates, on <a href="addons.html">Add-ons</a>.
+    </p>
     <p class="small">
-      <strong>Our handling:</strong> stated prominently on the Gold page instead of pretending a TSM workflow exists. Re-checked at each update.
+      <strong>Our handling:</strong> the original wording is kept above rather than deleted, so the change is visible. TSM-specific
+      statements on the Gold page stay as they are, because they are still true; general statements were narrowed to name which
+      add-on they are about.
     </p>
 
     <h3>I-6 · Duplicated datamined achievement IDs <span class="chip datamine">Open question</span></h3>
@@ -289,6 +313,55 @@
       <strong>Our handling:</strong> the secondary links remain visible for corroboration and manual review; they were not
       deleted. This preserves useful reporting without allowing its evidence class to imply first-party authority.
     </p>
+
+    <h3>I-14 · Our own page claimed a source we had not registered <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      The Work plan page stated that the IGN Nordic interview summary was “registered” during the previous session. The
+      source registry contained <strong>no IGN Nordic entry at all</strong>: the interview was being quoted through a
+      Wowhead summary that was itself unregistered, and the sentence describing our own registry was simply wrong. This is
+      the failure mode the project is built to catch, committed on our own pages rather than in someone else's reporting.
+    </p>
+    <p>
+      Two checks now make this class of error visible instead of silent: the citation tool verifies every number a page
+      prints about this project against the data files, and it fails the build if <code>method.html</code> does not
+      document every evidence class that the registry or ledger actually uses — which is exactly how the missing
+      <span class="chip tooling">tooling</span> class was caught.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> two sources were registered — <code>ign-nordic</code> (the interview itself, whose
+      direct retrieval returned HTTP 403, a limitation recorded on the source and repeated whenever it is cited) and
+      <code>wh-ign-nordic</code> (Wowhead's summary, read end to end). The wrong sentence was replaced and the correction
+      recorded as claim C158. Every sentence quoted on this site from that interview was cross-checked against the Dutch
+      edition of the same interview, and no sentence is quoted that does not appear in both.
+    </p>
+
+    <h3>I-15 · A guide's expectation was stated with first-party confidence <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      The home page described the level cap as “level 20 (level 30 after two weeks)”, and the Classes page said the cap
+      “rises to level 30 after two weeks”. Blizzard has confirmed the cap starts at 20 and rises to 30 during the test, but
+      <strong>the two-week timing is Wowhead's expectation</strong>, published in a guide that says the content schedule
+      “has not yet been confirmed”. Mixing the two made our pages sound more certain than the evidence behind them.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> both pages now state the official fact (“level 20, then 30 later in the beta”) and cite
+      Blizzard's beta article. The timing moved to <a href="beta.html#calendar">Beta log</a>, attributed to Wowhead and
+      labelled an expectation (claim C154). This is the same discipline applied to interview “what ifs” in I-10, one step
+      earlier.
+    </p>
+
+    <h3>I-16 · Add-on release lists were labelled as datamined client data <span class="chip ours">Self-corrected</span></h3>
+    <p>
+      The two TradeSkillMaster distribution listings were registered with the <span class="chip datamine">datamine</span>
+      evidence class, which this site defines as data extracted from the beta client. They are nothing of the kind: they
+      are a project's own release metadata. The label overstated the evidence and blurred two very different things —
+      what a game build contains, and what a piece of software says about itself.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> a <span class="chip tooling">tooling</span> class now exists, the two TSM listings and
+      all four new add-on listings carry it, claim C093 was reclassified, and the ledger checker refuses a tooling claim
+      that cites no tooling source. The add-on tracker uses the class for exactly one purpose: statements about software
+      versions, never statements about the game.
+    </p>
   </section>
 
   <section id="teardown" aria-labelledby="h-teardown">
@@ -299,6 +372,7 @@
     </p>
     <div class="table-wrap">
       <table>
+        <caption>Source-coverage map. Columns: Source, What it carries for Forever, Gap we fill.</caption>
         <thead><tr><th scope="col">Source</th><th scope="col">What it carries for Forever</th><th scope="col">Gap we fill</th></tr></thead>
         <tbody>
           <tr>
@@ -318,8 +392,18 @@
           </tr>
           <tr>
             <td><strong>TradeSkillMaster</strong> <span class="srcs"><a class="src" href="https://www.curseforge.com/wow/addons/tradeskill-master" rel="noopener">CurseForge</a></span></td>
-            <td>Gold-making suite with price sources, groups and operations — but no Forever build yet.</td>
-            <td>We document the gap and will publish a verified TSM-on-Forever workflow only once a supported build ships.</td>
+            <td>Gold-making suite with price sources, groups and operations — but no Forever build yet. The release list is re-checked each session.</td>
+            <td>We document the gap and will publish a verified TSM-on-Forever workflow only once a supported build ships. The dated add-on tracker exists because this one row changes silently.</td>
+          </tr>
+          <tr>
+            <td><strong>Wago Addons and CurseForge listings</strong> <span class="srcs"><a class="src" href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Wago</a><a class="src" href="https://www.curseforge.com/wow/addons/details/files" rel="noopener">CurseForge</a></span></td>
+            <td>Each project's own release metadata: version numbers, publication dates and the game versions a build declares. This is where a Forever build appears first — Auctionator's release list is the only one declaring 1.60.x so far.</td>
+            <td>A dated tracker with an explicit rule that a declaration is not proof, plus a distinct <span class="chip tooling">tooling</span> evidence class so software metadata can never be read as a game fact.</td>
+          </tr>
+          <tr>
+            <td><strong>Press interviews under the news cycle</strong> <span class="srcs"><a class="src" href="https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview" rel="noopener">IGN Nordic</a><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a></span></td>
+            <td>Where the design detail actually lives — horizontal itemisation and biome bonuses (IGN Nordic), travel and economy rules (Kotaku), purchase gating (Sportskeeda), launch-raid structure (But Why Tho?), professions (MMORPG.com). Guide sites summarise these within hours; the primary text is what decides the wording.</td>
+            <td>We read the interview rather than its summary wherever possible, cross-check quotations across editions and reproductions, and record retrieval limits on the source itself (I-14) instead of pretending the primary was read.</td>
           </tr>
         </tbody>
       </table>
@@ -350,7 +434,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-18</span> · irregularities I-1 to I-13 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · irregularities I-1 to I-16 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 

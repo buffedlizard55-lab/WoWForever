@@ -35,9 +35,23 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Check the watcher itself (offline, no network)
+        run: node tools/test-source-watch.mjs
+
       - name: Check registered source URLs
         id: check
         run: node tools/check-sources.mjs ${{ inputs.init && '--init' || '' }}
+
+      # A baseline made of nothing is worse than no baseline: every later run
+      # would compare against it and stay silent. The script already refuses to
+      # write one; this step makes the failure loud instead of green.
+      - name: Fail if no source could be fingerprinted
+        if: steps.check.outputs.baseline_established != 'true'
+        run: |
+          echo "::error::No registered source could be fingerprinted from this runner."
+          echo "The baseline was deliberately not written, so the next run is still a first run."
+          echo "Check whether the runner has outbound network access at all before re-running."
+          exit 1
 
       - name: Open an issue when sources moved
         if: steps.check.outputs.needs_issue == 'true'

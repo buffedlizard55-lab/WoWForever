@@ -12,7 +12,7 @@
 
   // 2. Stamp the "last verified" date on every element that asks for it.
   var stamp = document.querySelectorAll('[data-snapshot]');
-  var SNAPSHOT = '2026-09-18';
+  var SNAPSHOT = '2026-09-19';
   stamp.forEach(function (el) { el.textContent = SNAPSHOT; });
 
   // 3. Generic filterable table. Markup contract:
@@ -73,8 +73,11 @@
     a.addEventListener('click', function (e) {
       var t = document.querySelector(a.getAttribute('href'));
       if (!t) return;
+      // Honour the reader's motion preference: an animated jump is a
+      // vestibular trigger for some people, so reduced motion means instant.
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       e.preventDefault();
-      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
       history.replaceState(null, '', a.getAttribute('href'));
     });
   });

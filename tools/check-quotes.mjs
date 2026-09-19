@@ -100,7 +100,7 @@ if (asJson) {
     console.log(
       `\nNo unanchored quotations: every quotation of ${minWords}+ words sits within ${window} characters of a source link or a claim id.`
     );
-    console.log('Anchoring is checked here; wording and provenance are checked by hand against the live page (method.html I-11–I-13).');
+    console.log('Anchoring is checked here; wording and provenance are checked by hand against the live page (method.html I-11–I-16).');
   } else {
     console.log(`\n${findings.length} quotation(s) with no source link or claim id nearby:`);
     for (const f of findings) console.log(`  !!  ${f.page} “${f.quote.slice(0, 110)}”`);
