@@ -40,6 +40,15 @@ Two pages exist specifically to keep that promise honest as the game changes: **
 registered listings, which add-ons declare a Forever build, and **`beta.html`** tracks what has (and has not) been
 observed in the beta, with the rule for upgrading a claim from *reported* to *observed*.
 
+Two more pages exist because the brief asked for them by name. **`data-api.html`** records which machine-readable
+sources this project may actually use under the rule *free, publicly available, no sign-up, no tier* — the two Blizzard
+services that answer a plain request (the forum topic feeds and the build manifest) and the candidates that were read and
+rejected, including Blizzard's own Game Data API, whose documentation requires an account, an authenticator and an OAuth
+client. **`site-patterns.html`** records the public URL and section structure of the sites the brief names — including the
+finding that Skill Capped has no Forever coverage at all, because Forever launches without rated PvP to rank. Both
+registers are enforced offline by their own checkers and are honest about their failures: a guessed Icy Veins news URL
+that returned 404 is published as a failure rather than retried until something answers.
+
 ## Site map
 
 | Page | Contents |
@@ -54,7 +63,9 @@ observed in the beta, with the rule for upgrading a claim from *reported* to *ob
 | `addons.html` | Add-on and tooling compatibility tracker: dated release listings, Blizzard's addon-API statements, gold/PvP consequences |
 | `beta.html` | Beta observation log: dated beta calendar, per-class observation status, the reported → observed rule, false positives to avoid |
 | `sources.html` | Full source registry and claims ledger (filterable) |
-| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-20 |
+| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-22 |
+| `data-api.html` | Public endpoint register: which machine-readable sources are usable with no key and no sign-up, which were rejected and why, and what remains impossible |
+| `site-patterns.html` | Verified URL and section patterns for Wowhead, Icy Veins, Skill Capped, Wago and Blizzard pages, with the patterns that failed verification |
 | `work-plan.html` | Delivered work, this session's line-by-line record, blocked items, limitations, decisions, next steps |
 
 ## Repository layout
@@ -64,17 +75,22 @@ index.html … work-plan.html   static pages, no build step
 assets/css/style.css          one stylesheet, dark theme, print styles
 assets/js/site.js             progressive enhancement only (nav state, table filters, copy buttons)
 data/sources.js               source registry  (window.WOWF_SOURCES, optional `also: [urls]` per source)
-data/claims.js                claims ledger    (window.WOWF_CLAIMS; 153 claims today, IDs are not contiguous)
+data/claims.js                claims ledger    (window.WOWF_CLAIMS; 171 claims today, IDs are not contiguous)
 data/market-log.csv           market observation log — schema documented inside, empty until launch
+data/apis.js                  public endpoint register (window.WOWF_APIS; verified / rejected / pending, with the eligibility rule)
+data/patterns.js              site-pattern register  (window.WOWF_PATTERNS; dated observations, plus the unverified questions)
 tools/check-ledger.mjs        ledger integrity + staleness
 tools/check-citations.mjs     offline audit: registered sources, links, anchors, claim IDs, tag balance
 tools/check-market-log.mjs    market-log schema, watchlist cross-check, pre-launch refusal
+tools/check-apis.mjs          endpoint register: eligibility flags, fetch dates, stated limits, refused URLs not linked
+tools/check-patterns.mjs      pattern register: dated observations, registered example URLs, nothing unverified linked
 tools/check-quotes.mjs        flags any quotation of 3+ words with no source link or claim id nearby
 tools/quote-allowlist.txt     interface labels that are exempt from the quotation rule
 tools/check-a11y.mjs          accessibility and print structure: landmarks, headings, captions, labels, focus, reduced motion, print rules
 tools/check-sources.mjs       source-URL watcher (network); writes tools/source-state.json
 tools/test-source-watch.mjs   offline fixture test of the watcher: baseline, change, regression, blocked runner
 tools/test-fixture-fetch.mjs  the test double that replaces fetch during that test
+tools/test-render.mjs         runs each page's table renderer offline with a DOM stub; fails on undefined/empty output
 robots.txt, sitemap.xml       crawler metadata for the published site
 .github/workflows/verify.yml  runs the three offline checkers on every push and pull request
 .github/workflows/source-watch.yml  weekly URL fingerprinting; opens an issue on change
@@ -92,16 +108,19 @@ node tools/check-ledger.mjs            # integrity; --stale 30 lists ageing clai
 node tools/check-citations.mjs         # registered URLs, resolving anchors, canonicals, sitemap, claim ids, tag balance,
                                        #   machine-checked self-reported counts, documented evidence classes
 node tools/check-market-log.mjs        # fails on schema errors or any pre-launch price row
+node tools/check-apis.mjs --strict     # endpoint register: eligibility, limits, and no refused URL linked outside the refusal page
+node tools/check-patterns.mjs --strict # pattern register: every pattern dated, limited and pointing at registered sources
 node tools/check-quotes.mjs --strict   # fails if any quotation has no source link or claim id nearby
 node tools/check-a11y.mjs --strict     # structure and print: landmarks, headings, captions, labels, focus, reduced motion
+node tools/test-render.mjs             # offline: proves every JS-rendered table fills, with no undefined or empty links
 node tools/test-source-watch.mjs       # offline: proves the watcher's baseline/change/regression behaviour
 node tools/check-sources.mjs --dry-run # network: fingerprint every registered source URL
 ```
 
-CI (`.github/workflows/verify.yml`) runs the five offline checkers with `--strict`, plus the watcher's self-test, on
-every push and pull request. `source-watch.yml` runs the network step weekly (and on demand).
+CI (`.github/workflows/verify.yml`) runs the seven offline checkers with `--strict`, plus the rendered-table test and the
+watcher's self-test, on every push and pull request. `source-watch.yml` runs the network step weekly (and on demand).
 The checkers verify structure — that a quotation is anchored, not that its wording matches the live page. Wording is
-checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page (every one of them a
+checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page, with I-21 (Blizzard's own pages labelling the same beta window with two different timezones) and I-22 (this site describing absent credentials as if it meant absent machine-readable sources, without testing it) added by the endpoint pass (every one of them a
 failure on this project's own pages, not in someone else's reporting); I-19 records the unofficial beta-tracker pattern
 flagged during the 19 September live-web pass, and I-20 records the set-bonus datamine that appeared out of a client whose
 item data Blizzard said would stay hidden until looted. The ledger checker also warns when a claim cites
@@ -123,7 +142,7 @@ Sections marked **our reasoning** contain argument, not sourced fact. The source
 (`tools/source-state.json`) was established by the first run on 19 September 2026: **86 of the 87 URLs then registered**
 (74 source pages plus 13 additional pages) were fingerprinted; the one miss was the Sportskeeda interview
 (`sk-interview`, HTTP 403 to the runner), which is held to the two-strike rule rather than flagged on a single failure.
-The registry has since grown to 100 sources; the baseline covers 74 of them, and the sources registered after it ran —
+The registry has since grown to 113 sources; the baseline covers 74 of them, and the sources registered after it ran —
 including the six added by the 19 September live-web pass and the four datamine sources added by the queue-closing pass
 that followed it — are picked up (as “newly fingerprinted”, with no issue) by the
 next weekly run. The baseline

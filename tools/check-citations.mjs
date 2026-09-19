@@ -50,6 +50,11 @@ async function loadGlobal(file, key) {
 
 const sources = await loadGlobal('sources.js', 'WOWF_SOURCES');
 const claims = await loadGlobal('claims.js', 'WOWF_CLAIMS');
+/* The endpoint and site-pattern registers carry totals that pages print too, so
+   they are counted here rather than on the page, for the same reason as the
+   other numbers: a hand-typed total drifts. */
+const apis = await loadGlobal('apis.js', 'WOWF_APIS');
+const patterns = await loadGlobal('patterns.js', 'WOWF_PATTERNS');
 
 /* Normalise a URL for comparison: no trailing slash, no fragment, and the
    www. prefix ignored, so a link and its registry entry cannot disagree over
@@ -91,7 +96,9 @@ const DATA_COUNTS = {
   'tooling-sources': sources.filter((s) => s.tier === 'tooling').length,
   claims: claims.length,
   pages: htmlFiles.length,
-  'market-rows': marketRows
+  'market-rows': marketRows,
+  apis: apis.filter((a) => a.status === 'verified').length,
+  patterns: patterns.length
 };
 
 const errors = [];

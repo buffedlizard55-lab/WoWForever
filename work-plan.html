@@ -32,6 +32,8 @@
       <a href="gold.html">Gold</a>
       <a href="addons.html">Add-ons</a>
       <a href="beta.html">Beta log</a>
+      <a href="data-api.html">Endpoints</a>
+      <a href="site-patterns.html">Site patterns</a>
       <a href="sources.html">Sources</a>
       <a href="method.html">Method</a>
       <a href="work-plan.html">Work plan</a>
@@ -103,9 +105,10 @@
       this page cannot drift out of date unnoticed.
     </p>
     <ul class="checklist">
-      <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">13</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">100</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">153</span> claims) with evidence classes and snapshot dates.</li>
-      <li>Public irregularity log (I-1 to I-20) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement; and I-20: set bonuses datamined out of a client whose item data Blizzard said would stay hidden until looted, with Season-of-Discovery contamination acknowledged by the dataminer itself.</li>
+      <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">15</span> HTML pages including the 404 page.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">113</span> sources, <span data-count="official-sources">16</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">171</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Public endpoint register (<code>data/apis.js</code> — <span data-count="apis">5</span> verified keyless endpoints, 2 rejected candidates and 1 left pending, each with what it returned and what it must never be used for) and site-pattern register (<code>data/patterns.js</code> — <span data-count="patterns">16</span> dated URL/section patterns with the failures recorded), both published and both enforced offline.</li>
+        <li>Public irregularity log (I-1 to I-22) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement; and I-20: set bonuses datamined out of a client whose item data Blizzard said would stay hidden until looted, with Season-of-Discovery contamination acknowledged by the dataminer itself.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
       <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip and source link on every row, a one-line summary table, an explicit “no ranking” contract, a pre-beta warning, and a verified per-class reading list.</li>
@@ -173,7 +176,7 @@
             <td>C143, C148, C159 (re-checked)</td>
           </tr>
           <tr>
-            <td>Accessibility and print pass over all <span data-count="pages">13</span> pages, plus the first self-check of our own registry claims <span class="chip ours">Ours</span></td>
+            <td>Accessibility and print pass over all <span data-count="pages">15</span> pages, plus the first self-check of our own registry claims <span class="chip ours">Ours</span></td>
             <td>Found and fixed: heading levels skipped on four pages, tables without captions, no reduced-motion handling for smooth scrolling, no sticky-header anchor offset, and a print stylesheet that would have clipped wide tables on paper. Also caught that <code>method.html</code> did not document the new <span class="chip tooling">tooling</span> class — now a build failure, not a review note.</td>
             <td>I-14, I-15, I-16</td>
           </tr>
@@ -402,7 +405,7 @@
           </tr>
           <tr>
             <td>Source-watch baseline state computed from <code>tools/source-state.json</code> <span class="chip ours">Ours</span></td>
-            <td>The baseline (established 19 September 00:20 UTC, before the last merge) fingerprints 74 of the 90 sources registered by the end of that pass plus 13 additional-page fingerprints; the 16 sources registered later are not yet fingerprinted and will be picked up by the scheduled weekly run (Monday 21 September 07:00 UTC) or a manual dispatch. The Sportskeeda interview (sk-interview) remains at one strike. The “86 of 87” figures quoted earlier on this page were true at baseline time and are now restated precisely below.</td>
+            <td>Recomputed against the data files on 19 September 2026: the baseline file holds <strong>87 entries</strong> created at 00:20 UTC, and against the registry as it now stands (<span data-count="sources">113</span> sources, 21 additional pages) it covers <strong>74 main source URLs and 14 additional pages</strong>. The remainder — 39 sources and 7 additional pages registered after it ran, 13 of them by the endpoint pass — are picked up as “newly fingerprinted” by the scheduled weekly run (Monday 21 September 07:00 UTC) or a manual dispatch, which files no issue for a first-time fingerprint. The Sportskeeda interview (sk-interview) remains at one strike. The “86 of 87” figures quoted earlier on this page were true at baseline time and are restated precisely here.</td>
             <td>—</td>
           </tr>
         </tbody>
@@ -460,7 +463,87 @@
         </tbody>
       </table>
     </div>
-  </section>
+  <h3 id="session-7">Endpoint and pattern pass, 19 September (latest) — a verified source register, a site-structure register, and the three passes re-run</h3>
+  <p class="sub">
+    This pass closed the two requirements that had only narrative coverage. Which machine-readable sources may this project use
+    under the brief's rule — free, publicly available, no sign-up, no tier? And what does the public structure of the
+    established sites actually look like, as opposed to what it is assumed to look like? Both answers are now data files with
+    their own offline checkers, published as <a href="data-api.html">Public endpoints</a> and
+    <a href="site-patterns.html">Site patterns</a>. Every endpoint and every pattern below was opened on 19 September 2026
+    through the platform's research tools; the shell still has no direct outbound network, and nothing here was inferred from
+    a URL that merely looked plausible.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <caption>Endpoint and pattern pass, line by line: what was fetched, what came back, and what changed.</caption>
+      <thead><tr><th scope="col">Fetched / checked</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Blizzard forum JSON feeds — US whole-forum, US <code>/c/wow-forever/</code> (id 346), EU category (id 359) <span class="chip official">Official</span></td>
+          <td>All three answered with no credential of any kind. Established the endpoint shapes, the US and EU category ids, and the public thread address form <code>/en/wow/t/&lt;slug&gt;/&lt;id&gt;</code> taken from the payload's own <code>topic_url</code>. This is the discovery channel for a Forever blue post or a known-issues thread; the thread page remains the citation.</td>
+          <td>C190, C191</td>
+        </tr>
+        <tr>
+          <td>Blizzard version service — <code>wow_classic</code> and <code>wow_classic_era</code> <span class="chip official">Official</span></td>
+          <td>Public, keyless, pipe-delimited build manifests. Read 5.5.4.69585 and 1.15.9.69722 on 19 September. Two candidate Forever product codes returned no data, which is published as an open gap (C193) rather than filled with a plausible number.</td>
+          <td>C192, C193</td>
+        </tr>
+        <tr>
+          <td>Blizzard developer documentation, Getting Started <span class="chip official">Official</span></td>
+          <td>The evidence behind the refusal: an account, a mandatory authenticator, acceptance of the Developer API Terms of Use and an OAuth client are required before any API use. That turns this project's exclusion of first-party game APIs from a preference into Blizzard's own documented condition (C194).</td>
+          <td>C194</td>
+        </tr>
+        <tr>
+          <td>Raider.IO API documentation; Warcraft Logs documentation <span class="chip tooling">Tooling</span> <span class="chip pending">Pending</span></td>
+          <td>Raider.IO was read in full and rejected on two counts — rate limits lifted only by registration, with revocable acceptable-use terms, and a scope of retail raiding and Mythic+ (C195). Warcraft Logs served an anti-bot challenge, so nothing is claimed about it and no URL is published: it sits pending, which is what refusing to guess looks like in a register.</td>
+          <td>C195</td>
+        </tr>
+        <tr>
+          <td>Wowhead <code>/forever/</code> namespace, blue tracker, news id form, guide and author pages <span class="chip guide">Guide</span></td>
+          <td>Confirmed the namespace boundary, the <code>/forever/news/&lt;slug&gt;-&lt;id&gt;</code> form, the <code>/forever/guide/&lt;slug&gt;</code> split between evergreen and dated material, and — the useful detail — that the blue tracker mixes Blizzard article ids and forum topic ids in one column, so a tracker row is discovery while the Blizzard page is the citation.</td>
+          <td>C207; <a href="site-patterns.html">pattern register</a></td>
+        </tr>
+        <tr>
+          <td>Icy Veins <code>/wow-forever/</code> hub, tier-list directory, class-choice, Legacy and subscription guides <span class="chip guide">Guide</span></td>
+          <td>Both PvP tier lists remain <em>coming soon</em> as of the read date, so no reputable Forever PvP ranking exists (C198) — and the class-choice guide states the same condition in its own words, deferring rankings until level-60 raid, dungeon and PvP data exists (C200). Also recorded the Legacy launch shape (C201) and the practical access rules (C202). One guessed news URL 404'd while the real slug exists; that failure is published on the pattern page rather than quietly retried.</td>
+          <td>C198, C200, C201, C202</td>
+        </tr>
+        <tr>
+          <td>Skill Capped live PvP tier list <span class="chip guide">Guide</span></td>
+          <td>The site named in the brief as a PvP source still has nothing for Forever: its live ranking is retail Midnight Season 2 Solo Shuffle, updated 1 September, and no Forever page appears in its article namespace (C199). The reason is structural — Forever launches without rated PvP, so the bracket it ranks does not exist there.</td>
+          <td>C199</td>
+        </tr>
+        <tr>
+          <td>TradeSkillMaster release listing, re-checked and cross-checked <span class="chip tooling">Tooling</span></td>
+          <td>Unchanged: newest stable v4.14.77 (13 September), declaring Retail 12.1.0, MoP 5.5.4, TBC 2.5.6 and Classic Era 1.15.9, with no 1.60.x entry (C196). The declared versions were then checked against Blizzard's build service for the same day and agreed — a reusable technique, recorded as our reasoning rather than as a game fact (C197).</td>
+          <td>C196, C197</td>
+        </tr>
+        <tr>
+          <td>Blizzard Collector's Edition article and the game-site mirror <span class="chip official">Official</span></td>
+          <td>The physical edition, its contents, the Balance-credit terms and the regional retailers (C203). Two of Blizzard's own pages label the same beta window with different timezone abbreviations, now recorded as irregularity I-21 and as a claim of its own (C204); the same article's two Blizzard addresses carry different-length bodies, which changes how quotations must be cited (C207).</td>
+          <td>C203, C204, C207</td>
+        </tr>
+        <tr>
+          <td>Contradiction check across the domains that <em>do</em> rank Forever classes <span class="chip community">Flagged</span></td>
+          <td>In one week, boosting and gold-adjacent domains published mutually inconsistent Forever PvP tier lists — three different top-tier sets — for a beta that stops well short of level 60. Recorded as the concrete reason this site publishes no ranking of its own (C205), and no link is sent to those domains.</td>
+          <td>C205</td>
+        </tr>
+        <tr>
+          <td>New tooling: <code>tools/check-apis.mjs</code>, <code>tools/check-patterns.mjs</code>, two pages, CI wiring <span class="chip ours">Ours</span></td>
+          <td>The endpoint register fails the build if a verified endpoint is missing an eligibility flag, a fetch date, a stated use or a stated limit, if a published URL is not a registered source, or if a refused URL is linked anywhere except the page documenting the refusal. The pattern register fails on an undated observation, an unregistered example URL, a missing limit, or any URL smuggled into an unverified entry. <code>verify.yml</code> now runs both on every push and pull request.</td>
+          <td>C206; <a href="method.html#irregularities">I-22</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">
+    Two self-corrections came out of this pass and are logged rather than fixed silently. <strong>I-21</strong> records a
+    timezone label that Blizzard's own two pages disagree on, kept as a claim instead of being quietly normalised.
+    <strong>I-22</strong> records that this site had described the absence of credentials as if it meant the absence of any
+    machine-readable source, without ever testing that — two Blizzard services answer a plain request, and the limitation row
+    below now says what is watchable and what is still impossible.
+  </p>
+</section>
 
   <section id="passes" aria-labelledby="h-passes">
     <h2 id="h-passes">Three-pass verification record</h2>
@@ -503,6 +586,11 @@
             <td>Pass 1: read the day's new material end to end at its own URLs (Tom Ellis explanation, phasing notification, bag quests, open-world roundup, Icy Veins tier-list directory, changelog, three spec guides); re-check the four add-on listings and the tuning feeds; attempt IGN Nordic a third time; extend the unofficial-tracker flag. Pass 2: line-by-line re-read of every added statement against its fetched source, plus a persistence audit — which caught four edits that had reported success but were not in the files (a beta-log row, a gold-page note, a classes-page note, a food-row rewrite, and the C091 corroboration note) and a sed-mangled README sentence; all re-applied and re-verified by exact-string checks. Pass 3: requirements re-check on the new totals, with the six offline checkers and the watcher self-test.</td>
             <td><span class="chip ok">Pass</span> 96 sources, 149 claims; C177–C185 added; I-19 recorded; baseline coverage restated exactly (74 of 96); five silently-failed edits caught and fixed by the persistence audit — the reason every later edit is verified by grep, not by the editor's success message.</td>
           </tr>
+        <tr>
+          <td><strong>Endpoint/pattern session — all three again</strong></td>
+          <td>Pass 1: build the endpoint register and the site-pattern register from pages that were actually opened, publish both, and wire two new offline checkers into CI. Pass 2: hunt for the failure this project is most exposed to here — a register that asserts eligibility nobody tested, a pattern that is really a guess, a refused URL still linked somewhere, or an unverified address published as an example. Pass 3: the brief again (PvP first, gold catalysts dated and sourced, nothing invented, official links for review) plus every printed count re-verified against the data files.</td>
+          <td><span class="chip ok">Pass</span> Two new pages and two new checkers; 18 new claims (C190–C207); 13 new registered sources; two self-corrections logged (I-21, I-22). The first checker run failed on a real inconsistency of the project's own making — the page documenting a refusal had linked the refused URL — which is why the rule now permits that one page to carry the evidence and forbids every other page from doing so.</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -673,7 +761,7 @@
           <tr><td><strong>Unpublished economy numbers</strong></td><td>No Honor prices, no vendor lists, no Blueprint drop table, no recipe split.</td><td>Recorded as explicit gaps; the market-log checker refuses pre-launch price rows outright.</td></tr>
           <tr><td><strong>Interview statements are not patches</strong></td><td>A designer's interview answer can be changed, and a wish can be mistaken for a plan.</td><td>Interview material is a distinct evidence class, dated and attributed; wishes are recorded as <span class="chip pending">not announced</span>.</td></tr>
           <tr><td><strong>Tooling declares, it does not prove</strong></td><td>An add-on's version list can name a game version the build does not work on.</td><td>The tooling class says exactly this on the <a href="addons.html#unknown">Add-ons page</a>, and whether a declared build actually runs in the live client is listed there as an open question until someone verifies it (C153).</td></tr>
-          <tr><td><strong>No credentials by design</strong></td><td>The brief forbids API keys that need a sign-up, so there is no automated price or character data feed — Blizzard's own APIs are out of scope under that rule.</td><td>Every source is a public page a human can open and check; automation is limited to fetching and diffing those pages.</td></tr>
+          <tr><td><strong>No credentials by design — rewritten 19 September 2026, see I-22</strong></td><td>The brief forbids keys that need a sign-up, so Blizzard's Game Data API is out of scope and there is still no automated price, character or item feed (C194).</td><td>Two Blizzard services were verified as answering a plain request with no credential — the forum topic feeds and the build manifest (C190–C192) — and are published on <a href="data-api.html">Public endpoints</a> with what each may be used for and what it must never be used for. The market log stays a dated human workflow, because no keyless price source exists at all (C206).</td></tr>
           <tr><td><strong>Authoring-environment limits</strong></td><td>No outbound network and no workflow-dispatch permission here, so the authoring session cannot read a live page or trigger the watcher itself.</td><td>The watcher's logic is machine-tested offline, the workflow now establishes or repairs its own baseline on a push to <code>main</code>, and the baseline it produced is committed and dated.</td></tr>
           <tr><td><strong>One page could not be read directly</strong></td><td>IGN Nordic returns HTTP 403 to automated fetches, so the interview was read via its indexed text and cross-checked against the Dutch edition.</td><td>Recorded on the source itself and in I-14, with a browser confirmation outstanding for the next session; no sentence is quoted that is not in both editions.</td></tr>
           <tr><td><strong>Search-result pollution</strong></td><td>Low-quality and RMT-adjacent pages outrank primary sources and mix truth with invention.</td><td>Primary-source-first policy, the flagged-source registry, and the irregularity log.</td></tr>
@@ -747,35 +835,44 @@
         <caption>Priority queue for the next working session.</caption>
         <thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Why now</th><th scope="col">Risk / blocker</th></tr></thead>
         <tbody>
-          <tr><td>1</td>
+        <tr><td>1</td>
+          <td><strong>Identify the Forever client's product code in Blizzard's version service and, if it exists, register the check.</strong> Candidate codes were tried and failed: <code>wow_forever</code> and <code>wow_classic_forever</code> both returned “No matched data for selector”. Try the remaining plausible codes, and if none works, record the search as exhausted rather than leaving it open forever.</td>
+          <td>The build service is the cheapest possible answer to “did the beta move today?”, and it needs no key, no account and no registration (C192). The control runs prove the request shape is right, so a further negative is genuinely informative (C193).</td>
+          <td>Blizzard may not publish a Forever manifest at all before launch; the acceptable outcome is a documented “not published — checked on this date”, not a guessed build number. A version bump is never a changelog, so it can only be used to prompt a human to look.</td></tr>
+        <tr><td>2</td>
+          <td><strong>Wire the two verified Blizzard endpoints into the source-watch workflow as a dated “watch” step</strong> — a build number and the newest Forever forum topics, recorded as lines a human reads, not as claims.</td>
+          <td>Both were verified as answering with no credential (C190, C191), so a scheduled check costs nothing and replaces repeated manual visits. This is the automation the brief actually allows.</td>
+          <td>The step must not silently become a source of game facts. A new thread id is discovery only: the thread has to be opened and its author confirmed as Blizzard staff before anything is ledgered, exactly as the endpoint page states.</td></tr>
+        
+          <tr><td>3</td>
             <td>Confirm the second source-watch run (the first Monday after baseline) diffs against the existing baseline — the weekly schedule does this on its own; a maintainer can also dispatch <code>source-watch.yml</code> to see it sooner.</td>
-            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed (86 hashed entries, 74 of today's 100 sources); the second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will also fingerprint the 26 sources and 3 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them.</td>
+            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed — 87 entries, recomputed against the data files today as covering 74 of the 113 registered sources and 14 of the 21 additional pages. The second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will fingerprint the 39 sources and 7 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them; 13 of those sources were added by this endpoint pass.</td>
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
-          <tr><td>2</td>
+          <tr><td>4</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
             <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist.</td>
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
-          <tr><td>3</td>
+          <tr><td>5</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
             <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> a fourth fetch attempt, from the queue-closing pass's environment, again returned HTTP 403 — four independent clients have now been blocked the same way, which confirms the block is on the article itself. I-14 remains open; the limitation is recorded on the source and in this session's note (#session-5), and the Dutch mirror listed on the source carries the same block.</td>
             <td>If the article is edited or its text differs, the affected claims need their quotations tightened rather than re-argued.</td></tr>
-          <tr><td>4</td>
+          <tr><td>6</td>
             <td>Record the new battleground when it enters the beta: objective count, scoring, respawn rules, travel times — first-hand if possible, otherwise dated and attributed.</td>
             <td>It is the only PvP content that can be observed before launch, and its rules decide what "good class" even means in it. <strong>Status this session:</strong> as of 19 September no established outlet reports Darkspear Islands as playable; the only “details” in circulation are unofficial beta-tracker reads (C184), which are flagged and not adopted.</td>
             <td>Without client access nothing can be observed; the log says so instead of borrowing someone else's experience.</td></tr>
-          <tr><td>5</td>
+          <tr><td>7</td>
             <td>Re-check the four add-on listings and add any release that declares 1.60.x; note on the tracker when a declaration is confirmed working on a live client.</td>
             <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status:</strong> re-checked again from their own pages during the queue-closing pass (19 September, after the merges) — Auctionator 337 (17 Sep) still the only release declaring Classic Forever 1.60.1; TSM still v4.14.77 (13 Sep, retail 12.1.0); Questie still v11.38.0 (15 Sep); Details! newest file still the 18 September build. No listing has moved since the live-web pass; next check on the next beta build.</td>
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
-          <tr><td>6</td>
+          <tr><td>8</td>
             <td>Read the remaining Wowhead Forever guides and the seven unread Icy Veins race guides, ledgering each fact.</td>
             <td>With the Blizzard recaps and the pre-purchase article read line by line, this completed the largest remaining pool of unread near-primary material. <strong>Status this session:</strong> Completed. All 7 remaining Icy Veins race guides (Human, Dwarf, Night Elf, Gnome, Orc, Undead, Troll) and remaining Wowhead guides (Overview, Zones, Raids, Feral Druid, Protection Paladin, Season 1 Tier Sets, Mounts, Pets, Legacy) were fetched, read end-to-end, registered in sources (90 total), and ledgered as claims C169–C176.</td>
             <td>Guide pages are revised in place; snapshot dates and the watcher are the mitigation.</td></tr>
-          <tr><td>7</td>
+          <tr><td>9</td>
             <td>Human quotation pass over the two new pages, one page at a time, checking each quotation word for word against its source.</td>
             <td>The checker proves anchoring, never wording — and I-14, I-17 and I-18 all came from exactly this kind of pass.</td>
             <td>Some sources cannot be fetched automatically (IGN returns 403), so this pass may need a browser.</td></tr>
-          <tr><td>8</td>
+          <tr><td>10</td>
             <td>Watch for Blizzard to put three things in writing that the site currently holds at press: the level cap staying at 60 (C160), the original battleground roster (C161), and a ruleset-transfer policy beyond the Hardcore path (C024). Promote each row to official only with the link.</td>
             <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does. <strong>Status this session:</strong> re-verified on 19 September via web search — no new written Blizzard page promotes C160, C161 or C024; all three stay at their current class, and the aggregator "confirmed" claims are explicitly not adopted.</td>
             <td>Aggregators will state all three as confirmed long before Blizzard does; the ledger row, not the aggregator, decides.</td></tr>
