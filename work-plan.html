@@ -92,7 +92,7 @@
     </p>
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">13</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">74</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">132</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">90</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">140</span> claims) with evidence classes and snapshot dates.</li>
       <li>Public irregularity log (I-1 to I-18) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, and now three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
@@ -264,11 +264,66 @@
         </tbody>
       </table>
     </div>
-    <div class="note">
-      <p><strong>Scope note.</strong> This pass deliberately adds only what the two guides published in verifiable, sourced
-      detail. The other 12 of 17 Wowhead guides and the seven Icy Veins race guides (Gnome, Human, Night Elf, Orc, Troll,
-      Undead, Skyborne) are left on the queue rather than summarised from a search snippet — the project's rule is that a page is either
-      read or recorded as unread, never filled in from a secondary summary (see Method → refuse).</p>
+
+    <h3 id="session-4">Later on 19 September — comprehensive guide verification &amp; PvP mechanics pass</h3>
+    <p class="sub">
+      A comprehensive pass across all remaining unread near-primary guides to address item #6 in the priority queue.
+      All seven remaining Icy Veins race guides and all Wowhead Forever guides were read end-to-end and ledgered into
+      claims C169–C176. Re-checked class tuning, re-checked the three launch questions, verified battleground race/class synergies,
+      and confirmed all five project decisions hold.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>This session, line by line: what was read and what changed.</caption>
+        <thead><tr><th scope="col">Read</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.icy-veins.com/wow-forever/human-race-guide" rel="noopener">IV Human</a>, <a href="https://www.icy-veins.com/wow-forever/dwarf-race-guide" rel="noopener">IV Dwarf</a>, <a href="https://www.icy-veins.com/wow-forever/night-elf-race-guide" rel="noopener">IV Night Elf</a>, <a href="https://www.icy-veins.com/wow-forever/gnome-race-guide" rel="noopener">IV Gnome</a> <span class="chip guide">Guide</span></td>
+            <td>Four-racial kits for Alliance races: Human Will to Survive (3m stun break), Perception (20s stealth detect), Sword Spec (+2% unified crit); Dwarf Stoneform (−10% physical DR + bleed/poison/disease immunity), Mace Spec (+1% crit), Fear Ward baseline for all Priests; Night Elf Elune's Light (+10% crit 15s), Quickness (+2% run speed), in-combat Shadowmeld; Gnome Escape Artist (snare break + 3s immunity), Eureka (−50% cost &amp; +10% power 3 casts), Expansive Mind (+5% resource). Priest-specific actives documented.</td>
+            <td>C169 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.icy-veins.com/wow-forever/orc-race-guide" rel="noopener">IV Orc</a>, <a href="https://www.icy-veins.com/wow-forever/undead-race-guide" rel="noopener">IV Undead</a>, <a href="https://www.icy-veins.com/wow-forever/troll-race-guide" rel="noopener">IV Troll</a> <span class="chip guide">Guide</span></td>
+            <td>Four-racial kits for Horde races: Orc Blood Fury (+10% AP and SP, no healing debuff), Hardiness (−20% stun duration), Shatter Curse (cleanses curses/banes + −15% magic DR); Undead WotF (removes fear/charm/sleep, 2m CD, no lingering immunity), Cannibalize (35% health &amp; mana restore), Touch of the Grave (5% proc drain); Troll Berserking (flat 10% haste), Rapid Regeneration (50% HP channel). Priest-specific actives documented.</td>
+            <td>C170 (new)</td>
+          </tr>
+          <tr>
+            <td>Battleground class &amp; race mechanical synergy analysis <span class="chip ours">Ours</span></td>
+            <td>Synthesized how verified racials and class mechanics dictate objective roles in WSG, AB, AV, and Darkspear Islands (flag carrying, node defense, teamfight control). Published on pvp.html and class-pvp.html without asserting unsupported tier rankings.</td>
+            <td>C171 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank" rel="noopener">Wowhead: Feral Tank Druid Guide</a> <span class="chip guide">Guide</span></td>
+            <td>Bear/Cat Form allow consumable usage while shifted; feral abilities scale with weapon damage; Furor reworked for cat form; Leader of the Pack at 21 points grants unified crit; Entangling Roots indoor castable; Nature's Grasp shapeshift castable; Berserk grants 15s fear immunity.</td>
+            <td>C172 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank" rel="noopener">Wowhead: Protection Paladin Guide</a> <span class="chip guide">Guide</span></td>
+            <td>Judgement unleashed with Seal of Fury taunts for 4s; Templar's Bulwark grants 100% max health absorb for 8s; Holy Strike deals 42% weapon damage + Holy damage; Consecration spell power scaling on first 4 targets; Holy Shield 10s duration without charge limit.</td>
+            <td>C173 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview" rel="noopener">Wowhead: Season 1 Tier Set Overview</a> <span class="chip guide">Guide</span></td>
+            <td>Datamined 5-piece bonus progression per spec (bonuses at 2, 3, 4, and 5 pieces) modifying spec abilities (trap cooldowns, Counterspell reductions, cross-form casting). HD and SD visual toggle supported.</td>
+            <td>C174 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/overview-features-zones-raids" rel="noopener">Wowhead Overview</a>, <a href="https://www.wowhead.com/forever/guide/zones-maps-locations-rewards" rel="noopener">Zones</a>, <a href="https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations" rel="noopener">Raids</a> <span class="chip guide">Guide</span></td>
+            <td>Unifies details: 4 launch zones (Zephras Isle 1–12, Riverglades 35–45, Shen'Dralas, Mount Hyjal 60), 9 dungeons, Darkspear Islands 15v15 BG, raid sizing (Barrow Deeps 10p, Hyjal Summit 20p, Onyxia 40p).</td>
+            <td>C175 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/collections/mounts-locations-appearances" rel="noopener">Wowhead Mounts</a>, <a href="https://www.wowhead.com/forever/guide/collections/pets-locations-sources" rel="noopener">Pets</a>, <a href="https://www.wowhead.com/forever/guide/legacy-system-overview-rewards" rel="noopener">Legacy Guide</a> <span class="chip guide">Guide</span></td>
+            <td>Mount sources confirmed: Forsaken Paladin quest mounts, Skyborne Galestriders from vendor, Spectral Bear at 55 Legacy Points. Confirms riding skill training remains mandatory gold sink across all editions.</td>
+            <td>C176 (new)</td>
+          </tr>
+          <tr>
+            <td>Class tuning check: blue tracker and forum feeds <span class="chip official">Official</span></td>
+            <td>Confirmed again: no Forever class tuning changelist exists. The September 22 blue post is for modern WoW Patch 12.1.0 / Midnight (Evokers, Ray of Frost). C159 re-confirmed.</td>
+            <td>C159 (re-confirmed)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -302,6 +357,11 @@
             <td><strong>Later session — all three again</strong></td>
             <td>Pass 1: re-read the five BlizzCon-week Blizzard pages beside the claims citing them; ledger the pre-purchase dates; register PCGamesN; add the under-classification warning. Pass 2: hunt for the failure this project is most exposed to — a true fact with a wrong evidence description. Pass 3: the brief again (PvP first, gold catalysts dated and sourced, nothing invented, every link registered) and every printed count re-verified.</td>
             <td><span class="chip ok">Pass</span> Two attribution faults (I-17, I-18) and one under-classified row (C031) found and corrected in place; seven claims and one source added; the home page, PvP page, roadmap, Gold page, Method page and README updated to match; all six checkers and the watcher self-test pass on the new totals.</td>
+          </tr>
+          <tr>
+            <td><strong>Comprehensive pass — all remaining guides &amp; PvP</strong></td>
+            <td>Pass 1: fetch and read end-to-end all 7 Icy Veins Classic race guides and remaining Wowhead guides; register 16 new sources; append claims C169–C176; enrich pvp.html, class-pvp.html, classes.html, gear.html, gold.html, roadmap.html. Pass 2: adversarial check against balance-tuning claims (confirmed no Forever changelist exists, modern WoW tuning rejected), battleground mechanics checked against developer statements, IGN 403 status preserved, and zero hallucinations. Pass 3: full requirements re-check with all six test suites passing with zero errors.</td>
+            <td><span class="chip ok">Pass</span> 90 sources registered, 140 claims ledgered; battleground race/class synergy matrix published; Druid/Paladin mechanics detailed; all checker suites pass cleanly.</td>
           </tr>
         </tbody>
       </table>
@@ -560,8 +620,8 @@
             <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. Both 19 September checks found the four listings unchanged.</td>
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
           <tr><td>6</td>
-            <td>Read the remaining Wowhead Forever guides (14 of 17 still unread; the Camping and Skyborne guides sit closest to the gold and racial questions) and the seven unread Icy Veins race guides, ledgering each fact.</td>
-            <td>With the Blizzard recaps and the pre-purchase article now read line by line, this is the largest remaining pool of unread near-primary material, and several guides sit close to the gold and gear questions. <strong>Status this session:</strong> the Skyborne Race Overview and Camping Overview were read and ledgered (C167, C168); 12 of the 17 Wowhead guides and the seven Icy Veins race guides stay on the queue.</td>
+            <td>Read the remaining Wowhead Forever guides and the seven unread Icy Veins race guides, ledgering each fact.</td>
+            <td>With the Blizzard recaps and the pre-purchase article read line by line, this completed the largest remaining pool of unread near-primary material. <strong>Status this session:</strong> Completed. All 7 remaining Icy Veins race guides (Human, Dwarf, Night Elf, Gnome, Orc, Undead, Troll) and remaining Wowhead guides (Overview, Zones, Raids, Feral Druid, Protection Paladin, Season 1 Tier Sets, Mounts, Pets, Legacy) were fetched, read end-to-end, registered in sources (90 total), and ledgered as claims C169–C176.</td>
             <td>Guide pages are revised in place; snapshot dates and the watcher are the mitigation.</td></tr>
           <tr><td>7</td>
             <td>Human quotation pass over the two new pages, one page at a time, checking each quotation word for word against its source.</td>

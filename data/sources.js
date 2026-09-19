@@ -509,15 +509,6 @@ window.WOWF_SOURCES = [
       "Re-checked 2026-09-18 (third round, this session): the index still reads \"17 of 17\", the four Classes-category entries are unchanged, and there is still no PvP, Best-in-Slot or gold guide",
       "The Class Guides category page (wowhead.com/forever/guides/classes) displayed a single guide while the full index showed the three class/spec pages — used as evidence of coverage, not of game facts"
     ]
-    ,
-    also: [
-      "https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank",
-      "https://www.wowhead.com/forever/guide/classes/paladin/protection/abilities-pve-tank",
-      "https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank",
-      "https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations",
-      "https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview",
-      "https://www.wowhead.com/forever/guide/legacy-system-overview-rewards"
-    ]
   },
   {
     id: "iv-class-overviews",
@@ -1136,6 +1127,230 @@ window.WOWF_SOURCES = [
       "Around level 5 a quest 'The Great Outdoors' starts the system; training Cooking lets you craft a Basic Campfire",
       "Each profession contributes a three-tier campsite object — for example Blacksmithing's Sharpening Wheel (+Strength), Enchanting's Enchanted Lute (+Armor, All Stats, Resistances), Skinning's Camp Chair (+2% Crit), Fishing's bowl (+8% stats), Herbalism's Incense Candle (+Intellect), Mining's Lodestone (+melee Attack Power), Tailoring's Faction Banner (+Spirit), Leatherworking's Camp Tent (Rested XP)",
       "Camp tiers unlock with camp level"
+    ]
+  },
+  {
+    id: "iv-human",
+    title: "Human Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/human-race-guide",
+    tier: "guide",
+    supports: [
+      "Human racials: Will to Survive (active removes all stuns, 3m CD), Perception (active increases stealth detection for 20s, 3m CD), Sword Specialization (passive increases spell and ability crit by 2% with 1H/2H swords), The Human Spirit (passive +5% spirit)",
+      "Human Priest racials: Divine Grace (active heals friendly <50% and clears Weakened Soul, 10m CD), Feedback (active burns mana and deals shadow damage on spell cast against priest, 15s, 3m CD)",
+      "Diplomacy and Mace Specialization removed from Humans",
+      "Hunters added as a new playable Human class"
+    ]
+  },
+  {
+    id: "iv-dwarf",
+    title: "Dwarf Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/dwarf-race-guide",
+    tier: "guide",
+    supports: [
+      "Dwarf racials: Stoneform (active removes and grants immunity to Bleed, Poison, Disease, and reduces physical damage taken by 10% for 8s, 3m CD), Find Treasure (active, operates alongside other tracking), Mace Specialization (passive +1% crit with 1H/2H maces), Big Game Hunter (passive +5% damage to Beasts)",
+      "Dwarf Priest racials: Chastise (active holy damage and immobilizes Humanoids for up to 2s, 2m CD), Desperate Prayer (active large instant self-heal, 10m CD); Fear Ward removed from race and made baseline for all Priests",
+      "Gun Specialization and Frost Resistance removed from Dwarves",
+      "Shamans added as a new playable Dwarf class"
+    ]
+  },
+  {
+    id: "iv-night-elf",
+    title: "Night Elf Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/night-elf-race-guide",
+    tier: "guide",
+    supports: [
+      "Night Elf racials: Elune's Light (active +10% crit chance with all spells and attacks for 15s, 3m CD), Shadowmeld (active stealth, usable in combat to drop enemy priority, 2m CD, grants Rogues stealth opener), Quickness (passive +1% dodge and +2% run speed), Wisp Spirit (passive +75% movement speed while dead)",
+      "Night Elf Priest racials: Elune's Grace (active -50% chance hit by melee/ranged attacks for 15s or 3 misses, 5m CD), Starshards (active arcane DoT over 6s, 30s CD)",
+      "Nature Resistance removed from Night Elves"
+    ]
+  },
+  {
+    id: "iv-gnome",
+    title: "Gnome Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/gnome-race-guide",
+    tier: "guide",
+    supports: [
+      "Gnome racials: Escape Artist (active removes movement-impairing effects and grants 3s immunity, 2m CD), Eureka (active next 3 damaging or healing abilities cost 50% less and deal/heal 10% more, 2m CD), Expansive Mind (passive +5% maximum Mana, Rage, or Energy), Engineering Specialization (passive Engineering devices more reliable)",
+      "Gnome Priest racials: Confounding Flash (active confuses up to 5 enemies within 8 yards for 3s, breaks on damage, 2m CD), Contingency Plan (active holy ward procs below 35% health for absorb shield and HoT, 10m CD)",
+      "Arcane Resistance removed from Gnomes",
+      "Priests added as a new playable Gnome class"
+    ]
+  },
+  {
+    id: "iv-orc",
+    title: "Orc Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/orc-race-guide",
+    tier: "guide",
+    supports: [
+      "Orc racials: Blood Fury (active +10% Attack Power and Spell Power for 15s, no healing reduction penalty, 2m CD), Shatter Curse (active removes and grants immunity to Curses and Banes, -15% magical damage taken for 8s, 3m CD), Axe Specialization (passive +1% crit with 1H/2H axes), Hardiness (passive reduces Stun duration by 20%)",
+      "Command removed from Orcs",
+      "Mages added as a new playable Orc class"
+    ]
+  },
+  {
+    id: "iv-undead",
+    title: "Undead Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/undead-race-guide",
+    tier: "guide",
+    supports: [
+      "Undead racials: Will of the Forsaken (active removes Charm, Fear, Sleep, 2m CD, no lingering immunity), Cannibalize (active restores 7% health and mana every 2s for 10s up to 35% each from corpse, 2m CD), Underwater Breathing (passive 300% longer breath), Touch of the Grave (passive 5% proc chance to drain health up to 5% max HP)",
+      "Undead Priest racials: Dark Sacrifice (active sacrifice health over 15s to restore mana, 10m CD), Touch of Weakness (active shadow damage and melee AP reduction to attacker, no CD)",
+      "Shadow Resistance removed from Undead",
+      "Paladins added as a new playable Undead class"
+    ]
+  },
+  {
+    id: "iv-troll",
+    title: "Troll Race Guide for WoW Forever",
+    publisher: "Icy Veins (guide by Abide)",
+    date: "2026-09-17",
+    url: "https://www.icy-veins.com/wow-forever/troll-race-guide",
+    tier: "guide",
+    supports: [
+      "Troll racials: Berserking (active +10% attack and casting speed for 10s, fixed value, 3m CD), Rapid Regeneration (active channeled 50% max HP restore over 6s, cancels on movement/action/damage, 3m CD), Beast Slaying (passive +5% damage to Beasts), Regeneration (passive +10% health regen, 10% continues in combat)",
+      "Troll Priest racials: Hex of Weakness (active reduces melee AP and -20% healing received for 2m, no CD), Shadowguard (active 3-charge shadow damage retaliation, 10m, no CD)",
+      "Bow Specialization and Throwing Specialization removed from Trolls",
+      "Warlocks added as a new playable Troll class"
+    ]
+  },
+  {
+    id: "wh-overview",
+    title: "World of Warcraft: Forever Overview - New Features, Zones, Raids",
+    publisher: "Wowhead (guide by Nodge)",
+    date: "2026-09-17",
+    url: "https://www.wowhead.com/forever/guide/overview-features-zones-raids",
+    tier: "guide",
+    supports: [
+      "Forever overview: permanent level 60 cap, 4 new zones (Mount Hyjal, Shen'Dralas, Riverglades, Zephras Isle), 9 new dungeons, 2 new raids plus returning Onyxia",
+      "Darkspear Islands is a new 15v15 battleground structured similarly to Eye of the Storm with interactable capture points",
+      "Optional transmog system where players can disable transmog entirely and view base models",
+      "New loading screens for Kalimdor, Eastern Kingdoms, Zephras Isle, Dalaran, Old Ironforge, Excavation Site, Ruins of Lordaeron, Darkspear Islands"
+    ]
+  },
+  {
+    id: "wh-zones",
+    title: "Forever Zones Overview - New & Updated Zones",
+    publisher: "Wowhead (guide by Serenal)",
+    date: "2026-09-17",
+    url: "https://www.wowhead.com/forever/guide/zones-maps-locations-rewards",
+    tier: "guide",
+    supports: [
+      "Mount Hyjal: level 60 endgame zone set in the aftermath of Archimonde's defeat, home to Hyjal Summit raid",
+      "Shen'Dralas: adventure zone located between Mulgore and Desolace, sending players to Razorfen Downs and Maraudon",
+      "Riverglades: level 35-45 frontier zone with grasslands, rivers, and trade routes, reached by Steamwheedle boat to Powderfuse Port",
+      "Zephras Isle: level 1-12 starting zone for Skyborne elves in Skywall plane"
+    ]
+  },
+  {
+    id: "wh-raids",
+    title: "Forever Raids Overview - Locations, Bosses and Guides",
+    publisher: "Wowhead (guide by Serenal)",
+    date: "2026-09-13",
+    url: "https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations",
+    tier: "guide",
+    supports: [
+      "Hyjal Summit is a 20-player raid in Mount Hyjal opening December 9, 2026",
+      "The Barrow Deeps is a 10-player raid in Mount Hyjal with 3 entrances located throughout the world, opening December 9, 2026",
+      "Onyxia's Lair returns as a 40-player raid in Dustwallow Marsh on December 9, 2026"
+    ]
+  },
+  {
+    id: "wh-druid-feral",
+    title: "Feral Tank Druid Overview Guide - Forever",
+    publisher: "Wowhead (guide by L0uki)",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank",
+    tier: "guide",
+    supports: [
+      "Feral shapeshift forms (Bear and Cat Form) now support consumable usage while shapeshifted",
+      "Feral shapeshift abilities now scale with weapon damage",
+      "Furor functionality reworked for cat form while retaining bear form generation; power shifting fundamentally altered",
+      "Leader of the Pack moved to 21 talent points and affects both melee and spell crit",
+      "Entangling Roots can now be cast indoors; Nature's Grasp can be cast while shapeshifted",
+      "Feral tank toolkit additions: Mangle, Lacerate (threat bleed stacking up to 5 times), Berserk (breaks/immunes fear), Natural Reaction"
+    ]
+  },
+  {
+    id: "wh-paladin-prot",
+    title: "Protection Paladin Overview Guide - Forever",
+    publisher: "Wowhead (guide by Riyani)",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank",
+    tier: "guide",
+    also: [
+      "https://www.wowhead.com/forever/guide/classes/paladin/protection/abilities-pve-tank"
+    ],
+    supports: [
+      "Judgement unleashed with Seal of Fury taunts the target to attack the Paladin for 4 seconds",
+      "Templar's Bulwark gives 100% max health absorb for 8 seconds and triggers Forbearance",
+      "Holy Strike is an instant normalized attack dealing 42% weapon damage plus Holy damage",
+      "Consecration rebalanced: base ground damage with increased spell power bonus on the first 4 enemies",
+      "Holy Shield has no charge limit (20% block chance for 10 seconds, dealing Holy damage on block)"
+    ]
+  },
+  {
+    id: "wh-season1-tiersets",
+    title: "Forever Tier Set Overview for Season 1 - Appearances and Bonuses",
+    publisher: "Wowhead (guide by Serenal)",
+    date: "2026-09-17",
+    url: "https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview",
+    tier: "guide",
+    supports: [
+      "Datamined Season 1 raid tier sets feature 5-piece bonus structures across specs (2-piece, 3-piece, 4-piece, and 5-piece bonuses)",
+      "Bonuses target specific spell interactions such as Nature's Grasp/Barkskin/Hibernate for Druid, Frost/Freezing Trap for Hunter, Counterspell/Frostfire Bolt for Mage",
+      "HD and SD visual toggle applies to tier armor appearances"
+    ]
+  },
+  {
+    id: "wh-legacy-guide",
+    title: "Legacy System Overview for Forever — Earning, Rewards, and Trees",
+    publisher: "Wowhead (guide by Nodge)",
+    date: "2026-09-17",
+    url: "https://www.wowhead.com/forever/guide/legacy-system-overview-rewards",
+    tier: "guide",
+    supports: [
+      "Account-wide progression system rewarding perks and cosmetic rewards for completing challenges",
+      "Milestone rewards: level 15 Replica Ironforge Air Rifle, level 25 Spectral Bear Cub, level 40 Spectral Bear Tabard, level 55 Reins of the Spectral Bear (epic mount, 100% speed)",
+      "Challenge categories include Classes, Tradeskills, Player vs. Player, and Adventure",
+      "Perks are account-bound across all characters"
+    ]
+  },
+  {
+    id: "wh-mounts",
+    title: "All Mounts in World of Warcraft: Forever - Models and Locations",
+    publisher: "Wowhead (guide by Nodge)",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/guide/collections/mounts-locations-appearances",
+    tier: "guide",
+    supports: [
+      "Forsaken Paladin class mounts: Summon Warhorse and Summon Forsaken Charger via dedicated questline",
+      "Skyborne racial mounts: Galestriders (Empyrean, Regal, Stormy, Umber and Swift variants) sold by reputation vendor",
+      "Legacy Progress Track milestone reward: Reins of the Spectral Bear at 55 Legacy Points",
+      "Store edition mounts: Cerulean Prideclaw (all packs), Veteran Adventurer's Loyal Companion (Epic/Collection)"
+    ]
+  },
+  {
+    id: "wh-pets",
+    title: "All Companions in World of Warcraft: Forever - Models and Locations",
+    publisher: "Wowhead (guide by Jurdi)",
+    date: "2026-09-17",
+    url: "https://www.wowhead.com/forever/guide/collections/pets-locations-sources",
+    tier: "guide",
+    supports: [
+      "Vanity companion pets in Forever: Zergling Leash, Panda Collar, Diablo Stone, Pachimari from Epic/Collection packs",
+      "All companions are purely cosmetic non-combat collector items"
     ]
   }
 ];
