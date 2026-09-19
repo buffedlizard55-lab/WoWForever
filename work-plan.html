@@ -226,6 +226,9 @@
           <li><strong>By hand:</strong> a maintainer with the repository's own token can run
             <code>gh workflow run source-watch.yml --ref main -f init=true</code>, or use “Run workflow” in the Actions tab
             with <em>Baseline only</em> ticked.</li>
+          <li><strong>Automatically:</strong> a preflight job lets the workflow run on a push to <code>main</code> only when
+            <code>tools/source-state.json</code> is missing. So a baseline that is lost — or never created, as here — repairs
+            itself on the next push to <code>main</code>, and ordinary pushes never pay for a network run.</li>
           <li><strong>The watcher's behaviour is now machine-tested offline</strong> (<code>tools/test-source-watch.mjs</code>):
             a first run writes a baseline and files no issue; an edited page is reported; a previously reachable page that
             stops responding is reported as a regression and keeps its old fingerprint; a runner that can reach nothing
@@ -239,6 +242,8 @@
       filed for that), commits <code>tools/source-state.json</code>, and prints a step summary with the counts. If it
       reports zero reachable sources, the job fails on purpose: that means the runner itself is blocked and the citations
       need another route, not that the whole citation set is dead.</p>
+      <p><strong>Status on this snapshot:</strong> no baseline file is committed yet — the run has not happened. This page
+      will be updated with the fingerprinted count as soon as one has.</p>
     </div>
   </section>
 
