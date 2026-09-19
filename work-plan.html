@@ -72,6 +72,7 @@
       <li><a href="#done">Delivered so far</a></li>
       <li><a href="#session">This session, line by line</a></li>
       <li><a href="#session-3">This session, 19 September agent pass</a></li>
+      <li><a href="#session-5">Third pass on 19 September — live-web verification</a></li>
       <li><a href="#passes">Three-pass verification record</a></li>
       <li><a href="#baseline">The source-watch baseline</a></li>
       <li><a href="#blocked">Blocked work (do not fake it)</a></li>
@@ -92,8 +93,8 @@
     </p>
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">13</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">90</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">140</span> claims) with evidence classes and snapshot dates.</li>
-      <li>Public irregularity log (I-1 to I-18) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, and now three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">96</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">149</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Public irregularity log (I-1 to I-19) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
       <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip and source link on every row, a one-line summary table, an explicit “no ranking” contract, a pre-beta warning, and a verified per-class reading list.</li>
@@ -325,6 +326,77 @@
         </tbody>
       </table>
     </div>
+
+    <h3 id="session-5">Third pass on 19 September — live-web verification session</h3>
+    <p class="sub">
+      Unlike the two passes above, this one had outbound web access, so every queued item that needed the live web was
+      done directly. Everything below was opened and read on 19 September 2026; each new fact carries its own ledger row
+      and appears on the page it belongs to. Where a check found nothing new, that is recorded too — an unchanged
+      listing is evidence, not an absence of work.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>Third pass, line by line: what was read, re-checked or flagged, and what changed.</caption>
+        <thead><tr><th scope="col">Read / checked</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/behind-the-scenes-of-the-wow-forever-beta-issues-tom-ellis-explains-on-x-382993" rel="noopener">Wowhead: Tom Ellis explains the beta issues on X</a> <span class="chip press">Press</span></td>
+            <td>Senior Game Producer Tom Ellis's full statement on the opening-day problems and fixes: BETA/PTR stack (not production), Battle.net metering on a two-connection regional realm scaled to eight, lagging database statistics fixed by manual analysis plus automated jobs, and empty maps not shutting down (WORLD pools near out-of-memory) fixed by restart, extra WORLDs and a second regional instance. Added to the beta calendar; explains why day-one beta impressions formed under abnormal conditions.</td>
+            <td>C177 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/new-phasing-notification-in-wow-forever-changing-phases-safely-382994" rel="noopener">Wowhead: phasing notification</a> <span class="chip guide">Guide</span></td>
+            <td>A five-minute “zone refresh” warning with a Refresh Now button and chat-box countdown exists in the beta client; Wowhead reports it was revealed at BlizzCon with Hardcore in mind and that a new phase can hold live mobs, despawned pickups or fresh herb/mining nodes. Added to the beta log's watched items; the node possibility is cross-referenced (as a watch, not a fact) on the Gold page.</td>
+            <td>C178 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/grab-free-bags-in-beginner-zones-with-quests-382982" rel="noopener">Wowhead: free starting-zone bags</a> <span class="chip guide">Guide</span></td>
+            <td>New level 3–4 quests reward BoP 6-slot bags (Dun Morogh: <em>Grund and Gozwin</em>), bags auto-fill empty slots, seven distinct quest bags in the beta database. Added to the Gold page's demand side: the smallest crafted-bag market is quest-supplied at launch.</td>
+            <td>C179 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/what-we-know-about-the-open-world-so-far-in-wow-forever-382931" rel="noopener">Wowhead: open-world roundup</a> <span class="chip guide">Guide</span></td>
+            <td>Travel and zone detail beyond the Zones guide (second Riverglades entry from Redridge through the Burning Steppes; Desolace/Wetlands quest additions; Skyborne flow from Zephras 1–12 into faction 10–20 zones), and a second guide source for the crafted-food XP figure: a “Well Fed” buff granting +5% Experience. The Gold page now attributes +5% to both Icy Veins and Wowhead while keeping Blizzard's “small” as the only first-party wording. The camping buff-item table corroborates C168.</td>
+            <td>C180, C185 (new); C091 (note updated)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.icy-veins.com/wow-forever/tier-list-hub" rel="noopener">Icy Veins: tier-list directory</a> and <a href="https://www.icy-veins.com/wow-forever/changelog" rel="noopener">changelog</a> <span class="chip guide">Guide</span></td>
+            <td>Icy Veins added a tier-list directory on 16 September — its PvP DPS and Healer lists, and all three raiding lists, are still marked <em>coming soon</em> as of 19 September. Dated corroboration that no reputable PvP ranking exists yet. The changelog documents the 17–18 September spec-guide wave: every class now has at least one level-20 beta spec guide.</td>
+            <td>C181, C182 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.icy-veins.com/wow-forever/combat-rogue-melee-dps-pve-guide" rel="noopener">IV Combat Rogue</a>, <a href="https://www.icy-veins.com/wow-forever/subtlety-rogue-melee-dps-pve-guide" rel="noopener">Subtlety Rogue</a>, <a href="https://www.icy-veins.com/wow-forever/enhancement-shaman-melee-dps-pve-guide" rel="noopener">Enhancement Shaman</a> <span class="chip guide">Guide</span></td>
+            <td>The three most PvP-relevant new spec guides, read end to end: slow energy regeneration in Forever; Human and Orc named as Rogue's PvP race picks; Engineering and First Aid recommended for PvP; Maelstrom Weapon carried forward; Fire Nova AoE; Improved Ghost Wolf usable indoors. Added to the Rogue and Shaman profiles and the reading list; the remaining spec guides are tracked through the changelog, which is registered and watched.</td>
+            <td>C183 (new)</td>
+          </tr>
+          <tr>
+            <td>Add-on listings re-checked from their own pages: <a href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Auctionator</a>, <a href="https://www.curseforge.com/wow/addons/tradeskill-master" rel="noopener">TSM</a>, <a href="https://addons.wago.io/addons/questie/versions?stability=stable" rel="noopener">Questie</a>, <a href="https://www.curseforge.com/wow/addons/details/files" rel="noopener">Details!</a> <span class="chip tooling">Tooling</span></td>
+            <td>All four unchanged since the morning check: Auctionator 337 (17 Sep) is still the only Forever declaration; TSM's newest stable is still v4.14.77 (13 Sep) with no 1.60.x; Questie's newest stable is still v11.38.0 (15 Sep) with no Forever line; Details! shipped a new build on 18 Sep that still declares no 1.60.x. The tracker's rows and dates stand.</td>
+            <td>C150–C153 (re-confirmed, no change)</td>
+          </tr>
+          <tr>
+            <td>Class-tuning feeds re-checked <span class="chip official">Official</span></td>
+            <td>Third check of the day: the “Class Tuning Incoming — September 22” post (US forum 2354340) is tagged patch 12.1.0 and covers modern WoW hero talents, Mythic+ and PvP tuning — not Forever. No Forever tuning changelist exists as of this pass.</td>
+            <td>C157, C159 (re-confirmed)</td>
+          </tr>
+          <tr>
+            <td>IGN Nordic interview — third fetch attempt <span class="chip press">Press</span></td>
+            <td>The page again returned HTTP 403, this time to a different environment's fetch tool (the platform fetcher, not the GitHub runner and not the previous session's tool). I-14 stays open; three independent retrieval attempts have now failed the same way, which strengthens the case that the block is on the article itself rather than any one client. The two indexed-text cross-checks remain the basis for the quotations.</td>
+            <td>I-14 (still open)</td>
+          </tr>
+          <tr>
+            <td>Unofficial beta-tracker sites re-checked <span class="chip community">Community</span></td>
+            <td>The flag entry was extended: the family has grown (wowdata.app, wowforevertalents.com among others) and now publishes specific beta-client numbers — a Darkspear Islands level 30–60 range, “Hyjal Crater”/“Mak'gora Arena” queues, a 15,000 Honor cap, PvP set piece counts — none corroborated by an established outlet, and one “Battle for Gilynes (rated)”-style queue string that contradicts the no-rated-PvP statement (C021). None of it is adopted; promotion requires a reputable datamine or a Blizzard statement.</td>
+            <td>C184 (new, flagged)</td>
+          </tr>
+          <tr>
+            <td>Source-watch baseline state computed from <code>tools/source-state.json</code> <span class="chip ours">Ours</span></td>
+            <td>The baseline (established 19 September 00:20 UTC, before the last merge) fingerprints 74 of the 90 sources now registered plus 13 additional-page fingerprints; the 16 sources registered later are not yet fingerprinted and will be picked up by the scheduled weekly run (Monday 21 September 07:00 UTC) or a manual dispatch. The Sportskeeda interview (sk-interview) remains at one strike. The “86 of 87” figures quoted earlier on this page were true at baseline time and are now restated precisely below.</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section id="passes" aria-labelledby="h-passes">
@@ -363,6 +435,11 @@
             <td>Pass 1: fetch and read end-to-end all 7 Icy Veins Classic race guides and remaining Wowhead guides; register 16 new sources; append claims C169–C176; enrich pvp.html, class-pvp.html, classes.html, gear.html, gold.html, roadmap.html. Pass 2: adversarial check against balance-tuning claims (confirmed no Forever changelist exists, modern WoW tuning rejected), battleground mechanics checked against developer statements, IGN 403 status preserved, and zero hallucinations. Pass 3: full requirements re-check with all six test suites passing with zero errors.</td>
             <td><span class="chip ok">Pass</span> 90 sources registered, 140 claims ledgered; battleground race/class synergy matrix published; Druid/Paladin mechanics detailed; all checker suites pass cleanly.</td>
           </tr>
+          <tr>
+            <td><strong>Live-web pass — same date, third session</strong></td>
+            <td>Pass 1: read the day's new material end to end at its own URLs (Tom Ellis explanation, phasing notification, bag quests, open-world roundup, Icy Veins tier-list directory, changelog, three spec guides); re-check the four add-on listings and the tuning feeds; attempt IGN Nordic a third time; extend the unofficial-tracker flag. Pass 2: line-by-line re-read of every added statement against its fetched source, plus a persistence audit — which caught four edits that had reported success but were not in the files (a beta-log row, a gold-page note, a classes-page note, a food-row rewrite, and the C091 corroboration note) and a sed-mangled README sentence; all re-applied and re-verified by exact-string checks. Pass 3: requirements re-check on the new totals, with the six offline checkers and the watcher self-test.</td>
+            <td><span class="chip ok">Pass</span> 96 sources, 149 claims; C177–C185 added; I-19 recorded; baseline coverage restated exactly (74 of 96); five silently-failed edits caught and fixed by the persistence audit — the reason every later edit is verified by grep, not by the editor's success message.</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -379,10 +456,11 @@
       <div class="card">
         <h3>Why the runner had to create it, not this environment</h3>
         <ul class="clean">
-          <li><strong>The shell has no outbound network.</strong> Re-confirmed this session: requests to the registered
-            hosts fail at the TLS handshake, so <code>node tools/check-sources.mjs --dry-run</code> reports every URL
-            unreachable. That is an environment limitation, not evidence that the pages are dead — the same pages were read
-            through the research tools during this session.</li>
+          <li><strong>The shell has no direct outbound network.</strong> Re-confirmed in the live-web pass: requests to the
+            registered hosts still fail at the TLS handshake from the shell, so <code>node tools/check-sources.mjs
+            --dry-run</code> reports every URL unreachable and cannot produce the baseline. That is an environment
+            limitation, not evidence that the pages are dead — this pass read the same pages successfully through the
+            platform's research tools, which is how every source below was verified.</li>
           <li><strong>This session's GitHub token cannot dispatch workflows.</strong> <code>gh workflow run</code> returns
             HTTP 403 “Resource not accessible by integration”, so the baseline could not be triggered from here either. The
             fix was to stop depending on a dispatch: the workflow itself now runs when a push to <code>main</code> happens and
@@ -413,15 +491,21 @@
       reports zero reachable sources, the job fails on purpose: that means the runner itself is blocked and the citations
       need another route, not that the whole citation set is dead.</p>
       <p><strong>Status on this snapshot:</strong> <span class="chip ok">Established</span> — the first run completed on
-      19 September 2026 at 00:20 UTC and committed <code>tools/source-state.json</code> with <strong>86 of 87 URLs
-      fingerprinted</strong>. The one source it could not reach was the Sportskeeda interview (HTTP 403); under the two-strike
-      rule that is recorded as a first failure, not as a dead page, and the next scheduled run — Monday 21 September 2026,
-      07:00 UTC — decides whether it becomes a real regression (Wowhead's summary of the same interview
-      <code>wh-sportskeeda</code> is the Wowhead URL and is fine). Re-checked in the later session: the committed
-      <code>tools/source-state.json</code> still shows 86 hashed entries and one first failure, and no second run had
-      happened yet. Among the sources
-      fingerprinted on the first pass were the Blizzard newsroom and forum pages, Wowhead, Icy Veins, Kotaku, Skill Capped,
-      Wago and CurseForge — the pages the ledger actually cites.</p>
+      19 September 2026 at 00:20 UTC and committed <code>tools/source-state.json</code> with <strong>86 of the 87 URLs
+      then registered fingerprinted</strong> (74 source pages plus 13 additional pages). The one source it could not reach
+      was the Sportskeeda interview (HTTP 403); under the two-strike rule that is recorded as a first failure, not as a
+      dead page, and the next scheduled run — Monday 21 September 2026, 07:00 UTC — decides whether it becomes a real
+      regression (Wowhead's summary of the same interview <code>wh-sportskeeda</code> is the Wowhead URL and is fine).</p>
+      <p><strong>Coverage against today's registry (computed this pass from the state file):</strong> the registry now
+      holds <strong>96</strong> sources, of which the baseline fingerprints <strong>74</strong>. The 22 sources
+      registered after the baseline ran — the PCGamesN article, the two flag entries, the Wowhead Skyborne and Camping
+      guides, the seven Icy Veins race guides, the Wowhead overview/zones/mounts/pets guides from the
+      guide-verification pass, and this pass's six new sources — plus three new additional pages (the Combat/Subtlety
+      Rogue and Enhancement Shaman spec guides) are not yet fingerprinted. The next weekly run or a manual dispatch
+      records them as newly fingerprinted and files no issue for that. All 13 additional-page fingerprints in the state
+      file belong to currently registered sources. Among the sources fingerprinted on the first pass were the Blizzard
+      newsroom and forum pages, Wowhead, Icy Veins, Kotaku, Skill Capped, Wago and CurseForge — the pages the ledger
+      actually cites.</p>
     </div>
   </section>
 
@@ -601,23 +685,23 @@
         <tbody>
           <tr><td>1</td>
             <td>Confirm the second source-watch run (the first Monday after baseline) diffs against the existing baseline — the weekly schedule does this on its own; a maintainer can also dispatch <code>source-watch.yml</code> to see it sooner.</td>
-            <td>The baseline now exists (86 of 87 URLs). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. The newly registered PCGamesN page will be baselined on that run. <strong>Status this session:</strong> the baseline artifact is confirmed committed in the repository (86 of 87 URLs fingerprinted on 19 September); the second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here.</td>
+            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed (86 hashed entries, 74 of today's 96 sources); the second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will also fingerprint the 22 sources and 3 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them.</td>
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
           <tr><td>2</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
-            <td>Two days into the beta there was none (C159, confirmed twice on 19 September), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered.</td>
+            <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist.</td>
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
           <tr><td>3</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
-            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> the direct fetch was re-attempted through the research tool and again returned HTTP 403, so I-14 remains open; the limitation is recorded on the source and in this session's note (#session-3).</td>
+            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> a third fetch attempt, from a different environment's platform fetcher, again returned HTTP 403 — three independent clients have now been blocked the same way, which suggests the block is on the article itself. I-14 remains open; the limitation is recorded on the source and in this session's note (#session-5).</td>
             <td>If the article is edited or its text differs, the affected claims need their quotations tightened rather than re-argued.</td></tr>
           <tr><td>4</td>
             <td>Record the new battleground when it enters the beta: objective count, scoring, respawn rules, travel times — first-hand if possible, otherwise dated and attributed.</td>
-            <td>It is the only PvP content that can be observed before launch, and its rules decide what "good class" even means in it.</td>
+            <td>It is the only PvP content that can be observed before launch, and its rules decide what "good class" even means in it. <strong>Status this session:</strong> as of 19 September no established outlet reports Darkspear Islands as playable; the only “details” in circulation are unofficial beta-tracker reads (C184), which are flagged and not adopted.</td>
             <td>Without client access nothing can be observed; the log says so instead of borrowing someone else's experience.</td></tr>
           <tr><td>5</td>
             <td>Re-check the four add-on listings and add any release that declares 1.60.x; note on the tracker when a declaration is confirmed working on a live client.</td>
-            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. Both 19 September checks found the four listings unchanged.</td>
+            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status this session:</strong> all four listings re-checked from their own pages during the live-web pass (Auctionator 337, TSM v4.14.77, Questie v11.38.0, Details!'s 18 September build) — all unchanged; Auctionator remains the only Forever declaration. Next check on the next beta build.</td>
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
           <tr><td>6</td>
             <td>Read the remaining Wowhead Forever guides and the seven unread Icy Veins race guides, ledgering each fact.</td>
