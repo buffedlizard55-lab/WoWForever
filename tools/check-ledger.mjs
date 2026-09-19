@@ -8,7 +8,8 @@
  *   node tools/check-ledger.mjs --json     # machine-readable output
  *
  * Exits non-zero if an integrity problem is found (dangling source id, duplicate
- * id, bad status, malformed date, or evidence-class mismatch). Unused sources are
+ * id, bad status, malformed date, or evidence-class mismatch). Unused sources and
+ * under-classified claims (every source official, status lower) are
  * warnings: a registered source may be a page-level reading link before it is
  * needed by a claim. Staleness is reported but does not fail the run, because a
  * claim can be correct and old.
@@ -125,6 +126,22 @@ for (const c of claims) {
   // An "ours" claim is analysis; it must still point at the facts it reasons from.
   if (c.status === 'ours' && (!c.sources || !c.sources.length)) {
     errors.push(`claim ${c.id}: status "ours" still needs the verified facts it reasons from`);
+  }
+
+  // Under-classification is the mirror image of the errors above: a row whose
+  // every cited source is first-party but whose status is press/guide/datamine
+  // understates its own evidence (found by hand once, C031, 2026-09-19). It is a
+  // warning rather than an error because a claim may deliberately stay lower
+  // when it adds a figure the official page does not print — in that case the
+  // row's note should say so.
+  if (
+    citedTiers.length &&
+    citedTiers.every((tier) => tier === 'official') &&
+    ['press', 'guide', 'datamine', 'community', 'tooling'].includes(c.status)
+  ) {
+    warnings.push(
+      `claim ${c.id}: status "${c.status}" but every cited source is official — under-classified, or the note should explain what the official page does not say`
+    );
   }
 
   if (STALE_DAYS && DATE_RE.test(c.snapshot || '')) {
