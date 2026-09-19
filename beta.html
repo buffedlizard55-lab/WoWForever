@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Beta observation log | WoW Forever Hub</title>
-<meta name="description" content="The WoW Forever beta observation log: dated beta calendar, what is testable at level 20 and 30, the per-class observation status, the rules for upgrading a claim from reported to observed, and the two false positives to avoid.">
+<meta name="description" content="The WoW Forever beta observation log: dated beta calendar, what is testable at level 20 and 30, the per-class observation status, the rules for upgrading a claim from reported to observed, and the three false positives to avoid.">
 <meta name="theme-color" content="#0d1117">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%230d1117'/%3E%3Ctext%20x='32'%20y='42'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23d9a441'%20text-anchor='middle'%3EWF%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="article">
@@ -69,7 +69,7 @@
       <li><a href="#classes">Per-class observation status</a></li>
       <li><a href="#rule">The reported → observed rule</a></li>
       <li><a href="#balance">Why class claims are expected to move</a></li>
-      <li><a href="#traps">Two false positives to avoid</a></li>
+      <li><a href="#traps">Three false positives to avoid</a></li>
       <li><a href="#issues">Dated known-issues monitoring</a></li>
       <li><a href="#pvp">PvP items being watched</a></li>
     </ul>
@@ -79,7 +79,9 @@
     <h2 id="h-calendar">Dated beta calendar</h2>
     <p class="sub">
       Official rows come from Blizzard. Anything labelled as an expectation is a guide site's reading, kept separate so it
-      cannot acquire first-party authority by sitting in the same table (that mistake is irregularity I-15).
+      cannot acquire first-party authority by sitting in the same table (that mistake is irregularity I-15). Anything
+      labelled <span class="chip datamine">Datamine</span> is beta-client data: real records from a real build, still
+      subject to change before launch.
     </p>
     <div class="table-wrap">
       <table>
@@ -87,6 +89,7 @@
         <thead><tr><th scope="col">Date</th><th scope="col">What happens</th><th scope="col">Evidence</th></tr></thead>
         <tbody>
           <tr><td><strong>17 Sep 2026</strong></td><td>Beta opens after the live Q&amp;A; level cap 20</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard</a></span></td></tr>
+          <tr><td><strong>16–17 Sep 2026</strong> <span class="small">(client data, before and alongside the server opening)</span></td><td>The first beta build becomes datamineable and the first wave is published: mount models including the Forsaken Paladin Charger and the Skyborne Galestriders (C187), 14 new reputation names including the two Darkspear Islands PvP reputations (C186), and hundreds of set bonuses including the classic PvP rank sets (C188, C189). None of this is a first-hand observation — it is client data, and it may change.</td><td><span class="chip datamine">Datamine</span> <span class="srcs"><a class="src" href="https://www.icy-veins.com/wow-forever/news/wow-forever-just-revealed-its-first-wave-of-mounts-spoiler-warning/" rel="noopener">Icy Veins mounts</a><a class="src" href="https://www.wowhead.com/forever/news/new-forsaken-paladin-mounts-datamined-from-forever-beta-client-382940" rel="noopener">Wowhead Forsaken mounts</a><a class="src" href="https://www.wowhead.com/forever/news/new-reputation-names-datamined-for-wow-forever-382945" rel="noopener">Wowhead reputations</a><a class="src" href="https://www.wowhead.com/forever/news/new-and-updated-gear-set-bonuses-in-wow-forever-382958" rel="noopener">Wowhead set bonuses</a></span></td></tr>
           <tr><td><strong>18–19 Sep 2026</strong></td><td>Opening-day problems (login disconnects, loot lag, restarts) explained by Senior Game Producer Tom Ellis: Battle.net metering on a two-connection regional realm, lagging database statistics, and empty maps not shutting down. Fixed in sequence; “incredibly smooth” afterwards (C177).</td><td><span class="chip press">Press</span> <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/behind-the-scenes-of-the-wow-forever-beta-issues-tom-ellis-explains-on-x-382993" rel="noopener">Wowhead</a></span></td></tr>
           <tr><td><strong>during testing</strong></td><td>Further zones, dungeons and <em>the new battleground</em> open; the level cap rises to 30; a free “Server Slam” window follows later</td><td><span class="chip official">Official</span> <span class="srcs"><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard</a></span></td></tr>
           <tr><td>“after two weeks” <span class="small">(≈1 Oct 2026, not confirmed)</span></td><td>Wowhead expects the second wave: level 30, new class abilities and talents, the dungeon Excavation Site, more profession items. Its first wave lists level 20, new class abilities and talents, new profession items, Hall of Thanes and Ruins of Lordaeron, starter zones and the Legacy system.</td><td><span class="chip guide">Guide expectation</span> <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/guide/beta-content-unlock-overview" rel="noopener">Wowhead</a></span></td></tr>
@@ -110,7 +113,9 @@
       The per-class rows on <a href="class-pvp.html">Class PvP</a> currently rest on Wowhead's talent calculator
       (<span class="chip datamine">datamine</span>, built from BlizzCon demo material rather than the beta client) and on
       Icy Veins' beta-scope class guides (<span class="chip guide">guide</span>, level-20 content). This table tracks what
-      each class would need before its row can be upgraded.
+      each class would need before its row can be upgraded. The 16–17 September datamine wave added client records —
+      mounts, reputations, set bonuses — without a single first-hand observation, so no row moves: datamined is still
+      <em>reported</em> under the rule below.
     </p>
     <div class="table-wrap">
       <table class="compact">
@@ -187,10 +192,10 @@
   </section>
 
   <section id="traps" aria-labelledby="h-traps">
-    <h2 id="h-traps">Two false positives to avoid</h2>
+    <h2 id="h-traps">Three false positives to avoid</h2>
     <div class="table-wrap">
       <table>
-        <caption>Both of these have been seen in circulation during the first beta days; both would put a wrong fact on this site.</caption>
+        <caption>All three of these have been seen in circulation during the first beta days; each would put a wrong fact on this site.</caption>
         <thead><tr><th scope="col">Trap</th><th scope="col">Why it looks right</th><th scope="col">How to tell it is wrong</th></tr></thead>
         <tbody>
           <tr>
@@ -204,6 +209,12 @@
             <td>It is the most complete structural class view available, and it shows all nine classes with three 51-point trees.</td>
             <td>Wowhead states the data came from BlizzCon demo testing and streams and will be rebuilt from the beta client. It is BlizzCon material, not a beta extraction (C138).
               <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/talent-calc" rel="noopener">Talent calculator</a></span></td>
+          </tr>
+          <tr>
+            <td><strong>Season of Discovery effects inside Forever datamines</strong></td>
+            <td>Set-bonus datamining looks clean and complete — hundreds of named bonuses with consistent patch-1.60.0 labels.</td>
+            <td>Wowhead's own set-bonus article warns that “some effects from Season of Discovery have also appeared in our datamining”, filtered out only “to the best of our ability” — the same shared-client-lineage trap as the cross-version item pages (I-8). Any set bonus read outside the established outlets' filtered lists may be SoD contamination, not Forever data (C188, I-20).
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/new-and-updated-gear-set-bonuses-in-wow-forever-382958" rel="noopener">Wowhead set-bonus datamine</a></span></td>
           </tr>
         </tbody>
       </table>
@@ -248,6 +259,18 @@
             <td>Published thresholds or measured battleground Honor gains; until then <a href="pvp.html#unknown">PvP's unknown list</a> stays as it is.</td>
           </tr>
           <tr>
+            <td><strong>Battleground reputations</strong> (Darkspear Raiders, Theramore Expeditionary Force)</td>
+            <td>Both faction names are in the 16 September reputation datamine, each described as battling the other for the Darkspear Islands (C186, may change).
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/new-reputation-names-datamined-for-wow-forever-382945" rel="noopener">Wowhead datamine</a></span></td>
+            <td>Any reputation reward, turn-in, quartermaster or vendor inventory — nothing of the kind is in the data, and Wowhead warns the names themselves may not all reach launch.</td>
+          </tr>
+          <tr>
+            <td><strong>PvP rank gear sets</strong> (Champion's, Lieutenant Commander's, Field Marshal's, Warlord's)</td>
+            <td>The classic rank-set names are in the beta client with changed set bonuses — 2-piece Parry replaced by Attack Power or Agility, 6-piece Stamina raised, spell sets gaining a hybrid healing/spell-damage bonus, some sets renamed (C189, may change).
+              <span class="srcs"><a class="src" href="https://www.wowhead.com/forever/news/new-and-updated-gear-set-bonuses-in-wow-forever-382958" rel="noopener">Wowhead datamine</a></span></td>
+            <td>How any set is actually obtained — vendor, Honor cost, rank requirement — plus final bonuses when the client stabilises. Until then this is structure, not a gearing plan.</td>
+          </tr>
+          <tr>
             <td><strong>Original battlegrounds</strong> (Warsong Gulch, Arathi Basin, Alterac Valley)</td>
             <td>A developer's spoken answer, not a roster: Tim Jones told Kotaku the new battlegrounds “supplement the original Vanilla battlegrounds that people will be able to jump into” (C161). No Blizzard page names them for launch (C029).
               <span class="srcs"><a class="src" href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a></span></td>
@@ -280,7 +303,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-19</span> · claims C003, C021, C029, C138, C143, C148, C151, C152, C154, C157, C159, C161, C165, C177, C178, C184 · <a href="sources.html#claims">full ledger</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · claims C003, C021, C029, C138, C143, C148, C151, C152, C154, C157, C159, C161, C165, C177, C178, C184, C186–C189 · <a href="sources.html#claims">full ledger</a></p>
   </div>
 </footer>
 
