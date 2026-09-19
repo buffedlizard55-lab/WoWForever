@@ -71,6 +71,7 @@
     <ul>
       <li><a href="#done">Delivered so far</a></li>
       <li><a href="#session">This session, line by line</a></li>
+      <li><a href="#session-3">This session, 19 September agent pass</a></li>
       <li><a href="#passes">Three-pass verification record</a></li>
       <li><a href="#baseline">The source-watch baseline</a></li>
       <li><a href="#blocked">Blocked work (do not fake it)</a></li>
@@ -91,7 +92,7 @@
     </p>
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">13</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">72</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">130</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">74</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">132</span> claims) with evidence classes and snapshot dates.</li>
       <li>Public irregularity log (I-1 to I-18) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, and now three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
@@ -221,6 +222,53 @@
       row (C031). The fact behind each was sound; the description of the evidence was not, which is the failure this project
       is most exposed to. The new ledger warning catches the third pattern mechanically; the first two can only be caught by
       re-reading the source next to the claim.</p>
+    </div>
+
+    <h3 id="session-3">This session — 19 September verification-agent pass</h3>
+    <p class="sub">
+      A verification pass on the same snapshot date, carried out with the research tools because the authoring shell has
+      no outbound network. It read the highest-value unread near-primary material, re-checked the three launch questions
+      against the live web, re-attempted the IGN Nordic browser view, and re-examined the five project decisions. Everything
+      below was read on 19 September 2026.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>This session, line by line: what was read and what changed. Anything not read end to end says so.</caption>
+        <thead><tr><th scope="col">Read</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/skyborne-race-overview" rel="noopener">Wowhead: Skyborne Race Overview</a> <span class="chip guide">Guide</span></td>
+            <td>Confirms Skyborne can be played as Alliance or Horde and lists the six playable classes — Warrior, Hunter, Rogue, Druid (both factions), Shaman (Horde only) and Mage (Alliance only); Priest, Paladin and Warlock are excluded. Crystallises a fact the ledger previously only held as a source <code>supports</code> snippet (wh-racials).</td>
+            <td>C167 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/guide/camping-overview-unlock-rewards" rel="noopener">Wowhead: Camping Overview</a> <span class="chip guide">Guide</span></td>
+            <td>The per-profession three-tier campsite perk table (Blacksmithing +Strength, Enchanting +Armor/All Stats/Resistances, Skinning +2% Crit, Fishing +8% stats, Herbalism +Intellect, Mining +melee Attack Power, Tailoring +Spirit, Leatherworking Rested XP) plus the level-5 "The Great Outdoors" unlock quest. New detail; C085, C086 and C087 already covered the campsite workspaces and the non-stacking rule.</td>
+            <td>C168 (new)</td>
+          </tr>
+          <tr>
+            <td>Re-verified via web search: the three launch questions — <a href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">What's Next recap</a>, <a href="https://www.pcgamesn.com/world-of-warcraft/forever-blizzcon-2026-wow-classic-plus" rel="noopener">PCGamesN</a>, <a href="https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005" rel="noopener">Kotaku</a> <span class="chip press">Press</span> <span class="chip official">Official</span></td>
+            <td>No new written Blizzard page promotes any of the three. C160 (level cap "indefinitely"), C161 (classic battleground roster) and C024 (ruleset transfers) remain at their current evidence class. Aggregators continue to claim all three "confirmed"; the ledger holds at press until a first-party page prints them.</td>
+            <td>C160, C161, C024 (re-checked)</td>
+          </tr>
+          <tr>
+            <td>IGN Nordic interview — direct fetch re-attempted <span class="chip press">Press</span></td>
+            <td>The page returned HTTP 403 to the research tool as well as to the GitHub runner, so a human browser view is still the only way to close I-14. The limitation is recorded on both the source and in this session's note; the two earlier indexed-text cross-checks still stand as the basis for the quotations.</td>
+            <td>I-14 (still open)</td>
+          </tr>
+          <tr>
+            <td>Re-examined the five project decisions (C122) against this session's findings <span class="chip ours">Ours</span></td>
+            <td>All five hold: verification-first coverage (the three launch questions stayed press), the scheduled URL-watch Action (baseline confirmed 86 of 87; the second run on Monday 21 September decides the Sportskeeda 403), wait-for-a-season tier-list timing (no Forever tuning changelist exists), manual watchlist-only market logging (still 0 rows), and PvP-only class profiles (C167 supports the new-race class question).</td>
+            <td>C122 (re-affirmed)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>Scope note.</strong> This pass deliberately adds only what the two guides published in verifiable, sourced
+      detail. The other 12 of 17 Wowhead guides and the seven Icy Veins race guides (Gnome, Human, Night Elf, Orc, Troll,
+      Undead, Skyborne) are left on the queue rather than summarised from a search snippet — the project's rule is that a page is either
+      read or recorded as unread, never filled in from a secondary summary (see Method → refuse).</p>
     </div>
   </section>
 
@@ -493,7 +541,7 @@
         <tbody>
           <tr><td>1</td>
             <td>Confirm the second source-watch run (the first Monday after baseline) diffs against the existing baseline — the weekly schedule does this on its own; a maintainer can also dispatch <code>source-watch.yml</code> to see it sooner.</td>
-            <td>The baseline now exists (86 of 87 URLs). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. The newly registered PCGamesN page will be baselined on that run.</td>
+            <td>The baseline now exists (86 of 87 URLs). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. The newly registered PCGamesN page will be baselined on that run. <strong>Status this session:</strong> the baseline artifact is confirmed committed in the repository (86 of 87 URLs fingerprinted on 19 September); the second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here.</td>
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
           <tr><td>2</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
@@ -501,7 +549,7 @@
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
           <tr><td>3</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
-            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14.</td>
+            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> the direct fetch was re-attempted through the research tool and again returned HTTP 403, so I-14 remains open; the limitation is recorded on the source and in this session's note (#session-3).</td>
             <td>If the article is edited or its text differs, the affected claims need their quotations tightened rather than re-argued.</td></tr>
           <tr><td>4</td>
             <td>Record the new battleground when it enters the beta: objective count, scoring, respawn rules, travel times — first-hand if possible, otherwise dated and attributed.</td>
@@ -513,7 +561,7 @@
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
           <tr><td>6</td>
             <td>Read the remaining Wowhead Forever guides (14 of 17 still unread; the Camping and Skyborne guides sit closest to the gold and racial questions) and the seven unread Icy Veins race guides, ledgering each fact.</td>
-            <td>With the Blizzard recaps and the pre-purchase article now read line by line, this is the largest remaining pool of unread near-primary material, and several guides sit close to the gold and gear questions.</td>
+            <td>With the Blizzard recaps and the pre-purchase article now read line by line, this is the largest remaining pool of unread near-primary material, and several guides sit close to the gold and gear questions. <strong>Status this session:</strong> the Skyborne Race Overview and Camping Overview were read and ledgered (C167, C168); 12 of the 17 Wowhead guides and the seven Icy Veins race guides stay on the queue.</td>
             <td>Guide pages are revised in place; snapshot dates and the watcher are the mitigation.</td></tr>
           <tr><td>7</td>
             <td>Human quotation pass over the two new pages, one page at a time, checking each quotation word for word against its source.</td>
@@ -521,7 +569,7 @@
             <td>Some sources cannot be fetched automatically (IGN returns 403), so this pass may need a browser.</td></tr>
           <tr><td>8</td>
             <td>Watch for Blizzard to put three things in writing that the site currently holds at press: the level cap staying at 60 (C160), the original battleground roster (C161), and a ruleset-transfer policy beyond the Hardcore path (C024). Promote each row to official only with the link.</td>
-            <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does.</td>
+            <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does. <strong>Status this session:</strong> re-verified on 19 September via web search — no new written Blizzard page promotes C160, C161 or C024; all three stay at their current class, and the aggregator "confirmed" claims are explicitly not adopted.</td>
             <td>Aggregators will state all three as confirmed long before Blizzard does; the ledger row, not the aggregator, decides.</td></tr>
         </tbody>
       </table>

@@ -1109,6 +1109,34 @@ window.WOWF_SOURCES = [
       "Some pages state 'not published yet' honestly; others describe an 'arena strategy' for a game with no announced arenas",
       "FLAGGED: not used as sources. Where they point at a primary source we follow the primary source instead"
     ]
+  },
+  {
+    id: "wh-skyborne",
+    title: "Skyborne Race Overview: Racials and Customization — WoW: Forever",
+    publisher: "Wowhead (guide by Nodge)",
+    date: "2026-09-17",
+    url: "https://www.wowhead.com/forever/guide/skyborne-race-overview",
+    tier: "guide",
+    supports: [
+      "Skyborne can be played as Alliance or Horde",
+      "Six playable classes: Warrior, Hunter, Rogue, Druid (both factions), Shaman (Horde only), Mage (Alliance only)",
+      "Skyborne racials: Walk on Air (10s glide), Wind Blessed (+1% haste spell/melee/ranged), Elemental Insight (+5% damage to Elementals), and a faction-specific active — Skysight (Horde, +10% move/mounted speed) or Read Ley Line (Alliance, +100% health/mana regen)",
+      "Skyborne racial mounts are Galestriders (level 40 and level 60 variants)"
+    ]
+  },
+  {
+    id: "wh-camping",
+    title: "Camping Overview in Forever — Buffs, Vendors and Rewards",
+    publisher: "Wowhead (guide by Serenal)",
+    date: "2026-09-18",
+    url: "https://www.wowhead.com/forever/guide/camping-overview-unlock-rewards",
+    tier: "guide",
+    supports: [
+      "Camping is a new crafting system, not a profession; it sits alongside professions",
+      "Around level 5 a quest 'The Great Outdoors' starts the system; training Cooking lets you craft a Basic Campfire",
+      "Each profession contributes a three-tier campsite object — for example Blacksmithing's Sharpening Wheel (+Strength), Enchanting's Enchanted Lute (+Armor, All Stats, Resistances), Skinning's Camp Chair (+2% Crit), Fishing's bowl (+8% stats), Herbalism's Incense Candle (+Intellect), Mining's Lodestone (+melee Attack Power), Tailoring's Faction Banner (+Spirit), Leatherworking's Camp Tent (Rested XP)",
+      "Camp tiers unlock with camp level"
+    ]
   }
 ];
 
