@@ -40,7 +40,7 @@ window.WOWF_SOURCES = [
     firstParty: true,
     supports: [
       "Four launch pillars: approachable/familiar, world as main character, journey before destination, protect social play",
-      "No flying mounts, no level scaling, level cap stays 60 'indefinitely'",
+      "No flying mounts, no level scaling. Re-read line by line on 2026-09-19: the written recap frames everything inside \"the level 1–60 journey\" and calls Barrow Deeps a \"maximum-level\" raid, but it does not print a level-cap figure and does not contain the word 'indefinitely' — that word is Holly Longdale's on-stage statement as reported by PCGamesN (pcgn-announce), and was wrongly attributed to this page until 2026-09-19 (irregularity I-17)",
       "Four new zones named: Mount Hyjal, Shen'dralas, Riverglades, Zephras Isle",
       "1,000+ new quests across the level 1–60 journey",
       "Nine new dungeons named",
@@ -74,7 +74,11 @@ window.WOWF_SOURCES = [
       "Six new race/class combos: Gnome Priest, Human Hunter, Dwarf Shaman, Orc Mage, Troll Warlock, Undead Paladin",
       "Talent trees: same structure and row count as Classic; milestones at 11, 16, 21, 31; Divine Spirit, Blessing of Kings and Improved Mark of the Wild are baseline",
       "Paladin changelist: Holy Strike at level 6 (12s cooldown), seals no longer consumed by Judgement, Seal of Fury taunt for Protection, Consecration baseline at 20, named Holy/Protection/Retribution talents. Paladins still lack an interrupt and cannot slow like other classes",
-      "Combat pacing: an ordinary solo creature takes roughly 10–15 seconds; crowd control (Polymorph, Banish, Fear, Root) still matters"
+      "Combat pacing: an ordinary solo creature takes roughly 10–15 seconds; crowd control (Polymorph, Banish, Fear, Root) still matters",
+      "Re-read line by line on 2026-09-19. Mount cost, first-party: Forever is \"adopting the Burning Crusade-style mount-cost approach, shifting the up-front mount cost into training and granting a mount when players learn the riding skill\" — the structural half of C127; the 100 / 1,000 gold figures remain interview statements",
+      "Rulesets, first-party detail: \"if a Hardcore character dies, that character can transfer to another ruleset, including PvP\"; Legacy Reward Track rewards are cosmetic or prestige \"without providing a competitive gameplay advantage\"",
+      "Itemisation examples, first-party: the Worgenbane Talisman as a situational trinket; effects tied to environments such as Woodlands, Mountains or Deserts and to creature types (X'caliboar named as an example)",
+      "Paladin detail beyond the summary line: Holy — Voice of Truth grants temporary immunity to Silence and Interrupts, Reverence regenerates Mana from Spirit while casting, Infusion of Light, Holy Shock on a 10-second cooldown, Consecrated Ground, Light's Vigil; Protection — Improved Seal of Fury, Shield Specialization, Swift Judgment, Templar's Bulwark, redesigned Reckoning, Iron Creed; Retribution — Vindication, Sacred Arbiter, Champion of the Light, Instrument of the Law, Twist of Light (seal twisting without a swing-timer add-on)"
     ]
   },
   {
@@ -103,7 +107,11 @@ window.WOWF_SOURCES = [
     supports: [
       "Paid packs exist (Skyborne Heroic, Skyborne Epic, Warcraft Forever Collection)",
       "Links Forever to beta access for eligible bundles",
-      "Detail of this article was NOT read line-by-line — listed for completeness; the edition table on our site cites Wowhead's pre-order guide instead"
+      "Read line by line on 2026-09-19 (it had previously been listed without a full reading). Dated facts it adds: Early Name Reservation runs 27 October through 3 November 2026 PST, is included with any upgrade purchase, allows up to three characters to be created and customised, and names are first-come, first-served and not guaranteed",
+      "Invite-A-Friend Launch Codes let eligible invitees play Forever without a subscription or Game Time during launch week, 4 through 11 November 2026 PST; codes are emailed from 20 October 2026 PST; Heroic includes one code, Epic and the Collection three; the codes do not include beta access",
+      "The Skyborne Epic Pack and the Warcraft Forever Collection add 30 days of Game Time starting 4 November; the Collection is available through 11 January 2027",
+      "The Heroic Pack's Cerulean Prideclaw ground mount carries Blizzard's own note that \"players will need to purchase the riding skill in-game to access and use this mount\" — first-party corroboration that a shop mount does not skip riding training",
+      "Beta window stated as 17 September through 21 October 2026 PST; launch 4 November 2026 at 3:00 p.m. PST; Forever requires a subscription or Game Time"
     ]
   },
   {
@@ -196,7 +204,8 @@ window.WOWF_SOURCES = [
     tier: "press",
     supports: [
       "PvP: no Rated PvP; a new PvP track that resets each season/tier; Honor gains adjusted so parking in Alterac Valley is not the best play; a new battleground with a new reputation",
-      "Realmless rulesets: PvE, PvP, Roleplay, Hardcore; battlegrounds are shared across rulesets; no character transfer between rulesets",
+      "Realmless rulesets: PvE, PvP, Roleplay, Hardcore; battlegrounds are shared across rulesets. Exact liveblog wording on switching: \"Without a character transfer, you can't swap between rulesets\" — it says a swap needs a transfer, not that transfers do not exist (our earlier paraphrase 'no character transfer between rulesets' overstated it; corrected 2026-09-19, irregularity I-18)",
+      "A weekly podcast during the beta: \"every week for the next 6 weeks\", featuring Josh Greenfield and Josh Corbett from Countdown to Classic — a spoken channel where class-tuning statements may surface before any written changelist",
       "Oceanic players are hosted in Oceania but share the same US-wide auction house",
       "GDKP is not allowed; Blizzard will actively monitor the economy and be very punishing toward gold buyers",
       "Addons: modern client API, simplified boss encounters, unified API with Modern",
@@ -312,7 +321,10 @@ window.WOWF_SOURCES = [
       "Meeting Stones open a Looking-for-Group window but do not summon players; a Warlock is still needed to summon",
       "Addons restricted like retail: no computational addons that automate marking or communicating",
       "No one-button rotation",
-      "PvP has a new progression system built on Honor earned in battlegrounds and PvP-related content"
+      "PvP has a new progression system built on Honor earned in battlegrounds and PvP-related content",
+      "Re-read on 2026-09-19. Tim Jones, verbatim: \"We're excited for people to jump into new battlegrounds like the Darkspear Islands to supplement the original Vanilla battlegrounds that people will be able to jump into\" — a developer statement, in an interview, that the original battlegrounds remain; Blizzard's written recaps still do not name them",
+      "Tim Jones on the name: \"we have a level 60 cap. We are going to continue to build content horizontally for players\"",
+      "Mount wording, verbatim: \"we've readjusted the gold cost to not be on the mount itself, but on the training so that we're not giving someone free training for a mount when they hit level 40\""
     ]
   },
   {
@@ -399,7 +411,7 @@ window.WOWF_SOURCES = [
     id: "wago-tsm",
     title: "TradeSkillMaster — versions (addon distribution)",
     publisher: "Wago Addons",
-    date: "2026-09-13 (latest build listed), checked 2026-09-19",
+    date: "2026-09-13 (latest build listed), checked 2026-09-19 (twice, unchanged)",
     url: "https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable",
     tier: "tooling",
     supports: [
@@ -439,7 +451,21 @@ window.WOWF_SOURCES = [
     url: "https://www.polygon.com/world-of-warcraft-forever-announced-classic-plus-blizzcon-2026/",
     tier: "press",
     supports: [
-      "Independent confirmation of the announcement, launch date, and the headline content list (new zones, 1,000+ quests, Darkspear Islands battleground, nine dungeons, two raids, Skyborne)"
+      "Independent confirmation of the announcement, launch date, and the headline content list (new zones, 1,000+ quests, Darkspear Islands battleground, nine dungeons, two raids, Skyborne)",
+      "Re-checked 2026-09-19: the article itself now loads behind a reCAPTCHA wall for automated fetches; its indexed text still reads that Forever \"will maintain a level cap of 60 for the MMO variant's foreseeable future\" — Polygon's paraphrase, not a Blizzard quotation"
+    ]
+  },
+  {
+    id: "pcgn-announce",
+    title: "World of Warcraft Forever is the MMORPG's \"Classic Plus,\" and its beta is imminent",
+    publisher: "PCGamesN (Ken Allsop), reporting the BlizzCon 2026 opening ceremony",
+    date: "2026-09-12; read 2026-09-19",
+    url: "https://www.pcgamesn.com/world-of-warcraft/forever-blizzcon-2026-wow-classic-plus",
+    tier: "press",
+    supports: [
+      "The origin of the word 'indefinitely': \"Longdale says the level cap will stay at 60 'indefinitely'\" — Executive Producer Holly Longdale, on stage, as reported by PCGamesN. It is a reported spoken statement, not text on a Blizzard page",
+      "Longdale's framing of Forever as \"your new permanent home\", \"friendly, familiar, and new\", set \"essentially year one of vanilla WoW\" after Warcraft III Reforged: Forsaken Kingdom",
+      "Blizzard's stage list: \"over 1,000 new quests, new items and rewards, new professions content, new reputations, account-wide perks\", an SD/HD character-model toggle, Hardcore as an optional extra; launch Wednesday 4 November, beta Thursday 17 September"
     ]
   },
   {
@@ -946,7 +972,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-13 (published); read 2026-09-19",
     url: "https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview",
     tier: "press",
-    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page.",
+    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page. Second attempt, 2026-09-19 (later session): both the English and the Dutch URL again returned HTTP 403 to a direct fetch; the English page's search-engine-indexed text was re-read and matched every passage quoted on this site word for word, and confirmed the byline (Nick Nijland) and publication time (13 September 2026, 20:22 UTC). That is a second independent retrieval path, not a browser view, so the limitation stays recorded.",
     also: [
       "https://nl.ign.com/world-of-warcraft-forever/167066/world-of-warcraft-forever-moet-echt-voor-altijd-zijn-interview"
     ],
@@ -1010,7 +1036,7 @@ window.WOWF_SOURCES = [
     id: "wago-auctionator",
     title: "Auctionator — release list (stable channel)",
     publisher: "Wago Addons (release listing maintained by the Auctionator project)",
-    date: "checked 2026-09-19; latest release 337 published 2026-09-17",
+    date: "checked 2026-09-19 (twice, unchanged); latest release 337 published 2026-09-17",
     url: "https://addons.wago.io/addons/auctionator/versions?stability=stable",
     tier: "tooling",
     note: "Evidence about a piece of software, not about the game: the listing shows which game versions a build declares. Recorded because it is the first auction-house tool this project has verified as Forever-capable, which is a gold-making fact of the tooling kind.",
@@ -1023,7 +1049,7 @@ window.WOWF_SOURCES = [
     id: "wago-questie",
     title: "Questie — release list (stable channel)",
     publisher: "Wago Addons (release listing maintained by the Questie project)",
-    date: "checked 2026-09-19; latest release v11.38.0 published 2026-09-15",
+    date: "checked 2026-09-19 (twice, unchanged); latest release v11.38.0 published 2026-09-15",
     url: "https://addons.wago.io/addons/questie/versions?stability=stable",
     tier: "tooling",
     supports: [
@@ -1035,7 +1061,7 @@ window.WOWF_SOURCES = [
     id: "cf-details",
     title: "Details! Damage Meter — file list",
     publisher: "CurseForge (release listing maintained by the Details! project)",
-    date: "checked 2026-09-19; newest file listed 2026-09-18",
+    date: "checked 2026-09-19 (twice, unchanged); newest file listed 2026-09-18",
     url: "https://www.curseforge.com/wow/addons/details/files",
     tier: "tooling",
     supports: [
