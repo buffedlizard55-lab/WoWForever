@@ -972,7 +972,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-13 (published); read 2026-09-19",
     url: "https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview",
     tier: "press",
-    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page. Second attempt, 2026-09-19 (later session): both the English and the Dutch URL again returned HTTP 403 to a direct fetch; the English page's search-engine-indexed text was re-read and matched every passage quoted on this site word for word, and confirmed the byline (Nick Nijland) and publication time (13 September 2026, 20:22 UTC). That is a second independent retrieval path, not a browser view, so the limitation stays recorded.",
+    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page. Second attempt, 2026-09-19 (later session): both the English and the Dutch URL again returned HTTP 403 to a direct fetch; the English page's search-engine-indexed text was re-read and matched every passage quoted on this site word for word, and confirmed the byline (Nick Nijland) and publication time (13 September 2026, 20:22 UTC). That is a second independent retrieval path, not a browser view, so the limitation stays recorded. Fourth attempt, 2026-09-19 (queue-closing pass): both the English URL and the Dutch mirror (nl.ign.com) again returned HTTP 403 to a fourth independent client (this environment's platform fetcher); four separate retrieval attempts have now been blocked identically, confirming the block is on the article itself rather than any one client. A human browser view remains the only step that can close I-14.",
     also: [
       "https://nl.ign.com/world-of-warcraft-forever/167066/world-of-warcraft-forever-moet-echt-voor-altijd-zijn-interview"
     ],
@@ -1448,6 +1448,69 @@ window.WOWF_SOURCES = [
       "Icy Veins created a Forever tier-list directory on 16 September 2026; as of 19 September every list on it is marked COMING SOON, including the DPS and Healer PvP tier lists and all three raiding lists (DPS, Tank, Healer)",
       "The page carries Icy Veins' own disclaimer that its tier lists are not final and differences in opinion may be had",
       "Used as dated evidence that no reputable guide site has published a Forever PvP class ranking yet"
+    ]
+  },
+  {
+    id: "wh-forsaken-mounts",
+    title: "New Forsaken Paladin Mounts Datamined from Forever Beta Client",
+    publisher: "Wowhead (datamine) — Jezartroz",
+    date: "2026-09-16 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/forever/news/new-forsaken-paladin-mounts-datamined-from-forever-beta-client-382940",
+    tier: "datamine",
+    note: "Read 2026-09-19. A short datamine post: the substance is the pair of datamined mount-model screenshots plus the note that the Forever beta client data had become available for datamining. Comment timestamps place publication on 16 September 2026.",
+    supports: [
+      "The WoW: Forever beta client data became available for datamining, and the first Forsaken Paladin mount models were found in it",
+      "Screenshots of the Forsaken Paladin mounts (an armored skeletal charger in the Paladin style) published under a spoiler warning"
+    ]
+  },
+  {
+    id: "iv-mounts-datamine",
+    title: "WoW Forever Just Revealed Its First Wave of Mounts (Spoiler Warning)",
+    publisher: "Icy Veins (datamine) — Neryssa",
+    date: "2026-09-16 (posted); read 2026-09-19",
+    url: "https://www.icy-veins.com/wow-forever/news/wow-forever-just-revealed-its-first-wave-of-mounts-spoiler-warning/",
+    tier: "datamine",
+    note: "Read end to end 2026-09-19. Independently corroborates the Wowhead mounts datamine from the same day and adds the speed-tier detail for the Skyborne racial mounts. Names and availability are beta data and may change.",
+    supports: [
+      "Forsaken Charger is the racial mount for Undead Paladins, one of the first new model iterations in the client",
+      "Skyborne racial mounts are the Galestriders: unarmored 60% speed versions unlocked at level 40, armored 100% versions at level 60",
+      "Retail-later recolors present in the client: Venomhide Ravasaur (Cataclysm), Striped Dawnsaber, Ochre Skeletal Warhorse, White Kodo and Black Skeletal Horse (Wrath of the Lich King)",
+      "Models that existed in the files but were never made obtainable: Golden Sabercat, Dark Skeletal Horse, Lavender Kodo; plus the new Pack Kodo",
+      "Cerulean Prideclaw confirmed as the pre-order edition mount and Spectral Bear as a Legacy system reward"
+    ]
+  },
+  {
+    id: "wh-reputations",
+    title: "New Reputation Names Datamined for WoW: Forever",
+    publisher: "Wowhead (datamine) — Jezartroz",
+    date: "2026-09-16 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/forever/news/new-reputation-names-datamined-for-wow-forever-382945",
+    tier: "datamine",
+    note: "Read end to end 2026-09-19, including every faction description. Three names appear without a NEW flag and are treated here as returning records, not new factions.",
+    supports: [
+      "14 new faction records in the beta client: Cenarion Scouts, Kirin Tor, Barkskin Burrow, Nightclaw Druids, Guardians of Hyjal, Windshapers, High Order, Bolder'ok Clan, Earthen Ring, Darkspear Raiders, Theramore Expeditionary Force, The Watchers, Brotherhood of the Horse and Powderfuse",
+      "The two battleground reputations describe each other: the Darkspear Raiders battle the Theramore Expeditionary Force for the Darkspear Islands, and vice versa",
+      "Guardians of Hyjal is a Cenarion Circle splinter charged with Mount Hyjal's protection — the same faction the Season 1 tier-set guide names as the gate for equipping a second crafted tier piece",
+      "Windshapers, High Order and Powderfuse corroborate names already in Blizzard's Found Photos recap (Windshapers, High Order, Powderfuse Port)",
+      "Three names appear without a NEW flag: Timbermaw Hold, Ravasaur Trainers, Shen'dralar",
+      "Wowhead's own caveat: 'all datamined information may change before actual launch. None of these names are final until we see them in the released client, and not all reputations may be present when we finally enter the game'"
+    ]
+  },
+  {
+    id: "wh-setbonuses",
+    title: "New and Updated Gear Set Bonuses in WoW: Forever",
+    publisher: "Wowhead (datamine) — Archimtiros",
+    date: "2026-09-16/17 (posted); read 2026-09-19",
+    url: "https://www.wowhead.com/forever/news/new-and-updated-gear-set-bonuses-in-wow-forever-382958",
+    tier: "datamine",
+    note: "Read 2026-09-19 across the full article (General Sets, Dungeon Sets, Raid Tier Sets, New Sets, PvP Sets). Wowhead's own caveats are carried verbatim in the claims that cite it. Set bonuses live in spell data, not per-item drop data, so this datamine does not contradict the statement that item stats stay hidden until a drop occurs (see irregularity I-20).",
+    supports: [
+      "Hundreds of gear set bonuses datamined from the beta client, covering reworked existing sets and brand-new raid tier",
+      "General/crafted sets reworked with effects replacing flat stats: The Gladiator gains fear resist, attack power, a Roar of the Crowd effect and set-wide crit; The Postmaster, Cadaverous Garb, Necropile Raiment, Bloodmail Regalia and Deathbone Guardian all carry NEW/REMOVED bonus changes",
+      "New Tier-1-style raid sets per class and spec with 2/3/4/5-piece bonuses, e.g. Raiments of Conviction (Priest, Shadow), Grimstitch Armor (Rogue), The Spiritcaller and its spec variants (Shaman), Demonheart Raiment (Warlock), Battlegear/Battleplate of Glory (Warrior)",
+      "Creature-type bonuses appear on tier sets: attack power versus Humanoids, spell damage versus Demons, Elementals or Undead — matching the biome/creature-type itemisation design",
+      "Classic PvP rank sets present under the Champion's, Lieutenant Commander's, Field Marshal's and Warlord's names with changed bonuses (2-piece Parry replaced by Attack Power 40 or Agility 20; 6-piece Stamina 15 to 20; hybrid healing/spell damage 44/15) and effect bonuses (Gouge, Blink, Psychic Scream); several sets renamed (Lieutenant Commander's Arcanum to Champion's Regalia; Investiture to Champion's Raiment; Lieutenant Commander's Refuge removed)",
+      "Wowhead's own caveats: the datamine 'may not be reflective of what reaches live servers', and 'some effects from Season of Discovery have also appeared in our datamining, though we have taken care to filter them out of this article to the best of our ability'"
     ]
   }
 ];

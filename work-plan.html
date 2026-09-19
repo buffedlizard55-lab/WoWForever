@@ -53,9 +53,19 @@
   </div>
 
   <div class="banner">
-    <strong>This session closed the four items that were still open and finished the review pass.</strong>
+    <strong>Latest session: the queued datamines were fetched, read and ledgered, and the queue is now empty.</strong>
     <p>
-      The IGN Nordic interview was reviewed at primary-source level (with a retrieval limitation recorded, not hidden),
+      The two integration candidates left on the work plan — the Wowhead Forsaken-Paladin mounts datamine and the
+      reputation-names datamine — were opened and read end to end, together with the set-bonus datamine they sit beside
+      and an independent Icy Veins read of the same mount wave. Blizzard's pre-purchase page, the third queued item, was
+      re-verified as already read line by line and integrated on 19 September (C162–C164). A fourth attempt on the IGN
+      Nordic interview from a new environment returned HTTP 403 like the three before it. All of it is recorded in the
+      session table below, and the irregularity log gained I-20 (set bonuses datamined against the hidden-until-looted
+      statement).
+    </p>
+    <p>
+      The previous banner is kept as history: that session closed the four items then open and finished the review pass —
+      the IGN Nordic interview was reviewed at primary-source level (with a retrieval limitation recorded, not hidden),
       the beta observation log was built with per-class status and an upgrade rule, the add-on compatibility tracker was
       created with dated listings, and an accessibility/print pass was completed and put under machine check. The one thing
       the authoring environment could not do — create the source-watch fingerprint baseline — was solved inside the
@@ -70,6 +80,7 @@
     <h2>On this page</h2>
     <ul>
       <li><a href="#done">Delivered so far</a></li>
+      <li><a href="#session-6">Queue-closing pass, 19 September (latest)</a></li>
       <li><a href="#session">This session, line by line</a></li>
       <li><a href="#session-3">This session, 19 September agent pass</a></li>
       <li><a href="#session-5">Third pass on 19 September — live-web verification</a></li>
@@ -93,13 +104,13 @@
     </p>
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">13</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">96</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">149</span> claims) with evidence classes and snapshot dates.</li>
-      <li>Public irregularity log (I-1 to I-19) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">100</span> sources, <span data-count="official-sources">8</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">153</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Public irregularity log (I-1 to I-20) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement; and I-20: set bonuses datamined out of a client whose item data Blizzard said would stay hidden until looted, with Season-of-Discovery contamination acknowledged by the dataminer itself.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
       <li>A no-hallucination contract: any statement without a source is either labelled <span class="chip ours">our reasoning</span> or moved to the “not announced” set.</li>
       <li><strong><a href="class-pvp.html">Per-class PvP profiles</a></strong> — nine PvP-only profiles with an evidence chip and source link on every row, a one-line summary table, an explicit “no ranking” contract, a pre-beta warning, and a verified per-class reading list.</li>
       <li><strong><a href="addons.html">Add-on and tooling tracker</a></strong> — dated status for Auctionator, TradeSkillMaster, Questie, Details! and WeakAuras, built on a new <span class="chip tooling">tooling</span> evidence class so software metadata can never be presented as a game fact.</li>
-      <li><strong><a href="beta.html">Beta observation log</a></strong> — the dated beta calendar, per-class observation status (all nine marked <em>not observed</em>, because they are), the reported → observed upgrade rule, and two false positives that would otherwise become fake facts.</li>
+      <li><strong><a href="beta.html">Beta observation log</a></strong> — the dated beta calendar, per-class observation status (all nine marked <em>not observed</em>, because they are), the reported → observed upgrade rule, and three false positives that would otherwise become fake facts.</li>
       <li><strong>Market log scaffold</strong> — <code>data/market-log.csv</code> with a documented schema, a written first-row procedure and deliberately zero data rows until an auction house exists (<span data-count="market-rows">0</span> rows today), validated against the Gold page watchlist.</li>
       <li><strong>Six machine checks now gate the repository</strong> — <code>tools/check-ledger.mjs</code> (integrity, staleness), <code>tools/check-citations.mjs</code> (registered sources, resolving anchors, canonical and sitemap agreement, claim IDs, tag balance, machine-checked self-reported counts, and evidence-class documentation), <code>tools/check-market-log.mjs</code> (schema, with a hard refusal of any pre-launch price row), <code>tools/check-quotes.mjs</code> (no quotation may sit far from a source), <code>tools/check-a11y.mjs</code> (landmarks, headings, captions, labels, focus, reduced motion, print) and <code>tools/test-source-watch.mjs</code> (an offline fixture test of the watcher itself). <code>.github/workflows/verify.yml</code> runs them on every push and pull request.</li>
       <li><strong>Automated source watching, with a real baseline</strong> — the first run on 19 September 2026 fingerprinted
@@ -391,7 +402,59 @@
           </tr>
           <tr>
             <td>Source-watch baseline state computed from <code>tools/source-state.json</code> <span class="chip ours">Ours</span></td>
-            <td>The baseline (established 19 September 00:20 UTC, before the last merge) fingerprints 74 of the 90 sources now registered plus 13 additional-page fingerprints; the 16 sources registered later are not yet fingerprinted and will be picked up by the scheduled weekly run (Monday 21 September 07:00 UTC) or a manual dispatch. The Sportskeeda interview (sk-interview) remains at one strike. The “86 of 87” figures quoted earlier on this page were true at baseline time and are now restated precisely below.</td>
+            <td>The baseline (established 19 September 00:20 UTC, before the last merge) fingerprints 74 of the 90 sources registered by the end of that pass plus 13 additional-page fingerprints; the 16 sources registered later are not yet fingerprinted and will be picked up by the scheduled weekly run (Monday 21 September 07:00 UTC) or a manual dispatch. The Sportskeeda interview (sk-interview) remains at one strike. The “86 of 87” figures quoted earlier on this page were true at baseline time and are now restated precisely below.</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="session-6">Queue-closing pass, 19 September (latest) — the two datamines, the set-bonus datamine, and the pre-purchase re-check</h3>
+    <p class="sub">
+      This pass worked the handover list directly: the two unfetched integration candidates (the Wowhead
+      Forsaken-Paladin mounts datamine and the reputation-names datamine), the pre-purchase page listed beside them, the
+      set-bonus datamine sitting in the same news window, and one more attempt at the blocked IGN Nordic original.
+      Everything below was opened and read on 19 September 2026 through the platform's research tools (the shell still
+      has no direct outbound network); each new fact carries its own ledger row and appears on the page it belongs to.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>Queue-closing pass, line by line: what was read, re-checked or deliberately not adopted, and what changed.</caption>
+        <thead><tr><th scope="col">Read / checked</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/new-reputation-names-datamined-for-wow-forever-382945" rel="noopener">Wowhead: New Reputation Names Datamined</a> <span class="chip datamine">Datamine</span></td>
+            <td>Read end to end including every faction description. 14 new faction records in the beta client — the two Darkspear Islands PvP reputations (Darkspear Raiders vs Theramore Expeditionary Force, each described as battling the other), Guardians of Hyjal (the crafted-tier gate, now a named datamined faction), the Skyborne factions Windshapers and High Order (both already named in Blizzard's Found Photos recap), Powderfuse (likewise, as Powderfuse Port), plus The Watchers, Brotherhood of the Horse, Bolder'ok Clan, Earthen Ring, Nightclaw Druids, Barkskin Burrow, Cenarion Scouts and Kirin Tor; three names appear without a NEW flag (Timbermaw Hold, Ravasaur Trainers, Shen'dralar). No rewards, turn-ins or quartermasters in the data, and Wowhead's caveat that names are not final is carried verbatim on the source. Integrated on the PvP page (battleground reputations), the Gold page (crafted-tier gate) and the Beta log.</td>
+            <td>C186 (new); C030 (note updated)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/new-forsaken-paladin-mounts-datamined-from-forever-beta-client-382940" rel="noopener">Wowhead: New Forsaken Paladin Mounts Datamined</a> and <a href="https://www.icy-veins.com/wow-forever/news/wow-forever-just-revealed-its-first-wave-of-mounts-spoiler-warning/" rel="noopener">Icy Veins: first wave of mounts</a> <span class="chip datamine">Datamine</span></td>
+            <td>Two independent reads of the same 16 September client build. The Forsaken Charger is the Undead Paladin racial mount and Wowhead published the Paladin-style skeletal-charger models; the Skyborne Galestriders come as unarmored 60% versions at level 40 and armored 100% versions at level 60; the wave also contains Wrath-era recolors, the Cataclysm-era Venomhide Ravasaur, never-obtained models (Golden Sabercat, Dark Skeletal Horse, Lavender Kodo) and the new Pack Kodo. Corroborates the official Found Photos mount-quest statement and the mounts guide (C176) without changing either. The Galestrider speed tiers match the training-fee structure in C162, so the Gold page's sink analysis gains a corroborating detail, and the Class PvP Paladin profile now carries the datamine link.</td>
+            <td>C187 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.wowhead.com/forever/news/new-and-updated-gear-set-bonuses-in-wow-forever-382958" rel="noopener">Wowhead: New and Updated Gear Set Bonuses</a> <span class="chip datamine">Datamine</span></td>
+            <td>Read across the full article (General, Dungeon, Raid Tier, New and PvP set sections). Hundreds of set bonuses: crafted/world sets reworked with effects replacing flat stats; new Tier-1-style sets for all nine classes and specs with 2/3/4/5-piece bonuses including creature-type bonuses (attack power vs. Humanoids, spell damage vs. Demons/Elementals/Undead — the biome design made item-level); and the classic PvP rank sets present with changed bonuses and some renames. Recorded as the first structural picture of both raid and PvP gear — explicitly not a gear list, since no item stat, source or cost is in the data. Wowhead's own Season-of-Discovery-contamination caveat (“filtered … to the best of our ability”) is carried on the source, in the claim, as the third false positive in the Beta log, and as irregularity I-20.</td>
+            <td>C188, C189 (new); I-20 (new)</td>
+          </tr>
+          <tr>
+            <td><a href="https://news.blizzard.com/en-us/article/24301508/pre-purchase-world-of-warcraft-forever-upgrades-and-begin-your-next-journey-in-azeroth" rel="noopener">Blizzard pre-purchase page (24301508)</a> <span class="chip official">Official</span></td>
+            <td>Re-verified rather than re-fetched: this queued item was already closed by the 19 September passes — the article was read line by line (source note records it), its four dated windows (name reservation 27 Oct – 3 Nov, Invite-A-Friend codes from 20 Oct, launch week 4–11 Nov, Collection through 11 Jan 2027) are on the Roadmap page's official table, and the shop-mount riding-skill note is in C162. Spot-checked the ledger rows and both pages against the source entry: consistent; nothing further to integrate.</td>
+            <td>C162–C164 (re-verified)</td>
+          </tr>
+          <tr>
+            <td>IGN Nordic interview — fourth retrieval attempt <span class="chip press">Press</span></td>
+            <td>Direct fetches of both the English URL and the Dutch mirror (nl.ign.com) from this environment's platform fetcher returned HTTP 403, the same result as the three previous independent clients. The block is on the article itself; the indexed-text route remains the only working retrieval path. I-14 stays open with a fourth attempt recorded on the source note; a human browser view remains the only step that can close it.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><a href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Auctionator</a>, <a href="https://www.curseforge.com/wow/addons/tradeskill-master" rel="noopener">TSM</a>, <a href="https://addons.wago.io/addons/questie/versions?stability=stable" rel="noopener">Questie</a> and <a href="https://www.curseforge.com/wow/addons/details/files" rel="noopener">Details!</a> release listings <span class="chip tooling">Tooling</span></td>
+            <td>The tracker's promised per-session recheck, from each project's own page: Auctionator 337 (17 Sep) is still the only release declaring Classic Forever 1.60.1; TSM is still v4.14.77 (13 Sep, retail 12.1.0); Questie still v11.38.0 (15 Sep); Details! newest file still the 18 September build. Nothing moved since the live-web pass — an unchanged listing is evidence, not an absence of work.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Seen and deliberately not adopted: Wowhead's SoD-class-quests article, loading screens, weapon/creature/totem model galleries, Skyborne customization roundups, world maps, graphics article; two unofficial beta-tracker sites <span class="chip community">Community</span></td>
+            <td>The SoD-class-quests article restates what the MMORPG interview summary already carries (registered, wh-bank), so it adds no new fact. The model and customization galleries are cosmetic datamines outside this project's PvP/gold/gear focus. The two tracker sites repeat the I-19 pattern: their Darkspear level ranges and Honor figures still have no established-outlet source. Their “14 new reputation factions” count is a partial exception — Wowhead's reputation datamine now publishes the same 14 records from a reputable outlet — which is exactly the promotion path I-19 describes: adopt the number when a reputable datamine or Blizzard publishes it, and not before.</td>
             <td>—</td>
           </tr>
         </tbody>
@@ -497,15 +560,16 @@
       dead page, and the next scheduled run — Monday 21 September 2026, 07:00 UTC — decides whether it becomes a real
       regression (Wowhead's summary of the same interview <code>wh-sportskeeda</code> is the Wowhead URL and is fine).</p>
       <p><strong>Coverage against today's registry (computed this pass from the state file):</strong> the registry now
-      holds <strong>96</strong> sources, of which the baseline fingerprints <strong>74</strong>. The 22 sources
+      holds <strong>100</strong> sources, of which the baseline fingerprints <strong>74</strong>. The 26 sources
       registered after the baseline ran — the PCGamesN article, the two flag entries, the Wowhead Skyborne and Camping
       guides, the seven Icy Veins race guides, the Wowhead overview/zones/mounts/pets guides from the
-      guide-verification pass, and this pass's six new sources — plus three new additional pages (the Combat/Subtlety
-      Rogue and Enhancement Shaman spec guides) are not yet fingerprinted. The next weekly run or a manual dispatch
-      records them as newly fingerprinted and files no issue for that. All 13 additional-page fingerprints in the state
-      file belong to currently registered sources. Among the sources fingerprinted on the first pass were the Blizzard
-      newsroom and forum pages, Wowhead, Icy Veins, Kotaku, Skill Capped, Wago and CurseForge — the pages the ledger
-      actually cites.</p>
+      guide-verification pass, the live-web pass's six new sources, and the queue-closing pass's four datamine sources
+      (Wowhead Forsaken mounts, Wowhead reputations, Wowhead set bonuses, Icy Veins mounts) — plus three new additional
+      pages (the Combat/Subtlety Rogue and Enhancement Shaman spec guides) are not yet fingerprinted. The next weekly run
+      or a manual dispatch records them as newly fingerprinted and files no issue for that. All 13 additional-page
+      fingerprints in the state file belong to currently registered sources. Among the sources fingerprinted on the first
+      pass were the Blizzard newsroom and forum pages, Wowhead, Icy Veins, Kotaku, Skill Capped, Wago and CurseForge —
+      the pages the ledger actually cites.</p>
     </div>
   </section>
 
@@ -685,7 +749,7 @@
         <tbody>
           <tr><td>1</td>
             <td>Confirm the second source-watch run (the first Monday after baseline) diffs against the existing baseline — the weekly schedule does this on its own; a maintainer can also dispatch <code>source-watch.yml</code> to see it sooner.</td>
-            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed (86 hashed entries, 74 of today's 96 sources); the second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will also fingerprint the 22 sources and 3 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them.</td>
+            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed (86 hashed entries, 74 of today's 100 sources); the second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will also fingerprint the 26 sources and 3 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them.</td>
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
           <tr><td>2</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
@@ -693,7 +757,7 @@
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
           <tr><td>3</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
-            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> a third fetch attempt, from a different environment's platform fetcher, again returned HTTP 403 — three independent clients have now been blocked the same way, which suggests the block is on the article itself. I-14 remains open; the limitation is recorded on the source and in this session's note (#session-5).</td>
+            <td>The interview is now the source for three claims and the Onslaught Girdle itemisation statement. Its indexed text has matched the quotations on two separate retrievals (both 19 September); a browser view is the only outstanding step and the only thing that would close I-14. <strong>Status this session:</strong> a fourth fetch attempt, from the queue-closing pass's environment, again returned HTTP 403 — four independent clients have now been blocked the same way, which confirms the block is on the article itself. I-14 remains open; the limitation is recorded on the source and in this session's note (#session-5), and the Dutch mirror listed on the source carries the same block.</td>
             <td>If the article is edited or its text differs, the affected claims need their quotations tightened rather than re-argued.</td></tr>
           <tr><td>4</td>
             <td>Record the new battleground when it enters the beta: objective count, scoring, respawn rules, travel times — first-hand if possible, otherwise dated and attributed.</td>
@@ -701,7 +765,7 @@
             <td>Without client access nothing can be observed; the log says so instead of borrowing someone else's experience.</td></tr>
           <tr><td>5</td>
             <td>Re-check the four add-on listings and add any release that declares 1.60.x; note on the tracker when a declaration is confirmed working on a live client.</td>
-            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status this session:</strong> all four listings re-checked from their own pages during the live-web pass (Auctionator 337, TSM v4.14.77, Questie v11.38.0, Details!'s 18 September build) — all unchanged; Auctionator remains the only Forever declaration. Next check on the next beta build.</td>
+            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status:</strong> re-checked again from their own pages during the queue-closing pass (19 September, after the merges) — Auctionator 337 (17 Sep) still the only release declaring Classic Forever 1.60.1; TSM still v4.14.77 (13 Sep, retail 12.1.0); Questie still v11.38.0 (15 Sep); Details! newest file still the 18 September build. No listing has moved since the live-web pass; next check on the next beta build.</td>
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
           <tr><td>6</td>
             <td>Read the remaining Wowhead Forever guides and the seven unread Icy Veins race guides, ledgering each fact.</td>
