@@ -204,8 +204,16 @@ function observeSummary(text, watchProducts) {
 
 const STAFF_GROUP = /community-manager|blizzard/i;
 
+/* Discourse's built-in "system" account (id -1, username "system") carries
+   admin: true and appears as a poster whenever a topic is closed, moved or
+   auto-bumped. It is software, not staff — the first real run flagged a closed
+   GDKP thread because of it (20 September 2026). */
+function isSystemUser(u) {
+  return Number(u.id) === -1 || String(u.username || '').toLowerCase() === 'system';
+}
+
 function isStaffUser(u) {
-  if (!u) return false;
+  if (!u || isSystemUser(u)) return false;
   if (u.admin === true || u.moderator === true) return true;
   return STAFF_GROUP.test(u.primary_group_name || '') || STAFF_GROUP.test(u.flair_name || '');
 }

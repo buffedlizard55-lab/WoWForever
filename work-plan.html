@@ -154,9 +154,19 @@
   <section id="session-9" aria-labelledby="h-session-9">
     <h2 id="h-session-9">Third pass of 19 September — version service, feed watcher, blue-tracker re-read</h2>
     <p class="sub">
-      Everything below was fetched and read on the evening of 19 September 2026 (UTC) and converted into ledger rows in the same pass.
-      Reads went through the platform's page fetcher; the sandbox shell itself has no outbound network, which is why the feed watcher
-      could be tested only offline here and runs for real on the GitHub runner.
+      Everything below was fetched and read on the evening of 19 September 2026 (UTC) — the last few controls shortly after midnight
+      UTC on 20 September — and converted into ledger rows in the same pass. Reads went through the platform's page fetcher; the
+      sandbox shell itself has no outbound network, which is why the feed watcher could be tested only offline here.
+      <strong>It then ran for real:</strong> merging this session's PR (#21) triggered the network job at 00:25 UTC on 20 September;
+      all six feeds answered, the <code>wow_classic_beta</code> build read 1.60.1.69913 (as read by hand hours earlier), the summary
+      flags matched, and the one staff-touched topic in the beta category was Kaivax's known-issues thread. One false positive
+      surfaced — Discourse's built-in <code>system</code> account (admin: true) had touched a closed GDKP thread in category 346 — and was
+      fixed the same hour (the account is excluded and the offline test now covers it). The same run was the page watcher's second
+      run: it diffed against the 87-entry baseline and opened issue #22 (42 changed, 1 unreachable — the Sportskeeda interview, now at
+      two strikes). Three of the 42 were re-read by hand: the Blizzard known-issues thread (list unchanged, still headed 18 September;
+      the delta is page chrome), Wowhead's beta guide (unchanged, updated 16 September; the delta is comments) and Wowhead's
+      professions article (unchanged; the delta is its live Blue Tracker and Recent News sidebars). That last pattern is a real
+      limitation of text fingerprinting on Wowhead pages and is queued as item 14.
     </p>
     <div class="table-wrap">
       <table>
@@ -997,7 +1007,7 @@
         
           <tr><td>4</td>
             <td>Confirm the second source-watch run (the first Monday after baseline) diffs against the existing baseline — the weekly schedule does this on its own; a maintainer can also dispatch <code>source-watch.yml</code> to see it sooner.</td>
-            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed — 87 entries, recomputed against the data files today as covering 74 of the 113 registered sources and 14 of the 21 additional pages. The second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will fingerprint the 39 sources and 7 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them; 13 of those sources were added by this endpoint pass.</td>
+            <td>The baseline now exists (86 of the 87 URLs registered at that moment). The one source that returned HTTP 403 on the first run was the Sportskeeda interview (Wowhead's summary <code>wh-sportskeeda</code> covers the same material and is fingerprinted cleanly). The two-strike rule decides at the next run — Monday 21 September, 07:00 UTC — whether that becomes a real regression. <strong>Status this session:</strong> the baseline artifact is confirmed committed — 87 entries, recomputed against the data files today as covering 74 of the 113 registered sources and 14 of the 21 additional pages. <strong>Third session:</strong> done ahead of schedule — the merge of PR #21 triggered the network job (a feed baseline was missing), and at 00:25 UTC on 20 September it diffed 128 fingerprints against the baseline and opened issue #22: 42 changed (page chrome and comments in the three cases re-read by hand), 42 newly fingerprinted, 1 unreachable (Sportskeeda, second strike, now flagged as never reachable from the runner). The second scheduled run on Monday 21 September 07:00 UTC is exactly the diff run described here, and it will fingerprint the 39 sources and 7 additional pages registered since the baseline as “newly fingerprinted”, filing no issue for them; 13 of those sources were added by this endpoint pass.</td>
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
           <tr><td>5</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
@@ -1023,18 +1033,22 @@
             <td>Human quotation pass over the two new pages, one page at a time, checking each quotation word for word against its source. <strong>Partly done, third session:</strong> the What's Next and Deep Dive recaps, the Kotaku interview, the Wowhead Q&amp;A liveblog and the Sportskeeda interview were re-read and every quotation sampled from them (C009, C020, C021, C022, C024, C025, C127–C131, C140, C161, C165) matched word for word; one paraphrase (C127) was tightened and one compression on our pages (“testable in beta”) corrected. Not yet re-read from the live page: IGN Nordic (403) and the remaining guide-site quotations.</td>
             <td>The checker proves anchoring, never wording — and I-14, I-17, I-18, I-23 and I-24 all came from exactly this kind of pass.</td>
             <td>Some sources cannot be fetched automatically (IGN returns 403), so this pass may need a browser.</td></tr>
-          <tr><td>12</td>
-            <td><strong>Watch the first real feed-watch run</strong> (next push to <code>main</code>, or Monday 21 September 07:00 UTC): confirm <code>tools/feed-state.json</code> is committed with the wow_classic_beta build and both forum feeds observed, and that the issue body carries the feed report after the page report.</td>
-            <td>The watcher is tested offline against fixtures shaped like the real responses, but the runner's network is the one thing the sandbox cannot exercise. Until one run has been seen, “wired” is a claim about code, not about behaviour.</td>
-            <td>If the runner is refused by battle.net or the forum, the report says so and no baseline is written; the fix would be a retry policy or an alternate first-party host, never a third-party mirror.</td></tr>
-          <tr><td>13</td>
-            <td>When a new <code>wow_classic_beta</code> build is reported, add a dated calendar row on the Beta log and re-check the four add-on listings against the new number — and if <code>wowf</code> ever gains a versions record, re-examine C212 before printing anything.</td>
-            <td>The feed report now dates every build; the site's job is to record the number and re-verify what depends on it, not to interpret it.</td>
-            <td>A build number is not a changelist. Nothing about class tuning or content may be inferred from it.</td></tr>
           <tr><td>11</td>
             <td>Watch for Blizzard to put three things in writing that the site currently holds at press: the level cap staying at 60 (C160), the original battleground roster (C161), and a ruleset-transfer policy beyond the Hardcore path (C024). Promote each row to official only with the link.</td>
             <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does. <strong>Status this session:</strong> re-verified on 19 September via web search — no new written Blizzard page promotes C160, C161 or C024; all three stay at their current class, and the aggregator "confirmed" claims are explicitly not adopted. <strong>Third session:</strong> Blizzard's umbrella page says players “adventure to level 60” — the journey's destination, not a statement that the cap stays at 60 (C213), so C160 stays press; nothing new for C161 or C024.</td>
             <td>Aggregators will state all three as confirmed long before Blizzard does; the ledger row, not the aggregator, decides.</td></tr>
+          <tr><td>12</td>
+            <td><strong>Watch the first real feed-watch run.</strong> <strong>Done, 20 September 00:25 UTC:</strong> <code>tools/feed-state.json</code> was committed by the runner with all six feeds observed (wow_classic_beta 1.60.1.69913; era and classic controls; summary flags; 30 topics per forum category with Kaivax's known-issues thread flagged in 349), and issue #22 carries the feed report after the page report. One heuristic fix followed (the Discourse <code>system</code> account is not staff). Next: confirm the Monday run reports “no notable change” or a real build move.</td>
+            <td>The watcher was tested offline against fixtures shaped like the real responses; the real run matched them, which is what turns “wired” from a claim about code into one about behaviour.</td>
+            <td>If the runner is ever refused by battle.net or the forum, the report says so and the last observation is kept; the fix would be a retry policy or an alternate first-party host, never a third-party mirror.</td></tr>
+          <tr><td>13</td>
+            <td>When a new <code>wow_classic_beta</code> build is reported, add a dated calendar row on the Beta log and re-check the four add-on listings against the new number — and if <code>wowf</code> ever gains a versions record, re-examine C212 before printing anything.</td>
+            <td>The feed report now dates every build; the site's job is to record the number and re-verify what depends on it, not to interpret it.</td>
+            <td>A build number is not a changelist. Nothing about class tuning or content may be inferred from it.</td></tr>
+          <tr><td>14</td>
+            <td><strong>Reduce fingerprint noise on guide-site pages.</strong> Wowhead pages embed live Blue Tracker and Recent News sidebars and comment counts, and Icy Veins pages carry a changing footer, so 30-odd sources will read as “changed” every week without their articles changing. Teach <code>check-sources.mjs</code> to fingerprint the article container when one is present (<code>&lt;article&gt;</code>, <code>#main</code>, Wowhead's news body) and to record which container was used, with fixtures for both sites in the offline test.</td>
+            <td>Issue #22 shows the pattern on its first diff: the three “changed” pages re-read by hand had unchanged articles. A weekly issue that is mostly noise trains people to skip it, which defeats the watcher.</td>
+            <td>Container selection must be conservative: if no known container is found, fall back to the full text and say so. Never silently narrow what is being watched.</td></tr>
         </tbody>
       </table>
     </div>
