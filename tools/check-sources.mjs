@@ -103,11 +103,44 @@ function expandSources(list) {
 
 /* ---------- fingerprinting ---------- */
 
+/* Prefer the article body when a known container is present. Guide-site pages
+   (Wowhead, Icy Veins) embed live sidebars — Blue Tracker, Recent News, a
+   launch countdown, comment counts — that change every few hours without the
+   cited article moving. Fingerprinting those sidebars produced the 42-change
+   noise in issue #22. Conservative rule: if no known container is found, fall
+   back to the full document and record that fact. Never silently narrow what
+   is being watched. */
+function extractArticle(body) {
+  const attempts = [
+    // Wowhead news / guide body (id=main-contents or the news text block)
+    { name: 'wowhead-main', re: /<div[^>]+id=["']main-contents["'][^>]*>([\s\S]*?)<\/div>\s*(?:<div[^>]+id=["'](?:sidebar|side-contents)|<footer|<\/body)/i },
+    { name: 'wowhead-news-text', re: /<div[^>]+class=["'][^"']*news-post-content[^"']*["'][^>]*>([\s\S]*?)<\/div>/i },
+    // Generic HTML5 article — covers Blizzard news, Icy Veins, and most press
+    { name: 'html-article', re: /<article\b[^>]*>([\s\S]*?)<\/article>/i },
+    { name: 'html-main', re: /<main\b[^>]*>([\s\S]*?)<\/main>/i },
+    // Icy Veins sometimes wraps the column in #main without an <article>
+    { name: 'icyveins-main', re: /<div[^>]+id=["']main["'][^>]*>([\s\S]*?)<\/div>\s*(?:<aside|<footer|<\/body)/i }
+  ];
+  for (const a of attempts) {
+    const m = body.match(a.re);
+    // 200 characters is enough to reject empty shells and chrome-only
+    // matches while still accepting a short Blizzard known-issues post or a
+    // single-section guide. Empty or near-empty containers fall through.
+    if (m && m[1] && m[1].replace(/\s+/g, ' ').trim().length >= 200) {
+      return { html: m[1], container: a.name };
+    }
+  }
+  return { html: body, container: 'full-document' };
+}
+
 function normalise(body) {
   return body
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<!--[\s\S]*?-->/g, ' ')
+    // Strip known Wowhead chrome blocks even when they sit inside a wider
+    // container — they are discovery sidebars, never the cited article.
+    .replace(/<div[^>]+class=["'][^"']*(?:blue-tracker|recent-news|wh-news-sidebar|comments-block)[^"']*["'][^>]*>[\s\S]*?(?=<div[^>]+class=["'][^"']*(?:blue-tracker|recent-news)|<\/(?:aside|section|main|body)>|$)/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z]+;|&#\d+;/gi, ' ')
     // Remove only presentation chrome. Do not remove every number: launch
@@ -115,17 +148,22 @@ function normalise(body) {
     // watcher must notice when a cited page changes.
     .replace(/\b(?:just now|today|yesterday)\b/gi, ' ')
     .replace(/\b\d+\s*(?:d|h|m|s|hr|min|sec|day|days|hour|hours|minute|minutes|second|seconds)\s*ago\b/gi, ' ')
-    .replace(/\b\d[\d,]*\s+(?:views?|comments?|likes?|votes?|replies|followers?)\b/gi, ' ')
+    // Icy Veins launch countdown ("45d 22h 7m") and similar ticking clocks
+    .replace(/\b\d+\s*d\s+\d+\s*h\s+\d+\s*m\b/gi, ' ')
+    .replace(/\breleases?\s+in\s*:?\s*/gi, ' ')
+    .replace(/\b\d[\d,]*\s+(?:views?|comments?|likes?|votes?|replies|followers?|downloads?)\b/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase();
 }
 
 function fingerprint(body) {
-  const text = normalise(body);
+  const extracted = extractArticle(body);
+  const text = normalise(extracted.html);
   return {
     hash: createHash('sha256').update(text).digest('hex'),
-    length: text.length
+    length: text.length,
+    container: extracted.container
   };
 }
 
@@ -197,10 +235,31 @@ for (const r of results) {
     continue;
   }
 
-  const entry = { hash: r.hash, length: r.length, url: r.url, checked: state.checked, failures: 0 };
+  const entry = {
+    hash: r.hash,
+    length: r.length,
+    url: r.url,
+    checked: state.checked,
+    failures: 0,
+    container: r.container || 'full-document'
+  };
+
+  const containerMoved =
+    Boolean(before && before.container && entry.container && before.container !== entry.container);
 
   if (!before || !before.hash) {
-    added.push({ ...r, title: meta.title });
+    added.push({ ...r, title: meta.title, container: entry.container });
+  } else if (before.hash !== r.hash && containerMoved) {
+    /* A container change after a watcher upgrade is not an article edit:
+       re-baseline silently and note it, so a one-time method change does not
+       open a 40-source noise issue. Real content moves still raise the flag. */
+    added.push({
+      ...r,
+      title: meta.title,
+      container: entry.container,
+      rebaselined: true,
+      previousContainer: before.container
+    });
   } else if (before.hash !== r.hash) {
     changed.push({
       ...r,
@@ -208,7 +267,18 @@ for (const r of results) {
       tier: meta.tier,
       before: before.hash.slice(0, 12),
       after: r.hash.slice(0, 12),
-      delta: r.length - (before.length || 0)
+      delta: r.length - (before.length || 0),
+      container: entry.container
+    });
+  } else if (containerMoved) {
+    /* Same article text, tighter container — record the method change without
+       filing an issue. The next run compares against the new container. */
+    added.push({
+      ...r,
+      title: meta.title,
+      container: entry.container,
+      rebaselined: true,
+      previousContainer: before.container
     });
   }
   state.sources[r.id] = entry;
@@ -276,10 +346,47 @@ if (neverBaselined.length) {
 }
 
 if (added.length) {
-  lines.push('## Newly fingerprinted (no action needed)');
-  lines.push('');
-  for (const a of added) lines.push(`- \`${a.id}\` — ${a.title || ''}`);
-  lines.push('');
+  const fresh = added.filter((a) => !a.rebaselined);
+  const reb = added.filter((a) => a.rebaselined);
+  if (fresh.length) {
+    lines.push('## Newly fingerprinted (no action needed)');
+    lines.push('');
+    for (const a of fresh) {
+      const c = a.container && a.container !== 'full-document' ? ` · container \`${a.container}\`` : '';
+      lines.push(`- \`${a.id}\` — ${a.title || ''}${c}`);
+    }
+    lines.push('');
+  }
+  if (reb.length) {
+    lines.push('## Re-baselined after container selection change (no action needed)');
+    lines.push('');
+    lines.push('The watcher now fingerprints a tighter article container on these pages. The previous full-document hash is replaced; this is a method change, not an article edit.');
+    lines.push('');
+    for (const a of reb) {
+      lines.push(`- \`${a.id}\` — ${a.title || ''} · \`${a.previousContainer}\` → \`${a.container}\``);
+    }
+    lines.push('');
+  }
+}
+
+/* Surface which container the majority of fingerprints used, so a reviewer can
+   tell at a glance whether the noise-reduction path is actually engaged. */
+{
+  const byContainer = {};
+  for (const r of results) {
+    if (!r.ok) continue;
+    const c = r.container || 'full-document';
+    byContainer[c] = (byContainer[c] || 0) + 1;
+  }
+  const parts = Object.keys(byContainer).sort().map((c) => `${c}: ${byContainer[c]}`);
+  if (parts.length) {
+    lines.push('## Fingerprint containers used this run');
+    lines.push('');
+    lines.push(parts.map((p) => `- ${p}`).join('\n'));
+    lines.push('');
+    lines.push('`full-document` is the conservative fallback when no known article container is found. A move from full-document to a named container re-baselines once and does not open an issue.');
+    lines.push('');
+  }
 }
 
 if (!changed.length && !regressed.length && !neverBaselined.length) {

@@ -14,6 +14,8 @@
  *   3. a previously reachable page now fails  → regression, fingerprint kept
  *   4. first run with nothing reachable       → NO baseline written, issue wanted
  *   5. a source that has never worked         → issue only after two failures
+ *   6. article container ignores sidebar noise → same article hash across chrome
+ *   7. container upgrade re-baselines once    → no issue on method change
  *
  * Usage: node tools/test-source-watch.mjs
  */
@@ -185,6 +187,68 @@ console.log('\n5. A source that has never been reachable needs two failures');
   const second = await scenario('s5b', config, { stateFile: join(dir, 's5.state.json') });
   check('the second consecutive failure files an issue', second.outputs.needs_issue === 'true', second.outputs.needs_issue);
   check('the report lists it as never reachable', /## Never reachable from this runner/.test(second.report));
+}
+
+/* ---------- 6. article container ignores sidebar chrome ---------- */
+console.log('\n6. Article-container fingerprint ignores sidebar chrome');
+{
+  const stateFile = join(dir, 's6.state.json');
+  const target = urls[0];
+  const articleBody =
+    '<h1>Forever guide</h1><p>The level cap starts at 20 and rises to 30 later in the beta. ' +
+    'Further zones, dungeons and the new battleground will open for testing as the beta continues. ' +
+    'This paragraph exists so the extracted article body is long enough to clear the container ' +
+    'minimum and still be a realistic short guide page rather than an empty shell.</p>';
+  const articleA =
+    '<html><body><main><article>' + articleBody + '</article></main>' +
+    '<aside class="blue-tracker">Blue post about Pirate Day celebration from 7 hours ago with 12 comments</aside>' +
+    '<aside class="recent-news">Recent: Tom Ellis beta issues</aside></body></html>';
+  const articleB =
+    '<html><body><main><article>' + articleBody + '</article></main>' +
+    '<aside class="blue-tracker">Different blue post about Class Tuning Incoming September 22 with 99 comments</aside>' +
+    '<aside class="recent-news">Recent: entirely different headline about mounts</aside>' +
+    '<div>Releases in: 45d 22h 7m</div></body></html>';
+  const first = await scenario('s6a', { responses: { [target]: { body: articleA } }, default: { body: '<html><body>source page</body></html>' } }, { stateFile });
+  const second = await scenario('s6b', { responses: { [target]: { body: articleB } }, default: { body: '<html><body>source page</body></html>' } }, { stateFile });
+  check('sidebar-only change is not reported as an edit', second.outputs.changed === '0', second.outputs.changed);
+  check('no issue is wanted for chrome noise', second.outputs.needs_issue === 'false', second.outputs.needs_issue);
+  check('the container used is recorded on the state entry',
+    first.state && first.state.sources[keyFor(target)] &&
+    first.state.sources[keyFor(target)].container &&
+    first.state.sources[keyFor(target)].container !== 'full-document',
+    first.state && first.state.sources[keyFor(target)] && first.state.sources[keyFor(target)].container);
+  // A real article edit still raises the flag.
+  const articleEdited =
+    '<html><body><main><article><h1>Forever guide</h1><p>The level cap starts at 25 and rises to 40 later in the beta. ' +
+    'Further zones, dungeons and the new battleground will open for testing as the beta continues. ' +
+    'This paragraph exists so the extracted article body is long enough to clear the container ' +
+    'minimum and still be a realistic short guide page rather than an empty shell.</p></article></main></body></html>';
+  const third = await scenario('s6c', { responses: { [target]: { body: articleEdited } }, default: { body: '<html><body>source page</body></html>' } }, { stateFile });
+  check('a real article edit is still detected', third.outputs.changed === '1', third.outputs.changed);
+  check('an issue is wanted for a real edit', third.outputs.needs_issue === 'true', third.outputs.needs_issue);
+}
+
+/* ---------- 7. container upgrade re-baselines without an issue ---------- */
+console.log('\n7. Container-selection upgrade re-baselines once without filing an issue');
+{
+  const stateFile = join(dir, 's7.state.json');
+  const target = urls[0];
+  // First run: no article container, full document.
+  const plain = '<html><body><div id="content">Forever professions guide body with enough text that a later container match is meaningful and over four hundred characters of padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding.</div></body></html>';
+  await scenario('s7a', { responses: { [target]: { body: plain } }, default: { body: '<html><body>source page</body></html>' } }, { stateFile });
+  // Second run: same words now wrapped in <article>, so the container name moves
+  // and the hash changes even though the article text is the same. That must
+  // re-baseline, not open an issue.
+  const wrapped = '<html><body><article><div id="content">Forever professions guide body with enough text that a later container match is meaningful and over four hundred characters of padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding padding.</div></article></body></html>';
+  const second = await scenario('s7b', { responses: { [target]: { body: wrapped } }, default: { body: '<html><body>source page</body></html>' } }, { stateFile });
+  check('container upgrade does not count as a content change', second.outputs.changed === '0', second.outputs.changed);
+  check('container upgrade does not file an issue', second.outputs.needs_issue === 'false', second.outputs.needs_issue);
+  check('the report names the re-baseline', /Re-baselined after container selection change/.test(second.report));
+  check('the new container is recorded',
+    second.state && second.state.sources[keyFor(target)] &&
+    second.state.sources[keyFor(target)].container &&
+    second.state.sources[keyFor(target)].container !== 'full-document',
+    second.state && second.state.sources[keyFor(target)] && second.state.sources[keyFor(target)].container);
 }
 
 await rm(dir, { recursive: true, force: true });
