@@ -151,8 +151,11 @@ Sections marked **our reasoning** contain argument, not sourced fact. The source
 (`sk-interview`, HTTP 403 to the runner), which is held to the two-strike rule rather than flagged on a single failure.
 The registry has since grown to 119 sources, 8 of which are structured feeds marked `watch: false` and read by
 `tools/watch-feeds.mjs` instead; the baseline covers 74 of the fingerprinted sources, and the sources registered after it
-ran are picked up (as “newly fingerprinted”, with no issue) by the next network run. The feed watcher has no baseline yet:
-its first real run is the next push to `main` (the preflight runs when either baseline is missing) or the Monday schedule.
+ran are picked up (as “newly fingerprinted”, with no issue) by the next network run. The feed watcher's baseline
+(`tools/feed-state.json`) was established by its first real run at 00:25 UTC on 20 September 2026, triggered by the merge of
+PR #21: all six feeds answered, the wow_classic_beta build read 1.60.1.69913, and the Kaivax known-issues thread was the one
+staff-touched topic in the beta category — exactly what the offline fixtures predicted. The same run was the second page
+fingerprint run: it diffed against the 87-entry baseline and opened issue #22 (42 changed, 1 unreachable).
 On 19 September 2026 the Forever beta client's build was read for the first time from Blizzard's own version service —
 `wow_classic_beta`, 1.60.1.69913 — and the identification of that product as Forever is recorded as our reasoning (C212),
 not as a Blizzard statement. The baseline

@@ -76,6 +76,7 @@ const summary = ({ wowfVersions = false } = {}) =>
   'zeus|3439234|cdn\n';
 
 const staffUser = { id: 3390, username: 'Kaivax', name: 'Kaivax', primary_group_name: 'community-manager', flair_name: 'community-manager', admin: true, moderator: true, trust_level: 4 };
+const systemUser = { id: -1, username: 'system', name: 'system', admin: true, moderator: true, trust_level: 4 };
 const player = (id, name) => ({ id, username: `${name}-${id}`, name, trust_level: 2, animated_avatar: null });
 const topic = (id, title, posters, when = '2026-09-19T21:55:14.810Z') => ({
   id, title, fancy_title: title, slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
@@ -87,8 +88,10 @@ const discourse = (topics, users) => JSON.stringify({ users, topic_list: { can_c
 const players = [player(1489126, 'Galaris'), player(2850695, 'Chimmee'), player(269017, 'Mastar')];
 const forumQuiet = discourse([
   topic(2355348, "Don't see any of the visual world updates", [1489126, 2850695, 269017]),
-  topic(2355100, 'Hall of Thanes feedback', [2850695])
-], players);
+  topic(2355100, 'Hall of Thanes feedback', [2850695]),
+  // A closed thread: Discourse's "system" account posts the closing notice. Not staff.
+  topic(2352498, '[GDKP] - Bring Them Back', [269017, -1], '2026-09-17T12:00:00.000Z')
+], [systemUser, ...players]);
 const forumNewPlayerTopic = discourse([
   topic(2355400, 'Ruins of Lordaeron queue times', [269017], '2026-09-20T09:00:00.000Z'),
   topic(2355348, "Don't see any of the visual world updates", [1489126, 2850695, 269017]),
@@ -157,7 +160,7 @@ console.log('\n1. First run with every feed reachable');
   const forum = state && state.feeds['forum:us-forever-beta-349'].observed;
   check('the forum newest topic id is recorded', forum && forum.newestTopicId === 2355348, forum && String(forum.newestTopicId));
   check('the forum topic URL is the public page form', forum && forum.newestTopic.url === 'https://us.forums.blizzard.com/en/wow/t/don-t-see-any-of-the-visual-world-updates/2355348', forum && forum.newestTopic.url);
-  check('no staff-touched topic on a quiet page', forum && forum.staffTopics.length === 0);
+  check('no staff-touched topic on a quiet page (the Discourse "system" account is not staff)', forum && forum.staffTopics.length === 0, forum && JSON.stringify(forum.staffTopics.map((t) => t.id)));
   check('no issue is wanted on a clean baseline', outputs.feed_needs_issue === 'false', outputs.feed_needs_issue);
   check('the baseline is marked established', outputs.feed_baseline_established === 'true', outputs.feed_baseline_established);
   check('the report says it is a baseline', /First run: this is the baseline/.test(report));
