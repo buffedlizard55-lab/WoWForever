@@ -67,6 +67,14 @@
       hand:
       <span class="srcs"><a class="src" href="https://us.forums.blizzard.com/en/wow/latest.json" rel="noopener">forum feed</a><a class="src" href="https://us.version.battle.net/v2/products/wow_classic/versions" rel="noopener">build service</a><a class="src" href="https://community.developer.battle.net/documentation/guides/getting-started" rel="noopener">developer docs</a></span>
     </p>
+    <p>
+      <strong>Update, later on 19 September 2026:</strong> the Forever beta's build is now readable. Blizzard's version
+      service publishes a <a href="https://us.version.battle.net/v2/summary" rel="noopener">product summary</a> that lists every
+      product code; reading it (instead of guessing) showed that the code <code>wowf</code> exists but serves no versions, and that
+      the product <a href="https://us.version.battle.net/v2/products/wow_classic_beta/versions" rel="noopener"><code>wow_classic_beta</code></a>
+      served <strong>build 1.60.1.69913</strong> to us, eu, kr and tw that day (C211). The identification of that product as the Forever
+      beta is our reasoning, kept separate and falsifiable (C212) — see <a href="#forever-build">the build note</a> below.
+    </p>
   </div>
 
   <nav class="toc" aria-label="On this page">
@@ -76,6 +84,7 @@
       <li><a href="#verified">Verified and in use</a></li>
       <li><a href="#rejected">Read, understood, rejected</a></li>
       <li><a href="#changes">What this changes — and what it does not</a></li>
+      <li><a href="#forever-build">The Forever beta build</a></li>
       <li><a href="#protocol">How the register stays honest</a></li>
     </ul>
   </nav>
@@ -124,8 +133,11 @@
     <p class="sub">
       Each row was fetched on the date shown with no credentials of any kind. <em>What came back</em> is a description of the actual
       response, not a summary of a documentation page. These endpoints are registered as sources as well
-      (<span data-count="apis">5</span> of them here, <span data-count="sources">113</span> sources in total), so the weekly
-      watcher fingerprints each one and this page cannot quietly grow a URL nobody checks.
+      (<span data-count="apis">8</span> of them here, <span data-count="sources">119</span> sources in total), so the citation
+      checker covers each one and this page cannot quietly grow a URL nobody checks. Pages are fingerprinted weekly; feeds
+      that change by design (topic lists, build manifests) are instead read semantically each week by
+      <code>tools/watch-feeds.mjs</code>, which reports a build change as <em>old → new</em> and a staff-touched forum topic with its
+      thread link.
     </p>
     <div class="table-wrap">
       <table class="compact" id="apiTable">
@@ -179,9 +191,10 @@
       <div class="card">
         <h3>Now watchable without a credential</h3>
         <ul>
-          <li><strong>Client builds.</strong> A build number straight from Blizzard, dated when read — the cheapest possible answer to “did the beta move today?” (C192).</li>
-          <li><strong>New Forever forum topics.</strong> A category feed scoped to Forever on both regions, so a known-issues post or a blue reply is noticed the day it lands (C190, C191).</li>
-          <li><strong>Add-on declarations.</strong> A release listing's game-version chips can be cross-checked against Blizzard's build service instead of being taken on trust (C197).</li>
+          <li><strong>Client builds — including the Forever beta's.</strong> A build number straight from Blizzard, dated when read — the cheapest possible answer to “did the beta move today?” (C192). Since 19 September that includes the <code>wow_classic_beta</code> product, 1.60.1.69913 that day (C211, identification C212).</li>
+          <li><strong>New Forever forum topics, and staff posts in them.</strong> Category feeds scoped to Forever (346) and to the Forever beta (349), whose user records carry Blizzard's own community-manager marker, so a blue reply can be flagged for a human to open the day it lands (C190, C191, C216).</li>
+          <li><strong>Product codes going live.</strong> The summary shows which codes carry a versions record; the day <code>wowf</code> gains one is the day the weekly report says so (C193).</li>
+          <li><strong>Add-on declarations.</strong> A release listing's game-version chips can be cross-checked against Blizzard's build service instead of being taken on trust — Auctionator's “Classic Forever 1.60.1” chip matches the <code>wow_classic_beta</code> line (C197).</li>
         </ul>
       </div>
       <div class="card">
@@ -200,11 +213,42 @@
     </p>
   </section>
 
+  <section id="forever-build" aria-labelledby="h-forever-build">
+    <h2 id="h-forever-build">The Forever beta build, and why it is printed with a caveat</h2>
+    <div class="table-wrap">
+      <table class="compact">
+        <caption>What Blizzard's version service served on 19 September 2026 for every Classic-family product code that carries a versions record — all seven read the same day — plus the one that does not.</caption>
+        <thead>
+          <tr><th scope="col">Product code</th><th scope="col">Build served (19 Sep 2026)</th><th scope="col">Regions</th><th scope="col">What it is</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">wow_classic_beta</td><td><strong>1.60.1.69913</strong> (BuildId 69913)</td><td>us, eu, kr, tw</td><td>Identified by us as the <strong>Forever beta</strong> client — C212. The only 1.60.x line on the service.</td></tr>
+          <tr><td class="mono">wow_classic_era</td><td>1.15.9.69722</td><td>us, eu, cn, kr, tw</td><td>Classic Era (control)</td></tr>
+          <tr><td class="mono">wow_anniversary</td><td>2.5.6.69795</td><td>us, eu, cn, kr, tw</td><td>Anniversary realms, Burning Crusade line (control)</td></tr>
+          <tr><td class="mono">wow_classic_titan</td><td>3.80.2.69874</td><td>cn only</td><td>A 3.x Classic line served to China (control)</td></tr>
+          <tr><td class="mono">wow_classic</td><td>5.5.4.69585</td><td>us, eu, cn, kr, tw</td><td>Mists of Pandaria Classic (control)</td></tr>
+          <tr><td class="mono">wow_classic_ptr</td><td>5.5.4.67849</td><td>us, eu, cn, kr, tw</td><td>Mists of Pandaria Classic PTR (control)</td></tr>
+          <tr><td class="mono">wow_classic_era_ptr</td><td>2.5.6.69110</td><td>us, eu, cn, kr, tw</td><td>A 2.5.x PTR line (control)</td></tr>
+          <tr><td class="mono">wowf</td><td><em>no versions record</em></td><td>—</td><td>Exists in the summary with a CDN record only; <code>/versions</code> answers “No matched data for selector” (C193)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">
+      Why we are confident, and why it is still “ours”: Blizzard's beta article installs the test from a “World of Warcraft: Forever Beta”
+      entry under In Development; Auctionator's releases 337 and 338 declare “Classic Forever patch1.60.1”; Wowhead stamps its Forever
+      database “Added in patch 1.60.1”; and nothing else on the service carries 1.60.x. Three independent parties converge on one version
+      line. What does not exist is a Blizzard sentence saying “the Forever beta is <code>wow_classic_beta</code>”, so the site never writes one.
+      A build number is a build number: it proves a client changed, and says nothing about class tuning or content until Blizzard publishes notes.
+      <span class="srcs"><a class="src" href="https://us.version.battle.net/v2/summary" rel="noopener">summary</a><a class="src" href="https://us.version.battle.net/v2/products/wow_classic_beta/versions" rel="noopener">wow_classic_beta</a><a class="src" href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard beta article</a><a class="src" href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Auctionator releases</a></span>
+    </p>
+  </section>
+
   <section id="protocol" aria-labelledby="h-protocol">
     <h2 id="h-protocol">How the register stays honest</h2>
     <ul class="checklist">
-      <li><strong>Fetched, not assumed.</strong> An endpoint is listed as verified only after a plain request came back, on a stated date, and the response is described. Two candidate URLs for a Forever build were tried and returned no data — that negative is published as an open gap (C193) rather than papered over with a plausible-looking number.</li>
-      <li><strong>Registered as a source.</strong> Every verified endpoint is also in <code>data/sources.js</code>, so the weekly watcher fingerprints it and a change in behaviour surfaces as an issue instead of a silent break.</li>
+      <li><strong>Fetched, not assumed.</strong> An endpoint is listed as verified only after a plain request came back, on a stated date, and the response is described. Two guessed URLs for a Forever build returned no data and were published as a gap (C193) rather than papered over; the gap closed the same day only because the service's own product list was read instead of guessed again (C211).</li>
+      <li><strong>Read, never named.</strong> The build service never says “Forever”. The number is always printed as “the <code>wow_classic_beta</code> build on <em>date</em>”, and the reasoning that ties it to Forever stays a separate, falsifiable claim (C212).</li>
+      <li><strong>Registered as a source.</strong> Every verified endpoint is also in <code>data/sources.js</code>, so the citation checker covers it; pages are fingerprinted weekly, feeds are read semantically weekly, and a change in behaviour surfaces as an issue instead of a silent break. The offline test <code>tools/test-watch-feeds.mjs</code> fails if a feed URL is not a registered source.</li>
       <li><strong>Limits are mandatory.</strong> Each verified row states what the endpoint must never be used for. An endpoint with no stated limit is treated as unusable.</li>
       <li><strong>Status changes are claim changes.</strong> If an endpoint starts requiring a key, the claim that cites it is superseded with a new date, in the same way the ledger handles every other correction.</li>
     </ul>
@@ -223,7 +267,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-19</span> · endpoint claims C190–C197 · <a href="sources.html#claims">full ledger</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · endpoint claims C190–C197, C211–C212, C216 · <a href="sources.html#claims">full ledger</a></p>
   </div>
 </footer>
 

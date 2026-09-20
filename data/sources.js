@@ -48,7 +48,9 @@ window.WOWF_SOURCES = [
       "Darkspear Islands = 15 vs 15 battleground, control points plus Arathi-Basin-style flag capture",
       "9 Dec 2026: new raids unlock; later: more raids, dungeons, PvP updates, world content, quests, Hardcore, a revamped iconic raid",
       "Launch 4 Nov 2026 at 3:00 p.m. PST; beta from 17 Sep",
-      "\"This is not a mode, a season, or a new version of Classic\""
+      "\"This is not a mode, a season, or a new version of Classic\"",
+      "Skyborne class rules in Blizzard's words (re-read 2026-09-19): Horde-aligned Skyborne 'gain access to the Shaman class', Alliance-aligned Skyborne 'gain access to the Mage class', and 'both factions can also play Warriors, Hunters, Rogues, and Druids' — six classes, no others named",
+      "Wording note (re-read 2026-09-19): this recap lists 'opt-in Transmog' among player-choice options, while the Deep Dive recap describes disabling the system as 'opting out' and says Classic Mode disables it automatically — recorded as irregularity I-24 rather than resolved by us"
     ]
   },
   {
@@ -192,7 +194,8 @@ window.WOWF_SOURCES = [
       "Each patch cycle has a new 14-rank Honor track",
       "Honor comes from battlegrounds and PvP-related content",
       "Rewards include cosmetics and PvP armor that has stats on it",
-      "New battlegrounds including Darkspear Islands; Blizzard used the plural 'battlegrounds'"
+      "New battlegrounds including Darkspear Islands; Blizzard used the plural 'battlegrounds'",
+      "Wowhead stamps its Forever pages with the client version it writes against: the comments on this article are labelled 'Patch 1.60.1' (observed 2026-09-19), the same version line Blizzard's version service serves for wow_classic_beta"
     ]
   },
   {
@@ -411,7 +414,7 @@ window.WOWF_SOURCES = [
     id: "wago-tsm",
     title: "TradeSkillMaster — versions (addon distribution)",
     publisher: "Wago Addons",
-    date: "2026-09-13 (latest build listed), checked 2026-09-19 (twice, unchanged)",
+    date: "2026-09-13 (latest build listed), checked 2026-09-19 (three times, unchanged)",
     url: "https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable",
     tier: "tooling",
     supports: [
@@ -616,7 +619,8 @@ window.WOWF_SOURCES = [
       "Week 1 beta content: Skyborne and Zephras Isle, Hall of Thanes (level 13–18), Ruins of Lordaeron (level 15–20), all zone content up to level 20",
       "Blizzard's own words: \"Additional zones, dungeons, and the new battleground will open for testing as the beta continues\"",
       "A \"Server Slam\" window will open the beta to everyone for several hours later in the test; details to be announced",
-      "Beta access routes: Battle.net opt-in invitations sent regularly through the test, or eligible digital bundle purchases; phishing warning and how to verify a licence on the Battle.net account"
+      "Beta access routes: Battle.net opt-in invitations sent regularly through the test, or eligible digital bundle purchases; phishing warning and how to verify a licence on the Battle.net account",
+      "Re-read 2026-09-19 (third session): the opening paragraph says that 'over the course of the test' Blizzard will be 'inviting community veterans, press, fansites, friends, and family'; the install steps name the client as the 'World of Warcraft: Forever Beta' option 'listed under In Development' in the Battle.net Game Version menu — the launcher-side name this project pairs with the version service's wow_classic_beta product (C212)"
     ]
   },
   {
@@ -652,9 +656,10 @@ window.WOWF_SOURCES = [
     id: "sk-interview",
     title: "\"They might have reasons to welcome the Forsaken\" — WoW Forever's Kris Zierhut and Michael Nuthals on visiting Gilneas, What-Ifs, and more [Exclusive]",
     publisher: "Sportskeeda (Jason Parker); interview with Kris Zierhut (Principal Game Designer) and Michael Nuthals (Senior Game Designer)",
-    date: "2026-09-15 (modified 10:50 GMT); read 2026-09-18",
+    date: "2026-09-15 (modified 10:50 GMT); read 2026-09-18, re-read 2026-09-19",
     url: "https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive",
     tier: "press",
+    note: "Re-read in full on 2026-09-19 through the platform fetcher; every passage quoted from it on this site (mount training, bundle mounts, chase items, biome and creature-type effects, the adjacent-timeline setting, the Caverns of Time aspiration) was found word for word. The mirror image of the IGN Nordic case: the GitHub Actions runner that fingerprints sources received HTTP 403 from this URL on 19 September (one failure recorded in tools/source-state.json), while the fetcher used for reading was served the page. If the runner is refused again, the watcher will raise it; the citation itself is verified.",
     supports: [
       "Mount gold cost sits in the training, quoted from Kris Zierhut: \"when you buy the training, the training is the full first 100 or 1,000 gold depending on which level. And then you get your first mount for free after paying for the training.\"",
       "Cosmetic bundle mounts give no gameplay advantage: \"They still need to buy their training. You still got to pay the 1,000 gold.\" Blizzard states it is \"dead set against\" selling gameplay advantage",
@@ -978,7 +983,7 @@ window.WOWF_SOURCES = [
     date: "2026-09-13 (published); read 2026-09-19",
     url: "https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview",
     tier: "press",
-    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page. Second attempt, 2026-09-19 (later session): both the English and the Dutch URL again returned HTTP 403 to a direct fetch; the English page's search-engine-indexed text was re-read and matched every passage quoted on this site word for word, and confirmed the byline (Nick Nijland) and publication time (13 September 2026, 20:22 UTC). That is a second independent retrieval path, not a browser view, so the limitation stays recorded. Fourth attempt, 2026-09-19 (queue-closing pass): both the English URL and the Dutch mirror (nl.ign.com) again returned HTTP 403 to a fourth independent client (this environment's platform fetcher); four separate retrieval attempts have now been blocked identically, confirming the block is on the article itself rather than any one client. A human browser view remains the only step that can close I-14.",
+    note: "Reading note, recorded rather than hidden: direct retrieval of this URL returned HTTP 403 from the authoring environment on 19 September 2026 (IGN declines automated fetches), so the interview was read from the page's indexed text, which reproduces its headings and paragraphs. Every quoted passage was then cross-checked against three independent reproductions of the same article (r/classicwow, an MMORPG.com forum thread and a Spanish-language forum), which agree word for word with the indexed text, and against the Dutch edition of the interview (`also`), which carries the same horizontal-progression passage in translation. Opening the page in a browser is still outstanding and is logged as irregularity I-14 on the Method page. Second attempt, 2026-09-19 (later session): both the English and the Dutch URL again returned HTTP 403 to a direct fetch; the English page's search-engine-indexed text was re-read and matched every passage quoted on this site word for word, and confirmed the byline (Nick Nijland) and publication time (13 September 2026, 20:22 UTC). That is a second independent retrieval path, not a browser view, so the limitation stays recorded. Fourth attempt, 2026-09-19 (queue-closing pass): both the English URL and the Dutch mirror (nl.ign.com) again returned HTTP 403 to a fourth independent client (this environment's platform fetcher); four separate retrieval attempts have now been blocked identically, confirming the block is on the article itself rather than any one client. A human browser view remains the only step that can close I-14. Fifth attempt, 2026-09-19 (session 3): HTTP 403 again from the platform fetcher. New evidence the same day from a different client: the repository's own source watcher, running on a GitHub Actions runner at 00:20 UTC on 19 September, fetched this URL successfully and recorded a fingerprint of 7,450 characters of page text (tools/source-state.json, entry ign-nordic, failures 0). The page is therefore live and served to a plain HTTP client; the block is specific to the fetchers used for reading here. Its content still has not been read from the live page by this project, so I-14 stays open.",
     also: [
       "https://nl.ign.com/world-of-warcraft-forever/167066/world-of-warcraft-forever-moet-echt-voor-altijd-zijn-interview"
     ],
@@ -1042,20 +1047,21 @@ window.WOWF_SOURCES = [
     id: "wago-auctionator",
     title: "Auctionator — release list (stable channel)",
     publisher: "Wago Addons (release listing maintained by the Auctionator project)",
-    date: "checked 2026-09-19 (twice, unchanged); latest release 337 published 2026-09-17",
+    date: "checked 2026-09-19 three times; latest release 338 published 2026-09-19 (release 337 of 2026-09-17 was the newest at the first two checks)",
     url: "https://addons.wago.io/addons/auctionator/versions?stability=stable",
     tier: "tooling",
-    note: "Evidence about a piece of software, not about the game: the listing shows which game versions a build declares. Recorded because it is the first auction-house tool this project has verified as Forever-capable, which is a gold-making fact of the tooling kind.",
+    note: "Evidence about a piece of software, not about the game: the listing shows which game versions a build declares. Recorded because it is the first auction-house tool this project has verified as Forever-capable, which is a gold-making fact of the tooling kind. Third check on 2026-09-19 (evening, UTC): a new release 338 had appeared, again declaring Classic Forever 1.60.1 — the version string Blizzard's own version service serves for the wow_classic_beta product the same day (bnet-version-classic-beta).",
     supports: [
       "Auctionator release 337 (17 Sep 2026) declares \"Supported Classic Forever patch1.60.1\" alongside Retail 12.1.0, MoP 5.5.4, Wrath 3.80.0, TBC 2.5.6 and Classic Era 1.15.8/1.15.9",
-      "The two releases before it (336 of 13 Sep and 335 of 24 Aug 2026) list Classic Era but no Forever entry, so the Forever line appears with release 337"
+      "Release 338 (19 Sep 2026) keeps the Classic Forever 1.60.1 line, so the Forever declaration has now persisted across two consecutive releases",
+      "The two releases before 337 (336 of 13 Sep and 335 of 24 Aug 2026) list Classic Era but no Forever entry, so the Forever line appears with release 337"
     ]
   },
   {
     id: "wago-questie",
     title: "Questie — release list (stable channel)",
     publisher: "Wago Addons (release listing maintained by the Questie project)",
-    date: "checked 2026-09-19 (twice, unchanged); latest release v11.38.0 published 2026-09-15",
+    date: "checked 2026-09-19 (three times, unchanged); latest release v11.38.0 published 2026-09-15",
     url: "https://addons.wago.io/addons/questie/versions?stability=stable",
     tier: "tooling",
     supports: [
@@ -1067,7 +1073,7 @@ window.WOWF_SOURCES = [
     id: "cf-details",
     title: "Details! Damage Meter — file list",
     publisher: "CurseForge (release listing maintained by the Details! project)",
-    date: "checked 2026-09-19 (twice, unchanged); newest file listed 2026-09-18",
+    date: "checked 2026-09-19 (three times, unchanged); newest file listed 2026-09-18",
     url: "https://www.curseforge.com/wow/addons/details/files",
     tier: "tooling",
     supports: [
@@ -1447,7 +1453,7 @@ window.WOWF_SOURCES = [
     id: "iv-tierlists",
     title: "Tier Lists for WoW Forever - directory",
     publisher: "Icy Veins (Petko)",
-    date: "2026-09-16 (added); read 2026-09-19",
+    date: "2026-09-16 (added), last updated 2026-09-17; read 2026-09-19 (twice, unchanged)",
     url: "https://www.icy-veins.com/wow-forever/tier-list-hub",
     tier: "guide",
     supports: [
@@ -1528,7 +1534,8 @@ window.WOWF_SOURCES = [
     url: "https://us.forums.blizzard.com/en/wow/latest.json",
     tier: "official",
     firstParty: true,
-    note: "Blizzard's forums run on Discourse, so this is a documented platform API serving first-party Blizzard data. Fetched with no credentials on 2026-09-19 (HTTP 200); the newest topics in the payload were posted the same evening. Registered as evidence that the endpoint works — not as a source of game facts.",
+    watch: false,
+    note: "Excluded from the text-fingerprint watcher on 2026-09-19 (watch: false) because a live topic feed changes by the hour and would raise a 'changed' flag every week by design; it is read semantically by tools/watch-feeds.mjs instead. Blizzard's forums run on Discourse, so this is a documented platform API serving first-party Blizzard data. Fetched with no credentials on 2026-09-19 (HTTP 200); the newest topics in the payload were posted the same evening. Registered as evidence that the endpoint works — not as a source of game facts.",
     supports: [
       "A Blizzard-hosted, machine-readable topic feed is publicly reachable with no account, no key and no registration (see the Public endpoints page)",
       "Each topic carries id, title, slug, created_at, last_posted_at and posts_count; a topic id resolves to a public page at /en/wow/t/<slug>/<id>",
@@ -1543,7 +1550,8 @@ window.WOWF_SOURCES = [
     url: "https://us.forums.blizzard.com/en/wow/c/wow-forever/l/latest.json",
     tier: "official",
     firstParty: true,
-    note: "Same public Discourse API, scoped to the Forever category. The request resolves through /c/wow-forever/346/l/latest.json, which is how the US category id (346, slug wow-forever) was established on 2026-09-19.",
+    watch: false,
+    note: "Excluded from the text-fingerprint watcher on 2026-09-19 (watch: false) for the same reason as the site-wide feed; tools/watch-feeds.mjs records its newest topic id and any staff-touched topics each week instead. Same public Discourse API, scoped to the Forever category. The request resolves through /c/wow-forever/346/l/latest.json, which is how the US category id (346, slug wow-forever) was established on 2026-09-19.",
     supports: [
       "A dedicated 'WoW: Forever' forum category exists on Blizzard's US forum (id 346, slug wow-forever) and is readable without an account",
       "On 19 September 2026 the category carried active Forever threads on recruitment, mob tagging and beta discussion",
@@ -1558,7 +1566,8 @@ window.WOWF_SOURCES = [
     url: "https://eu.forums.blizzard.com/en/wow/c/wow-forever.json",
     tier: "official",
     firstParty: true,
-    note: "Resolves to /c/wow-forever/359.json: the EU category id is 359 and shares the slug wow-forever with the US category. Fetched with no credentials on 2026-09-19.",
+    watch: false,
+    note: "Excluded from the text-fingerprint watcher on 2026-09-19 (watch: false): the category record carries live topic and post counts that move daily. Resolves to /c/wow-forever/359.json: the EU category id is 359 and shares the slug wow-forever with the US category. Fetched with no credentials on 2026-09-19.",
     supports: [
       "The EU forum carries its own Forever category (id 359), separate from the US category (id 346)",
       "A regional equivalent exists for every blue post that matters, which gives the site a second address to check before treating a forum statement as one-region-only"
@@ -1586,7 +1595,8 @@ window.WOWF_SOURCES = [
     url: "https://us.version.battle.net/v2/products/wow_classic/versions",
     tier: "official",
     firstParty: true,
-    note: "Fetched with no credentials on 2026-09-19 (HTTP 200). Returns a pipe-delimited TACT version table, one row per region; that day it read 5.5.4.69585 (BuildId 69585) for us, eu, cn, kr and tw. This is Blizzard's own build manifest, not a third party's mirror of it.",
+    watch: false,
+    note: "Fetched with no credentials on 2026-09-19 (HTTP 200). Returns a pipe-delimited TACT version table, one row per region; that day it read 5.5.4.69585 (BuildId 69585) for us, eu, cn, kr and tw. This is Blizzard's own build manifest, not a third party's mirror of it. Later on 2026-09-19 the Forever beta's own product code was found in the service's product summary (bnet-version-summary, bnet-version-classic-beta), so this entry is now a control, not the closest thing to a Forever build. Build endpoints are excluded from the text-fingerprint watcher (watch: false) and read semantically by tools/watch-feeds.mjs, which reports a build number change as 'old → new' instead of a hash.",
     supports: [
       "An authoritative first-party build number is publicly readable with no key, no account and no registration",
       "The value seen on 2026-09-19 was 5.5.4.69585 for the Classic product line, which matches the 'Supported Mists of Pandaria patch5.5.4' chip that the TSM release listing displayed the same day (see claim C197)",
@@ -1601,7 +1611,8 @@ window.WOWF_SOURCES = [
     url: "https://us.version.battle.net/v2/products/wow_classic_era/versions",
     tier: "official",
     firstParty: true,
-    note: "Same public service, different product: read 1.15.9.69722 (BuildId 69722) on 2026-09-19. Used as the control that proves the URL shape works, because the same request against two guessed Forever product codes returned 'No matched data' instead.",
+    watch: false,
+    note: "Same public service, different product: read 1.15.9.69722 (BuildId 69722) on 2026-09-19. Used as the control that proves the URL shape works, because the same request against two guessed Forever product codes returned 'No matched data' instead. Later the same day the product summary (bnet-version-summary) showed why: the guessed codes have no versions record, and the 1.60.x build lives under wow_classic_beta. Watched semantically by tools/watch-feeds.mjs rather than by text fingerprint.",
     supports: [
       "The version-service path shape is real and works unauthenticated, which makes the negative result on a Forever product code a genuine 'not found' rather than a broken request",
       "The Era build seen on 2026-09-19 (1.15.9.69722) matches the 'Supported Classic Era patch1.15.9' chip on the TSM release listing from the same day (see claim C197)"
@@ -1714,7 +1725,118 @@ window.WOWF_SOURCES = [
       "Character limits: up to 10 characters per realm and 50 across one Battle.net license; on the PvP ruleset only characters of one faction can be created",
       "System requirements as printed: Windows 10 64-bit minimum (Windows 11 recommended), 6-core 4.0 GHz minimum, DirectX 12 capable 4 GB GPU minimum, 8 GB RAM minimum, 128 GB SSD"
     ]
-  }
+  },
+
+  /* ---------- Added 2026-09-19 (session 3): Blizzard pages and feeds found on the blue tracker and the version service ---------- */
+  {
+    id: "bnet-carve-path",
+    title: "Carve a New Path with World of Warcraft: Forever",
+    publisher: "Blizzard Entertainment (news.blizzard.com)",
+    date: "BlizzCon 2026 weekend (no publication date in the retrieved text; the page still invites readers to the 13 September Deep Dive stream); read 2026-09-19",
+    url: "https://news.blizzard.com/en-us/article/24302093/carve-a-new-path-with-world-of-warcraft-forever",
+    tier: "official",
+    firstParty: true,
+    note: "Blizzard's umbrella announcement page: a one-paragraph description of Forever, the edition list, and links to the three panel recaps. Read line by line on 2026-09-19. It prints the launch time twice with two different zone labels — '3:00 p.m. PDT globally' in the opening paragraph and '3:00 p.m. PST' in the pre-purchase section — which is recorded as irregularity I-23 rather than silently normalised.",
+    supports: [
+      "Blizzard's own framing sentence: Forever is 'built as a new permanent home alongside modern and Classic WoW'",
+      "Setting, first-party: 'Set after the events of Warcraft III Reforged: Forsaken Kingdom and before Molten Core', on the original continents, with the journey 'to level 60'",
+      "Launch 'November 4 at 3:00 p.m. PDT globally' in one paragraph and 'November 4, 2026, at 3:00 p.m. PST' in another — the same page carries both labels (I-23)",
+      "Edition contents match the pre-purchase article: Skyborne Heroic Pack (race, Zephras Isle, Early Name Reservation, Cerulean Prideclaw mount that still needs the riding skill bought in-game, one Invite-A-Friend code), Skyborne Epic Pack (adds beta access from 17 September, 30 days of Game Time from 4 November, three codes) and the limited-time Warcraft Forever Collection (adds Warcraft III: Reforged and the Forsaken Kingdom campaign)"
+    ]
+  },
+  {
+    id: "bnet-gpu-reqs",
+    title: "World of Warcraft: Forever GPU Requirements",
+    publisher: "Blizzard Entertainment (news.blizzard.com)",
+    date: "BlizzCon 2026 week (article id 24301512; no publication date in the retrieved text); read 2026-09-19",
+    url: "https://news.blizzard.com/en-us/article/24301512/world-of-warcraft-forever-gpu-requirements",
+    tier: "official",
+    firstParty: true,
+    note: "Read in full on 2026-09-19. The only Blizzard page found so far that states a hard hardware cut-off specific to Forever, and the reason for it. Recorded on the roadmap because it is a pre-launch action item a reader can check today.",
+    supports: [
+      "Forever requires a GPU based on AMD Graphics Core Next 1 (2012), NVIDIA Maxwell (2014) or Intel Skylake (2015) or newer; older architectures 'will no longer be supported'",
+      "Blizzard's stated reason: the new visual look relies on 'RGBA16F UAV support in compute shaders', a feature introduced to GPUs around 2012",
+      "Example compatible cards named: Radeon HD 7850, GeForce GTX 9xx and 750/750 Ti, Intel HD Graphics 530 — with Blizzard's own warning that these 'are still well below the minimum requirements for the game'",
+      "Example unsupported cards named: Radeon HD 6950, GeForce GTX 760/770/780 and GTX 8xxM, Intel HD Graphics 6000",
+      "The full minimum system requirements are on the Battle.net Shop product page, which is where the page sends readers"
+    ]
+  },
+  {
+    id: "bnet-wow-weekly-0918",
+    title: "BlizzCon 2026, WoW Forever Beta, Midnight S3, and More in This Week's WoW Weekly",
+    publisher: "Blizzard Entertainment (news.blizzard.com)",
+    date: "week of 2026-09-18 (article id 24304074); read 2026-09-19",
+    url: "https://news.blizzard.com/en-us/article/24304074/blizzcon-2026-wow-forever-beta-midnight-s3-and-more-in-this-weeks-wow-weekly",
+    tier: "official",
+    firstParty: true,
+    note: "A weekly roundup, so most of it points elsewhere. Registered because it is the first-party page that presents the BlizzCon live Q&A video and states who is being invited to the beta over the course of the test.",
+    supports: [
+      "Blizzard presents the World of Warcraft live Q&A (the session Wowhead live-blogged) on its own news site, with answers about modern WoW and WoW Forever",
+      "Beta invitations 'over the course of the test' go to 'community veterans, press, fansites, friends, and family' — a first-party statement of who is in the beta besides pre-purchasers",
+      "It links the BlizzCon 2026 round-up (article 24301145) and the beta-live article (24304160) as the canonical Forever pages of the week"
+    ]
+  },
+  {
+    id: "bnet-version-summary",
+    title: "Blizzard version service — product summary",
+    publisher: "Blizzard Entertainment (us.version.battle.net)",
+    date: "read 2026-09-19",
+    url: "https://us.version.battle.net/v2/summary",
+    also: [
+      "https://us.version.battle.net/v2/products/wow_anniversary/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_titan/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_ptr/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_era_ptr/versions",
+      "https://us.version.battle.net/v2/products/wowf/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_era_beta/versions",
+      "https://us.version.battle.net/v2/products/wow_cn_beta/versions"
+    ],
+    tier: "official",
+    firstParty: true,
+    watch: false,
+    note: "Fetched with no credentials on 2026-09-19 (HTTP 200). A pipe-delimited list of every product code the service knows, each with a sequence number and a flag: a 'cdn' row means the product has a CDN record, a blank-flag row means it has a versions record that /products/<code>/versions will answer — checked three ways the same day, since the blank-row sequence numbers for wow_classic_beta (4026306), wow_anniversary (4026317) and wow_classic_titan (4026307) each matched the seqn printed by that product's versions endpoint. This is how the Forever beta's product code was found instead of guessed. The whole file changes every week for reasons unrelated to WoW, so it is excluded from the text-fingerprint watcher (watch: false) and read semantically by tools/watch-feeds.mjs instead. The extra URLs are the other Classic-family products that carry a versions row (all fetched the same day as controls) and the three cdn-only codes whose versions path was fetched to confirm the empty answer.",
+    supports: [
+      "The WoW product codes with a versions row on 2026-09-19 were wow, wow_beta, wow_anniversary, wow_classic, wow_classic_beta, wow_classic_era, wow_classic_era_ptr, wow_classic_ptr, wow_classic_titan, wowt, wowxptr, wowz and a set of internal codes (wowdev*, wowe*, wowlivetest*, wownev*, wowv*)",
+      "A product code 'wowf' exists but carries only a CDN row and no versions row — its /versions path answers 'No matched data for selector'; wow_classic_era_beta and wow_cn_beta are cdn-only too and their versions paths were fetched on 2026-09-19 with the same empty answer",
+      "Control values read the same day: wow_anniversary answered 2.5.6.69795 for every region (the Burning Crusade Classic line, matching the 'Burning Crusade 2.5.6' chip on the TSM listing), wow_classic_titan answered 3.80.2.69874 for the cn region only, wow_classic_ptr answered 5.5.4.67849 and wow_classic_era_ptr answered 2.5.6.69110",
+      "All seven Classic-family codes with a versions record were read on 2026-09-19 (wow_classic, wow_classic_era, wow_classic_ptr, wow_classic_era_ptr, wow_anniversary, wow_classic_titan, wow_classic_beta); exactly one carries a 1.60.x build: wow_classic_beta"
+    ]
+  },
+  {
+    id: "bnet-version-classic-beta",
+    title: "Blizzard version service — Classic beta product versions (wow_classic_beta)",
+    publisher: "Blizzard Entertainment (us.version.battle.net)",
+    date: "read 2026-09-19",
+    url: "https://us.version.battle.net/v2/products/wow_classic_beta/versions",
+    tier: "official",
+    firstParty: true,
+    watch: false,
+    note: "Fetched with no credentials on 2026-09-19 (HTTP 200), twice in the same day with the same result. Returns the TACT version table for the product code wow_classic_beta: us, eu, kr and tw all read 1.60.1.69913 (BuildId 69913, sequence 4026306). This is a first-party build manifest; the page itself never says the word 'Forever', which is why the identification of this product as the Forever beta is a separate, explicitly reasoned claim (C212) and not folded into this source.",
+    supports: [
+      "On 2026-09-19 the wow_classic_beta product served build 1.60.1.69913 to the us, eu, kr and tw regions with one shared BuildConfig",
+      "The response carries a sequence number (seqn 4026306) that also appears against wow_classic_beta in the product summary, which ties the two endpoints together",
+      "It states a build, never a changelist: the number proves a client exists and shipped; it says nothing about what is in it"
+    ]
+  },
+  {
+    id: "bnet-forum-beta-us",
+    title: "World of Warcraft forum (US) — WoW: Forever Beta Discussion category feed",
+    publisher: "Blizzard Entertainment (us.forums.blizzard.com)",
+    date: "read 2026-09-19",
+    url: "https://us.forums.blizzard.com/en/wow/c/in-development/wow-forever-beta-discussion/349/l/latest.json",
+    also: [
+      "https://us.forums.blizzard.com/en/wow/t/2354196"
+    ],
+    tier: "official",
+    firstParty: true,
+    watch: false,
+    note: "Found on 2026-09-19 through a Kaivax (Blizzard community manager) post in topic 2354196, which redirected minimum-spec questions to this category. The category sits under 'In Development' with id 349 and slug wow-forever-beta-discussion, separate from the general Forever category (id 346). The latest.json feed answered with no credentials; the same JSON marks Blizzard staff explicitly (Kaivax's user record carries primary_group_name 'community-manager', flair_name 'community-manager', admin true, moderator true), which is a machine-readable staff marker the feed watcher uses to surface possible blue posts for a human to confirm. The feed changes by the hour, so it is excluded from the text-fingerprint watcher and read semantically instead.",
+    supports: [
+      "A dedicated 'WoW: Forever Beta Discussion' category exists on Blizzard's US forum (id 349) under In Development, distinct from the Forever category (346), and is readable without an account",
+      "The feed's user records carry Blizzard's own staff marker for community managers (primary_group_name 'community-manager', admin and moderator true), so a staff-touched topic can be flagged automatically — and still verified on the thread page before anything is recorded",
+      "On the evening of 2026-09-19 (UTC) the category carried live player-feedback topics (for example a Radeon RX 9070 owner not seeing the new lighting that others in chat described) — player reports that show the category is active, and that are never taken as facts about the game"
+    ]
+  },
 
 ];
 

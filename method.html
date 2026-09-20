@@ -59,7 +59,7 @@
       <li><a href="#classes">Evidence classes</a></li>
       <li><a href="#procedure">The line-by-line procedure</a></li>
       <li><a href="#refuse">What we refuse to publish</a></li>
-      <li><a href="#irregularities">Irregularity log (I-1 … I-22)</a></li>
+      <li><a href="#irregularities">Irregularity log (I-1 … I-24)</a></li>
       <li><a href="#teardown">Source-coverage map (Wowhead, Icy Veins, Skill Capped, TSM)</a></li>
       <li><a href="#corrections">Corrections process</a></li>
     </ul>
@@ -336,6 +336,15 @@
       recorded as claim C158. Every sentence quoted on this site from that interview was cross-checked against the Dutch
       edition of the same interview, and no sentence is quoted that does not appear in both.
     </p>
+    <p class="small">
+      <strong>Status, 19 September 2026 (third session):</strong> a fifth direct fetch of the English page returned HTTP 403.
+      The same day, the project's own weekly watcher — running on a GitHub Actions runner at 00:20 UTC — fetched the page
+      without error and recorded a 7,450-character text fingerprint (<code>tools/source-state.json</code>, entry
+      <code>ign-nordic</code>, zero failures). So the page is live and is served to a plain client; the refusal is specific to
+      the reading path used here. That narrows the limitation without closing it: nobody on this project has yet read the
+      live page, so the indexed-text caveat stays on every citation (C218). The Sportskeeda interview is the mirror case —
+      readable here, refused to the runner — which is why a 403 from one client is never treated as evidence about a page.
+    </p>
 
     <h3>I-15 · A guide's expectation was stated with first-party confidence <span class="chip ours">Self-corrected</span></h3>
     <p>
@@ -479,6 +488,40 @@
       unreadability) and are published with the evidence for the refusal. The Work plan limitation row has been rewritten to
       name what is now watchable and what remains impossible. Recorded during the 19 September pass.
     </p>
+
+    <h3 id="i-23">I-23 · Blizzard's umbrella page prints the launch time as PDT in one paragraph and PST in another <span class="chip official">Official</span></h3>
+    <p>
+      The <a href="https://news.blizzard.com/en-us/article/24302093/carve-a-new-path-with-world-of-warcraft-forever" rel="noopener">Carve
+      a New Path</a> page opens with “launches November 4 at 3:00 p.m. PDT globally” and, a few paragraphs later, says the game
+      “launches globally on November 4, 2026, at 3:00 p.m. PST”. The <a href="https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap" rel="noopener">What's
+      Next recap</a> prints PST. Unlike I-21, where the window sat inside daylight time and the labels differed by name only, here the
+      labels differ by an hour on the day in question: US daylight time ends on 1 November 2026, so on 4 November the Pacific zone is
+      on standard time — 3:00 p.m. PST is 23:00 UTC, and 3:00 p.m. PDT would be 22:00 UTC. Two of three printings say PST and PST is
+      the zone actually in force, so this site prints “3:00 p.m. PST (23:00 UTC)” — and says so, rather than quietly choosing.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> recorded as claim C214 with both Blizzard pages registered (bnet-carve-path, bnet-whats-next);
+      the home page's launch card carries the UTC time and a link here. The exact minute is Blizzard's to confirm in a launch-day
+      article; the weekly watcher fingerprints both pages, so an edit that removes the discrepancy will be noticed. Found during the
+      19 September third-session re-read of the blue-tracker items.
+    </p>
+
+    <h3 id="i-24">I-24 · Two Blizzard recaps describe the same transmog system as “opt-in” and as something you “opt out” of <span class="chip official">Official</span></h3>
+    <p>
+      The What's Next recap lists “opt-in Transmog” among its player-choice options. The Deep Dive recap, published a day later,
+      describes visiting a transmogrifier to “configure transmogrified outfits or disable the system entirely”, says that “opting
+      out means players will only see others around them as they are”, and that choosing Classic Mode at first launch disables it
+      automatically. The two pages agree on every mechanic — the system can be on or off per player, Classic Mode turns it off, and
+      appearance collection continues either way — and disagree on the one word that says which state a player on the modern preset
+      starts in. Recorded because this site's Gear page says “opt-out”, following the Deep Dive's more detailed description, and a
+      reader who opens the What's Next recap will find the other word.
+    </p>
+    <p class="small">
+      <strong>Our handling:</strong> the discrepancy is noted on claim C210 and on the What's Next source entry rather than resolved
+      by us; the Gear page keeps the Deep Dive's description because it is the page that actually describes the mechanism. If
+      Blizzard's launch documentation states the default plainly, the claim is superseded with a new date. Found during the same
+      19 September re-read.
+    </p>
   </section>
 
   <section id="teardown" aria-labelledby="h-teardown">
@@ -556,7 +599,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-19</span> · irregularities I-1 to I-22 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-19</span> · irregularities I-1 to I-24 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 

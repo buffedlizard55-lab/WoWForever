@@ -10,13 +10,13 @@ name: Verify
 # claim has no registered source" — this workflow is what makes that sentence
 # true rather than aspirational.
 #
-# Eight checks now run here: ledger integrity, citation integrity (registered
+# The checks that run here: ledger integrity, citation integrity (registered
 # sources, resolving anchors, machine-checked self-reported counts), market-log
 # schema, quotation anchoring, accessibility/print structure, the public-endpoint
 # register (eligibility flags, published limits, no rejected URL linked), the
 # site-pattern register (dated observations, registered example URLs, nothing
-# unverified linked), and an offline self-test of the source watcher that runs in
-# the other workflow.
+# unverified linked), the rendered-table test, and offline self-tests of the two
+# watchers (page fingerprints and structured feeds) that run in the other workflow.
 
 # The endpoint and pattern checks exist because both registers publish links that
 # a reader is invited to open. A register that drifts from the data files, or
@@ -72,3 +72,6 @@ jobs:
 
       - name: Source watcher self-test (offline fixtures, no network)
         run: node tools/test-source-watch.mjs
+
+      - name: Feed watcher self-test (offline fixtures, no network; also proves every feed URL is a registered source)
+        run: node tools/test-watch-feeds.mjs

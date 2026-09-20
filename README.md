@@ -63,8 +63,8 @@ that returned 404 is published as a failure rather than retried until something 
 | `addons.html` | Add-on and tooling compatibility tracker: dated release listings, Blizzard's addon-API statements, gold/PvP consequences |
 | `beta.html` | Beta observation log: dated beta calendar, per-class observation status, the reported → observed rule, false positives to avoid |
 | `sources.html` | Full source registry and claims ledger (filterable) |
-| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-22 |
-| `data-api.html` | Public endpoint register: which machine-readable sources are usable with no key and no sign-up, which were rejected and why, and what remains impossible |
+| `method.html` | Verification method, what we refuse to publish, irregularity log I-1…I-24 |
+| `data-api.html` | Public endpoint register: which machine-readable sources are usable with no key and no sign-up, which were rejected and why, what remains impossible — and the Forever beta build read from Blizzard's version service, with the caveat on how it was identified |
 | `site-patterns.html` | Verified URL and section patterns for Wowhead, Icy Veins, Skill Capped, Wago and Blizzard pages, with the patterns that failed verification |
 | `work-plan.html` | Delivered work, this session's line-by-line record, blocked items, limitations, decisions, next steps |
 
@@ -74,8 +74,9 @@ that returned 404 is published as a failure rather than retried until something 
 index.html … work-plan.html   static pages, no build step
 assets/css/style.css          one stylesheet, dark theme, print styles
 assets/js/site.js             progressive enhancement only (nav state, table filters, copy buttons)
-data/sources.js               source registry  (window.WOWF_SOURCES, optional `also: [urls]` per source)
-data/claims.js                claims ledger    (window.WOWF_CLAIMS; 174 claims today, IDs are not contiguous)
+data/sources.js               source registry  (window.WOWF_SOURCES, optional `also: [urls]`; `watch: false` marks a feed that
+                              changes by design and is read by the feed watcher instead of being fingerprinted)
+data/claims.js                claims ledger    (window.WOWF_CLAIMS; 182 claims today, IDs are not contiguous)
 data/market-log.csv           market observation log — schema documented inside, empty until launch
 data/apis.js                  public endpoint register (window.WOWF_APIS; verified / rejected / pending, with the eligibility rule)
 data/patterns.js              site-pattern register  (window.WOWF_PATTERNS; dated observations, plus the unverified questions)
@@ -89,11 +90,15 @@ tools/quote-allowlist.txt     interface labels that are exempt from the quotatio
 tools/check-a11y.mjs          accessibility and print structure: landmarks, headings, captions, labels, focus, reduced motion, print rules
 tools/check-sources.mjs       source-URL watcher (network); writes tools/source-state.json
 tools/test-source-watch.mjs   offline fixture test of the watcher: baseline, change, regression, blocked runner
-tools/test-fixture-fetch.mjs  the test double that replaces fetch during that test
+tools/watch-feeds.mjs         structured-feed watcher (network): Blizzard version service (wow_classic_beta build, controls,
+                              product summary) and the two Forever forum category feeds; writes tools/feed-state.json and a
+                              report that says "old → new" or names a staff-touched topic — prompts for a human, never claims
+tools/test-watch-feeds.mjs    offline fixture test of the feed watcher; also fails if a feed URL is not a registered source
+tools/test-fixture-fetch.mjs  the test double that replaces fetch during both watcher tests
 tools/test-render.mjs         runs each page's table renderer offline with a DOM stub; fails on undefined/empty output
 robots.txt, sitemap.xml       crawler metadata for the published site
 .github/workflows/verify.yml  runs the three offline checkers on every push and pull request
-.github/workflows/source-watch.yml  weekly URL fingerprinting; opens an issue on change
+.github/workflows/source-watch.yml  weekly URL fingerprinting plus the structured-feed read; opens one issue on change
 ```
 
 Everything is plain HTML/CSS/JS so it can be served directly by GitHub Pages from the repository root
@@ -114,14 +119,16 @@ node tools/check-quotes.mjs --strict   # fails if any quotation has no source li
 node tools/check-a11y.mjs --strict     # structure and print: landmarks, headings, captions, labels, focus, reduced motion
 node tools/test-render.mjs             # offline: proves every JS-rendered table fills, with no undefined or empty links
 node tools/test-source-watch.mjs       # offline: proves the watcher's baseline/change/regression behaviour
+node tools/test-watch-feeds.mjs        # offline: proves the feed watcher parses builds, summary rows and forum staff markers
 node tools/check-sources.mjs --dry-run # network: fingerprint every registered source URL
+node tools/watch-feeds.mjs --dry-run   # network: read the build manifests and forum feeds, write nothing
 ```
 
-CI (`.github/workflows/verify.yml`) runs the seven offline checkers with `--strict`, plus the rendered-table test and the
-watcher's self-test, on every push and pull request. `source-watch.yml` runs the network step weekly (and on demand).
+CI (`.github/workflows/verify.yml`) runs the seven offline checkers with `--strict`, plus the rendered-table test and both
+watchers' self-tests, on every push and pull request. `source-watch.yml` runs the two network steps weekly (and on demand).
 The checkers verify structure — that a quotation is anchored, not that its wording matches the live page. Wording is
 checked by hand, and the corrections found that way are logged as I-11 to I-18 on the Method page, with I-21 (Blizzard's own pages labelling the same beta window with two different timezones) and I-22 (this site describing absent credentials as if it meant absent machine-readable sources, without testing it) added by the endpoint pass (every one of them a
-failure on this project's own pages, not in someone else's reporting); I-19 records the unofficial beta-tracker pattern
+failure on this project's own pages, not in someone else's reporting), and I-23 (one Blizzard page printing the launch time as both PDT and PST) and I-24 (two Blizzard recaps calling the same transmog system “opt-in” and something you “opt out” of) added by the third pass of 19 September; I-19 records the unofficial beta-tracker pattern
 flagged during the 19 September live-web pass, and I-20 records the set-bonus datamine that appeared out of a client whose
 item data Blizzard said would stay hidden until looted. The ledger checker also warns when a claim cites
 only first-party sources but carries a lower evidence class, the one under-classification pattern found so far (C031).
@@ -142,10 +149,13 @@ Sections marked **our reasoning** contain argument, not sourced fact. The source
 (`tools/source-state.json`) was established by the first run on 19 September 2026: **86 of the 87 URLs then registered**
 (74 source pages plus 13 additional pages) were fingerprinted; the one miss was the Sportskeeda interview
 (`sk-interview`, HTTP 403 to the runner), which is held to the two-strike rule rather than flagged on a single failure.
-The registry has since grown to 113 sources; the baseline covers 74 of them, and the sources registered after it ran —
-including the six added by the 19 September live-web pass and the four datamine sources added by the queue-closing pass
-that followed it — are picked up (as “newly fingerprinted”, with no issue) by the
-next weekly run. The baseline
+The registry has since grown to 119 sources, 8 of which are structured feeds marked `watch: false` and read by
+`tools/watch-feeds.mjs` instead; the baseline covers 74 of the fingerprinted sources, and the sources registered after it
+ran are picked up (as “newly fingerprinted”, with no issue) by the next network run. The feed watcher has no baseline yet:
+its first real run is the next push to `main` (the preflight runs when either baseline is missing) or the Monday schedule.
+On 19 September 2026 the Forever beta client's build was read for the first time from Blizzard's own version service —
+`wow_classic_beta`, 1.60.1.69913 — and the identification of that product as Forever is recorded as our reasoning (C212),
+not as a Blizzard statement. The baseline
 is created and repaired by `source-watch.yml` — the weekly schedule, a manual dispatch with *Baseline only* ticked, or
 automatically by the next push to `main` while no baseline exists (a preflight job keeps ordinary pushes from running the
 network step). The authoring shell has no direct outbound network (the 19 September live-web pass read its sources
