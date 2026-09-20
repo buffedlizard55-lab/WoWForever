@@ -76,7 +76,7 @@ assets/css/style.css          one stylesheet, dark theme, print styles
 assets/js/site.js             progressive enhancement only (nav state, table filters, copy buttons)
 data/sources.js               source registry  (window.WOWF_SOURCES, optional `also: [urls]`; `watch: false` marks a feed that
                               changes by design and is read by the feed watcher instead of being fingerprinted)
-data/claims.js                claims ledger    (window.WOWF_CLAIMS; 182 claims today, IDs are not contiguous)
+data/claims.js                claims ledger    (window.WOWF_CLAIMS; 183 claims today, IDs are not contiguous)
 data/market-log.csv           market observation log — schema documented inside, empty until launch
 data/apis.js                  public endpoint register (window.WOWF_APIS; verified / rejected / pending, with the eligibility rule)
 data/patterns.js              site-pattern register  (window.WOWF_PATTERNS; dated observations, plus the unverified questions)

@@ -12,7 +12,7 @@
 
   // 2. Stamp the "last verified" date on every element that asks for it.
   var stamp = document.querySelectorAll('[data-snapshot]');
-  var SNAPSHOT = '2026-09-19';
+  var SNAPSHOT = '2026-09-20';
   stamp.forEach(function (el) { el.textContent = SNAPSHOT; });
 
   // 3. Generic filterable table. Markup contract:

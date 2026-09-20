@@ -44,7 +44,7 @@
 <main id="main" class="wrap">
 
   <div class="hero">
-    <p class="eyebrow">Work plan · snapshot <span data-snapshot>2026-09-19</span></p>
+    <p class="eyebrow">Work plan · snapshot <span data-snapshot>2026-09-20</span></p>
     <h1>What still needs doing — and what is genuinely blocked</h1>
     <p class="lede">
       This page is the project's honest backlog. It separates <strong>blocked work</strong> (which cannot be done correctly
@@ -55,7 +55,26 @@
   </div>
 
   <div class="banner">
-    <strong>Latest session (third pass of 19 September): the Forever beta's build number is now read from Blizzard, and the two keyless Blizzard feeds are wired into the weekly watch.</strong>
+    <strong>Latest session (20 September): live re-verification of the load-bearing claims, and the fingerprint-noise fix that issue #22 asked for.</strong>
+    <p>
+      Pass 1 re-opened the sources the site leans on most and confirmed that nothing material has moved since the previous
+      snapshot: the public Forever beta build is still <strong>1.60.1.69913</strong> (C211), Icy Veins' PvP and raiding tier
+      lists are still marked <em>coming soon</em> (C198), Auctionator 338 still declares Classic Forever 1.60.1 and TSM is
+      still v4.14.77 with no 1.60.x (C153, C196), the known-issues post is still the 18 September edition (C143), and no
+      Forever class-tuning changelist has been published (C159). Pass 2 implemented the article-container fingerprint path
+      that issue #22 made necessary (C219) — offline-tested, with a one-time re-baseline that does not open an issue when
+      only the container selection moves. Pass 3 re-checked the brief: still no invented tier list, BiS list or gold-per-hour
+      figure; every external link remains a registered source; the ten offline checkers still pass. Details in
+      <a href="#session-10">the session table</a>.
+    </p>
+    <p>
+      The previous banner is kept as history: <em>the Forever beta's build number is now read from Blizzard, and the two
+      keyless Blizzard feeds are wired into the weekly watch.</em>
+    </p>
+  </div>
+
+  <div class="banner" hidden aria-hidden="true">
+    <strong>Previous session (third pass of 19 September): the Forever beta's build number is now read from Blizzard, and the two keyless Blizzard feeds are wired into the weekly watch.</strong>
     <p>
       Handover items #2 and #3 are done. Instead of guessing more product codes, the version service's own
       <a href="https://us.version.battle.net/v2/summary" rel="noopener">product summary</a> was read: it shows that the obvious code
@@ -99,7 +118,8 @@
     <h2>On this page</h2>
     <ul>
       <li><a href="#done">Delivered so far</a></li>
-      <li><a href="#session-9">Third pass of 19 September — version service, feed watcher, blue-tracker re-read (latest)</a></li>
+      <li><a href="#session-10">20 September — live re-verification and fingerprint-noise fix (latest)</a></li>
+      <li><a href="#session-9">Third pass of 19 September — version service, feed watcher, blue-tracker re-read</a></li>
       <li><a href="#session-6">Queue-closing pass, 19 September</a></li>
       <li><a href="#session">This session, line by line</a></li>
       <li><a href="#session-3">This session, 19 September agent pass</a></li>
@@ -124,7 +144,7 @@
     </p>
     <ul class="checklist">
       <li>Sourced site covering roadmap, PvP, classes, gear/BiS status, gold and market mechanics — <span data-count="pages">15</span> HTML pages including the 404 page.</li>
-      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">119</span> sources, <span data-count="official-sources">22</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">182</span> claims) with evidence classes and snapshot dates.</li>
+      <li>Machine-readable source registry (<code>data/sources.js</code> — <span data-count="sources">119</span> sources, <span data-count="official-sources">22</span> of them Blizzard first-party) and claims ledger (<code>data/claims.js</code> — <span data-count="claims">183</span> claims) with evidence classes and snapshot dates.</li>
       <li>Public endpoint register (<code>data/apis.js</code> — <span data-count="apis">8</span> verified keyless endpoints, 2 rejected candidates and 1 left pending, each with what it returned and what it must never be used for) and site-pattern register (<code>data/patterns.js</code> — <span data-count="patterns">16</span> dated URL/section patterns with the failures recorded), both published and both enforced offline.</li>
         <li>Public irregularity log (I-1 to I-24) including fabricated tier-list detection, conflicting dungeon ranges, cross-version contamination on Forever item pages, the two-way mount-price reporting, interview “what ifs” circulating as roadmap items, three self-corrected failures on our own pages: an unregistered source described as registered, a guide's expectation stated with first-party confidence, and add-on listings labelled as datamined client data — plus I-19: unofficial beta-tracker sites publishing specific client numbers no established outlet corroborates, including one “rated” queue string that contradicts the no-rated-PvP statement; and I-20: set bonuses datamined out of a client whose item data Blizzard said would stay hidden until looted, with Season-of-Discovery contamination acknowledged by the dataminer itself.</li>
       <li>Explicit gap documentation for every PvP, BiS and economy number that is still unpublished.</li>
@@ -149,6 +169,64 @@
       file is missing) or Monday 21 September, 07:00 UTC.</li>
       <li>All five open project decisions taken and implemented; see <a href="#decisions">Decisions</a>.</li>
     </ul>
+  </section>
+
+  <section id="session-10" aria-labelledby="h-session-10">
+    <h2 id="h-session-10">20 September — live re-verification and fingerprint-noise fix</h2>
+    <p class="sub">
+      A three-pass session on the day after the first real feed-watch run. Pass 1 re-opened the load-bearing sources and
+      confirmed they had not moved; Pass 2 shipped the article-container fingerprint path that issue #22 made necessary;
+      Pass 3 re-checked the original brief and every offline checker. Nothing below was inferred from a URL that merely
+      looked plausible — every primary page was opened.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <caption>20 September 2026 session, line by line: what was re-read, what it confirmed, and what changed.</caption>
+        <thead><tr><th scope="col">Read / checked</th><th scope="col">What it established</th><th scope="col">Claims</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://us.version.battle.net/v2/products/wow_classic_beta/versions" rel="noopener">Version service — wow_classic_beta</a> <span class="chip official">Official</span></td>
+            <td>Still build <strong>1.60.1.69913</strong> (BuildId 69913) for us, eu, kr and tw; sequence number still 4026306. Unchanged from 19 September is itself a finding: several known-issues items still promise a fix “in the next Beta build” while this number has not moved.</td>
+            <td>C211 (re-verified)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.icy-veins.com/wow-forever/tier-list-hub" rel="noopener">Icy Veins tier-list directory</a> <span class="chip guide">Guide</span></td>
+            <td>Still stamped 17 September 2026. DPS PvP, Healer PvP, all three raiding lists and Best-to-Worst Racials are all still marked <em>COMING SOON</em>. The answer to “what is the best class for PvP” is unchanged: no reputable ranking exists.</td>
+            <td>C198 (re-verified)</td>
+          </tr>
+          <tr>
+            <td><a href="https://addons.wago.io/addons/auctionator/versions?stability=stable" rel="noopener">Auctionator</a> and <a href="https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable" rel="noopener">TSM</a> live listings <span class="chip tooling">Tooling</span></td>
+            <td>Auctionator release 338 (19 Sep) still declares Classic Forever patch1.60.1; TSM still v4.14.77 (13 Sep) with Retail 12.1.0 / MoP 5.5.4 / TBC 2.5.6 / Classic Era 1.15.9 and no 1.60.x. Fourth check; nothing moved. Cross-check against the version service still agrees on 1.60.1.</td>
+            <td>C153, C196, C197 (re-verified)</td>
+          </tr>
+          <tr>
+            <td><a href="https://us.forums.blizzard.com/en/wow/t/2352687/1" rel="noopener">Known-issues post</a> and beta-discussion feed <span class="chip official">Official</span></td>
+            <td>The 18 September edition is still current (third consecutive day with no newer dated post). List still includes Glancing Blow maths, pet-stat display, Bear Form armour multiplication, On-Next Attack / spell-queue interaction, and several items still labelled “fixed in the next Beta build”. No Forever class-tuning changelist in the beta feed; the only “Class Tuning Incoming — September 22” post remains modern WoW 12.1.0.</td>
+            <td>C143, C159 (re-verified)</td>
+          </tr>
+          <tr>
+            <td><a href="https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live" rel="noopener">Blizzard beta article</a> <span class="chip official">Official</span></td>
+            <td>Re-confirmed: level cap 20 then 30; beta through 21 October; week-one content list unchanged; new battleground “will open for testing as the beta continues” (still a future statement, not a report that it is playable).</td>
+            <td>C135 / C029 (re-confirmed)</td>
+          </tr>
+          <tr>
+            <td>Issue #22 fingerprint noise — <code>tools/check-sources.mjs</code> <span class="chip ours">Ours</span></td>
+            <td>Implemented article-container fingerprinting: prefers <code>&lt;article&gt;</code> / <code>&lt;main&gt;</code> / Wowhead <code>#main-contents</code> / Icy Veins <code>#main</code> when present; strips Blue Tracker, Recent News, countdown clocks and download counters; records which container was used; re-baselines once without an issue when only the container selection moves; falls back to full-document when nothing matches. Offline scenarios 6 and 7 prove sidebar chrome is ignored and a real article edit is still reported.</td>
+            <td>C219 (new)</td>
+          </tr>
+          <tr>
+            <td>Offline checker suite, full run <span class="chip ours">Ours</span></td>
+            <td>Ledger, citations, market log, endpoints, patterns, quotes, accessibility, rendered tables, source-watch self-test (now seven scenarios) and feed-watch self-test all pass on the new totals (119 sources, 183 claims).</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>What this session deliberately did not do.</strong> No tier list, no BiS list, no gold-per-hour figure, no
+      promotion of C160/C161/C024 from press to official (no new first-party page prints them), and no adoption of unofficial
+      beta-tracker numbers. The value of the project is that those refusals still hold on day three of the beta.</p>
+    </div>
   </section>
 
   <section id="session-9" aria-labelledby="h-session-9">
@@ -747,6 +825,11 @@
           <td>Pass 2 re-opened the sources behind the site's largest claims and hunted for statements resting on untested assumptions; Pass 3 read the brief again against the result, including the requirements the endpoint and pattern registers were built for (keyless public sources, and a checkable reading of the sites the brief names).</td>
           <td><span class="chip ok">Pass</span> Two claims re-verified live and unchanged (C196, C197, C198); eleven already-published systems claims re-confirmed against the source page they came from; three new official claims added from that same page (C208–C210) and published on the Gearing, Classes and Gold pages. One assumption was found and is now printed as an open question rather than an answer: nobody has stated whether the auction house follows the ruleset, so the Gold page says so instead of assuming a market shape.</td>
         </tr>
+        <tr>
+          <td><strong>20 September — live re-verification and fingerprint fix</strong></td>
+          <td>Pass 1: re-open the load-bearing sources (version service, Icy Veins tier-list directory, Auctionator/TSM listings, known-issues post, beta article, beta-discussion feed) and confirm each against the ledger. Pass 2: implement article-container fingerprinting so guide-site sidebars stop producing 40-source noise issues, with offline fixtures for both “chrome ignored” and “real edit still detected”. Pass 3: the brief again (PvP first, no invented tier/BiS/gph, every link registered, free keyless sources only) plus every offline checker on the new totals.</td>
+          <td><span class="chip ok">Pass</span> Six load-bearing claims re-verified live and unchanged in substance (C143, C153, C159, C196–C198, C211); one new method claim (C219); item 14 closed; 183 claims / 119 sources; all ten offline checkers green. Deliberately not shipped: any tier list, BiS list, gold-per-hour figure, or promotion of C160/C161/C024.</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -1011,7 +1094,7 @@
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
           <tr><td>5</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
-            <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist. <strong>Third session (evening of 19 September):</strong> fourth check of the blue tracker and of the new beta-discussion forum category — still none. From now on the weekly feed report lists any staff-touched topic in the two Forever categories, so a posted changelist is surfaced automatically.</td>
+            <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist. <strong>Third session (evening of 19 September):</strong> fourth check of the blue tracker and of the new beta-discussion forum category — still none. <strong>20 September:</strong> fifth check — known-issues still the 18 September edition; beta-discussion feed still carries no staff Forever tuning post; web search still surfaces only the modern-WoW September 22 post. From now on the weekly feed report lists any staff-touched topic in the two Forever categories, so a posted changelist is surfaced automatically.</td>
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
           <tr><td>6</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
@@ -1023,7 +1106,7 @@
             <td>Without client access nothing can be observed; the log says so instead of borrowing someone else's experience.</td></tr>
           <tr><td>8</td>
             <td>Re-check the four add-on listings and add any release that declares 1.60.x; note on the tracker when a declaration is confirmed working on a live client.</td>
-            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status:</strong> re-checked again from their own pages during the queue-closing pass (19 September, after the merges) — Auctionator 337 (17 Sep) still the only release declaring Classic Forever 1.60.1; TSM still v4.14.77 (13 Sep, retail 12.1.0); Questie still v11.38.0 (15 Sep); Details! newest file still the 18 September build. <strong>Third session (evening of 19 September):</strong> Auctionator release 338 appeared and keeps the 1.60.1 line; the other three are unchanged; CurseForge's version filter still has no 1.60.x. The 1.60.1 chip is now cross-checked against Blizzard's version service (C197). Next check on the next beta build — which the feed watcher will now date.</td>
+            <td>Tooling is the practical blocker for the market log, and it is changing fast — Auctionator's Forever line appeared two days into the beta. <strong>Status:</strong> re-checked again from their own pages during the queue-closing pass (19 September, after the merges) — Auctionator 337 (17 Sep) still the only release declaring Classic Forever 1.60.1; TSM still v4.14.77 (13 Sep, retail 12.1.0); Questie still v11.38.0 (15 Sep); Details! newest file still the 18 September build. <strong>Third session (evening of 19 September):</strong> Auctionator release 338 appeared and keeps the 1.60.1 line; the other three are unchanged; CurseForge's version filter still has no 1.60.x. <strong>20 September:</strong> fourth live check — Auctionator 338 still declares 1.60.1; TSM still v4.14.77 with no 1.60.x; version service still 1.60.1.69913 (C197). Next check on the next beta build — which the feed watcher will now date.</td>
             <td>Version lists change silently; the watcher flags the page, but only a human can say what moved.</td></tr>
           <tr><td>9</td>
             <td>Read the remaining Wowhead Forever guides and the seven unread Icy Veins race guides, ledgering each fact.</td>
@@ -1046,9 +1129,9 @@
             <td>The feed report now dates every build; the site's job is to record the number and re-verify what depends on it, not to interpret it.</td>
             <td>A build number is not a changelist. Nothing about class tuning or content may be inferred from it.</td></tr>
           <tr><td>14</td>
-            <td><strong>Reduce fingerprint noise on guide-site pages.</strong> Wowhead pages embed live Blue Tracker and Recent News sidebars and comment counts, and Icy Veins pages carry a changing footer, so 30-odd sources will read as “changed” every week without their articles changing. Teach <code>check-sources.mjs</code> to fingerprint the article container when one is present (<code>&lt;article&gt;</code>, <code>#main</code>, Wowhead's news body) and to record which container was used, with fixtures for both sites in the offline test.</td>
-            <td>Issue #22 shows the pattern on its first diff: the three “changed” pages re-read by hand had unchanged articles. A weekly issue that is mostly noise trains people to skip it, which defeats the watcher.</td>
-            <td>Container selection must be conservative: if no known container is found, fall back to the full text and say so. Never silently narrow what is being watched.</td></tr>
+            <td><strong>Reduce fingerprint noise on guide-site pages.</strong> <strong>Done, 20 September:</strong> <code>check-sources.mjs</code> now prefers a known article container (<code>&lt;article&gt;</code>, <code>&lt;main&gt;</code>, Wowhead <code>#main-contents</code> / news-post-content, Icy Veins <code>#main</code>), strips Blue Tracker / Recent News / countdown chrome, records which container was used, and re-baselines once without an issue when only the container selection moves. Full-document remains the fallback. Offline scenarios 6 and 7 prove sidebar chrome is ignored and a real article edit is still reported (C219). <strong>Not yet observed on the network:</strong> the next weekly source-watch run (or a maintainer dispatch) is the first real test against live Wowhead and Icy Veins pages; if a site's markup does not match any container the fallback keeps the old behaviour.</td>
+            <td>Issue #22 showed the pattern on its first diff: the three “changed” pages re-read by hand had unchanged articles. A weekly issue that is mostly noise trains people to skip it, which defeats the watcher.</td>
+            <td>Residual risk: a site redesign that moves the article out of every known container silently falls back to full-document and the noise returns — the report now prints which containers were used, so that is visible. Never silently narrow what is being watched without recording it.</td></tr>
         </tbody>
       </table>
     </div>
@@ -1064,7 +1147,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><strong>WoW Forever Hub</strong> — independent, non-commercial. World of Warcraft is a trademark of Blizzard Entertainment. Not affiliated with Blizzard.</p>
-    <p>Snapshot <span data-snapshot>2026-09-19</span> · plan reviewed each session · decisions recorded as claim C122 · <a href="sources.html">sources</a></p>
+    <p>Snapshot <span data-snapshot>2026-09-20</span> · plan reviewed each session · decisions recorded as claim C122 · <a href="sources.html">sources</a></p>
   </div>
 </footer>
 
