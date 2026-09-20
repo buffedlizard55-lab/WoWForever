@@ -619,7 +619,8 @@ window.WOWF_SOURCES = [
       "Week 1 beta content: Skyborne and Zephras Isle, Hall of Thanes (level 13–18), Ruins of Lordaeron (level 15–20), all zone content up to level 20",
       "Blizzard's own words: \"Additional zones, dungeons, and the new battleground will open for testing as the beta continues\"",
       "A \"Server Slam\" window will open the beta to everyone for several hours later in the test; details to be announced",
-      "Beta access routes: Battle.net opt-in invitations sent regularly through the test, or eligible digital bundle purchases; phishing warning and how to verify a licence on the Battle.net account"
+      "Beta access routes: Battle.net opt-in invitations sent regularly through the test, or eligible digital bundle purchases; phishing warning and how to verify a licence on the Battle.net account",
+      "Re-read 2026-09-19 (third session): the opening paragraph says that 'over the course of the test' Blizzard will be 'inviting community veterans, press, fansites, friends, and family'; the install steps name the client as the 'World of Warcraft: Forever Beta' option 'listed under In Development' in the Battle.net Game Version menu — the launcher-side name this project pairs with the version service's wow_classic_beta product (C212)"
     ]
   },
   {
@@ -1731,7 +1732,7 @@ window.WOWF_SOURCES = [
     id: "bnet-carve-path",
     title: "Carve a New Path with World of Warcraft: Forever",
     publisher: "Blizzard Entertainment (news.blizzard.com)",
-    date: "BlizzCon 2026 weekend (the page prints no date; its text still invites readers to the 13 September Deep Dive stream); read 2026-09-19",
+    date: "BlizzCon 2026 weekend (no publication date in the retrieved text; the page still invites readers to the 13 September Deep Dive stream); read 2026-09-19",
     url: "https://news.blizzard.com/en-us/article/24302093/carve-a-new-path-with-world-of-warcraft-forever",
     tier: "official",
     firstParty: true,
@@ -1747,7 +1748,7 @@ window.WOWF_SOURCES = [
     id: "bnet-gpu-reqs",
     title: "World of Warcraft: Forever GPU Requirements",
     publisher: "Blizzard Entertainment (news.blizzard.com)",
-    date: "BlizzCon 2026 week (article id 24301512; the page prints no date); read 2026-09-19",
+    date: "BlizzCon 2026 week (article id 24301512; no publication date in the retrieved text); read 2026-09-19",
     url: "https://news.blizzard.com/en-us/article/24301512/world-of-warcraft-forever-gpu-requirements",
     tier: "official",
     firstParty: true,
@@ -1783,17 +1784,22 @@ window.WOWF_SOURCES = [
     url: "https://us.version.battle.net/v2/summary",
     also: [
       "https://us.version.battle.net/v2/products/wow_anniversary/versions",
-      "https://us.version.battle.net/v2/products/wow_classic_titan/versions"
+      "https://us.version.battle.net/v2/products/wow_classic_titan/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_ptr/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_era_ptr/versions",
+      "https://us.version.battle.net/v2/products/wowf/versions",
+      "https://us.version.battle.net/v2/products/wow_classic_era_beta/versions",
+      "https://us.version.battle.net/v2/products/wow_cn_beta/versions"
     ],
     tier: "official",
     firstParty: true,
     watch: false,
-    note: "Fetched with no credentials on 2026-09-19 (HTTP 200). A pipe-delimited list of every product code the service knows, each with a sequence number and a flag: a 'cdn' row means the product has a CDN record, a blank-flag row means it has a versions record that /products/<code>/versions will answer. This is how the Forever beta's product code was found instead of guessed. The whole file changes every week for reasons unrelated to WoW, so it is excluded from the text-fingerprint watcher (watch: false) and read semantically by tools/watch-feeds.mjs instead. The two extra URLs are the other Classic-family products that carry a versions row, fetched the same day as controls.",
+    note: "Fetched with no credentials on 2026-09-19 (HTTP 200). A pipe-delimited list of every product code the service knows, each with a sequence number and a flag: a 'cdn' row means the product has a CDN record, a blank-flag row means it has a versions record that /products/<code>/versions will answer — checked three ways the same day, since the blank-row sequence numbers for wow_classic_beta (4026306), wow_anniversary (4026317) and wow_classic_titan (4026307) each matched the seqn printed by that product's versions endpoint. This is how the Forever beta's product code was found instead of guessed. The whole file changes every week for reasons unrelated to WoW, so it is excluded from the text-fingerprint watcher (watch: false) and read semantically by tools/watch-feeds.mjs instead. The extra URLs are the other Classic-family products that carry a versions row (all fetched the same day as controls) and the three cdn-only codes whose versions path was fetched to confirm the empty answer.",
     supports: [
       "The WoW product codes with a versions row on 2026-09-19 were wow, wow_beta, wow_anniversary, wow_classic, wow_classic_beta, wow_classic_era, wow_classic_era_ptr, wow_classic_ptr, wow_classic_titan, wowt, wowxptr, wowz and a set of internal codes (wowdev*, wowe*, wowlivetest*, wownev*, wowv*)",
-      "A product code 'wowf' exists but carries only a CDN row and no versions row — its /versions path answers 'No matched data for selector'; so do wow_classic_era_beta and wow_cn_beta",
-      "Control values read the same day: wow_anniversary answered 2.5.6.69795 for every region (the Burning Crusade Classic line, matching the 'Burning Crusade 2.5.6' chip on the TSM listing) and wow_classic_titan answered 3.80.2.69874 for the cn region only",
-      "Among every Classic-family code that answers, exactly one carries a 1.60.x build: wow_classic_beta"
+      "A product code 'wowf' exists but carries only a CDN row and no versions row — its /versions path answers 'No matched data for selector'; wow_classic_era_beta and wow_cn_beta are cdn-only too and their versions paths were fetched on 2026-09-19 with the same empty answer",
+      "Control values read the same day: wow_anniversary answered 2.5.6.69795 for every region (the Burning Crusade Classic line, matching the 'Burning Crusade 2.5.6' chip on the TSM listing), wow_classic_titan answered 3.80.2.69874 for the cn region only, wow_classic_ptr answered 5.5.4.67849 and wow_classic_era_ptr answered 2.5.6.69110",
+      "All seven Classic-family codes with a versions record were read on 2026-09-19 (wow_classic, wow_classic_era, wow_classic_ptr, wow_classic_era_ptr, wow_anniversary, wow_classic_titan, wow_classic_beta); exactly one carries a 1.60.x build: wow_classic_beta"
     ]
   },
   {
@@ -1828,7 +1834,7 @@ window.WOWF_SOURCES = [
     supports: [
       "A dedicated 'WoW: Forever Beta Discussion' category exists on Blizzard's US forum (id 349) under In Development, distinct from the Forever category (346), and is readable without an account",
       "The feed's user records carry Blizzard's own staff marker for community managers (primary_group_name 'community-manager', admin and moderator true), so a staff-touched topic can be flagged automatically — and still verified on the thread page before anything is recorded",
-      "On the evening of 2026-09-19 (UTC) the category carried live beta-feedback topics, including one on the new lighting not appearing on a Radeon RX 9070 — evidence the client's new visual look (see bnet-gpu-reqs) is live in the beta build"
+      "On the evening of 2026-09-19 (UTC) the category carried live player-feedback topics (for example a Radeon RX 9070 owner not seeing the new lighting that others in chat described) — player reports that show the category is active, and that are never taken as facts about the game"
     ]
   },
 

@@ -116,7 +116,10 @@ jobs:
           if [ -n "$(git status --porcelain tools/source-state.json tools/feed-state.json)" ]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add tools/source-state.json tools/feed-state.json
+            # Either file may be absent (a first run that could reach nothing writes no baseline).
+            for f in tools/source-state.json tools/feed-state.json; do
+              if [ -f "$f" ]; then git add "$f"; fi
+            done
             git commit -m "chore(source-watch): update source fingerprints and feed observations"
             git push
           else

@@ -70,7 +70,7 @@
       irregularities — the launch time printed as both PDT and PST on one Blizzard page (I-23) and transmog described as “opt-in” by
       one recap and as something you “opt out” of by the other (I-24). Add-on listings were re-checked a third time (Auctionator 338,
       19 September, still declares 1.60.1; the other three unchanged), and Skyborne's class list was promoted to official from the
-      What's Next recap. Details in <a href="#session-7">the session table</a>.
+      What's Next recap. Details in <a href="#session-9">the session table</a>.
     </p>
     <p>
       The previous banner is kept as history: <em>the queued datamines were fetched, read and ledgered, and the queue was emptied.</em>
@@ -99,7 +99,7 @@
     <h2>On this page</h2>
     <ul>
       <li><a href="#done">Delivered so far</a></li>
-      <li><a href="#session-7">Third pass of 19 September — version service, feed watcher, blue-tracker re-read (latest)</a></li>
+      <li><a href="#session-9">Third pass of 19 September — version service, feed watcher, blue-tracker re-read (latest)</a></li>
       <li><a href="#session-6">Queue-closing pass, 19 September</a></li>
       <li><a href="#session">This session, line by line</a></li>
       <li><a href="#session-3">This session, 19 September agent pass</a></li>
@@ -133,7 +133,7 @@
       <li><strong><a href="addons.html">Add-on and tooling tracker</a></strong> — dated status for Auctionator, TradeSkillMaster, Questie, Details! and WeakAuras, built on a new <span class="chip tooling">tooling</span> evidence class so software metadata can never be presented as a game fact.</li>
       <li><strong><a href="beta.html">Beta observation log</a></strong> — the dated beta calendar, per-class observation status (all nine marked <em>not observed</em>, because they are), the reported → observed upgrade rule, and three false positives that would otherwise become fake facts.</li>
       <li><strong>Market log scaffold</strong> — <code>data/market-log.csv</code> with a documented schema, a written first-row procedure and deliberately zero data rows until an auction house exists (<span data-count="market-rows">0</span> rows today), validated against the Gold page watchlist.</li>
-      <li><strong>Six machine checks now gate the repository</strong> — <code>tools/check-ledger.mjs</code> (integrity, staleness), <code>tools/check-citations.mjs</code> (registered sources, resolving anchors, canonical and sitemap agreement, claim IDs, tag balance, machine-checked self-reported counts, and evidence-class documentation), <code>tools/check-market-log.mjs</code> (schema, with a hard refusal of any pre-launch price row), <code>tools/check-quotes.mjs</code> (no quotation may sit far from a source), <code>tools/check-a11y.mjs</code> (landmarks, headings, captions, labels, focus, reduced motion, print) and <code>tools/test-source-watch.mjs</code> (an offline fixture test of the watcher itself). <code>.github/workflows/verify.yml</code> runs them on every push and pull request.</li>
+      <li><strong>Ten machine checks now gate the repository</strong> — <code>tools/check-ledger.mjs</code> (integrity, staleness), <code>tools/check-citations.mjs</code> (registered sources, resolving anchors, canonical and sitemap agreement, claim IDs, tag balance, machine-checked self-reported counts, and evidence-class documentation), <code>tools/check-market-log.mjs</code> (schema, with a hard refusal of any pre-launch price row), <code>tools/check-apis.mjs</code> (endpoint eligibility and limits), <code>tools/check-patterns.mjs</code> (dated, registered site patterns), <code>tools/check-quotes.mjs</code> (no quotation may sit far from a source), <code>tools/check-a11y.mjs</code> (landmarks, headings, captions, labels, focus, reduced motion, print), <code>tools/test-render.mjs</code> (every JS-rendered table fills), <code>tools/test-source-watch.mjs</code> and <code>tools/test-watch-feeds.mjs</code> (offline fixture tests of the two watchers). <code>.github/workflows/verify.yml</code> runs them on every push and pull request.</li>
       <li><strong>Automated source watching, with a real baseline</strong> — the first run on 19 September 2026 fingerprinted
       <strong>86 of the 87</strong> registered URLs (the Sportskeeda Kris Zierhut / Michael Nuthals interview returned HTTP 403
       from the runner that time; one failure is treated as transient until a second consecutive one). The weekly Action
@@ -151,8 +151,8 @@
     </ul>
   </section>
 
-  <section id="session-7" aria-labelledby="h-session-7">
-    <h2 id="h-session-7">Third pass of 19 September — version service, feed watcher, blue-tracker re-read</h2>
+  <section id="session-9" aria-labelledby="h-session-9">
+    <h2 id="h-session-9">Third pass of 19 September — version service, feed watcher, blue-tracker re-read</h2>
     <p class="sub">
       Everything below was fetched and read on the evening of 19 September 2026 (UTC) and converted into ledger rows in the same pass.
       Reads went through the platform's page fetcher; the sandbox shell itself has no outbound network, which is why the feed watcher
@@ -165,7 +165,7 @@
         <tbody>
           <tr>
             <td><a href="https://us.version.battle.net/v2/summary" rel="noopener">Version service — product summary</a> and <a href="https://us.version.battle.net/v2/products/wow_classic_beta/versions" rel="noopener">wow_classic_beta versions</a> <span class="chip official">Official</span></td>
-            <td>The summary lists every product code with a flag per record type; <code>wowf</code> has a CDN record only (its <code>/versions</code> path answers “No matched data for selector”), while <code>wow_classic_beta</code> has a versions record and served <strong>1.60.1.69913</strong> (BuildId 69913) to us, eu, kr and tw. The other Classic-family codes with a versions record were read as controls the same day: wow_anniversary 2.5.6.69795, wow_classic_titan 3.80.2.69874 (cn only), plus the already-registered wow_classic 5.5.4.69585 and wow_classic_era 1.15.9.69722. Exactly one code carries 1.60.x. C193 (“product code not identified”) is resolved and rewritten as the negative it still records.</td>
+            <td>The summary lists every product code with a flag per record type; <code>wowf</code> has a CDN record only (its <code>/versions</code> path answers “No matched data for selector”), while <code>wow_classic_beta</code> has a versions record and served <strong>1.60.1.69913</strong> (BuildId 69913) to us, eu, kr and tw. Every other Classic-family code with a versions record was read as a control the same day: wow_anniversary 2.5.6.69795, wow_classic_titan 3.80.2.69874 (cn only), wow_classic_ptr 5.5.4.67849, wow_classic_era_ptr 2.5.6.69110, plus the already-registered wow_classic 5.5.4.69585 and wow_classic_era 1.15.9.69722; the three cdn-only codes (wowf, wow_classic_era_beta, wow_cn_beta) were each fetched and answer “No matched data”. Exactly one code carries 1.60.x. C193 (“product code not identified”) is resolved and rewritten as the negative it still records.</td>
             <td>C211, C193, C197</td>
           </tr>
           <tr>
@@ -175,7 +175,7 @@
           </tr>
           <tr>
             <td><a href="https://us.forums.blizzard.com/en/wow/c/in-development/wow-forever-beta-discussion/349/l/latest.json" rel="noopener">US forum — WoW: Forever Beta Discussion category feed (349)</a> <span class="chip official">Official</span></td>
-            <td>Found through a community manager's redirect post (topic 2354196). The keyless feed's user records carry Blizzard's staff marker (<code>primary_group_name</code> “community-manager”, admin and moderator true), which the feed watcher uses to surface possible blue posts for a human to open. A Radeon RX 9070 owner's thread about the new lighting not appearing shows the new visual look is in the beta build.</td>
+            <td>Found through a community manager's redirect post (topic 2354196). The keyless feed's user records carry Blizzard's staff marker (<code>primary_group_name</code> “community-manager”, admin and moderator true), which the feed watcher uses to surface possible blue posts for a human to open. The newest threads that evening were player feedback (one from a Radeon RX 9070 owner not seeing the new lighting others describe) — player reports, useful only as a sign the category is active, never as facts about the game.</td>
             <td>C216</td>
           </tr>
           <tr>
@@ -511,7 +511,7 @@
       </table>
     </div>
 
-    <h3 id="session-6">Queue-closing pass, 19 September (latest) — the two datamines, the set-bonus datamine, and the pre-purchase re-check</h3>
+    <h3 id="session-6">Queue-closing pass, 19 September — the two datamines, the set-bonus datamine, and the pre-purchase re-check</h3>
     <p class="sub">
       This pass worked the handover list directly: the two unfetched integration candidates (the Wowhead
       Forsaken-Paladin mounts datamine and the reputation-names datamine), the pre-purchase page listed beside them, the
@@ -562,7 +562,7 @@
         </tbody>
       </table>
     </div>
-  <h3 id="session-7">Endpoint and pattern pass, 19 September (latest) — a verified source register, a site-structure register, and the three passes re-run</h3>
+  <h3 id="session-7">Endpoint and pattern pass, 19 September — a verified source register, a site-structure register, and the three passes re-run</h3>
   <p class="sub">
     This pass closed the two requirements that had only narrative coverage. Which machine-readable sources may this project use
     under the brief's rule — free, publicly available, no sign-up, no tier? And what does the public structure of the
@@ -584,7 +584,7 @@
         </tr>
         <tr>
           <td>Blizzard version service — <code>wow_classic</code> and <code>wow_classic_era</code> <span class="chip official">Official</span></td>
-          <td>Public, keyless, pipe-delimited build manifests. Read 5.5.4.69585 and 1.15.9.69722 on 19 September. Two candidate Forever product codes returned no data, which is published as an open gap (C193) rather than filled with a plausible number.</td>
+          <td>Public, keyless, pipe-delimited build manifests. Read 5.5.4.69585 and 1.15.9.69722 on 19 September. Two candidate Forever product codes returned no data, which is published as an open gap (C193) rather than filled with a plausible number. <em>Closed in the third session:</em> the service's product summary located the 1.60.x build under <code>wow_classic_beta</code> (C211, identification C212) — see <a href="#session-9">the session table</a>.</td>
           <td>C192, C193</td>
         </tr>
         <tr>
@@ -644,7 +644,7 @@
   </p>
 </section>
 
-  <h3 id="session-8">Live re-verification pass, 19 September (latest) — the named PvP sources re-read, the Deep Dive re-read, and three systems facts that were missing</h3>
+  <h3 id="session-8">Live re-verification pass, 19 September — the named PvP sources re-read, the Deep Dive re-read, and three systems facts that were missing</h3>
   <p class="sub">
     Pass 2 of the three-pass method asks a narrower question than Pass 1: not “what is missing?” but “is what we already
     printed still true, and is any of it resting on an assumption we never tested?” This pass re-opened the sources behind the
@@ -907,7 +907,7 @@
           <tr><td><strong>Unpublished economy numbers</strong></td><td>No Honor prices, no vendor lists, no Blueprint drop table, no recipe split.</td><td>Recorded as explicit gaps; the market-log checker refuses pre-launch price rows outright.</td></tr>
           <tr><td><strong>Interview statements are not patches</strong></td><td>A designer's interview answer can be changed, and a wish can be mistaken for a plan.</td><td>Interview material is a distinct evidence class, dated and attributed; wishes are recorded as <span class="chip pending">not announced</span>.</td></tr>
           <tr><td><strong>Tooling declares, it does not prove</strong></td><td>An add-on's version list can name a game version the build does not work on.</td><td>The tooling class says exactly this on the <a href="addons.html#unknown">Add-ons page</a>, and whether a declared build actually runs in the live client is listed there as an open question until someone verifies it (C153).</td></tr>
-          <tr><td><strong>No credentials by design — rewritten 19 September 2026, see I-22</strong></td><td>The brief forbids keys that need a sign-up, so Blizzard's Game Data API is out of scope and there is still no automated price, character or item feed (C194).</td><td>Two Blizzard services were verified as answering a plain request with no credential — the forum topic feeds and the build manifest (C190–C192) — and are published on <a href="data-api.html">Public endpoints</a> with what each may be used for and what it must never be used for. The market log stays a dated human workflow, because no keyless price source exists at all (C206).</td></tr>
+          <tr><td><strong>No credentials by design — rewritten 19 September 2026, see I-22</strong></td><td>The brief forbids keys that need a sign-up, so Blizzard's Game Data API is out of scope and there is still no automated price, character or item feed (C194).</td><td>Two Blizzard services were verified as answering a plain request with no credential — the forum topic feeds and the build manifest (C190–C192) — and are published on <a href="data-api.html">Public endpoints</a> with what each may be used for and what it must never be used for. Since the third session of 19 September they are read every week by <code>tools/watch-feeds.mjs</code>, including the Forever beta's own build (C211–C212) and the beta forum category's staff marker (C216). The market log stays a dated human workflow, because no keyless price source exists at all (C206).</td></tr>
           <tr><td><strong>Authoring-environment limits</strong></td><td>No outbound network and no workflow-dispatch permission here, so the authoring session cannot read a live page or trigger the watcher itself.</td><td>The watcher's logic is machine-tested offline, the workflow now establishes or repairs its own baseline on a push to <code>main</code>, and the baseline it produced is committed and dated.</td></tr>
           <tr><td><strong>One page could not be read directly</strong></td><td>IGN Nordic returns HTTP 403 to automated fetches, so the interview was read via its indexed text and cross-checked against the Dutch edition.</td><td>Recorded on the source itself and in I-14, with a browser confirmation outstanding for the next session; no sentence is quoted that is not in both editions.</td></tr>
           <tr><td><strong>Search-result pollution</strong></td><td>Low-quality and RMT-adjacent pages outrank primary sources and mix truth with invention.</td><td>Primary-source-first policy, the flagged-source registry, and the irregularity log.</td></tr>
@@ -1001,7 +1001,7 @@
             <td>If a source fails twice in a row the workflow files an issue; archive links or a replacement source are then the fix, not a quiet deletion.</td></tr>
           <tr><td>5</td>
             <td>Watch for a Forever class-tuning changelist and, when one lands, ledger it line by line; update the class profiles only where it changes a published mechanic.</td>
-            <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist.</td>
+            <td>Two days into the beta there was none (C159), and the developers have said balance will move. This is the first class evidence that could be better than BlizzCon material. The weekly beta podcast (C165) may say things first; a written record is still required before anything is ledgered. <strong>Status this session:</strong> third check on 19 September — the “Class Tuning Incoming — September 22” post in the blue-tracker feed is again modern WoW patch 12.1.0 (hero talents, M+, retail PvP), not Forever; still no Forever changelist. <strong>Third session (evening of 19 September):</strong> fourth check of the blue tracker and of the new beta-discussion forum category — still none. From now on the weekly feed report lists any staff-touched topic in the two Forever categories, so a posted changelist is surfaced automatically.</td>
             <td>Blizzard may tune without publishing notes; a silent change is not a documented one, and the site cannot claim it.</td></tr>
           <tr><td>6</td>
             <td>Confirm the IGN Nordic passages in a browser (the page returns HTTP 403 to automated fetches) and close I-14 with a dated note.</td>
@@ -1033,7 +1033,7 @@
             <td>A build number is not a changelist. Nothing about class tuning or content may be inferred from it.</td></tr>
           <tr><td>11</td>
             <td>Watch for Blizzard to put three things in writing that the site currently holds at press: the level cap staying at 60 (C160), the original battleground roster (C161), and a ruleset-transfer policy beyond the Hardcore path (C024). Promote each row to official only with the link.</td>
-            <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does. <strong>Status this session:</strong> re-verified on 19 September via web search — no new written Blizzard page promotes C160, C161 or C024; all three stay at their current class, and the aggregator "confirmed" claims are explicitly not adopted.</td>
+            <td>All three are the most-asked launch questions, and all three rest on reported spoken answers today. A written Blizzard page changes the chip; nothing else does. <strong>Status this session:</strong> re-verified on 19 September via web search — no new written Blizzard page promotes C160, C161 or C024; all three stay at their current class, and the aggregator "confirmed" claims are explicitly not adopted. <strong>Third session:</strong> Blizzard's umbrella page says players “adventure to level 60” — the journey's destination, not a statement that the cap stays at 60 (C213), so C160 stays press; nothing new for C161 or C024.</td>
             <td>Aggregators will state all three as confirmed long before Blizzard does; the ledger row, not the aggregator, decides.</td></tr>
         </tbody>
       </table>
