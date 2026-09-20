@@ -1,0 +1,198 @@
+{
+  "checked": "2026-09-20T00:25:39.074Z",
+  "feeds": {
+    "versions:wow_classic_beta": {
+      "url": "https://us.version.battle.net/v2/products/wow_classic_beta/versions",
+      "kind": "versions",
+      "label": "Version service — wow_classic_beta (identified as the Forever beta client, C212)",
+      "failures": 0,
+      "observed": {
+        "seqn": 4026306,
+        "regions": [
+          "us",
+          "eu",
+          "kr",
+          "tw"
+        ],
+        "version": "1.60.1.69913",
+        "buildId": "69913",
+        "perRegion": {
+          "us": "1.60.1.69913",
+          "eu": "1.60.1.69913",
+          "kr": "1.60.1.69913",
+          "tw": "1.60.1.69913"
+        }
+      },
+      "observedAt": "2026-09-20T00:25:39.074Z"
+    },
+    "versions:wow_classic_era": {
+      "url": "https://us.version.battle.net/v2/products/wow_classic_era/versions",
+      "kind": "versions",
+      "label": "Version service — wow_classic_era (control)",
+      "failures": 0,
+      "observed": {
+        "seqn": 4026318,
+        "regions": [
+          "us",
+          "eu",
+          "cn",
+          "kr",
+          "tw"
+        ],
+        "version": "1.15.9.69722",
+        "buildId": "69722",
+        "perRegion": {
+          "us": "1.15.9.69722",
+          "eu": "1.15.9.69722",
+          "cn": "1.15.9.69722",
+          "kr": "1.15.9.69722",
+          "tw": "1.15.9.69722"
+        }
+      },
+      "observedAt": "2026-09-20T00:25:39.074Z"
+    },
+    "versions:wow_classic": {
+      "url": "https://us.version.battle.net/v2/products/wow_classic/versions",
+      "kind": "versions",
+      "label": "Version service — wow_classic (control)",
+      "failures": 0,
+      "observed": {
+        "seqn": 4026309,
+        "regions": [
+          "us",
+          "eu",
+          "cn",
+          "kr",
+          "tw"
+        ],
+        "version": "5.5.4.69585",
+        "buildId": "69585",
+        "perRegion": {
+          "us": "5.5.4.69585",
+          "eu": "5.5.4.69585",
+          "cn": "5.5.4.69585",
+          "kr": "5.5.4.69585",
+          "tw": "5.5.4.69585"
+        }
+      },
+      "observedAt": "2026-09-20T00:25:39.074Z"
+    },
+    "summary:wow-products": {
+      "url": "https://us.version.battle.net/v2/summary",
+      "kind": "summary",
+      "label": "Version service — which WoW product codes carry a versions record",
+      "failures": 0,
+      "observed": {
+        "seqn": 4027205,
+        "products": {
+          "wowf": {
+            "present": true,
+            "cdn": true,
+            "versions": false
+          },
+          "wow_classic_beta": {
+            "present": true,
+            "cdn": true,
+            "versions": true
+          },
+          "wow_classic_era_beta": {
+            "present": true,
+            "cdn": true,
+            "versions": false
+          },
+          "wow_cn_beta": {
+            "present": true,
+            "cdn": true,
+            "versions": false
+          },
+          "wow_classic": {
+            "present": true,
+            "cdn": true,
+            "versions": true
+          },
+          "wow_classic_era": {
+            "present": true,
+            "cdn": true,
+            "versions": true
+          },
+          "wow_anniversary": {
+            "present": true,
+            "cdn": true,
+            "versions": true
+          }
+        }
+      },
+      "observedAt": "2026-09-20T00:25:39.074Z"
+    },
+    "forum:us-forever-346": {
+      "url": "https://us.forums.blizzard.com/en/wow/c/wow-forever/l/latest.json",
+      "kind": "discourse",
+      "label": "US forum — WoW: Forever category (346)",
+      "failures": 0,
+      "observed": {
+        "topicCount": 30,
+        "newestTopicId": 2355484,
+        "newestTopic": {
+          "id": 2355484,
+          "title": "Renove Raid Size Cap",
+          "url": "https://us.forums.blizzard.com/en/wow/t/renove-raid-size-cap/2355484",
+          "created_at": "2026-09-20T00:23:43.192Z",
+          "last_posted_at": "2026-09-20T00:23:43.340Z",
+          "posts_count": 1
+        },
+        "staffUsers": [
+          "system"
+        ],
+        "staffTopics": [
+          {
+            "id": 2352498,
+            "title": "[GDKP] - Bring Them Back",
+            "url": "https://us.forums.blizzard.com/en/wow/t/gdkp-bring-them-back/2352498",
+            "created_at": "2026-09-17T20:22:23.314Z",
+            "last_posted_at": "2026-09-20T00:23:59.631Z",
+            "posts_count": 24,
+            "staff": [
+              "system"
+            ]
+          }
+        ]
+      },
+      "observedAt": "2026-09-20T00:25:39.074Z"
+    },
+    "forum:us-forever-beta-349": {
+      "url": "https://us.forums.blizzard.com/en/wow/c/in-development/wow-forever-beta-discussion/349/l/latest.json",
+      "kind": "discourse",
+      "label": "US forum — WoW: Forever Beta Discussion category (349)",
+      "failures": 0,
+      "observed": {
+        "topicCount": 30,
+        "newestTopicId": 2355466,
+        "newestTopic": {
+          "id": 2355466,
+          "title": "Class specific Suggestions?",
+          "url": "https://us.forums.blizzard.com/en/wow/t/class-specific-suggestions/2355466",
+          "created_at": "2026-09-20T00:07:08.126Z",
+          "last_posted_at": "2026-09-20T00:07:08.271Z",
+          "posts_count": 1
+        },
+        "staffUsers": [
+          "Kaivax"
+        ],
+        "staffTopics": [
+          {
+            "id": 2352687,
+            "title": "WoW Forever Beta Known Issues - September 18",
+            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-known-issues-september-18/2352687",
+            "created_at": "2026-09-17T21:47:56.089Z",
+            "last_posted_at": "2026-09-18T18:02:28.910Z",
+            "posts_count": 2,
+            "staff": [
+              "Kaivax"
+            ]
+          }
+        ]
+      },
+      "observedAt": "2026-09-20T00:25:39.074Z"
+    }
+  }
+}
