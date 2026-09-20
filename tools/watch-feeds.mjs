@@ -385,6 +385,21 @@ for (const r of results) {
 }
 lines.push('');
 
+/* Staff-touched topics are listed every run, not only when new: on the very
+   first run there is no "before", and a blue post that is already on the page
+   would otherwise never be surfaced. */
+const staffNow = results.filter((r) => r.ok && r.feed.kind === 'discourse' && r.observed.staffTopics.length);
+if (staffNow.length) {
+  lines.push('## Staff-touched topics on the page right now (prompts to open, not citations)');
+  lines.push('');
+  for (const r of staffNow) {
+    for (const t of r.observed.staffTopics) {
+      lines.push(`- ${r.feed.label}: (${t.staff.join(', ')}) "${t.title}" — ${t.url} — last post ${t.last_posted_at || 'unknown'}`);
+    }
+  }
+  lines.push('');
+}
+
 if (notable.length) {
   lines.push('## Notable — re-verify and record with a dated claim');
   lines.push('');

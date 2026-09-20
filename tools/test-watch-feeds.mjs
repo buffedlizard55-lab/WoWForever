@@ -207,7 +207,10 @@ console.log('\n4. Forum: player topics are routine, staff topics are notable');
   check('the report names the staff member and links the thread', b.report.includes('staff-touched topic (Kaivax): "Beta build notes — level cap raised to 30" — https://us.forums.blizzard.com/en/wow/t/beta-build-notes-level-cap-raised-to-30/2355500'));
   check('the report says the marker is a prompt, not a verified blue post', /not a verified blue post/.test(b.report));
   const c = await scenario('s4d', staff, stateFile);
-  check('the same staff topic is not reported twice', c.outputs.feed_notable === '0', c.outputs.feed_notable);
+  check('the same staff topic is not reported twice as notable', c.outputs.feed_notable === '0', c.outputs.feed_notable);
+  check('but it is still listed among the staff-touched topics on the page', /## Staff-touched topics on the page right now/.test(c.report) && c.report.includes('/2355500'));
+  const firstRunStaff = await scenario('s4e', staff, join(dir, 's4e.state.json'));
+  check('a staff topic present at baseline time is surfaced on the first run', /## Staff-touched topics on the page right now/.test(firstRunStaff.report) && firstRunStaff.outputs.feed_needs_issue === 'false');
 }
 
 /* ---------- 5. regression ---------- */
