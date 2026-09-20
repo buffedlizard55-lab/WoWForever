@@ -19,11 +19,11 @@ on:
   push:
     branches: [main]
     # Self-healing, not noise: the preflight job below lets a push run only when
-    # no fingerprint baseline exists yet, so a lost or never-created
-    # tools/source-state.json repairs itself on the next push to main. When the
-    # baseline is present, pushes skip the network job entirely. (A baseline
-    # commit made with the default token does not re-trigger workflows, so this
-    # cannot loop.)
+    # a baseline is missing — tools/source-state.json (page fingerprints) or
+    # tools/feed-state.json (structured-feed observations) — so a lost or
+    # never-created baseline repairs itself on the next push to main. When both
+    # are present, pushes skip the network job entirely. (A baseline commit made
+    # with the default token does not re-trigger workflows, so this cannot loop.)
 
 permissions:
   contents: write
@@ -44,12 +44,12 @@ jobs:
       - name: Decide whether to run the network check
         id: decide
         run: |
-          if [ "${RUNNER_EVENT}" = "push" ] && [ -f tools/source-state.json ]; then
+          if [ "${RUNNER_EVENT}" = "push" ] && [ -f tools/source-state.json ] && [ -f tools/feed-state.json ]; then
             echo "run_check=false" >> "$GITHUB_OUTPUT"
-            echo "A fingerprint baseline already exists; this push does not need a network run."
+            echo "Both baselines (page fingerprints, feed observations) already exist; this push does not need a network run."
           else
             echo "run_check=true" >> "$GITHUB_OUTPUT"
-            echo "No usable baseline yet (or a scheduled/manual run): proceeding to the network check."
+            echo "A baseline is missing (or this is a scheduled/manual run): proceeding to the network check."
           fi
         env:
           RUNNER_EVENT: ${{ github.event_name }}
@@ -65,12 +65,24 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Check the watcher itself (offline, no network)
-        run: node tools/test-source-watch.mjs
+      - name: Check the watchers themselves (offline, no network)
+        run: |
+          node tools/test-source-watch.mjs
+          node tools/test-watch-feeds.mjs
 
       - name: Check registered source URLs
         id: check
         run: node tools/check-sources.mjs ${{ inputs.init && '--init' || '' }}
+
+      # Structured feeds are read semantically, not fingerprinted: Blizzard's
+      # version service (build numbers, which product codes carry a versions
+      # record) and the two Forever forum category feeds (newest topic, any
+      # topic touched by a user carrying Blizzard's staff marker). A build
+      # number change is reported as "old → new" with the date it was read;
+      # nothing is written to the site. Added 2026-09-19 (work-plan queue #3).
+      - name: Read Blizzard structured feeds (build numbers, forum staff posts)
+        id: feeds
+        run: node tools/watch-feeds.mjs ${{ inputs.init && '--init' || '' }}
 
       # A baseline made of nothing is worse than no baseline: every later run
       # would compare against it and stay silent. The script already refuses to
@@ -83,27 +95,30 @@ jobs:
           echo "Check whether the runner has outbound network access at all before re-running."
           exit 1
 
-      - name: Open an issue when sources moved
-        if: steps.check.outputs.needs_issue == 'true'
+      - name: Open an issue when sources moved or a feed said something new
+        if: steps.check.outputs.needs_issue == 'true' || steps.feeds.outputs.feed_needs_issue == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          TITLE: "Source watch: ${{ steps.check.outputs.changed }} changed, ${{ steps.check.outputs.unreachable }} unreachable · feeds: ${{ steps.feeds.outputs.feed_headline }}"
         run: |
-          gh issue create \
-            --title "Source watch: ${{ steps.check.outputs.changed }} changed, ${{ steps.check.outputs.unreachable }} unreachable" \
-            --body-file tools/source-report.md \
-            --label "source-watch" || \
-          gh issue create \
-            --title "Source watch: ${{ steps.check.outputs.changed }} changed, ${{ steps.check.outputs.unreachable }} unreachable" \
-            --body-file tools/source-report.md
+          {
+            cat tools/source-report.md
+            echo
+            echo '---'
+            echo
+            cat tools/feed-report.md
+          } > tools/watch-issue.md
+          gh issue create --title "$TITLE" --body-file tools/watch-issue.md --label "source-watch" || \
+          gh issue create --title "$TITLE" --body-file tools/watch-issue.md
 
-      - name: Commit the updated fingerprint state
+      - name: Commit the updated fingerprint and feed state
         run: |
-          if [ -n "$(git status --porcelain tools/source-state.json)" ]; then
+          if [ -n "$(git status --porcelain tools/source-state.json tools/feed-state.json)" ]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add tools/source-state.json
-            git commit -m "chore(source-watch): update source fingerprints"
+            git add tools/source-state.json tools/feed-state.json
+            git commit -m "chore(source-watch): update source fingerprints and feed observations"
             git push
           else
-            echo "No fingerprint changes to commit."
+            echo "No fingerprint or feed changes to commit."
           fi

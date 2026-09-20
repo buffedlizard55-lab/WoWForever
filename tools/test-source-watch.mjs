@@ -46,9 +46,13 @@ function addUrl(url, key) {
   urls.push(url);
   urlKey.set(url, key);
 }
-/* Mirror expandSources(): every main URL first, then each source's extra pages. */
-for (const s of sources) addUrl(s.url, s.id);
-for (const s of sources) {
+/* Mirror expandSources(): every main URL first, then each source's extra pages,
+   skipping sources marked `watch: false` (feeds that change by design and are
+   read by tools/watch-feeds.mjs instead). */
+const watched = sources.filter((s) => s.watch !== false);
+const notWatched = sources.filter((s) => s.watch === false);
+for (const s of watched) addUrl(s.url, s.id);
+for (const s of watched) {
   (Array.isArray(s.also) ? s.also : []).forEach((extra, index) => addUrl(extra, `${s.id}::also-${index + 1}`));
 }
 const keyFor = (url) => urlKey.get(url);
@@ -107,7 +111,7 @@ const healthy = { responses: {}, default: { body: '<html><body>source page</body
 const sameBody = (text) => ({ responses: {}, default: { body: `<html><body>${text}</body></html>` } });
 
 console.log('Source watcher offline test — fixtures only, no network access');
-console.log(`  (${urls.length} registered URLs served by the fixture)\n`);
+console.log(`  (${urls.length} registered URLs served by the fixture; ${notWatched.length} sources marked watch: false are left to the feed watcher)\n`);
 
 /* ---------- 1. first run: baseline only ---------- */
 console.log('1. First run with every source reachable');
@@ -122,6 +126,9 @@ console.log('1. First run with every source reachable');
   check('no issue is wanted on a clean baseline', outputs.needs_issue === 'false', outputs.needs_issue);
   check('every source is listed as newly fingerprinted', /## Newly fingerprinted/.test(report));
   check('no regression section on a clean run', !/## Regressions/.test(report));
+  check('sources marked watch: false are not fingerprinted', notWatched.every((s) => !(s.id in state.sources)),
+    notWatched.filter((s) => s.id in state.sources).map((s) => s.id).join(', '));
+  check('the report says which sources were left to the feed watcher', notWatched.length === 0 || /Not fingerprinted by design/.test(report));
 }
 
 /* ---------- 2. a page changes ---------- */

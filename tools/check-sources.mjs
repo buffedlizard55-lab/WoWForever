@@ -83,10 +83,17 @@ function expandSources(list) {
     out.push({ ...source, id, parentId: source.id, title, url });
   };
 
+  // A source marked `watch: false` is a feed that changes by design (a forum
+  // topic list, a build manifest, the version-service summary). Fingerprinting
+  // it would raise a "changed" flag every week and teach people to ignore the
+  // report; tools/watch-feeds.mjs reads those semantically instead. The source
+  // stays registered, cited and listed — only the text fingerprint is skipped.
+  const watched = list.filter((source) => source.watch !== false);
+
   // Preserve every source's primary id before deduplicating additional links.
   // That keeps reports stable when two registry entries point to the same page.
-  for (const source of list) add(source, source.url, source.id, source.title);
-  for (const source of list) {
+  for (const source of watched) add(source, source.url, source.id, source.title);
+  for (const source of watched) {
     (Array.isArray(source.also) ? source.also : []).forEach((url, index) => {
       add(source, url, `${source.id}::also-${index + 1}`, `${source.title} (additional page ${index + 1})`);
     });
@@ -160,7 +167,9 @@ async function fetchAll(sources) {
 
 /* ---------- main ---------- */
 
-const sources = expandSources(await loadSources());
+const registry = await loadSources();
+const sources = expandSources(registry);
+const notWatched = registry.filter((source) => source.watch === false);
 const firstRun = !existsSync(STATE_FILE);
 const previous = firstRun ? { checked: null, sources: {} } : JSON.parse(await readFile(STATE_FILE, 'utf8'));
 
@@ -218,6 +227,10 @@ const lines = [];
 lines.push(`# Source watch report — ${state.checked.slice(0, 10)}`);
 lines.push('');
 lines.push(`Checked **${results.length}** registered source URLs from \`data/sources.js\`.`);
+if (notWatched.length) {
+  lines.push('');
+  lines.push(`Not fingerprinted by design (\`watch: false\`, read semantically by \`tools/watch-feeds.mjs\` instead): **${notWatched.length}** — ${notWatched.map((s) => '`' + s.id + '`').join(', ')}.`);
+}
 lines.push('');
 lines.push(`- Fingerprints on file after this run: **${fingerprinted}**`);
 lines.push(`- Changed since last check: **${changed.length}**`);
