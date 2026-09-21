@@ -1,5 +1,5 @@
 {
-  "checked": "2026-09-20T00:25:39.074Z",
+  "checked": "2026-09-21T13:47:12.169Z",
   "feeds": {
     "versions:wow_classic_beta": {
       "url": "https://us.version.battle.net/v2/products/wow_classic_beta/versions",
@@ -23,7 +23,7 @@
           "tw": "1.60.1.69913"
         }
       },
-      "observedAt": "2026-09-20T00:25:39.074Z"
+      "observedAt": "2026-09-21T13:47:12.169Z"
     },
     "versions:wow_classic_era": {
       "url": "https://us.version.battle.net/v2/products/wow_classic_era/versions",
@@ -49,7 +49,7 @@
           "tw": "1.15.9.69722"
         }
       },
-      "observedAt": "2026-09-20T00:25:39.074Z"
+      "observedAt": "2026-09-21T13:47:12.169Z"
     },
     "versions:wow_classic": {
       "url": "https://us.version.battle.net/v2/products/wow_classic/versions",
@@ -75,7 +75,7 @@
           "tw": "5.5.4.69585"
         }
       },
-      "observedAt": "2026-09-20T00:25:39.074Z"
+      "observedAt": "2026-09-21T13:47:12.169Z"
     },
     "summary:wow-products": {
       "url": "https://us.version.battle.net/v2/summary",
@@ -83,7 +83,7 @@
       "label": "Version service — which WoW product codes carry a versions record",
       "failures": 0,
       "observed": {
-        "seqn": 4027205,
+        "seqn": 4027923,
         "products": {
           "wowf": {
             "present": true,
@@ -122,7 +122,7 @@
           }
         }
       },
-      "observedAt": "2026-09-20T00:25:39.074Z"
+      "observedAt": "2026-09-21T13:47:12.169Z"
     },
     "forum:us-forever-346": {
       "url": "https://us.forums.blizzard.com/en/wow/c/wow-forever/l/latest.json",
@@ -131,33 +131,19 @@
       "failures": 0,
       "observed": {
         "topicCount": 30,
-        "newestTopicId": 2355484,
+        "newestTopicId": 2356821,
         "newestTopic": {
-          "id": 2355484,
-          "title": "Renove Raid Size Cap",
-          "url": "https://us.forums.blizzard.com/en/wow/t/renove-raid-size-cap/2355484",
-          "created_at": "2026-09-20T00:23:43.192Z",
-          "last_posted_at": "2026-09-20T00:23:43.340Z",
+          "id": 2356821,
+          "title": "I haven't recommended WoW to anyone in years",
+          "url": "https://us.forums.blizzard.com/en/wow/t/i-havent-recommended-wow-to-anyone-in-years/2356821",
+          "created_at": "2026-09-21T13:46:25.423Z",
+          "last_posted_at": "2026-09-21T13:46:25.548Z",
           "posts_count": 1
         },
-        "staffUsers": [
-          "system"
-        ],
-        "staffTopics": [
-          {
-            "id": 2352498,
-            "title": "[GDKP] - Bring Them Back",
-            "url": "https://us.forums.blizzard.com/en/wow/t/gdkp-bring-them-back/2352498",
-            "created_at": "2026-09-17T20:22:23.314Z",
-            "last_posted_at": "2026-09-20T00:23:59.631Z",
-            "posts_count": 24,
-            "staff": [
-              "system"
-            ]
-          }
-        ]
+        "staffUsers": [],
+        "staffTopics": []
       },
-      "observedAt": "2026-09-20T00:25:39.074Z"
+      "observedAt": "2026-09-21T13:47:12.169Z"
     },
     "forum:us-forever-beta-349": {
       "url": "https://us.forums.blizzard.com/en/wow/c/in-development/wow-forever-beta-discussion/349/l/latest.json",
@@ -166,14 +152,14 @@
       "failures": 0,
       "observed": {
         "topicCount": 30,
-        "newestTopicId": 2355466,
+        "newestTopicId": 2356803,
         "newestTopic": {
-          "id": 2355466,
-          "title": "Class specific Suggestions?",
-          "url": "https://us.forums.blizzard.com/en/wow/t/class-specific-suggestions/2355466",
-          "created_at": "2026-09-20T00:07:08.126Z",
-          "last_posted_at": "2026-09-20T00:07:08.271Z",
-          "posts_count": 1
+          "id": 2356803,
+          "title": "Got poorly lagging",
+          "url": "https://us.forums.blizzard.com/en/wow/t/got-poorly-lagging/2356803",
+          "created_at": "2026-09-21T13:08:07.881Z",
+          "last_posted_at": "2026-09-21T13:10:13.728Z",
+          "posts_count": 2
         },
         "staffUsers": [
           "Kaivax"
@@ -192,7 +178,7 @@
           }
         ]
       },
-      "observedAt": "2026-09-20T00:25:39.074Z"
+      "observedAt": "2026-09-21T13:47:12.169Z"
     }
   }
 }

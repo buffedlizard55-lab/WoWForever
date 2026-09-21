@@ -1,907 +1,1035 @@
 {
-  "checked": "2026-09-20T00:19:02.332Z",
+  "checked": "2026-09-21T13:40:34.365Z",
   "sources": {
     "bnet-deep-dive": {
-      "hash": "dd8c223cdb5fbdd46fc6492f463ddd7f3dbc67356c9b3c09c42d69e65d43d79a",
-      "length": 24211,
+      "hash": "de57f4fdd4aae0a38239f4a5a688d10cf136b61fda793b9ef64faa79da0d0f0e",
+      "length": 24126,
       "url": "https://news.blizzard.com/en-us/article/24303313/world-of-warcraft-forever-deep-dive-panel-recap",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "bnet-found-photos": {
-      "hash": "78dfb976d9c4a5444d906d7bd6a845b913dec9b74be03010a822ae8430d1e559",
-      "length": 8304,
+      "hash": "7beee0bea94a7142e1fb72f3a099421c3e36d86ff96b116b82610657c0af9967",
+      "length": 8216,
       "url": "https://news.blizzard.com/en-us/article/24304071/world-of-warcraft-forever-found-photos-panel-recap",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "bnet-whats-next": {
-      "hash": "3812b603cd714ca5644be5bc8bf6562121057e18eac78dec006e408d9e5c4d55",
-      "length": 7949,
+      "hash": "415f2bc56632382c6c178c8ab51f428e2c938251917088d2089e97e0ae0ca48a",
+      "length": 7862,
       "url": "https://news.blizzard.com/en-us/article/24303862/world-of-warcraft-forever-whats-next-panel-recap",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "bnet-forever": {
       "hash": "9a67dc2ae4f051b0f3d8a1f14de9889d559e6d508b603baec53d9c096f5306f3",
       "length": 33,
       "url": "https://worldofwarcraft.blizzard.com/en-us/forever",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "wh-roadmap": {
-      "hash": "9f3d986939597bc13a8f44490ba22239f12344c121687b33c319335090fdf546",
-      "length": 4727,
+      "hash": "5c13d5751d6c1cad55c37751cb40a1430da5f523c5885a6ed9af5e94a951de2f",
+      "length": 4679,
       "url": "https://www.wowhead.com/forever/guide/content-release-roadmap",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-dungeons": {
-      "hash": "69409988d5cd3cadb0b1bf45693f993230a4ea7d30257ae69e279cf2484657b1",
-      "length": 4660,
+      "hash": "864bac4773f0da698b84154be0ff5b5fd81100985164c62251c1f323563606b2",
+      "length": 4668,
       "url": "https://www.wowhead.com/forever/guide/dungeons-overview-locations-details",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-beta": {
-      "hash": "573122556eba395e2d0e91e0e7afacaa35716f971f6899163b2bc3b1c5c52598",
-      "length": 7778,
+      "hash": "4f0ada0e6f267193d564c5bacd49a0f550aeaff69454bd14d68dacf0f2326f68",
+      "length": 10258,
       "url": "https://www.wowhead.com/forever/guide/beta-content-unlock-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-racials": {
-      "hash": "ab1c540266b5f285caa693ed7defc3447b1b81a594e4f44faeac8af8302897a8",
-      "length": 12500,
+      "hash": "58d68d88a1aa346dc7ffab5d061d839faa72ffa85596dc364edb0b43d671cc2a",
+      "length": 12784,
       "url": "https://www.wowhead.com/forever/guide/new-race-class-combinations",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-pvp-rank": {
-      "hash": "99ab476e8404351dcd8180d81d50113ba9175861c722750d4f330d3317c873e9",
-      "length": 5447,
+      "hash": "03a65ec4a256cdaeb0004e0e66308a57deed9fed5cc2ff355a513a0fff6ee66d",
+      "length": 5242,
       "url": "https://www.wowhead.com/forever/news/14-rank-pvp-honor-track-and-darkspear-islands-battleground-coming-in-wow-forever-382947",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "bnet-prepurchase": {
-      "hash": "81b7e11e9ec8f2f837257d9e6b9a530fb2d1f4ccd7dccbef26b447f9e77cefae",
-      "length": 6071,
+      "hash": "a7f01fafe63d4611d9dd371fc32a3a361dc096e9effee0ce09c4e699a081c6b4",
+      "length": 5947,
       "url": "https://news.blizzard.com/en-us/article/24301508/pre-purchase-world-of-warcraft-forever-upgrades-and-begin-your-next-journey-in-azeroth",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-gdkp": {
-      "hash": "74f3aeaab08c8a294cc7acaf21656be1ba442019272431cd669f580e57090abd",
-      "length": 4758,
+      "hash": "ca49d9c326a25795bdf9309c64fa4cd82dbccd3fb006cd9a109acd306562ade4",
+      "length": 4594,
       "url": "https://www.wowhead.com/forever/news/gdkp-will-not-be-allowed-in-wow-forever-382968",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-professions": {
-      "hash": "6edf90930139d75e9e8f5501ce2dfae1c5b4541b1d6b35920aecd0b25d5b8531",
-      "length": 11532,
+      "hash": "1710ce68ef67949d1dacbf19b736eba8697fd17cefab72e5ae06910febc0b6bf",
+      "length": 11190,
       "url": "https://www.wowhead.com/forever/news/changes-and-additions-to-professions-in-world-of-warcraft-forever-382924",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-reals": {
-      "hash": "7c7b8f68ab4f61fc6c142f30a7c5ffb6532ca13737eed221cbc8cba27df5ae4d",
-      "length": 8654,
+      "hash": "6dd4721e3d3f60aebd52cf8a680b3ca3992f3c84bdfb035e61a4bf2ef8f072fd",
+      "length": 8468,
       "url": "https://www.wowhead.com/forever/news/tarnished-undermine-reals-coming-to-world-of-warcraft-forever-382969",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-legacy": {
-      "hash": "3a647ad9c3381ec5d9383013fd4606f173b3110738f84618bb5a714f5c3c8b36",
-      "length": 19549,
+      "hash": "39b2494d25dbb2c3baedc3691a8b7a59e52e3b3a8a3a70f31244209ae74f2215",
+      "length": 19373,
       "url": "https://www.wowhead.com/forever/news/all-known-ways-to-earn-legacy-points-in-wow-forever-382961",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-compendium": {
-      "hash": "8b50034ac1ba3bc659327b01aafe4ab10d8b6f793a79ec78276f7fd78198e154",
-      "length": 6917,
+      "hash": "1dcdc51f4e8072f368af4e11c778d239f4c6a6e291250fa1a3704f8c3a58baa0",
+      "length": 5598,
       "url": "https://www.wowhead.com/forever/news/forever-guide-compendium-every-guide-you-ll-need-for-beta-launch-382965",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-bank": {
-      "hash": "f1fd10601b7e77a455399b53121d9e272d3ff3cda94c6884ef8cd18319d8ab91",
-      "length": 10508,
+      "hash": "5754f937a11e5442a10dbac3cbbf6ce7d44c925c57c718684b10ab2a8e53ab9b",
+      "length": 10295,
       "url": "https://www.wowhead.com/forever/news/increased-bank-space-raid-items-hidden-until-it-drops-mmorpg-interview-on-wow-382960",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-qa": {
-      "hash": "075ef2b30dbea27f1949df9fac12a294a63c08f411d8d9b03e6f2559c5176d22",
-      "length": 12657,
+      "hash": "bf182f52c5a901e00348a6c733e54d5ca9e4ba2b72da4e9796914564fe5aa060",
+      "length": 12474,
       "url": "https://www.wowhead.com/forever/news/world-of-warcraft-live-q-a-liveblog-midnight-and-forever-382967",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-kroldok": {
-      "hash": "0d58b25b8e360a13fb305e3fc4b96a427831d77c6160748e885dc550c9c81b27",
-      "length": 9762,
+      "hash": "f71f2cb55ab86dcd8f3e0d0348f7d294621c525e3018af88da718f5fb1e21627",
+      "length": 9577,
       "url": "https://www.wowhead.com/forever/news/blizzard-clarifies-krol-dok-stronghold-level-range-in-forever-382895",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-class-guides": {
-      "hash": "017faf9a8d6e3ad7495ada93539ccf954bc94d2ea11f8039aa3fc298d549c367",
-      "length": 143,
+      "hash": "faaf60fc3ec335df429c12a7ff4b528e66c4e812c44e828dfe6742c86362c034",
+      "length": 12,
       "url": "https://www.wowhead.com/forever/guides/classes",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "mop-addons": {
-      "hash": "ac28e695d339ecca88e456ec28f446678a2f5db4bb8b2eefdc7410265e112eb8",
-      "length": 9761,
+      "hash": "7385453bad88ce7d1e8bf1f69ae3ef2a3b57c9540b44461db002f230c5b65e42",
+      "length": 2796,
       "url": "https://massivelyop.com/2026/09/15/wow-forever-discusses-classes-addons-party-forming-pvp-progression-and-how-it-effectively-negates-wow-2/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wt-token": {
-      "hash": "51d6fa5f43ada693eae445d09372b336f461448370b17a50f9cb4953addd326c",
-      "length": 3932,
+      "hash": "08efa833fe1fe9a61a22a67273ecc6aa6f43484c79ea6ffef42a30759431fac8",
+      "length": 3976,
       "url": "https://www.warcrafttavern.com/forever/news/wow-forever-no-plans-for-wow-token-or-character-boosts/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "mop-announce": {
-      "hash": "5a578ba02dc9bff7ee0b8ef544e509b36953cec02c055fc6f8886ca0e12d082c",
-      "length": 13074,
+      "hash": "2d97dec1ca67cb2ce5d15c3dabea0a77113dbee1ef6157b4de04853204d3f80e",
+      "length": 1529,
       "url": "https://massivelyop.com/2026/09/12/blizzcon-2026-world-of-warcraft-forever-announced-as-a-permanent-home-for-classic-players/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "iv-firstaid": {
-      "hash": "d5f611bbd26560e7cccaa43e1805d262a8aba3e79f064a8582d7338a9c4005ad",
-      "length": 1676,
+      "hash": "8463e50d1e5f091f2893bb9d0bac010030657444d459739ada78aac6238e5179",
+      "length": 1214,
       "url": "https://www.icy-veins.com/wow-forever/news/healing-potions-now-crafted-by-first-aid-in-wow-forever/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "iv-tiersets": {
-      "hash": "2434a52150e219809c0c2cc8e5ea19182e9b01859fd0f43781fe62d3dfcf99d7",
-      "length": 7933,
+      "hash": "c635af1cdd76f8524c50527ae5fa5046e12857a077b49f521ba07ed4b260dc1e",
+      "length": 7425,
       "url": "https://www.icy-veins.com/wow-forever/news/wow-forever-crafted-tier-sets-datamined-recipes-costs-and-set-bonuses/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "iv-tauren": {
-      "hash": "b8c5c10ddf78f013123e22f3a0842254c0767ac0aec702ac1f4205330e45ea41",
-      "length": 6333,
+      "hash": "c7818c7daa856fdf28900e2460f835051e96b1183253d9cfd690ce39f3b18cf5",
+      "length": 4828,
       "url": "https://www.icy-veins.com/wow-forever/tauren-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "cf-priceanswer": {
-      "hash": "5e836b51222a2eb0189098cf29626ffada7557008bc43ea463190b69207d3650",
-      "length": 8284,
+      "hash": "d808c1afdd94fa9d8d40b880173b48cea3064b19c8e7eab8f773e76ce8fc85c5",
+      "length": 6689,
       "url": "https://www.curseforge.com/wow/addons/price-answer",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wiki-forever": {
-      "hash": "6e700187d485254feb6bfe976207c2fdbe1593223b1b36983c1ea44731f7b71f",
-      "length": 9987,
+      "hash": "84f157b7af4f75a4eeb78bb96ed789c2df73da65d1cad402938e6ed4cb866b39",
+      "length": 9164,
       "url": "https://warcraft.wiki.gg/wiki/World_of_Warcraft:_Forever",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wago-tsm": {
       "hash": "c0bff60b7aedef6c4c11c1e43a01eb97ffd2627b655104b4e9d8dd072655a994",
       "length": 82,
       "url": "https://addons.wago.io/addons/tradeskillmaster/versions?stability=stable",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "kotaku-interview": {
-      "hash": "feee678692ea79474a540892863084e120f8af3246e52375a62f647ef5a330ee",
-      "length": 11130,
+      "hash": "2da1d6ce69886b2f1b0c4c9fb2c3a0c3caabad976ed4161d933283eb692d577c",
+      "length": 10583,
       "url": "https://kotaku.com/new-things-learned-world-of-warcraft-forever-2000734005",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-guide-index": {
-      "hash": "4f7488cfe62ec51ea9cbd3b900b54ba53f2996652e78b590793146b1fbe5f83d",
-      "length": 217,
+      "hash": "d2399bdfbb1825e423cc19a3edaa8a612d3f308d9262f131e7ea90f79a1ee4e9",
+      "length": 94,
       "url": "https://www.wowhead.com/forever/guides",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-pvp-rewards": {
-      "hash": "2ab2c66e160a558a3b005cb7f890a240ce2e64e3a6de398f1edf064bdb78e923",
-      "length": 8879,
+      "hash": "e0c378905a637219e5d97de58cb862a2d9ffa77ce00f1cfe72ea287ad9cb3871",
+      "length": 8696,
       "url": "https://www.wowhead.com/forever/news/pvp-and-legacy-system-rewards-in-world-of-warcraft-forever-382959",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-bestrace": {
-      "hash": "2eab0629cfa734de264368909d4f8bee63efb1c21b8e0c25acf6e6ee64748f2d",
-      "length": 1625,
+      "hash": "dad8fc892f70aed9f9520192d33f6b6ca13cfdbebf410e518e423c38579750b8",
+      "length": 1142,
       "url": "https://www.icy-veins.com/wow-forever/news/best-race-for-every-class-in-wow-forever-watch-our-breakdown/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "iv-addons": {
-      "hash": "36a1598cadfb97ba12cccc8886913ebc781b8794c58883ae5964baeedec90850",
-      "length": 1958,
+      "hash": "ee1bebd01e6eddc271769f283d9c9fc8737fae08c51875c0c2d3d8d4699ebefd",
+      "length": 1460,
       "url": "https://www.icy-veins.com/wow-forever/news/addons-in-wow-forever-blizzard-devs-just-addressed-the-big-question/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-preorder": {
-      "hash": "5cf4f26a2ff6ec19cdd66a874c9a47e08a913328834a25e753e9061c46c0e02f",
-      "length": 5514,
+      "hash": "6a128a5a90f0b80e099eb01d0ac004d5459faf933d2712cd60b366e3e4df1699",
+      "length": 5593,
       "url": "https://www.wowhead.com/forever/guide/pre-order-packs-rewards",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-class-overviews": {
-      "hash": "8dcff601811754934a9272996ee043c48c330b34720733e5007495c7842b7fe6",
-      "length": 2775,
+      "hash": "0d84cc686b1cd49c22064b312974218cf4d644df0a661d487870c0d5567e2b59",
+      "length": 86,
       "url": "https://www.icy-veins.com/wow-forever/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "mmos-beta": {
-      "hash": "c06e42d654dc9625bff3c09d0fd989b114181bf19292d78c98a9be32870d7e55",
-      "length": 4334,
+      "hash": "8f9f0cadba15ecc228dc6b63a45d0cbfe6f9e9a76a3e086a1310ae820379a98d",
+      "length": 2320,
       "url": "https://mmos.com/news/mmorpg-news/wow-forever-beta",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "polygon-announce": {
-      "hash": "a2ad030e4b8655e849afca7fdb08724577ba65f22365bdcd247940fb14464335",
-      "length": 10242,
+      "hash": "77f0114e4118a82524d8a669923720c0a940a40b0c89911f819102e8cce8aeb0",
+      "length": 5690,
       "url": "https://www.polygon.com/world-of-warcraft-forever-announced-classic-plus-blizzcon-2026/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-item-forever": {
-      "hash": "7261db33d28d7cec02cb4003d1f7916e3bff6c2d0cd7570fc15b4a8fc26191da",
-      "length": 1934,
+      "hash": "8455b1575627a78c8c4aa292139631c78ab72eb5e340d90165369d1148fb9692",
+      "length": 1784,
       "url": "https://www.wowhead.com/forever/item=226404/tarnished-undermine-real",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "bnet-kroldok": {
       "hash": "32c60954db53f2748b940eb7926744b7fdae7c16611a96db3ce48ba26aa1ae07",
       "length": 2378,
       "url": "https://us.forums.blizzard.com/en/wow/t/krol%E2%80%99dok-stronghold/2349672",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "wh-sportskeeda": {
-      "hash": "2087564b3ddb2b9ab5f75065b7cf53b69d32027f88c66a51d14fa115ab5e010e",
-      "length": 9554,
+      "hash": "4f6351b7c16d56bb6a644397fd5082c6e5ff7c0b79ebff408ca371fbaa9ad1bf",
+      "length": 9334,
       "url": "https://www.wowhead.com/forever/news/official-controller-supports-training-mount-skill-costs-sportskeeda-interview-on-382963",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "bnet-beta-live": {
-      "hash": "885b990eb130defcc46858c34e8159e67c92ca1905395770ea7d999704c19e5e",
-      "length": 3805,
+      "hash": "1927082dda53a6f26a2a3174dba05275e55c844ef133e35b431d79bb1d1ccbbc",
+      "length": 3724,
       "url": "https://news.blizzard.com/en-us/article/24304160/the-world-of-warcraft-forever-beta-now-live",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "bnet-beta-issues": {
-      "hash": "267270d5acad98e4606c761cc275d5e6eebaf7b78fd617cbec68e94f9993fe44",
-      "length": 4717,
+      "hash": "11f3bee5837c5247906ca14ce75e5265c71b8d963cc4c6f34bbf3d3fcab4844d",
+      "length": 4827,
       "url": "https://us.forums.blizzard.com/en/wow/t/2352687/1",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "sk-interview": {
-      "failures": 2,
+      "failures": 3,
       "lastError": "HTTP 403",
-      "lastErrorAt": "2026-09-20T00:19:02.332Z",
+      "lastErrorAt": "2026-09-21T13:40:34.365Z",
       "url": "https://www.sportskeeda.com/mmo/news-they-might-reasons-welcome-forsaken-wow-forevers-kris-zierhut-michael-nuthals-visiting-gilneas-what-ifs-exclusive"
     },
     "wh-bwt": {
-      "hash": "316917bed8c4b130a6cfd0e4aa78c8c8788075f7cfd2636fa664c97fc928623f",
-      "length": 10534,
+      "hash": "03a6de6b0501b18b9352575b00cbca23db542fff64f4d8c3cf1c09cdad6dfd41",
+      "length": 10333,
       "url": "https://www.wowhead.com/forever/news/no-raid-attunements-for-launch-raids-but-why-tho-interview-on-wow-forever-382964",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-talentcalc": {
-      "hash": "6f11d0615ac88727b2f9f7f10e54438be736817c0a9dd2c25ed5f75f4f7de81d",
-      "length": 159,
+      "hash": "142574a0055522653bc448e6a453e4d2974bc7c8533290fee4865b1de6a3af37",
+      "length": 25,
       "url": "https://www.wowhead.com/forever/talent-calc",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-issues": {
-      "hash": "a2e66a30dc91171b8219738d80685e726f11ba06977c38944bc7fe78cd2dfc99",
-      "length": 1406,
+      "hash": "7ef50542dc55b316adb77879d920ce82636d531e37a3eb3e8c7c364fd43a129d",
+      "length": 942,
       "url": "https://www.icy-veins.com/wow-forever/news/wow-forever-beta-known-issues-list-september-18th/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-issues": {
-      "hash": "f9c890251709329b20a3fc33a39ff729cee31e7f1d45bc3e3e21397aad9076d8",
-      "length": 299,
+      "hash": "d48175f044049f1454463d20176fb0183351b85d18d15f952290eeecdbf2bcc2",
+      "length": 48,
       "url": "https://www.wowhead.com/blue-tracker/topic/us/2352687",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "bwt-interview": {
-      "hash": "6760184128bbce36c15eb9280051e1fa3c2a963541f671814adba17a8852b38b",
-      "length": 10040,
+      "hash": "bd0665c92671f46e3529a5554d97655c1667bece259a507b3b57d4201578d7a7",
+      "length": 95,
       "url": "https://butwhytho.net/2026/09/wow-classic-devs-world-of-warcraft-forever/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-tier-models": {
-      "hash": "7cccca398fd433087ed5b4e171c20b129dc57b37f0a58e978168a649d0fcf915",
-      "length": 4711,
+      "hash": "dd8f03f0028c14b20ee5f65ae397df50967920a3b1a70e17f0d456d2584e7a0a",
+      "length": 4531,
       "url": "https://www.wowhead.com/forever/news/raid-tier-set-models-datamined-for-wow-forever-382938",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "cf-tsm": {
-      "hash": "368f4d2fedcae4cc6a0c989e54af438844e24e15dcf1d78d12058d510eef9267",
-      "length": 6127,
+      "hash": "d325829f8de55416bcf1ed2466cbe4fa42ee413dbe6e03d4ac876b200fc8b5a4",
+      "length": 4540,
       "url": "https://www.curseforge.com/wow/addons/tradeskill-master",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-forever-news": {
-      "hash": "747e5a0e4151a33f0dc6a8d8617b81c66c4953fb0bd26a7bbf74bf820246899c",
-      "length": 136,
+      "hash": "19fba0e995b9794fc2c26217bf3b725c2f0d9eeda16719fe75e3ba23ca73bfc4",
+      "length": 4,
       "url": "https://www.wowhead.com/forever/news",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "sc-coverage": {
-      "hash": "f9875fa1699e592d9869f915228106c0a3702b2b4ef96842ce5b47984bc3709e",
-      "length": 10368,
+      "hash": "d5d8f616a8cf1d73f5ab2a073e01e6dee070332f439752cdfa807d37a5b68435",
+      "length": 9958,
       "url": "https://www.skill-capped.com/wowarticles/general/pvp-addons-ui-guide/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-druid": {
-      "hash": "673975bd776e6bb540b2f06bbfe9b0d85c2db417f880165fb78bc32bc41ea6ac",
-      "length": 16385,
+      "hash": "19ec9741e7d4bd8f4d2c4a070b9558cdb3b63b7a6d2bb186ff49600f4f006b77",
+      "length": 14565,
       "url": "https://www.icy-veins.com/wow-forever/druid-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-hunter": {
-      "hash": "744d2a6b28fa7449ae8212c8f1217f76bdf0811b0d96f0d1e11080351e0f9c4c",
-      "length": 15451,
+      "hash": "46a6162d6d4f0510e6d34a15c922befa0d93c2682cb12d124aade329cdda3b75",
+      "length": 13871,
       "url": "https://www.icy-veins.com/wow-forever/hunter-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-mage": {
-      "hash": "e14a590612c40a20547bd8c14e73be85036daf2ea851edb07579a38d7a930d0f",
-      "length": 18438,
+      "hash": "689ec90bd30de72c6f9275c39c23f591bf3ea9c420c476e061911c7d134340dc",
+      "length": 16863,
       "url": "https://www.icy-veins.com/wow-forever/mage-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-priest": {
-      "hash": "6fa56b6a5193ca256b599a0369f33f2f17b0941208380bbd828030fe588eb16e",
-      "length": 22537,
+      "hash": "48589d1c601f5f8ae25e010e6bda2f5ddf5da6b84b31142f19b807e2313fbd12",
+      "length": 20970,
       "url": "https://www.icy-veins.com/wow-forever/priest-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-paladin": {
-      "hash": "44af3072ac3e1b1f51befd95de4943babd654dc4d42d2906aea852e703a9efeb",
-      "length": 18392,
+      "hash": "1c8c593f9cd9929ff51cc5873c95ef63d787029466004a0eadd1d6af475b2834",
+      "length": 16814,
       "url": "https://www.icy-veins.com/wow-forever/paladin-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-rogue": {
-      "hash": "dc1b7613252ae0e6a8b91d80f3d509d1f840617b5a867ee8c63ab79ea229976b",
-      "length": 19511,
+      "hash": "f3a7e22f8202f8a905ec41ebe8a68ba0ac0f6fe452ec34d5259bb2b0be5b862b",
+      "length": 17940,
       "url": "https://www.icy-veins.com/wow-forever/rogue-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-warlock": {
-      "hash": "d3b42b9435471011a36a4beaa1f2fbfd05e0bcbbcc73a95585d810d91ce7b925",
-      "length": 26109,
+      "hash": "d3444417f9cd157f5030949872c5ddd4fd3d7c1896fe03ab39070f1aacfd2be0",
+      "length": 24535,
       "url": "https://www.icy-veins.com/wow-forever/warlock-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-ign-nordic": {
-      "hash": "256927b084b4d5629d4f204fd9fc6a9fe046c08d37f1ebfa95a236aea6e5640d",
-      "length": 11044,
+      "hash": "c185fc93a626549197c9acc31f81bbcb1eef68de51e511b1a0e0d8ad7e942f6c",
+      "length": 10862,
       "url": "https://www.wowhead.com/forever/news/new-biome-buff-gear-ign-nordic-interview-on-wow-forever-382936",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-shaman": {
-      "hash": "76ec109fafe37ba04400e9564775877b6f23ae390fb9c9f2cc1a502940e29982",
-      "length": 16667,
+      "hash": "0c704278370514cb415b142fa2ae1abb06292b1881af165d894eb62ce38d6509",
+      "length": 15089,
       "url": "https://www.icy-veins.com/wow-forever/shaman-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-warrior": {
-      "hash": "6ed39e5a9000143997d7f13d4fb03e054a55fc03b97ed15a5b525bf567393b00",
-      "length": 23147,
+      "hash": "fa03ce01e0dfd01cbe2e2d418452545e2dcf7362b980c145df005831d1ac72ff",
+      "length": 22851,
       "url": "https://www.icy-veins.com/wow-forever/warrior-class-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "ign-nordic": {
-      "hash": "a49623300b16fbe6183e86d4d381137b049475e05360cb67e751d03380d206c3",
-      "length": 7471,
+      "hash": "b2a0574b2ce224a307f7a866e80bc66deaff3dc11a579b2fe1e26ee503f46538",
+      "length": 6110,
       "url": "https://nordic.ign.com/world-of-warcraft-forever/112801/world-of-warcraft-forever-needs-to-truly-be-forever-interview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-addon-api": {
-      "hash": "48bf69f32c372070fbae31fcc8c3b5d0365fb76772efb6e5366bb09ca67eef8c",
-      "length": 9919,
+      "hash": "6f5ad20502e7e52a0b85404e9b6abca2baa2ab62d30a36a9f93af9d962054897",
+      "length": 9718,
       "url": "https://www.wowhead.com/news/wow-forever-will-have-addon-changes-from-midnight-382921",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-kotaku": {
-      "hash": "83c91b58ca4061cd5e25868162c33ae1995fd6dcce1c241449bff30f64873194",
-      "length": 9935,
+      "hash": "b300e4cbd5f3e4b124d9970fe67808c7b8fa6133c9d98f5ce6717e35101acc67",
+      "length": 9754,
       "url": "https://www.wowhead.com/forever/news/no-summoning-stones-and-mount-cost-changes-kotaku-interview-382944",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-bt-midnight-tuning": {
-      "hash": "9fe4a7688965d491eedc655dec04192e69c0ffac4df25e40baccbf7e20fc7a90",
-      "length": 275,
+      "hash": "918d5bc820a1e33d7b81988f018fe517ffc456e60d23e7651241450ff244c194",
+      "length": 41,
       "url": "https://www.wowhead.com/blue-tracker/topic/us/2354340",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wago-auctionator": {
       "hash": "09625643db9eb60830157789c27cd72dddc18dc12690266a6bd4ed560c808e29",
       "length": 77,
       "url": "https://addons.wago.io/addons/auctionator/versions?stability=stable",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "wago-questie": {
       "hash": "15fa335efa817db3843e6c271e09d412e7f377396f34495e083cdceb48cb607f",
       "length": 73,
       "url": "https://addons.wago.io/addons/questie/versions?stability=stable",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "cf-details": {
-      "hash": "e47dc3f4c45b71f33738003ac57696c445fdb16272398efe20bea7150258a8d9",
-      "length": 5214,
+      "hash": "eb7180f0ba4073d878ec5af17d57e9d148a8decba39a6f5d847e7d9c64644b41",
+      "length": 3624,
       "url": "https://www.curseforge.com/wow/addons/details/files",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-1": {
-      "hash": "f31edd2f9e6f6b8db9179eb180b2393e647966227a1c262fe1c6c25e42ea5c96",
-      "length": 11574,
+      "hash": "3410af3a62c3d69a03a19a541389a7e8213079345471263480490d9c32c0a293",
+      "length": 9972,
       "url": "https://www.icy-veins.com/wow-forever/balance-druid-ranged-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-2": {
-      "hash": "2f3017a941e098f9728fcb3dc9ad68d55feb14107fbc18c633b394a296b22c1e",
-      "length": 15434,
+      "hash": "5ec14c2a6c69392ff88cef479858cc4c5ff5ecffcf20dc0f86db48f869802877",
+      "length": 13841,
       "url": "https://www.icy-veins.com/wow-forever/beast-mastery-hunter-ranged-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-3": {
-      "hash": "fc0b20cbdd0d9bdc54af6517bcb1be2838892555a5507b6124556c8bd9a50c3e",
-      "length": 12515,
+      "hash": "0ed94befa90013133a2a4aab916c15ca953b67a0f727cfa75960e296bba8b18c",
+      "length": 14284,
       "url": "https://www.icy-veins.com/wow-forever/frost-mage-ranged-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-4": {
-      "hash": "f8d4c820b20cb3e79ff7432cd55b87008c8cbff555773000306ee183a6b23a6c",
-      "length": 11423,
+      "hash": "66b2253eac3d1340ce589b2e24b806c720202683f3d3c969262a9fed3c6fbbe3",
+      "length": 9823,
       "url": "https://www.icy-veins.com/wow-forever/holy-paladin-healer-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-6": {
-      "hash": "58d33f0fe9a1b6af67813ff9cd7e6bbeaae698c25970b9341b8f6cf9645b4fbb",
-      "length": 16619,
+      "hash": "fa23c17a0ca516413f926ff04605e69598d3d11bb04d6cd507ee862569577077",
+      "length": 15006,
       "url": "https://www.icy-veins.com/wow-forever/assassination-rogue-melee-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-5": {
-      "hash": "ae7f2bb4558a000939ae770636063c9d02c3cab1ce93b92eba81df2e4cde8e26",
-      "length": 15236,
+      "hash": "06811cb87030705e7bb63a4277d8bf934755ef5db8bc7feb21b828447cc96153",
+      "length": 15031,
       "url": "https://www.icy-veins.com/wow-forever/discipline-priest-healer-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-7": {
-      "hash": "f8fc304730f4499d969a0c1ec676b375a7dffaccddc2d5eb65526b6fd2b0ddf9",
-      "length": 13075,
+      "hash": "d0994a337548a8ce9ae43d9890dff4aad90d3e2bced59f1c84631c785370fc79",
+      "length": 11514,
       "url": "https://www.icy-veins.com/wow-forever/elemental-shaman-ranged-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-8": {
-      "hash": "f55d1462d7483ebd46edb14b3d39664779eed985aa9f32ba60f9025ddf024927",
-      "length": 25577,
+      "hash": "e238c45505543c9caedaa5fa5f50ed0440ff2e06c328cedc95d9f611e35ae003",
+      "length": 23987,
       "url": "https://www.icy-veins.com/wow-forever/affliction-warlock-ranged-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-9": {
-      "hash": "9a350cfe5d923ca59eae6ad5f5fdb3dcff0a9d8c31d6b6e97dde9f15fe8b0f7e",
-      "length": 25415,
+      "hash": "44d9303728903b7a5bcb965f6ce62dd458160826970a4fd4ddf4f8039fb61541",
+      "length": 23886,
       "url": "https://www.icy-veins.com/wow-forever/arms-warrior-melee-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-10": {
-      "hash": "050914fd8e37ad2b00229802a4756f05264c0c600c226de4f99be9196d63154c",
-      "length": 24868,
+      "hash": "ef019f924ea02d65c620e5c8f78603153488cd92d2109f2447f2a60692e211e8",
+      "length": 23338,
       "url": "https://www.icy-veins.com/wow-forever/fury-warrior-melee-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-class-overviews::also-11": {
-      "hash": "03a2744463b1f44c7d7ea5564fde747746669b14573a4fdaee50d71f0288ca46",
-      "length": 23840,
+      "hash": "12076a3452db28942f42da86bf8bded8b25b789743a2a699644116da552a7717",
+      "length": 22224,
       "url": "https://www.icy-veins.com/wow-forever/protection-warrior-tank-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "ign-nordic::also-1": {
-      "hash": "665cf14fff3aed3b8906b4ffb7b891b7781ed1b27204c1f4a329c1ae72c32074",
-      "length": 7219,
+      "hash": "e9af05c10cccfb2127d9ad1396bd192101f3bc7efbba5cde81dc4a0f37d5319e",
+      "length": 5843,
       "url": "https://nl.ign.com/world-of-warcraft-forever/167066/world-of-warcraft-forever-moet-echt-voor-altijd-zijn-interview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-druid-feral": {
-      "hash": "4a1a16a190e3e3e9957b0937c9ed41faa538cbe655f89e4a169316fa5c470b13",
-      "length": 7117,
+      "hash": "07fa80d02a0b66dab862b0a9cf919074f680640492ed74d389ef997435b7a2f6",
+      "length": 7034,
       "url": "https://www.wowhead.com/forever/guide/classes/druid/feral/overview-pve-tank",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-paladin-prot::also-1": {
-      "hash": "bf98f2d57f2fb919b1c3b5bba37c78bf841c8a157d7c9f831017044f0d1bdd6e",
-      "length": 12044,
+      "hash": "876ccdd0dcca88c93714dc654b12c33e9e059da290951cab9c10e76d90a151fd",
+      "length": 11887,
       "url": "https://www.wowhead.com/forever/guide/classes/paladin/protection/abilities-pve-tank",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-paladin-prot": {
-      "hash": "69aeff625cd034e5a59a1bccd154a665cd35cc9f7985dc8d184d64c932e09f19",
-      "length": 13179,
+      "hash": "8e0d8b4992aa502c97f8df499eb1bec48803bdc31aebd19907bb10c01e45e9e5",
+      "length": 13017,
       "url": "https://www.wowhead.com/forever/guide/classes/paladin/protection/overview-pve-tank",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-raids": {
-      "hash": "366708fa1b2a5b4f6ea3023482945062ac0469731af929b3f27add054df35df8",
-      "length": 4176,
+      "hash": "2b900680d9d2bd6f82c0e43be97699b88025916bb83a7217f1ef348afa3210a0",
+      "length": 4004,
       "url": "https://www.wowhead.com/forever/guide/raids-overview-hub-dates-locations",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-season1-tiersets": {
-      "hash": "53b565eb1bb026e28b98d834a3f4c75da9d3e3bb67f2c6c7e099381129af7400",
-      "length": 7934,
+      "hash": "5cc77b71aff50af244a20f0101ddd9f2415d5853d369eba3dd1d6e87ebfa2f5f",
+      "length": 7906,
       "url": "https://www.wowhead.com/forever/guide/season-1-tier-set-bonus-appearance-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-legacy-guide": {
-      "hash": "d0597b9de27b6e3c9057df3bffdf48a113071c9f7b945911c3bf5452f87e3c8c",
-      "length": 12347,
+      "hash": "6f2e8908855013362e66f723b5525c7288086e70e5ed1c36d31c990f124f2bd5",
+      "length": 12396,
       "url": "https://www.wowhead.com/forever/guide/legacy-system-overview-rewards",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "pcgn-announce": {
-      "hash": "cbdc542966b32ec23155fad0d3100f96977002e0c0bea391140f95d5385ca27c",
-      "length": 4120,
+      "hash": "2b472eca85e0fbded8fce5fd25569297daf3d292d194db10bbdd238f36ff52a2",
+      "length": 3353,
       "url": "https://www.pcgamesn.com/world-of-warcraft/forever-blizzcon-2026-wow-classic-plus",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-camping": {
-      "hash": "3d7c5cc69247295510e4db69fb6340bc887df8c1ccacd5f6fe03cfdeb1110244",
-      "length": 20586,
+      "hash": "ebd751706a158029f285f760e6cf28292c1bcb2ba9039e536119a8df64124e0f",
+      "length": 20411,
       "url": "https://www.wowhead.com/forever/guide/camping-overview-unlock-rewards",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-human": {
-      "hash": "f3500e468799e59b8ff8d50fb844a7c8dd9a663e6d6a3ccaaf86e8ab0fc002b9",
-      "length": 7201,
+      "hash": "33dee283c1e861bb837f946f2a43bdd8dae36a85d971236bef572477ff92c25e",
+      "length": 5607,
       "url": "https://www.icy-veins.com/wow-forever/human-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-skyborne": {
-      "hash": "128c2993ab99e74165fc69bf04b0afed793a1b040a7d08859a640a83613a6a05",
-      "length": 4455,
+      "hash": "a4df351b71b13adade7702e545b76dc99ad0d96898315c9364b7bcdbc7b9b3c5",
+      "length": 4272,
       "url": "https://www.wowhead.com/forever/guide/skyborne-race-overview",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-dwarf": {
-      "hash": "fd6a7f1ebfa290b36d6e6aceb111a370eb57033b7a1482b3db0472a5ebbd9fe9",
-      "length": 7154,
+      "hash": "e566045f1370455fccdbc746848faa376068163c214774ab4fa9b96efc3a831a",
+      "length": 5560,
       "url": "https://www.icy-veins.com/wow-forever/dwarf-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-night-elf": {
-      "hash": "3b5772f92dc5a73661ad8bd66e45fb609eaa15d691c4908f951edcef9dc65f97",
-      "length": 7364,
+      "hash": "161d3854421b0efac5741038ba703a40460f9faae2e4f99fa81d4b0f5887b4a9",
+      "length": 5820,
       "url": "https://www.icy-veins.com/wow-forever/night-elf-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-orc": {
-      "hash": "44e370971d2c9b447a9a38eb510771b27c16639f02aea5df167b10f4581ade89",
-      "length": 6678,
+      "hash": "2796aa6e71c630bd1109a229339bf0b3b020f708975396ddbdf18685916ee896",
+      "length": 5087,
       "url": "https://www.icy-veins.com/wow-forever/orc-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-overview": {
-      "hash": "88d67c5bab2d75005759abd7aa66581c3c5cc821eda0f65fcd502771a853c970",
-      "length": 8517,
+      "hash": "e4be3b18c57845184755914ebad20e798ce07cb660b940555a78bacba1023ab2",
+      "length": 8334,
       "url": "https://www.wowhead.com/forever/guide/overview-features-zones-raids",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-zones": {
-      "hash": "f89fb44938687175faa21c7df9dce43fd3e877aa58d358a428fcb93dbed5eae7",
-      "length": 4416,
+      "hash": "5055f828d98c15b905b97faed66b2c8488b0c0cfbc150641fe38b9afed251516",
+      "length": 4255,
       "url": "https://www.wowhead.com/forever/guide/zones-maps-locations-rewards",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-gnome": {
-      "hash": "e53f3f711db7901d6aa55bb60eae889c43af300cc2aeef7d1cbecb7dce0b0ff1",
-      "length": 7121,
+      "hash": "a939efbcd35e023b0143e3dccb2d327cb5e9671733bf4a0c156a09a636841533",
+      "length": 5531,
       "url": "https://www.icy-veins.com/wow-forever/gnome-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-troll": {
-      "hash": "bf4992dd30302ae0bbd3c9abfc7507d2e09174580eeab7b33763740e38c17971",
-      "length": 6418,
+      "hash": "59120c13ddbca4b153d7ff19e243940a11a4f63744ce12fcfccca26d1e38df5f",
+      "length": 4824,
       "url": "https://www.icy-veins.com/wow-forever/troll-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-undead": {
-      "hash": "44391f5294014a695522a861744fd92f995be44d50a5ff53b0e7924d1152ceeb",
-      "length": 7427,
+      "hash": "2eb4295c16a4f42c2c5dd698769a65692662d6eaa2b3a80f9a04d2455a082976",
+      "length": 5912,
       "url": "https://www.icy-veins.com/wow-forever/undead-race-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-mounts": {
-      "hash": "832019678b9103eb79815da701ad2bed0728d78a957aceb5b1ae7b3b740de144",
-      "length": 5078,
+      "hash": "1328c3a248cf039175cb022bc6bd359a29343b57ad808121c5f31cb734ca8672",
+      "length": 4896,
       "url": "https://www.wowhead.com/forever/guide/collections/mounts-locations-appearances",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-pets": {
-      "hash": "4bb2f1206a41880e44f92aed59ae088a48e3df7e1047a3f6a3cdc084cd258464",
-      "length": 3165,
+      "hash": "50b38989edbbbc481f02bbb752eadd8ed66bf23f1a6800fe6b7f52e3763d1a13",
+      "length": 2979,
       "url": "https://www.wowhead.com/forever/guide/collections/pets-locations-sources",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-phasing": {
-      "hash": "d3b6750bb1f9548a721f55807db0e2e45262627a073f487d726ef094e01dc3f1",
-      "length": 9180,
+      "hash": "b769b317998334f6df878617607bcf2c47ec1d3d7196795cfc2113a843632bd1",
+      "length": 9185,
       "url": "https://www.wowhead.com/forever/news/new-phasing-notification-in-wow-forever-changing-phases-safely-382994",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-ellis-beta": {
-      "hash": "c8da8a4e12951baa9ee28fbf0d2054bb16c93c53932af8a81336ecc5f1484879",
-      "length": 11780,
+      "hash": "2e0a05aa2227a60ea6f01b0a04924ae1335fc53678e7f3f6c88354153a093b33",
+      "length": 12353,
       "url": "https://www.wowhead.com/forever/news/behind-the-scenes-of-the-wow-forever-beta-issues-tom-ellis-explains-on-x-382993",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-openworld": {
-      "hash": "5cbc38937bf73e6c1a03f78ee8c7fcf6f4d01529a1052a3f8dc8e2bbb0c41845",
-      "length": 10375,
+      "hash": "c1bf5c761cdcdc17bbcc06bbaf165545cd2e9ccf54ade600564c9bd936a452f0",
+      "length": 10223,
       "url": "https://www.wowhead.com/forever/news/what-we-know-about-the-open-world-so-far-in-wow-forever-382931",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-changelog": {
-      "hash": "0c881026900253d9b359ec5ea3db5936b777b63166879cc57a5cb7ad87f0c48a",
-      "length": 5894,
+      "hash": "01661f0003ba70b67d2e7ed740ae8dfeee2cc2e8e82dde667f6931759b8e5015",
+      "length": 5295,
       "url": "https://www.icy-veins.com/wow-forever/changelog",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-bags": {
-      "hash": "8d988d04688748e85a156840dd66a0e35c1aff221cc50fe27ff3633f03ac7732",
-      "length": 11255,
+      "hash": "5d85a541c6736f082a99bae5773bf8bc5051c1fe572e0dfa22e2abb483f5c4e8",
+      "length": 11087,
       "url": "https://www.wowhead.com/forever/news/grab-free-bags-in-beginner-zones-with-quests-382982",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-mounts-datamine": {
-      "hash": "aa45c771f302ee95cc841aa41ba6e28eb001cd6d2cd991e0d57382a37d5383d2",
-      "length": 2378,
+      "hash": "b3880017e584d932e7fcadedd4a27d012cebca1e845f4c0c0bc43355ff155267",
+      "length": 1877,
       "url": "https://www.icy-veins.com/wow-forever/news/wow-forever-just-revealed-its-first-wave-of-mounts-spoiler-warning/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "iv-tierlists": {
-      "hash": "6862364ca50916d429ea189ef6a05003d9d257eb1239db015c967272be37664d",
-      "length": 3481,
+      "hash": "2758304d663bd218abf9b8a0291514ce06496b3768c68e05bd6004e9e82d2ce9",
+      "length": 1893,
       "url": "https://www.icy-veins.com/wow-forever/tier-list-hub",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "wh-forsaken-mounts": {
-      "hash": "9ea416a7fc0a02d01b7028c2f8a6338842a9f1a57ed0d627c1856677949e77ee",
-      "length": 5041,
+      "hash": "f5617f9eac045c4e9eb798b22b99c9e572fbfbcf9e4655d72ecdc990789c740f",
+      "length": 4855,
       "url": "https://www.wowhead.com/forever/news/new-forsaken-paladin-mounts-datamined-from-forever-beta-client-382940",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-reputations": {
-      "hash": "7d01982d36626ec506c3644db89423a941f6097d57a6e459a8f0330005fdea47",
-      "length": 7720,
+      "hash": "16d967504b154de93fc62f07f6743645d53c45b50915d3b130e709b3647f53ee",
+      "length": 7549,
       "url": "https://www.wowhead.com/forever/news/new-reputation-names-datamined-for-wow-forever-382945",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-setbonuses": {
-      "hash": "76c8e1600e4e76051350e63e6bdaac34c24346c9acd62c81d6c5c218e785fcd9",
-      "length": 27159,
+      "hash": "7c12c05a958d6f922a695ab594c20d29ed61d748fa68b5a5ba8f7f1c7afd9283",
+      "length": 26987,
       "url": "https://www.wowhead.com/forever/news/new-and-updated-gear-set-bonuses-in-wow-forever-382958",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "bnet-forum-topic-page": {
       "hash": "5fcdd4ef0788cee4b2a307cac2d4c677913d32b2f394e1b0be75c9b2bcd97f07",
       "length": 1001,
       "url": "https://us.forums.blizzard.com/en/wow/t/about-the-wow-forever-category/2347159",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "bnet-collectors-edition": {
-      "hash": "7c4a859c4b01f1e9597326aecdec45a96f92ec5760efc364573867a8706ce19d",
-      "length": 5092,
+      "hash": "ab4f026bbb9aa035ed366eed1072c42214de8436aa5fdf3bd6f5a7ce3fbef0b9",
+      "length": 4991,
       "url": "https://news.blizzard.com/en-us/article/24302498/pre-purchase-the-world-of-warcraft-forever-collectors-edition",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "sc-tierlist-live": {
-      "hash": "5bd73a9ce2d1bde70344ad757949fcdc255fd4f2a9e352a79acea7aa9c895d59",
-      "length": 4238,
+      "hash": "0e979014717b9571f625d33d013138f25693bf6704d4b44d314b5c290191ac7d",
+      "length": 3833,
       "url": "https://www.skill-capped.com/wowarticles/tier-lists/solo-shuffle/",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "bnet-dev-getting-started": {
       "hash": "dd7f96b5310188bc1e469af7fc670458f713de69690a31f61b8cca96d1ea2f34",
       "length": 37,
       "url": "https://community.developer.battle.net/documentation/guides/getting-started",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "raiderio-api": {
       "hash": "c3cdd9f5b4e6317f61bcf6d5574dd6718910f0db8d1fecc3199bed063147dabe",
       "length": 23,
       "url": "https://raider.io/api",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "full-document"
     },
     "iv-choosing-main": {
-      "hash": "a1b283497bd6d595d043246ee7ff80a6e52c401b9aa3fd80498f11455494b8a8",
-      "length": 21257,
+      "hash": "f96e3c1c3218ccc1f42ceb0088d5cc5a525f0d6f391a7e5bc866fe19b909f353",
+      "length": 19631,
       "url": "https://www.icy-veins.com/wow-forever/choosing-your-main",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-legacy": {
-      "hash": "7dbaa09c5465ca5af3b99d0d8377cbf537c8f49aca40bb2ff4248cbe92793b54",
-      "length": 17188,
+      "hash": "609ba2ee70bc870c9be25876ecf6fb191b54a43847894b934215aed294e4d541",
+      "length": 15581,
       "url": "https://www.icy-veins.com/wow-forever/legacy-system",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "bnet-wow-weekly-0918": {
-      "hash": "60c00d960ebf863b99730aed1a2209d75b57b2fef5e5922c0a79c661c5890a61",
-      "length": 3075,
+      "hash": "9f8205d29c60113dd896d874be54ae5c786d782a72f3600301222cf1c75f5a3f",
+      "length": 2958,
       "url": "https://news.blizzard.com/en-us/article/24304074/blizzcon-2026-wow-forever-beta-midnight-s3-and-more-in-this-weeks-wow-weekly",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "iv-subscription": {
-      "hash": "0854246ea141c61536845ccdeb8e72acae295594573cf0db88822a1d668b6f1b",
-      "length": 6622,
+      "hash": "0ae43ee29a220f42b5d409abd1e111510c2db6cb23ba77616d9b0b7b0e69e401",
+      "length": 5007,
       "url": "https://www.icy-veins.com/wow-forever/wow-forever-subscription",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "bnet-carve-path": {
-      "hash": "63ab2b8cdb5397398385429e81bc3a75117a0b57d59f16218598fb0fc00c71f0",
-      "length": 5730,
+      "hash": "012482e52902a2f4a6de57c7dca78bb4cfed3e8db38ca2bd565a64b67a85e247",
+      "length": 5645,
       "url": "https://news.blizzard.com/en-us/article/24302093/carve-a-new-path-with-world-of-warcraft-forever",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "bnet-gpu-reqs": {
-      "hash": "0719b0534bcc653e658029630aa2e43ad45c3f27f4ffc4c737ee9baec95a5547",
-      "length": 2094,
+      "hash": "d3ded7c5f146ce3dd0e369a34acef6202981818259d08e39b85ed86627bc5c83",
+      "length": 2014,
       "url": "https://news.blizzard.com/en-us/article/24301512/world-of-warcraft-forever-gpu-requirements",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     },
     "wh-forever-news::also-1": {
-      "hash": "05858871d17713511ded8e57a19eb3e665147e66345fa1ab4746f15b11d53532",
-      "length": 188,
+      "hash": "b5bde6adede95ed9f14766db6d4461863708fa43938aeb60c783c2e1f9d7f8ea",
+      "length": 56,
       "url": "https://www.wowhead.com/forever",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-forever-news::also-2": {
-      "hash": "c58f8876a1bc617882573e08c39f5d1aadcad6cf3801ecd5ce580cdcffbfd161",
-      "length": 147,
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0,
       "url": "https://www.wowhead.com/forever/blue-tracker",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "wh-forever-news::also-3": {
-      "hash": "59dd8dbb56c8648c591f488115b71c27b318efde6e107c10c6186ca7ff329a75",
-      "length": 6227,
+      "hash": "7358c4c3331a0a583a5c7c50520230983aa588a649f03a6005c93ff2045e8624",
+      "length": 5968,
       "url": "https://www.wowhead.com/blue-tracker/news/us/24301508",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "wowhead-main"
     },
     "iv-rogue::also-2": {
-      "hash": "5310f9a2f1ba25263aa06f2b0d62689b85f00fa78d8ef37b7bb671871cfaf1a9",
-      "length": 14694,
+      "hash": "b8ab9db72621268325c9b4b22632943ccdf4df655979972bfbdab869e193b2f0",
+      "length": 13278,
       "url": "https://www.icy-veins.com/wow-forever/subtlety-rogue-melee-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-rogue::also-1": {
-      "hash": "7b68824c04811529acdd2007d443c414ef44dc02266dfe5a4ee381572ddd22d2",
-      "length": 16465,
+      "hash": "d746e49a9e671ee37aafd356f560cf47cb4096f19721a66e8d4931c812828c32",
+      "length": 14859,
       "url": "https://www.icy-veins.com/wow-forever/combat-rogue-melee-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "iv-shaman::also-1": {
-      "hash": "376b9310bb0eef6441d4eb2af12e771c455964be3825fc0fcc83f668e6052840",
-      "length": 15017,
+      "hash": "4a248039001e3c8caf5ce5a4f056455ed3142b73d2d398e26bef7a01e2d4f2fc",
+      "length": 13414,
       "url": "https://www.icy-veins.com/wow-forever/enhancement-shaman-melee-dps-pve-guide",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-main"
     },
     "bnet-collectors-edition::also-1": {
-      "hash": "4ac3c0d4b269a7d0a6696a92b46905920101367e3c5c09646ae59593fa283900",
-      "length": 5087,
+      "hash": "e67e593b2722c0052d2a005927cbaa4e4599a7478fd6e0a4c97c1f2ac977f711",
+      "length": 5007,
       "url": "https://worldofwarcraft.blizzard.com/en-us/news/24302498",
-      "checked": "2026-09-20T00:19:02.332Z",
-      "failures": 0
+      "checked": "2026-09-21T13:40:34.365Z",
+      "failures": 0,
+      "container": "html-article"
     }
   }
 }
