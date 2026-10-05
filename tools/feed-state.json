@@ -1,5 +1,5 @@
 {
-  "checked": "2026-09-28T15:06:17.416Z",
+  "checked": "2026-10-05T15:42:21.859Z",
   "feeds": {
     "versions:wow_classic_beta": {
       "url": "https://us.version.battle.net/v2/products/wow_classic_beta/versions",
@@ -7,23 +7,23 @@
       "label": "Version service — wow_classic_beta (identified as the Forever beta client, C212)",
       "failures": 0,
       "observed": {
-        "seqn": 4038352,
+        "seqn": 4056976,
         "regions": [
           "us",
           "eu",
           "kr",
           "tw"
         ],
-        "version": "1.60.1.70009",
-        "buildId": "70009",
+        "version": "1.60.1.70205",
+        "buildId": "70205",
         "perRegion": {
-          "us": "1.60.1.70009",
-          "eu": "1.60.1.70009",
-          "kr": "1.60.1.70009",
-          "tw": "1.60.1.70009"
+          "us": "1.60.1.70205",
+          "eu": "1.60.1.70205",
+          "kr": "1.60.1.70205",
+          "tw": "1.60.1.70205"
         }
       },
-      "observedAt": "2026-09-28T15:06:17.416Z"
+      "observedAt": "2026-10-05T15:42:21.859Z"
     },
     "versions:wow_classic_era": {
       "url": "https://us.version.battle.net/v2/products/wow_classic_era/versions",
@@ -31,7 +31,7 @@
       "label": "Version service — wow_classic_era (control)",
       "failures": 0,
       "observed": {
-        "seqn": 4038348,
+        "seqn": 4056975,
         "regions": [
           "us",
           "eu",
@@ -39,17 +39,17 @@
           "kr",
           "tw"
         ],
-        "version": "1.15.9.69722",
-        "buildId": "69722",
+        "version": "1.15.9.70003",
+        "buildId": "70003",
         "perRegion": {
-          "us": "1.15.9.69722",
-          "eu": "1.15.9.69722",
-          "cn": "1.15.9.69722",
-          "kr": "1.15.9.69722",
-          "tw": "1.15.9.69722"
+          "us": "1.15.9.70003",
+          "eu": "1.15.9.70003",
+          "cn": "1.15.9.70003",
+          "kr": "1.15.9.70003",
+          "tw": "1.15.9.70003"
         }
       },
-      "observedAt": "2026-09-28T15:06:17.416Z"
+      "observedAt": "2026-10-05T15:42:21.859Z"
     },
     "versions:wow_classic": {
       "url": "https://us.version.battle.net/v2/products/wow_classic/versions",
@@ -57,7 +57,7 @@
       "label": "Version service — wow_classic (control)",
       "failures": 0,
       "observed": {
-        "seqn": 4038349,
+        "seqn": 4056974,
         "regions": [
           "us",
           "eu",
@@ -65,17 +65,17 @@
           "kr",
           "tw"
         ],
-        "version": "5.5.4.69934",
-        "buildId": "69934",
+        "version": "5.5.4.70032",
+        "buildId": "70032",
         "perRegion": {
-          "us": "5.5.4.69934",
-          "eu": "5.5.4.69934",
-          "cn": "5.5.4.69934",
-          "kr": "5.5.4.69934",
-          "tw": "5.5.4.69934"
+          "us": "5.5.4.70032",
+          "eu": "5.5.4.70032",
+          "cn": "5.5.4.70032",
+          "kr": "5.5.4.70032",
+          "tw": "5.5.4.70032"
         }
       },
-      "observedAt": "2026-09-28T15:06:17.416Z"
+      "observedAt": "2026-10-05T15:42:21.859Z"
     },
     "summary:wow-products": {
       "url": "https://us.version.battle.net/v2/summary",
@@ -83,7 +83,7 @@
       "label": "Version service — which WoW product codes carry a versions record",
       "failures": 0,
       "observed": {
-        "seqn": 4043027,
+        "seqn": 4058060,
         "products": {
           "wowf": {
             "present": true,
@@ -122,7 +122,7 @@
           }
         }
       },
-      "observedAt": "2026-09-28T15:06:17.416Z"
+      "observedAt": "2026-10-05T15:42:21.859Z"
     },
     "forum:us-forever-346": {
       "url": "https://us.forums.blizzard.com/en/wow/c/wow-forever/l/latest.json",
@@ -131,19 +131,19 @@
       "failures": 0,
       "observed": {
         "topicCount": 30,
-        "newestTopicId": 2364957,
+        "newestTopicId": 2372939,
         "newestTopic": {
-          "id": 2364957,
-          "title": "Vanilla Dungeon set",
-          "url": "https://us.forums.blizzard.com/en/wow/t/vanilla-dungeon-set/2364957",
-          "created_at": "2026-09-28T15:06:09.961Z",
-          "last_posted_at": "2026-09-28T15:06:10.141Z",
+          "id": 2372939,
+          "title": "Blizzard, Time to Stop planned Assault on Forever",
+          "url": "https://us.forums.blizzard.com/en/wow/t/blizzard-time-to-stop-planned-assault-on-forever/2372939",
+          "created_at": "2026-10-05T15:36:02.137Z",
+          "last_posted_at": "2026-10-05T15:36:02.287Z",
           "posts_count": 1
         },
         "staffUsers": [],
         "staffTopics": []
       },
-      "observedAt": "2026-09-28T15:06:17.416Z"
+      "observedAt": "2026-10-05T15:42:21.859Z"
     },
     "forum:us-forever-beta-349": {
       "url": "https://us.forums.blizzard.com/en/wow/c/in-development/wow-forever-beta-discussion/349/l/latest.json",
@@ -152,14 +152,14 @@
       "failures": 0,
       "observed": {
         "topicCount": 30,
-        "newestTopicId": 2364956,
+        "newestTopicId": 2372935,
         "newestTopic": {
-          "id": 2364956,
-          "title": "Rolling Ignite",
-          "url": "https://us.forums.blizzard.com/en/wow/t/rolling-ignite/2364956",
-          "created_at": "2026-09-28T15:04:47.146Z",
-          "last_posted_at": "2026-09-28T15:04:47.270Z",
-          "posts_count": 1
+          "id": 2372935,
+          "title": "Devs - Please listen to the Mage Discord",
+          "url": "https://us.forums.blizzard.com/en/wow/t/devs-please-listen-to-the-mage-discord/2372935",
+          "created_at": "2026-10-05T15:32:17.925Z",
+          "last_posted_at": "2026-10-05T15:38:32.950Z",
+          "posts_count": 2
         },
         "staffUsers": [
           "Kaivax"
@@ -167,29 +167,29 @@
         "staffTopics": [
           {
             "id": 2360696,
-            "title": "WoW Forever Beta Development Notes – Updated September 24",
-            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-development-notes-%E2%80%93-updated-september-24/2360696",
+            "title": "WoW Forever Beta Development Notes – Updated October 1",
+            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-development-notes-%E2%80%93-updated-october-1/2360696",
             "created_at": "2026-09-24T22:23:24.328Z",
-            "last_posted_at": "2026-09-24T22:23:24.849Z",
-            "posts_count": 1,
+            "last_posted_at": "2026-10-01T22:56:04.517Z",
+            "posts_count": 2,
             "staff": [
               "Kaivax"
             ]
           },
           {
             "id": 2352687,
-            "title": "WoW Forever Beta Known Issues - September 24",
-            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-known-issues-september-24/2352687",
+            "title": "WoW Forever Beta Known Issues - October 1",
+            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-known-issues-october-1/2352687",
             "created_at": "2026-09-17T21:47:56.089Z",
-            "last_posted_at": "2026-09-24T22:30:51.081Z",
-            "posts_count": 3,
+            "last_posted_at": "2026-10-01T22:56:59.145Z",
+            "posts_count": 4,
             "staff": [
               "Kaivax"
             ]
           }
         ]
       },
-      "observedAt": "2026-09-28T15:06:17.416Z"
+      "observedAt": "2026-10-05T15:42:21.859Z"
     }
   }
 }
