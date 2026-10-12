@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-05T15:42:21.859Z",
+  "checked": "2026-10-12T16:38:24.378Z",
   "feeds": {
     "versions:wow_classic_beta": {
       "url": "https://us.version.battle.net/v2/products/wow_classic_beta/versions",
@@ -7,23 +7,23 @@
       "label": "Version service — wow_classic_beta (identified as the Forever beta client, C212)",
       "failures": 0,
       "observed": {
-        "seqn": 4056976,
+        "seqn": 4070224,
         "regions": [
           "us",
           "eu",
           "kr",
           "tw"
         ],
-        "version": "1.60.1.70205",
-        "buildId": "70205",
+        "version": "1.60.1.70338",
+        "buildId": "70338",
         "perRegion": {
-          "us": "1.60.1.70205",
-          "eu": "1.60.1.70205",
-          "kr": "1.60.1.70205",
-          "tw": "1.60.1.70205"
+          "us": "1.60.1.70338",
+          "eu": "1.60.1.70338",
+          "kr": "1.60.1.70338",
+          "tw": "1.60.1.70338"
         }
       },
-      "observedAt": "2026-10-05T15:42:21.859Z"
+      "observedAt": "2026-10-12T16:38:24.378Z"
     },
     "versions:wow_classic_era": {
       "url": "https://us.version.battle.net/v2/products/wow_classic_era/versions",
@@ -31,7 +31,7 @@
       "label": "Version service — wow_classic_era (control)",
       "failures": 0,
       "observed": {
-        "seqn": 4056975,
+        "seqn": 4070222,
         "regions": [
           "us",
           "eu",
@@ -49,7 +49,7 @@
           "tw": "1.15.9.70003"
         }
       },
-      "observedAt": "2026-10-05T15:42:21.859Z"
+      "observedAt": "2026-10-12T16:38:24.378Z"
     },
     "versions:wow_classic": {
       "url": "https://us.version.battle.net/v2/products/wow_classic/versions",
@@ -57,7 +57,7 @@
       "label": "Version service — wow_classic (control)",
       "failures": 0,
       "observed": {
-        "seqn": 4056974,
+        "seqn": 4070223,
         "regions": [
           "us",
           "eu",
@@ -65,17 +65,17 @@
           "kr",
           "tw"
         ],
-        "version": "5.5.4.70032",
-        "buildId": "70032",
+        "version": "5.5.4.70268",
+        "buildId": "70268",
         "perRegion": {
-          "us": "5.5.4.70032",
-          "eu": "5.5.4.70032",
-          "cn": "5.5.4.70032",
-          "kr": "5.5.4.70032",
-          "tw": "5.5.4.70032"
+          "us": "5.5.4.70268",
+          "eu": "5.5.4.70268",
+          "cn": "5.5.4.70268",
+          "kr": "5.5.4.70268",
+          "tw": "5.5.4.70268"
         }
       },
-      "observedAt": "2026-10-05T15:42:21.859Z"
+      "observedAt": "2026-10-12T16:38:24.378Z"
     },
     "summary:wow-products": {
       "url": "https://us.version.battle.net/v2/summary",
@@ -83,7 +83,7 @@
       "label": "Version service — which WoW product codes carry a versions record",
       "failures": 0,
       "observed": {
-        "seqn": 4058060,
+        "seqn": 4071111,
         "products": {
           "wowf": {
             "present": true,
@@ -122,7 +122,7 @@
           }
         }
       },
-      "observedAt": "2026-10-05T15:42:21.859Z"
+      "observedAt": "2026-10-12T16:38:24.378Z"
     },
     "forum:us-forever-346": {
       "url": "https://us.forums.blizzard.com/en/wow/c/wow-forever/l/latest.json",
@@ -131,19 +131,19 @@
       "failures": 0,
       "observed": {
         "topicCount": 30,
-        "newestTopicId": 2372939,
+        "newestTopicId": 2380228,
         "newestTopic": {
-          "id": 2372939,
-          "title": "Blizzard, Time to Stop planned Assault on Forever",
-          "url": "https://us.forums.blizzard.com/en/wow/t/blizzard-time-to-stop-planned-assault-on-forever/2372939",
-          "created_at": "2026-10-05T15:36:02.137Z",
-          "last_posted_at": "2026-10-05T15:36:02.287Z",
+          "id": 2380228,
+          "title": "<We Kill Things> [H-PvP] Community Recruiting!",
+          "url": "https://us.forums.blizzard.com/en/wow/t/we-kill-things-h-pvp-community-recruiting/2380228",
+          "created_at": "2026-10-12T16:36:42.408Z",
+          "last_posted_at": "2026-10-12T16:36:42.522Z",
           "posts_count": 1
         },
         "staffUsers": [],
         "staffTopics": []
       },
-      "observedAt": "2026-10-05T15:42:21.859Z"
+      "observedAt": "2026-10-12T16:38:24.378Z"
     },
     "forum:us-forever-beta-349": {
       "url": "https://us.forums.blizzard.com/en/wow/c/in-development/wow-forever-beta-discussion/349/l/latest.json",
@@ -152,14 +152,14 @@
       "failures": 0,
       "observed": {
         "topicCount": 30,
-        "newestTopicId": 2372935,
+        "newestTopicId": 2380151,
         "newestTopic": {
-          "id": 2372935,
-          "title": "Devs - Please listen to the Mage Discord",
-          "url": "https://us.forums.blizzard.com/en/wow/t/devs-please-listen-to-the-mage-discord/2372935",
-          "created_at": "2026-10-05T15:32:17.925Z",
-          "last_posted_at": "2026-10-05T15:38:32.950Z",
-          "posts_count": 2
+          "id": 2380151,
+          "title": "PVE realms: layer for PVP flagged",
+          "url": "https://us.forums.blizzard.com/en/wow/t/pve-realms-layer-for-pvp-flagged/2380151",
+          "created_at": "2026-10-12T16:21:21.100Z",
+          "last_posted_at": "2026-10-12T16:21:21.196Z",
+          "posts_count": 1
         },
         "staffUsers": [
           "Kaivax"
@@ -167,29 +167,29 @@
         "staffTopics": [
           {
             "id": 2360696,
-            "title": "WoW Forever Beta Development Notes – Updated October 1",
-            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-development-notes-%E2%80%93-updated-october-1/2360696",
+            "title": "WoW Forever Beta Development Notes – Updated October 8",
+            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-development-notes-%E2%80%93-updated-october-8/2360696",
             "created_at": "2026-09-24T22:23:24.328Z",
-            "last_posted_at": "2026-10-01T22:56:04.517Z",
-            "posts_count": 2,
+            "last_posted_at": "2026-10-08T21:32:38.124Z",
+            "posts_count": 3,
             "staff": [
               "Kaivax"
             ]
           },
           {
             "id": 2352687,
-            "title": "WoW Forever Beta Known Issues - October 1",
-            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-known-issues-october-1/2352687",
+            "title": "WoW Forever Beta Known Issues - October 8",
+            "url": "https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-known-issues-october-8/2352687",
             "created_at": "2026-09-17T21:47:56.089Z",
-            "last_posted_at": "2026-10-01T22:56:59.145Z",
-            "posts_count": 4,
+            "last_posted_at": "2026-10-08T21:38:40.335Z",
+            "posts_count": 5,
             "staff": [
               "Kaivax"
             ]
           }
         ]
       },
-      "observedAt": "2026-10-05T15:42:21.859Z"
+      "observedAt": "2026-10-12T16:38:24.378Z"
     }
   }
 }
